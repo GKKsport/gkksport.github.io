@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>GKK Sport</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <style>
+        /* Remove the navbar's default margin-bottom and rounded borders */
+        
+        .navbar {
+            margin-bottom: 0;
+            border-radius: 0;
+        }
+        /* Set height of the grid so .sidenav can be 100% (adjust as needed) */
+        
+        .row.content {
+            height: 450px
+        }
+        /* Set gray background color and 100% height */
+        
+        .sidenav {
+            padding-top: 20px;
+            background-color: #f1f1f1;
+            height: 100%;
+        }
+        /* Set black background color, white text and some padding */
+        
+        .navbar-brand img {
+            height: 40px;
+        }
+        
+        .navbar-brand {
+            padding-bottom: 3px;
+            padding-top: 6px;
+        }
+        
+        .gold {
+            background-color: gold;
+        }
+        
+        footer {
+            background-color: #555;
+            color: white;
+            padding: 15px;
+        }
+        /* On small screens, set height to 'auto' for sidenav and grid */
+        
+        @media screen and (max-width: 767px) {
+            .sidenav {
+                height: auto;
+                padding: 15px;
+            }
+            .row.content {
+                height: auto;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <nav class="navbar navbar-inverse">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>                        
+      </button>
+                <a class="navbar-brand" href="index.html"><img src="gkk.png"></a>
+            </div>
+            <div class="collapse navbar-collapse" id="myNavbar">
+                <ul class="nav navbar-nav">
+                    <li class="active"><a href="tussenstand.html">Tussenstand/Kalender</a></li>
+                    <li><a href="zwemmen.html">Zwemmen</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container-fluid text-center">
+        <div class="row content">
+            <div class="col-sm-4 text-left">
+                <h4>Tussenstand</h4>
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th scope="col">#</th>
+                            <th scope="col">Naam</th>
+                            <th scope="col">Punten</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <th scope="row">1</th>
+                            <td>Felix</td>
+                            <td>13</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">2</th>
+                            <td>Simon</td>
+                            <td>9</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">3</th>
+                            <td>Robbe</td>
+                            <td>4</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">3</th>
+                            <td>Arthur</td>
+                            <td>4</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="col-sm-8 text-left">
+                <h4>Sporten</h4>
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th scope="col">Maand</th>
+                            <th scope="col">Gewicht</th>
+                            <th scope="col">Sport</th>
+                            <th scope="col">F</th>
+                            <th scope="col">R</th>
+                            <th scope="col">A</th>
+                            <th scope="col">S</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Oktober</td>
+                            <td>2</td>
+                            <td>Kajak</td>
+                            <td>6</td>
+                            <td>0</td>
+                            <td>4</td>
+                            <td>2</td>
+                        </tr>
+                        <tr>
+                            <td>November</td>
+                            <td>2</td>
+                            <td>Bowling</td>
+                            <td>4</td>
+                            <td>2</td>
+                            <td>0</td>
+                            <td>6</td>
+                        </tr>
+                        <tr>
+                            <td>December</td>
+                            <td>1</td>
+                            <td>Darts</td>
+                            <td>3</td>
+                            <td>2</td>
+                            <td>0</td>
+                            <td>1</td>
+                        </tr>
+                        <tr>
+                            <td>Januari</td>
+                            <td>2</td>
+                            <td>Squash</td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td>Februari</td>
+                            <td>2</td>
+                            <td>Tennis</td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td>Maart</td>
+                            <td>2</td>
+                            <td>Badminton</td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td>April</td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td>Mei</td>
+                            <td>3</td>
+                            <td>Triathlon</td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td>Juni</td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td>Jul4</td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
