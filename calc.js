@@ -13,6 +13,6 @@ function onClick() {
     var minuten = Math.floor(totaal / 60);
     var seconden = totaal - (minuten * 60);
 
-    document.getElementById("totaaltijd").innerHTML = minuten + " minuten en " + Math.floor(seconden) + " seconden.";
+    document.getElementById("totaaltijd").innerHTML = minuten + " minuten en " + Math.floor(seconden) + " seconden";
     return false;
 }
