@@ -14,13 +14,14 @@
 // Names of the two caches used in this version of the service worker.
 // Change to v2, etc. when you update any of the local resources, which will
 // in turn trigger the install event again.
-const PRECACHE = 'GKKv1.0.2';
+const PRECACHE = 'GKKv1.0.3';
 const RUNTIME = 'runtime';
 
 //Update-log
 //1.0.0 - Eerste test-versie
 //1.0.1 - Aanvulling van kaartregels.html
 //1.0.2 - Aanpassingen taalbalk (google) en wijzigingen op kaartregels.html
+//1.0.3 - Aanpassing serviceworker om main.css niet te laden
 
 
 // A list of local resources we always want to be cached.
