@@ -31,8 +31,8 @@ const PRECACHE_URLS = [
     'zwemmen.html',
     'kaartregels.html',
   './', // Alias for index.html
-  'calc.js',
-  '../../styles/main.css',
+  'calc.js'
+  // '../../styles/main.css' voor files in mappen
 ];
 
 // The install handler takes care of precaching the resources we always need.
