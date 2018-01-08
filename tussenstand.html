@@ -59,6 +59,7 @@
                 height: auto;
             }
         }
+
     </style>
 </head>
 
@@ -248,6 +249,14 @@
             </div>
         </div>
     </div>
+
+    <!-- GKK Service Worker -->
+    <script>
+        if ('serviceWorker' in navigator) {
+            navigator.serviceWorker.register('service-worker.js');
+        }
+
+    </script>
 </body>
 
 </html>

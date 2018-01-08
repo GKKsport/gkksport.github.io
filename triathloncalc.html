@@ -55,6 +55,7 @@
                 height: auto;
             }
         }
+
     </style>
 </head>
 
@@ -81,7 +82,7 @@
     </nav>
 
 
-     <div class="container-fluid text-center">
+    <div class="container-fluid text-center">
         <div class="row content">
             <div class="col-md-10 col-md-offset-1">
                 <h3>Triathlon-calculator</h3>
@@ -147,7 +148,13 @@
             </div>
         </div>
     </div>
+    <!-- GKK Service Worker -->
+    <script>
+        if ('serviceWorker' in navigator) {
+            navigator.serviceWorker.register('service-worker.js');
+        }
 
+    </script>
 
 
 </body>

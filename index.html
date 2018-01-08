@@ -55,6 +55,7 @@
                 height: auto;
             }
         }
+
     </style>
 </head>
 
@@ -74,7 +75,7 @@
                 <ul class="nav navbar-nav">
                     <li><a href="tussenstand.html">Tussenstand/Kalender</a></li>
                     <li><a href="zwemmen.html">Zwemmen</a></li>
-                     <li><a href="triathloncalc.html">Triathlon-calc</a></li>
+                    <li><a href="triathloncalc.html">Triathlon-calc</a></li>
                 </ul>
             </div>
         </div>
@@ -100,7 +101,13 @@
             </div>
         </div>
     </div>
+    <!-- GKK Service Worker -->
+    <script>
+        if ('serviceWorker' in navigator) {
+            navigator.serviceWorker.register('service-worker.js');
+        }
 
+    </script>
 </body>
 
 </html>

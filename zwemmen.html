@@ -13,8 +13,9 @@
         /* Remove the navbar's default margin-bottom and rounded borders */
         
         .btn {
-         margin-bottom: 5px;   
+            margin-bottom: 5px;
         }
+        
         .navbar {
             margin-bottom: 0;
             border-radius: 0;
@@ -58,6 +59,7 @@
                 height: auto;
             }
         }
+
     </style>
 </head>
 
@@ -98,7 +100,13 @@
             </div>
         </div>
     </div>
+    <!-- GKK Service Worker -->
+    <script>
+        if ('serviceWorker' in navigator) {
+            navigator.serviceWorker.register('service-worker.js');
+        }
 
+    </script>
 </body>
 
 </html>
