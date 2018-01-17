@@ -67,38 +67,51 @@
     }, false)
 
     // Cachen 
-
     function store() {
-        window.localStorage.myitems = menzwart.innerHTML;
-        window.localStorage.myitems = menrood.innerHTML;
+        window.localStorage.stormenzwart = menzwart.innerHTML;
+        window.localStorage.stormenrood = menrood.innerHTML;
     }
 
-    // Values printen
-
-    function getValues() {
-        var storedValues = window.localStorage.myitems;
+    // Values printen zwart
+    function menzwartValues() {
+        var storedValues = window.localStorage.stormenzwart;
         if (!storedValues) {
-            pistesmenrood.sort();
             pistesmenzwart.sort();
             // Zwarte pistes Menuires
             pistesmenzwart.forEach(function (pistesmenzwart) {
                 menzwart.innerHTML += '<li class="list-group-item">' + pistesmenzwart + '</li>';
             })
-            // Rode pistes Menuires
+        } else {
+            menzwart.innerHTML = storedValues;
+        }
+    }
+    menzwartValues();
+
+    // Values printen rood
+    function menroodValues() {
+        var storedValues = window.localStorage.stormenrood;
+        if (!storedValues) {
+            pistesmenrood.sort();
+            // Zwarte pistes Menuires
             pistesmenrood.forEach(function (pistesmenrood) {
                 menrood.innerHTML += '<li class="list-group-item">' + pistesmenrood + '</li>';
             })
         } else {
-            menzwart.innerHTML = storedValues;
             menrood.innerHTML = storedValues;
         }
     }
-    getValues();
+    menroodValues();
+
+    // Tellers al van in het begin showen
+    tellereigen.innerHTML = '( ' + $('#eigenaanvulling .checked2').length + ' / ' + $("#eigenaanvulling li").length + ' )';
+    tellermenzwart.innerHTML = '( ' + $('#menuireszwart .checked').length + ' / ' + $("#menuireszwart li").length + ' )';
+    tellermenrood.innerHTML = '( ' + $('#menuiresrood .checked').length + ' / ' + $("#menuiresrood li").length + ' )';
 
     // Reset cache
 
     reset.addEventListener('click', function () {
         localStorage.clear();
+        location.reload();
     }, false)
 
 })();
