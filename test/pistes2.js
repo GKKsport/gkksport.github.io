@@ -15,6 +15,8 @@
     var menzwart = document.querySelector('#menuireszwart'),
         menzwartbp = document.querySelector('#menuireszwartbp'),
         menzwartag = document.querySelector('#menuireszwartag'),
+        menroodag = document.querySelector('#menuiresroodag'),
+        menroodbp = document.querySelector('#menuiresroodbp'),
         menrood = document.querySelector('#menuiresrood'),
         form = document.querySelector('form'),
         item = document.querySelector('#item'),
@@ -63,6 +65,27 @@
         store();
     }, false)
 
+    // Rode pistes checken (buiten piste + afgereden)
+
+    menroodbp.addEventListener('click', function (e) {
+        var t = e.target;
+        if (t.classList.contains('checked3')) {
+            t.classList.remove('checked3');
+        } else {
+            t.classList.add('checked3');
+        }
+        store();
+    }, false)
+    menroodag.addEventListener('click', function (e) {
+        var t = e.target;
+        if (t.classList.contains('checked3')) {
+            t.classList.remove('checked3');
+        } else {
+            t.classList.add('checked3');
+        }
+        store();
+    }, false)
+
 
 
     // Zwarte pistes checken 
@@ -96,6 +119,8 @@
         window.localStorage.stormenzwart = menzwart.innerHTML;
         window.localStorage.stormenzwartbp = menzwartbp.innerHTML;
         window.localStorage.stormenzwartag = menzwartag.innerHTML;
+        window.localStorage.stormenroodbp = menroodbp.innerHTML;
+        window.localStorage.stormenroodag = menroodag.innerHTML;
         window.localStorage.stormenrood = menrood.innerHTML;
     }
 
@@ -109,8 +134,8 @@
             // Zwarte pistes Menuires
             pistesmenzwart.forEach(function (pistesmenzwart) {
                 menzwart.innerHTML += '<li class="list-group-item">' + pistesmenzwart + '</li>';
-                menzwartbp.innerHTML += '<li class="list-group-item bpag">" "</lu>';
-                menzwartag.innerHTML += '<li class="list-group-item bpag">" "</lu>';
+                menzwartbp.innerHTML += '<li class="list-group-item bpag">&nbsp;</lu>';
+                menzwartag.innerHTML += '<li class="list-group-item bpag">&nbsp;</lu>';
             })
         } else {
             menzwart.innerHTML = storedValues;
@@ -123,14 +148,20 @@
     // Values printen rood
     function menroodValues() {
         var storedValues = window.localStorage.stormenrood;
+        var storedValues2 = window.localStorage.stormenroodbp;
+        var storedValues3 = window.localStorage.stormenroodag;
         if (!storedValues) {
             pistesmenrood.sort();
             // Zwarte pistes Menuires
             pistesmenrood.forEach(function (pistesmenrood) {
                 menrood.innerHTML += '<li class="list-group-item">' + pistesmenrood + '</li>';
+                menroodbp.innerHTML += '<li class="list-group-item bpag">&nbsp;</lu>';
+                menroodag.innerHTML += '<li class="list-group-item bpag">&nbsp;</lu>';
             })
         } else {
             menrood.innerHTML = storedValues;
+            menroodbp.innerHTML = storedValues2;
+            menroodag.innerHTML = storedValues3;
         }
     }
     menroodValues();
