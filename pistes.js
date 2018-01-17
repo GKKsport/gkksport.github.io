@@ -54,12 +54,12 @@
 
     // Rode pistes checken 
 
-    menrood.addEventListener('click', function (e) {
-        var t = e.target;
-        if (t.classList.contains('checked')) {
-            t.classList.remove('checked');
+    menrood.addEventListener('click', function (f) {
+        var x = f.target;
+        if (x.classList.contains('checked')) {
+            x.classList.remove('checked');
         } else {
-            t.classList.add('checked');
+            x.classList.add('checked');
         }
         store();
         tellermenrood.innerHTML = '( ' + $('#menuiresrood .checked').length + ' / ' + $("#menuiresrood li").length + ' )';
