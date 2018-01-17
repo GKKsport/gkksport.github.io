@@ -16,7 +16,8 @@
         menrood = document.querySelector('#menuiresrood'),
         form = document.querySelector('form'),
         item = document.querySelector('#item'),
-        eigen = document.querySelector('#eigenaanvulling');
+        eigen = document.querySelector('#eigenaanvulling'),
+        reset = document.querySelector('#reset');
 
     // Deel eigen aanvulling
 
@@ -93,5 +94,11 @@
         }
     }
     getValues();
+
+    // Reset cache
+
+    reset.addEventListener('click', function () {
+        localStorage.clear();
+    }, false)
 
 })();
