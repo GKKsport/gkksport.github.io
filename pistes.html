@@ -55,6 +55,31 @@
                 height: auto;
             }
         }
+        /* Pistes css */
+        
+        .pistes ul li:hover {
+            background-color: #ecf0f1;
+            cursor: pointer;
+        }
+        
+        .pistes .checked {
+            color: white;
+            background-color: #2ecc71;
+        }
+        
+        .pistes .checked:hover {
+            background-color: #e74c3c;
+        }
+        
+        .pistes .checked2 {
+            color: white;
+            background-color: #2ecc71;
+        }
+        
+        .pistes .checked2:hover {
+            text-decoration: line-through;
+            background-color: #e74c3c;
+        }
 
     </style>
 </head>
@@ -77,7 +102,7 @@
                     <li><a href="zwemmen.html">Zwemmen</a></li>
                     <li><a href="triathloncalc.html">Triathlon-calc</a></li>
                     <li><a href="kaartregels.html">Kaartregels</a></li>
-<li><a href="pistes.html">Ski-pistes</a></li>
+                    <li class="active"><a href="pistes.html">Ski-pistes</a></li>
                 </ul>
             </div>
         </div>
@@ -85,26 +110,28 @@
 
     <div class="container-fluid text-center">
         <div class="row content">
-            <div class="col-sm-12">
-                <p>
-                    <br>
-                    <a href="tussenstand.html"><button type="button" class="btn btn-default btn-lg btn-block">Tussenstand</button></a>
-                    <br>
-                    <a href="zwemmen.html"><button type="button" class="btn btn-default btn-lg btn-block">Zwemkalender</button></a>
-                    <br>
-                    <a href="triathloncalc.html"><button type="button" class="btn btn-default btn-lg btn-block">Triathlon-calc</button></a>
-                    <br>
-                    <a href="kaartregels.html"><button type="button" class="btn btn-default btn-lg btn-block">Kaartregels</button></a>
-                    <br>
-                    <a href="https://stad.gent/sport2/reservering?op"><button type="button" class="btn btn-default btn-lg btn-block">Reserveer een tennis/badmintonplein</button></a>
-                    <br>
-                    <a href="http://triatlongeel.be/achste_triatlon.html"><button type="button" class="btn btn-default btn-lg btn-block">Triathlon-website</button></a>
-                    <br>
-                    <a href="http://recreatie.dewielerbond.be/Producten/VWEM.aspx?Disc=21&Disc2=41"><button type="button" class="btn btn-default btn-lg btn-block">Wielerpiste-website</button></a>
-                </p>
+            <div class="col-md-6 pistes col-md-offset-3">
+                <br>
+                <h3>Les Menuires</h3>
+                <div class="well">
+                    <h4>Zwart <span id="tellermenzwart"></span></h4>
+                    <ul id="menuireszwart" class="list-group"></ul>
+                    <h4>Rood <span id="tellermenrood"></span></h4>
+                    <ul id="menuiresrood" class="list-group"></ul>
+                </div>
+                <br>
+                <h3>Eigen aanvulling <span id="tellereigen"></span></h3>
+                <div class="well">
+                    <ul id="eigenaanvulling" class="list-group"></ul>
+                    <form action="#">
+                        <input type="text" required class="form-control" name="item" id="item" placeholder="Nieuw toevoegen" />
+                    </form>
+                </div>
+                <br>
             </div>
         </div>
     </div>
+    <script src="pistes.js"></script>
     <!-- GKK Service Worker -->
     <script>
         if ('serviceWorker' in navigator) {

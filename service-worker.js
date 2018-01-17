@@ -26,6 +26,7 @@ const RUNTIME = 'runtime';
 //1.0.5 - ?op bijgevoegd voor reserveren badminton/tennis (anders AJAX error)
 //1.0.6 - test met notifications 
 //1.0.7 - notifications removed
+//1.0.8 - Initiële ski-piste update!
 
 // A list of local resources we always want to be cached.
 const PRECACHE_URLS = [
@@ -35,7 +36,9 @@ const PRECACHE_URLS = [
     'zwemmen.html',
     'kaartregels.html',
   './', // Alias for index.html
-  'calc.js'
+  'calc.js',
+    'pistes.html',
+    'pistes.js'
   // '../../styles/main.css' voor files in mappen
 ];
 
