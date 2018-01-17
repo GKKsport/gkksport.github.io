@@ -80,7 +80,6 @@
             text-decoration: line-through;
             background-color: #e74c3c;
         }
-
     </style>
 </head>
 
@@ -130,7 +129,8 @@
                 <br>
                 <h3>Reset</h3>
                 <div class="well">
-                    <button id="reset" type="button" class="btn btn-default btn-lg btn-block">Reset alles</button>
+                    <p>Enkel doen indien je zeker bent dat je alles wil resetten (dit kan niet ongedaan gemaakt worden)</p>
+                    <button id="reset" type="button" class="btn btn-default btn-block">Reset alles</button>
                 </div>
                 <br>
             </div>
@@ -142,7 +142,6 @@
         if ('serviceWorker' in navigator) {
             navigator.serviceWorker.register('service-worker.js');
         }
-
     </script>
 </body>
 
