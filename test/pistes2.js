@@ -109,8 +109,8 @@
             // Zwarte pistes Menuires
             pistesmenzwart.forEach(function (pistesmenzwart) {
                 menzwart.innerHTML += '<li class="list-group-item">' + pistesmenzwart + '</li>';
-                menzwartbp.innerHTML += '<li class="list-group-item bpag">""</lu>';
-                menzwartag.innerHTML += '<li class="list-group-item bpag">""</lu>';
+                menzwartbp.innerHTML += '<li class="list-group-item bpag">" "</lu>';
+                menzwartag.innerHTML += '<li class="list-group-item bpag">" "</lu>';
             })
         } else {
             menzwart.innerHTML = storedValues;
