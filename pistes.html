@@ -10,7 +10,7 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <link rel="icon" sizes="192x192" href="icon.png">
     <style>
-    /* Remove the navbar's default margin-bottom and rounded borders */
+        /* Remove the navbar's default margin-bottom and rounded borders */
         
         .navbar {
             margin-bottom: 0;
@@ -55,42 +55,31 @@
                 height: auto;
             }
         }
+        /* Pistes css */
         
-        @media (hover:none),
-        (hover:on-demand) {
-            .pistes ul li:hover {
-                background-color: none;
-                cursor: pointer;
-            }
-            .pistes .checked:hover {
-                background-color: none;
-            }
-            .pistes .checked2:hover {
-                text-decoration: none;
-                background-color: none;
-            }
+        body.hasHover .pistes ul li:hover {
+            background-color: #ecf0f1;
+            cursor: pointer;
         }
-    }
-    /* Pistes css */
-    .pistes ul li:hover {
-        background-color: #ecf0f1;
-        cursor: pointer;
-    }
-    .pistes .checked {
-        color: white;
-        background-color: #2ecc71;
-    }
-    .pistes .checked:hover {
-        background-color: #e74c3c;
-    }
-    .pistes .checked2 {
-        color: white;
-        background-color: #2ecc71;
-    }
-    .pistes .checked2:hover {
-        text-decoration: line-through;
-        background-color: #e74c3c;
-    }
+        
+        .pistes .checked {
+            color: white;
+            background-color: #2ecc71;
+        }
+        
+        body.hasHover .pistes .checked:hover {
+            background-color: #e74c3c;
+        }
+        
+        .pistes .checked2 {
+            color: white;
+            background-color: #2ecc71;
+        }
+        
+        body.hasHover .pistes .checked2:hover {
+            text-decoration: line-through;
+            background-color: #e74c3c;
+        }
 
     </style>
 </head>
