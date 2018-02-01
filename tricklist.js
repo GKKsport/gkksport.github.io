@@ -122,7 +122,7 @@
 
     // Values printen rood
     function menroodValues() {
-        var storedValues = window.localStorage.stormengrinds;
+        var storedValues = window.localStorage.storgrinds;
         if (!storedValues) {
             // Zwarte pistes Menuires
             pistesmenrood.forEach(function (pistesmenrood) {
