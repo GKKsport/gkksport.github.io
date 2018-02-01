@@ -100,15 +100,15 @@
 
     // Cachen 
     function store() {
-        window.localStorage.stormenzwart = menzwart.innerHTML;
-        window.localStorage.stormenrood = menrood.innerHTML;
+        window.localStorage.storspins = menzwart.innerHTML;
+        window.localStorage.storgrinds = menrood.innerHTML;
         window.localStorage.storgrabs = grabs.innerHTML;
         window.localStorage.storflips = flips.innerHTML;
     }
 
     // Values printen zwart
     function menzwartValues() {
-        var storedValues = window.localStorage.stormenzwart;
+        var storedValues = window.localStorage.storspins;
         if (!storedValues) {
             // Zwarte pistes Menuires
             pistesmenzwart.forEach(function (pistesmenzwart) {
@@ -122,7 +122,7 @@
 
     // Values printen rood
     function menroodValues() {
-        var storedValues = window.localStorage.stormenrood;
+        var storedValues = window.localStorage.stormengrinds;
         if (!storedValues) {
             // Zwarte pistes Menuires
             pistesmenrood.forEach(function (pistesmenrood) {
