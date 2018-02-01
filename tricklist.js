@@ -9,10 +9,10 @@
 
     // Array's voor pistes
 
-    var pistesmenzwart = ["FS 180", "BS 180", "Switch FS 180 (cab)", "Switch BS 180", "Hardway FS 180", "Hardway BS 180", "Hardway Switch FS 180", "Hardway Switch BS 180", "FS 360", "BS 360", "Switch FS 360 (cab)", "Switch BS 360"],
+    var pistesmenzwart = ["FS 180", "BS 180", "Switch FS 180 (cab)", "Switch BS 180", "Hardway FS 180", "Hardway BS 180", "Hardway Switch FS 180", "Hardway Switch BS 180", "FS 360", "BS 360", "Switch FS 360 (cab)", "Switch BS 360", "360 Shifty Shifty"],
         pistesmenrood = ["Boardslide", "Lipslide", "50-50", "Bluntslide", "Noseblunt"],
         trickgrabs = ["Indy", "Mute", "Melon", "Stalefish", "Nosegrab", "Tailgrab"],
-        trickflips = ["Wildcat", "Tamedog", "Frontflip", "Backflip"];
+        trickflips = ["Wildcat", "Tamedog", "Frontflip", "Backflip", "Millerflip"];
 
     // Html id's naar var's
 
