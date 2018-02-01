@@ -3,17 +3,23 @@
     // Tellers voor aantal gedaan
     var tellermenzwart = document.querySelector('#tellermenzwart'),
         tellermenrood = document.querySelector('#tellermenrood'),
-        tellereigen = document.querySelector('#tellereigen');
+        tellereigen = document.querySelector('#tellereigen'),
+        tellergrabs = document.querySelector('#tellergrabs'),
+        tellerflips = document.querySelector('#tellerflips');
 
     // Array's voor pistes
 
-    var pistesmenzwart = ["Masse", "Lac Noir", "Dame Blanche", "Rocher Noir", "Léo Lacroix", ],
-        pistesmenrood = ["Crêtes", "Fred Covili", "Bd de la tête", "Longet", "Mur rouge", "Pramint", "Teppes", "Becca", "Allamands", "Combes", "Grandes Combes", "Aiglon", "David Douillet Haut", "David Douillet Bas", "Bd Lance", "4 vents", "Alpage"];
+    var pistesmenzwart = ["FS 180", "BS 180", "Switch FS 180 (cab)", "Switch BS 180", "Hardway FS 180", "Hardway BS 180", "Hardway Switch FS 180", "Hardway Switch BS 180", "FS 360", "BS 360", "Switch FS 360 (cab)", "Switch BS 360"],
+        pistesmenrood = ["FS Boardslide", "BS Boardslide", "FS Lipslide", "BS Lipslide"],
+        trickgrabs = ["Indy", "Mute", "Melon", "Stalefish", "Nosegrab", "Tailgrab"],
+        trickflips = ["Wildcat", "Tamedog", "Frontflip", "Backflip"];
 
     // Html id's naar var's
 
     var menzwart = document.querySelector('#menuireszwart'),
         menrood = document.querySelector('#menuiresrood'),
+        grabs = document.querySelector('#grabs'),
+        flips = document.querySelector('#flips'),
         form = document.querySelector('form'),
         item = document.querySelector('#item'),
         eigen = document.querySelector('#eigenaanvulling'),
@@ -66,17 +72,44 @@
         tellermenrood.innerHTML = '( ' + $('#menuiresrood .checked').length + ' / ' + $("#menuiresrood li").length + ' )';
     }, false)
 
+    // Grabs checken 
+
+    grabs.addEventListener('click', function (g) {
+        var y = g.target;
+        if (y.classList.contains('checked')) {
+            y.classList.remove('checked');
+        } else {
+            y.classList.add('checked');
+        }
+        store();
+        tellergrabs.innerHTML = '( ' + $('#grabs .checked').length + ' / ' + $("#grabs li").length + ' )';
+    }, false)
+
+    // Flips checken
+
+    flips.addEventListener('click', function (g) {
+        var y = g.target;
+        if (y.classList.contains('checked')) {
+            y.classList.remove('checked');
+        } else {
+            y.classList.add('checked');
+        }
+        store();
+        tellerflips.innerHTML = '( ' + $('#flips .checked').length + ' / ' + $("#flips li").length + ' )';
+    }, false)
+
     // Cachen 
     function store() {
         window.localStorage.stormenzwart = menzwart.innerHTML;
         window.localStorage.stormenrood = menrood.innerHTML;
+        window.localStorage.storgrabs = grabs.innerHTML;
+        window.localStorage.storflips = flips.innerHTML;
     }
 
     // Values printen zwart
     function menzwartValues() {
         var storedValues = window.localStorage.stormenzwart;
         if (!storedValues) {
-            pistesmenzwart.sort();
             // Zwarte pistes Menuires
             pistesmenzwart.forEach(function (pistesmenzwart) {
                 menzwart.innerHTML += '<li class="list-group-item">' + pistesmenzwart + '</li>';
@@ -91,7 +124,6 @@
     function menroodValues() {
         var storedValues = window.localStorage.stormenrood;
         if (!storedValues) {
-            pistesmenrood.sort();
             // Zwarte pistes Menuires
             pistesmenrood.forEach(function (pistesmenrood) {
                 menrood.innerHTML += '<li class="list-group-item">' + pistesmenrood + '</li>';
@@ -102,10 +134,40 @@
     }
     menroodValues();
 
+    // Values printen grabs
+    function grabsValues() {
+        var storedValues = window.localStorage.storgrabs;
+        if (!storedValues) {
+            // Zwarte pistes Menuires
+            trickgrabs.forEach(function (trickgrabs) {
+                grabs.innerHTML += '<li class="list-group-item">' + trickgrabs + '</li>';
+            })
+        } else {
+            grabs.innerHTML = storedValues;
+        }
+    }
+    grabsValues();
+
+    // Values printen flips
+    function flipsValues() {
+        var storedValues = window.localStorage.storflips;
+        if (!storedValues) {
+            // Zwarte pistes Menuires
+            trickflips.forEach(function (trickflips) {
+                flips.innerHTML += '<li class="list-group-item">' + trickflips + '</li>';
+            })
+        } else {
+            flips.innerHTML = storedValues;
+        }
+    }
+    flipsValues();
+
     // Tellers al van in het begin showen
     tellereigen.innerHTML = '( ' + $('#eigenaanvulling .checked2').length + ' / ' + $("#eigenaanvulling li").length + ' )';
     tellermenzwart.innerHTML = '( ' + $('#menuireszwart .checked').length + ' / ' + $("#menuireszwart li").length + ' )';
     tellermenrood.innerHTML = '( ' + $('#menuiresrood .checked').length + ' / ' + $("#menuiresrood li").length + ' )';
+    tellergrabs.innerHTML = '( ' + $('#grabs .checked').length + ' / ' + $("#grabs li").length + ' )';
+    tellerflips.innerHTML = '( ' + $('#flips .checked').length + ' / ' + $("#flips li").length + ' )';
 
     // Reset cache
 
