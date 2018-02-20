@@ -49,27 +49,81 @@ var tpl = function (venue) {
 
 	if (typeof venue.location.address != "undefined") {
 
-		node += '<div class="thumbnail"><li class="list-item" data-id="' + venue.id + '"';
-		node += 'data-req=0>';
+		node += '<div class="thumbnail"><li class="list-item" data-id="' + venue.id + '" data-req=0>';
 		node += '<div class="name">' + venue.name + '</div>';
 		if (typeof venue.rating != "undefined") {
-			node += '<div class="score">(' + venue.rating + ')</div>';
+
+			node += '<div class="score" style="background-color:#' + venue.ratingColor + '95">' + venue.rating + '</div>';
+			/*
+			if (venue.rating >= 8.0) {
+				node += '<div class="score groen">' + venue.rating + '</div>';
+			} else if (venue.rating >= 5.0) {
+				node += '<div class="score geel">' + venue.rating + '</div>';
+			} else {
+				node += '<div class="score rood">' + venue.rating + '</div>';
+			}
+			*/
 		} else {
-			node += '<div>Geen score</div>';
+			node += '<div class="score">Geen</div>';
 		}
 		node += '<div class="address"><i class="fas fa-map-marker"></i> ' + '<a target="_blank" href="' + gmaps + venue.location.lat + ',' + venue.location.lng + '">' + venue.location.address + '</a> (op ' + venue.location.distance + 'm)</div>';
 		node += '</li>';
 		node += '<div class="details"><br>';
 		if (typeof venue.hours != "undefined") {
-			node += '<div class="time"><i class="fas fa-clock"></i> ' + venue.hours.status + '</div>'
+			if (venue.hours.status != undefined) {
+				if (venue.hours.isOpen === false) {
+					node += '<div class="gesloten">GESLOTEN</div>';
+					node += '<div class="time"><i class="fas fa-clock"></i> ' + venue.hours.status + '</div>'
+				} else {
+					if (venue.hours.status === "Likely open") {
+						node += '<div class="waarsopen">OPEN (waarschijnlijk)</div>';
+						node += '<div class="time"><i class="fas fa-clock"></i> ' + venue.hours.status + '</div>'
+					} else {
+						node += '<div class="open">OPEN</div>';
+						node += '<div class="time"><i class="fas fa-clock"></i> ' + venue.hours.status + '</div>'
+					}
+				}
+			} else {
+				node += '<div>Geen uren opgegeven</div>'
+			}
 		} else {
-			'<div>Geen uren opgegeven</div>'
+			node += '<div>Geen uren opgegeven</div>'
+		}
+		node += '<div class="url"><i class="fas fa-link"></i>';
+		if (typeof venue.url != "undefined") {
+			node += '<a target="_blank" href="' + venue.url + '"> Link naar website</a></div>';
+		} else {
+			node += ' Geen link beschikbaar</div>';
+		}
+		node += '<div class="phone"><i class="fas fa-phone"></i>';
+		if (typeof venue.contact != "undefined") {
+			if (venue.contact.formattedPhone === undefined) {
+				node += ' Geen tel. beschikbaar</div>';
+			} else {
+				node += ' ' + venue.contact.formattedPhone + '</div>';
+			}
+		} else {
+			node += ' Geen tel. beschikbaar</div>';
+		}
+		if (typeof venue.price != "undefined") {
+			if (venue.price.tier === 5) {
+				node += '<i class="fas fa-euro-sign"></i><i class="fas fa-euro-sign"></i><i class="fas fa-euro-sign"></i><i class="fas fa-euro-sign"></i><i class="fas fa-euro-sign"></i> (Extreem duur)';
+			} else if (venue.price.tier === 4) {
+				node += '<i class="fas fa-euro-sign"></i><i class="fas fa-euro-sign"></i><i class="fas fa-euro-sign"></i><i class="fas fa-euro-sign"></i> (Zeer duur)';
+			} else if (venue.price.tier === 3) {
+				node += '<i class="fas fa-euro-sign"></i><i class="fas fa-euro-sign"></i><i class="fas fa-euro-sign"></i> (Duur)';
+			} else if (venue.price.tier === 2) {
+				node += '<i class="fas fa-euro-sign"></i><i class="fas fa-euro-sign"></i> (Middelmatig)';
+			} else if (venue.price.tier === 1) {
+				node += '<i class="fas fa-euro-sign"></i> (Goedkoop)';
+			}
+		} else {
+			node += 'Geen info over de prijs';
 		}
 		node += '</div>';
 		node += '</div>';
 
 	}
-
 	return $(node);
 }
 
@@ -133,7 +187,9 @@ function setLoc() {
 		createFK.url += '&ll=' + pos.coords.latitude + ',' + pos.coords.longitude;
 		createFK.getData();
 		console.log(pos.coords.latitude + ',' + pos.coords.longitude)
+		document.getElementById('loc').innerHTML += '<a href="https://www.google.be/maps?q=' + pos.coords.latitude + ',' + pos.coords.longitude + '" target="_blank"><u> klik hier om je aangegeven locatie te bekijken</u></a>';
 	});
+
 	domEvents();
 }
 

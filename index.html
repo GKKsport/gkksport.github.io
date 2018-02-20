@@ -2,121 +2,129 @@
 <html>
 
 <head>
-    <title>GKK Sport</title>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-    <link rel="icon" sizes="192x192" href="icon.png">
-    <style>
-        /* Remove the navbar's default margin-bottom and rounded borders */
-        
-        .navbar {
-            margin-bottom: 0;
-            border-radius: 0;
-        }
-        /* Set height of the grid so .sidenav can be 100% (adjust as needed) */
-        
-        .row.content {
-            height: 450px
-        }
-        /* Set gray background color and 100% height */
-        
-        .sidenav {
-            padding-top: 20px;
-            background-color: #f1f1f1;
-            height: 100%;
-        }
-        /* Set black background color, white text and some padding */
-        
-        .navbar-brand img {
-            height: 40px;
-        }
-        
-        .navbar-brand {
-            padding-bottom: 3px;
-            padding-top: 6px;
-        }
-        
-        footer {
-            background-color: #555;
-            color: white;
-            padding: 15px;
-        }
-        /* On small screens, set height to 'auto' for sidenav and grid */
-        
-        @media screen and (max-width: 767px) {
-            .sidenav {
-                height: auto;
-                padding: 15px;
-            }
-            .row.content {
-                height: auto;
-            }
-        }
-    </style>
+	<title>GKK Sport</title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+	<link rel="icon" sizes="192x192" href="icon.png">
+	<style>
+		/* Remove the navbar's default margin-bottom and rounded borders */
+		
+		.navbar {
+			margin-bottom: 0;
+			border-radius: 0;
+		}
+		/* Set height of the grid so .sidenav can be 100% (adjust as needed) */
+		
+		.row.content {
+			height: 450px
+		}
+		/* Set gray background color and 100% height */
+		
+		.sidenav {
+			padding-top: 20px;
+			background-color: #f1f1f1;
+			height: 100%;
+		}
+		/* Set black background color, white text and some padding */
+		
+		.navbar-brand img {
+			height: 40px;
+		}
+		
+		.navbar-brand {
+			padding-bottom: 3px;
+			padding-top: 6px;
+		}
+		
+		footer {
+			background-color: #555;
+			color: white;
+			padding: 15px;
+		}
+		/* On small screens, set height to 'auto' for sidenav and grid */
+		
+		@media screen and (max-width: 767px) {
+			.sidenav {
+				height: auto;
+				padding: 15px;
+			}
+			.row.content {
+				height: auto;
+			}
+		}
+	</style>
 </head>
 
 <body>
 
-    <nav class="navbar navbar-inverse">
-        <div class="container-fluid">
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+	<nav class="navbar navbar-inverse">
+		<div class="container-fluid">
+			<div class="navbar-header">
+				<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>                        
       </button>
-                <a class="navbar-brand" href="index.html"><img src="GKK.png"></a>
-            </div>
-            <div class="collapse navbar-collapse" id="myNavbar">
-                <ul class="nav navbar-nav">
-                    <li><a href="tussenstand.html">Tussenstand/Kalender</a></li>
-                    <li><a href="zwemmen.html">Zwemmen</a></li>
-                    <li><a href="triathloncalc.html">Triathlon-calc</a></li>
-                    <li><a href="kaartregels.html">Kaartregels</a></li>
-                    <li><a href="tricklist.html">Tricklist</a></li>
-                </ul>
-            </div>
-        </div>
-    </nav>
+				<a class="navbar-brand" href="index.html"><img src="GKK.png"></a>
+			</div>
+			<div class="collapse navbar-collapse" id="myNavbar">
+				<ul class="nav navbar-nav">
+					<li><a href="tussenstand.html">Tussenstand/Kalender</a></li>
+					<li><a href="zwemmen.html">Zwemmen</a></li>
+					<li><a href="triathloncalc.html">Triathlon-calc</a></li>
+					<li><a href="kaartregels.html">Kaartregels</a></li>
+					<li><a href="zidb.html">ZIDB</a></li>
+					<li class="dropdown">
+						<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Archief <span class="caret"></span></a>
+						<ul class="dropdown-menu">
+							<li><a href="tricklist.html">Tricklist</a></li>
+						</ul>
+					</li>
+				</ul>
+			</div>
+		</div>
+	</nav>
 
-    <div class="container-fluid text-center">
-        <div class="row content">
-            <div class="col-sm-12">
-                <br>
-                <div class="col-sm-6">
-                    <div class="well">
-                        <a href="tussenstand.html"><button type="button" class="btn btn-default btn-lg btn-block">Tussenstand</button></a>
-                        <br>
-                        <a href="zwemmen.html"><button type="button" class="btn btn-default btn-lg btn-block">Zwemkalender</button></a>
-                        <br>
-                        <a href="triathloncalc.html"><button type="button" class="btn btn-default btn-lg btn-block">Triathlon-calc</button></a>
-                        <br>
-                        <a href="kaartregels.html"><button type="button" class="btn btn-default btn-lg btn-block">Kaartregels</button></a>
-                        <br>
-                        <a href="tricklist.html"><button type="button" class="btn btn-default btn-lg btn-block">Tricklist</button></a>
-                    </div>
-                </div>
-                <div class="col-sm-6">
-                    <div class="well">
-                        <a href="https://stad.gent/sport2/reservering?op"><button type="button" class="btn btn-default btn-lg btn-block">Reservaties</button></a>
-                        <br>
-                        <a href="http://triatlongeel.be/achste_triatlon.html"><button type="button" class="btn btn-default btn-lg btn-block">Triathlon-website</button></a>
-                        <br>
-                        <a href="http://recreatie.dewielerbond.be/Producten/VWEM.aspx?Disc=21&Disc2=41"><button type="button" class="btn btn-default btn-lg btn-block">Wielerpiste-website</button></a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- GKK Service Worker -->
-    <script>
-        if ('serviceWorker' in navigator) {
-            navigator.serviceWorker.register('service-worker.js');
-        }
-    </script>
+	<div class="container-fluid text-center">
+		<div class="row content">
+			<div class="col-sm-12">
+				<br>
+				<div class="col-sm-6">
+					<div class="well">
+						<a href="tussenstand.html"><button type="button" class="btn btn-default btn-lg btn-block">Tussenstand</button></a>
+						<br>
+						<a href="zwemmen.html"><button type="button" class="btn btn-default btn-lg btn-block">Zwemkalender</button></a>
+						<br>
+						<a href="triathloncalc.html"><button type="button" class="btn btn-default btn-lg btn-block">Triathlon-calc</button></a>
+						<br>
+						<a href="kaartregels.html"><button type="button" class="btn btn-default btn-lg btn-block">Kaartregels</button></a>
+						<br>
+						<a href="zidb.html"><button type="button" class="btn btn-default btn-lg btn-block">Zuipen In De Buurt</button></a>
+						<br>
+						<a href="tricklist.html"><button type="button" class="btn btn-default btn-lg btn-block">Tricklist</button></a>
+					</div>
+				</div>
+				<div class="col-sm-6">
+					<div class="well">
+						<a href="https://stad.gent/sport2/reservering?op"><button type="button" class="btn btn-default btn-lg btn-block">Reservaties</button></a>
+						<br>
+						<a href="http://triatlongeel.be/achste_triatlon.html"><button type="button" class="btn btn-default btn-lg btn-block">Triathlon-website</button></a>
+						<br>
+						<a href="http://recreatie.dewielerbond.be/Producten/VWEM.aspx?Disc=21&Disc2=41"><button type="button" class="btn btn-default btn-lg btn-block">Wielerpiste-website</button></a>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- GKK Service Worker -->
+	<script>
+		if ('serviceWorker' in navigator) {
+			navigator.serviceWorker.register('service-worker.js');
+		}
+	</script>
 </body>
 
 </html>

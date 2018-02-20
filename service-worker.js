@@ -14,7 +14,7 @@
 // Names of the two caches used in this version of the service worker.
 // Change to v2, etc. when you update any of the local resources, which will
 // in turn trigger the install event again.
-const PRECACHE = 'GKKv1.2.3';
+const PRECACHE = 'GKKv1.3.0';
 const RUNTIME = 'runtime';
 
 //Update-log
@@ -37,6 +37,7 @@ const RUNTIME = 'runtime';
 //1.2.1 - Millerflip
 //1.2.2 - Foto's bij grabs en grinds
 //1.2.3 - Infographic
+//1.3.0 - Zuipen in de buurt!
 
 // A list of local resources we always want to be cached.
 const PRECACHE_URLS = [
@@ -47,61 +48,62 @@ const PRECACHE_URLS = [
     'kaartregels.html',
   './', // Alias for index.html
   'calc.js',
-    'tricklist.html',
+   /*
+	'tricklist.html',
     'tricklist.js',
     'img/grabs.jpg',
     'img/goofgrinds.jpg',
     'img/reggrinds.jpg',
     'img/grabsgoof.jpg',
     'img/spins.jpeg',
-    'img/grinds.jpeg'
+    'img/grinds.jpeg' */
   // '../../styles/main.css' voor files in mappen
 ];
 
 // The install handler takes care of precaching the resources we always need.
 self.addEventListener('install', event => {
-    event.waitUntil(
-        caches.open(PRECACHE)
-        .then(cache => cache.addAll(PRECACHE_URLS))
-        .then(self.skipWaiting())
-    );
+	event.waitUntil(
+		caches.open(PRECACHE)
+		.then(cache => cache.addAll(PRECACHE_URLS))
+		.then(self.skipWaiting())
+	);
 });
 
 // The activate handler takes care of cleaning up old caches.
 self.addEventListener('activate', event => {
-    const currentCaches = [PRECACHE, RUNTIME];
-    event.waitUntil(
-        caches.keys().then(cacheNames => {
-            return cacheNames.filter(cacheName => !currentCaches.includes(cacheName));
-        }).then(cachesToDelete => {
-            return Promise.all(cachesToDelete.map(cacheToDelete => {
-                return caches.delete(cacheToDelete);
-            }));
-        }).then(() => self.clients.claim())
-    );
+	const currentCaches = [PRECACHE, RUNTIME];
+	event.waitUntil(
+		caches.keys().then(cacheNames => {
+			return cacheNames.filter(cacheName => !currentCaches.includes(cacheName));
+		}).then(cachesToDelete => {
+			return Promise.all(cachesToDelete.map(cacheToDelete => {
+				return caches.delete(cacheToDelete);
+			}));
+		}).then(() => self.clients.claim())
+	);
 });
 
 // The fetch handler serves responses for same-origin resources from a cache.
 // If no response is found, it populates the runtime cache with the response
 // from the network before returning it to the page.
 self.addEventListener('fetch', event => {
-    // Skip cross-origin requests, like those for Google Analytics.
-    if (event.request.url.startsWith(self.location.origin)) {
-        event.respondWith(
-            caches.match(event.request).then(cachedResponse => {
-                if (cachedResponse) {
-                    return cachedResponse;
-                }
+	// Skip cross-origin requests, like those for Google Analytics.
+	if (event.request.url.startsWith(self.location.origin)) {
+		event.respondWith(
+			caches.match(event.request).then(cachedResponse => {
+				if (cachedResponse) {
+					return cachedResponse;
+				}
 
-                return caches.open(RUNTIME).then(cache => {
-                    return fetch(event.request).then(response => {
-                        // Put a copy of the response in the runtime cache.
-                        return cache.put(event.request, response.clone()).then(() => {
-                            return response;
-                        });
-                    });
-                });
-            })
-        );
-    }
+				return caches.open(RUNTIME).then(cache => {
+					return fetch(event.request).then(response => {
+						// Put a copy of the response in the runtime cache.
+						return cache.put(event.request, response.clone()).then(() => {
+							return response;
+						});
+					});
+				});
+			})
+		);
+	}
 });

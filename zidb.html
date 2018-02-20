@@ -9,18 +9,59 @@
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 	<script defer src="https://use.fontawesome.com/releases/v5.0.6/js/all.js"></script>
-
-
-	<link rel="icon" sizes="192x192" href="../icon.png">
+	<link rel="icon" sizes="192x192" href="icon.png">
 	<style>
 		/* Remove the navbar's default margin-bottom and rounded borders */
+		
+		.open {
+			color: green;
+		}
+		
+		.gesloten {
+			color: red;
+		}
+		
+		.waarsopen {
+			color: orange;
+		}
+		
+		.titel {
+			padding: 8px;
+			display: inline-block;
+			color: white;
+			background-color: black;
+		}
+		
+		.score {
+			position: relative;
+			margin: 5px 0;
+			padding: 2px 4px;
+			border-radius: 4px;
+			font-size: 12px;
+			font-weight: 600;
+			display: inline-block;
+			background-color: rgba(131, 149, 167, 0.6);
+		}
+		
+		.groen {
+			background-color: rgba(106, 176, 76, 0.6);
+		}
+		
+		.geel {
+			background-color: rgba(249, 202, 36, 0.6);
+		}
+		
+		.rood {
+			background-color: rgba(235, 77, 75, 0.6);
+		}
 		
 		.details {
 			display: none;
 		}
 		
 		.name {
-			color: red;
+			color: black;
+			font-weight: bold;
 		}
 		
 		.navbar {
@@ -79,7 +120,7 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>                        
       </button>
-				<a class="navbar-brand" href="index.html"><img src="../GKK.png"></a>
+				<a class="navbar-brand" href="index.html"><img src="GKK.png"></a>
 			</div>
 			<div class="collapse navbar-collapse" id="myNavbar">
 				<ul class="nav navbar-nav">
@@ -87,7 +128,13 @@
 					<li><a href="zwemmen.html">Zwemmen</a></li>
 					<li><a href="triathloncalc.html">Triathlon-calc</a></li>
 					<li><a href="kaartregels.html">Kaartregels</a></li>
-					<li><a href="tricklist.html">Tricklist</a></li>
+					<li class="active"><a href="zidb.html">ZIDB</a></li>
+					<li class="dropdown">
+						<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Archief <span class="caret"></span></a>
+						<ul class="dropdown-menu">
+							<li><a href="tricklist.html">Tricklist</a></li>
+						</ul>
+					</li>
 				</ul>
 			</div>
 		</div>
@@ -95,17 +142,22 @@
 
 	<div class="container-fluid text-center">
 		<div class="row">
-			<h1>ZIDB</h1>
+			<h1><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/5f/Fxemoji_u1F37B.svg/2000px-Fxemoji_u1F37B.svg.png" height="100px"><br>
+				<u><h3 class="titel">ZUIPEN IN DE BUURT</h3></u>
+			</h1>
+			<br>
 		</div>
 		<div class="row">
-			<div class="col-md-1"></div>
-			<div class="col-md-10">
-				<ul style="list-style-type: none; padding-left: 0px" class="list-container outdoor"></ul>
-
-				<div class="alert alert-info" role="alert">Niet in de buurt van <span class="city">Brussel</span>? Dan heb je waarschijnlijk de locatie-vereiste voor deze website niet geaccepteerd.. Maak dit eerst in orde en kom dan terug voor een volledige lijst!</div>
+			<div class="col-md-6 col-md-offset-3">
+				<div class="row clearfix">
+					<ul style="list-style-type: none; padding-left: 0px" class="list-container outdoor"></ul>
+				</div>
+			</div>
+			<div class="col-md-8 col-md-offset-2">
+				<div class="alert alert-info" role="alert">Niet in de buurt van <span class="city">Brussel</span>? Dan heb je waarschijnlijk de locatie-vereiste voor deze website niet geaccepteerd.. Maak dit eerst in orde en kom dan terug voor een volledige lijst!<br> Ter controle kan je je locatie nakijken via volgende link: <span id="loc"></span>
+				</div>
 
 			</div>
-			<div class="col-md-1"></div>
 		</div>
 
 

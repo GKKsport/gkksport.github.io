@@ -2,291 +2,295 @@
 <html>
 
 <head>
-    <title>GKK Sport</title>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-    <link rel="icon" sizes="192x192" href="icon.png">
-    <style>
-        /* Remove the navbar's default margin-bottom and rounded borders */
-        
-        .navbar {
-            margin-bottom: 0;
-            border-radius: 0;
-        }
-        /* Set height of the grid so .sidenav can be 100% (adjust as needed) */
-        
-        .row.content {
-            height: 450px
-        }
-        /* Set gray background color and 100% height */
-        
-        .sidenav {
-            padding-top: 20px;
-            background-color: #f1f1f1;
-            height: 100%;
-        }
-        /* Set black background color, white text and some padding */
-        
-        .navbar-brand img {
-            height: 40px;
-        }
-        
-        .navbar-brand {
-            padding-bottom: 3px;
-            padding-top: 6px;
-        }
-        
-        footer {
-            background-color: #555;
-            color: white;
-            padding: 15px;
-        }
-        /* On small screens, set height to 'auto' for sidenav and grid */
-        
-        @media screen and (max-width: 767px) {
-            .sidenav {
-                height: auto;
-                padding: 15px;
-            }
-            .row.content {
-                height: auto;
-            }
-        }
-        /* Pistes css */
-        
-        body.hasHover .pistes ul li:hover {
-            background-color: #ecf0f1;
-            cursor: pointer;
-        }
-        
-        .pistes .checked {
-            color: white;
-            background-color: #2ecc71;
-        }
-        
-        body.hasHover .pistes .checked:hover {
-            background-color: #e74c3c;
-        }
-        
-        .pistes .checked2 {
-            color: white;
-            background-color: #2ecc71;
-        }
-        
-        body.hasHover .pistes .checked2:hover {
-            text-decoration: line-through;
-            background-color: #e74c3c;
-        }
-        /* Collapse */
-        
-        .collapse.in {
-            display: block;
-        }
-        
-        tr.collapse.in {
-            display: table-row;
-            background-color: transparent;
-        }
-        
-        tbody.collapse.in {
-            display: table-row-group;
-            background-color: transparent;
-        }
-        
-        .collapsing {
-            position: relative;
-            height: 0;
-            overflow: hidden;
-            -webkit-transition-timing-function: ease;
-            -o-transition-timing-function: ease;
-            transition-timing-function: ease;
-            -webkit-transition-duration: .35s;
-            -o-transition-duration: .35s;
-            transition-duration: .35s;
-            -webkit-transition-property: height, visibility;
-            -o-transition-property: height, visibility;
-            transition-property: height, visibility;
-        }
-        
-        .tab-content h4 {
-            margin-top: 15px;
-            margin-bottom: 5px;
-        }
-
-    </style>
+	<title>GKK Sport</title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+	<link rel="icon" sizes="192x192" href="icon.png">
+	<style>
+		/* Remove the navbar's default margin-bottom and rounded borders */
+		
+		.navbar {
+			margin-bottom: 0;
+			border-radius: 0;
+		}
+		/* Set height of the grid so .sidenav can be 100% (adjust as needed) */
+		
+		.row.content {
+			height: 450px
+		}
+		/* Set gray background color and 100% height */
+		
+		.sidenav {
+			padding-top: 20px;
+			background-color: #f1f1f1;
+			height: 100%;
+		}
+		/* Set black background color, white text and some padding */
+		
+		.navbar-brand img {
+			height: 40px;
+		}
+		
+		.navbar-brand {
+			padding-bottom: 3px;
+			padding-top: 6px;
+		}
+		
+		footer {
+			background-color: #555;
+			color: white;
+			padding: 15px;
+		}
+		/* On small screens, set height to 'auto' for sidenav and grid */
+		
+		@media screen and (max-width: 767px) {
+			.sidenav {
+				height: auto;
+				padding: 15px;
+			}
+			.row.content {
+				height: auto;
+			}
+		}
+		/* Pistes css */
+		
+		body.hasHover .pistes ul li:hover {
+			background-color: #ecf0f1;
+			cursor: pointer;
+		}
+		
+		.pistes .checked {
+			color: white;
+			background-color: #2ecc71;
+		}
+		
+		body.hasHover .pistes .checked:hover {
+			background-color: #e74c3c;
+		}
+		
+		.pistes .checked2 {
+			color: white;
+			background-color: #2ecc71;
+		}
+		
+		body.hasHover .pistes .checked2:hover {
+			text-decoration: line-through;
+			background-color: #e74c3c;
+		}
+		/* Collapse */
+		
+		.collapse.in {
+			display: block;
+		}
+		
+		tr.collapse.in {
+			display: table-row;
+			background-color: transparent;
+		}
+		
+		tbody.collapse.in {
+			display: table-row-group;
+			background-color: transparent;
+		}
+		
+		.collapsing {
+			position: relative;
+			height: 0;
+			overflow: hidden;
+			-webkit-transition-timing-function: ease;
+			-o-transition-timing-function: ease;
+			transition-timing-function: ease;
+			-webkit-transition-duration: .35s;
+			-o-transition-duration: .35s;
+			transition-duration: .35s;
+			-webkit-transition-property: height, visibility;
+			-o-transition-property: height, visibility;
+			transition-property: height, visibility;
+		}
+		
+		.tab-content h4 {
+			margin-top: 15px;
+			margin-bottom: 5px;
+		}
+	</style>
 </head>
 
 <body>
 
-    <nav class="navbar navbar-inverse">
-        <div class="container-fluid">
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+	<nav class="navbar navbar-inverse">
+		<div class="container-fluid">
+			<div class="navbar-header">
+				<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>                        
       </button>
-                <a class="navbar-brand" href="index.html"><img src="GKK.png"></a>
-            </div>
-            <div class="collapse navbar-collapse" id="myNavbar">
-                <ul class="nav navbar-nav">
-                    <li><a href="tussenstand.html">Tussenstand/Kalender</a></li>
-                    <li><a href="zwemmen.html">Zwemmen</a></li>
-                    <li><a href="triathloncalc.html">Triathlon-calc</a></li>
-                    <li><a href="kaartregels.html">Kaartregels</a></li>
-                    <li class="active"><a href="pistes.html">Tricklist</a></li>
-                </ul>
-            </div>
-        </div>
-    </nav>
+				<a class="navbar-brand" href="index.html"><img src="GKK.png"></a>
+			</div>
+			<div class="collapse navbar-collapse" id="myNavbar">
+				<ul class="nav navbar-nav">
+					<li><a href="tussenstand.html">Tussenstand/Kalender</a></li>
+					<li><a href="zwemmen.html">Zwemmen</a></li>
+					<li><a href="triathloncalc.html">Triathlon-calc</a></li>
+					<li><a href="kaartregels.html">Kaartregels</a></li>
+					<li><a href="zidb.html">ZIDB</a></li>
+					<li class="dropdown">
+						<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Archief <span class="caret"></span></a>
+						<ul class="dropdown-menu">
+							<li class="active"><a href="tricklist.html">Tricklist</a></li>
+						</ul>
+					</li>
+				</ul>
+			</div>
+		</div>
+	</nav>
 
-    <div class="container-fluid text-center">
-        <div class="row content">
-            <div class="col-md-6 pistes col-md-offset-3">
-                <br>
-                <h3>Tricklist</h3>
-                <div class="well">
-                    <h4>Spins <span id="tellermenzwart"></span></h4>
-                    <ul id="menuireszwart" class="list-group"></ul>
-                    <h4>Rails <span id="tellermenrood"></span></h4>
-                    <ul id="menuiresrood" class="list-group"></ul>
-                    <h4>Grabs <span id="tellergrabs"></span></h4>
-                    <ul id="grabs" class="list-group"></ul>
-                    <h4>Flips <span id="tellerflips"></span></h4>
-                    <ul id="flips" class="list-group"></ul>
-                </div>
-                <br>
-                <h3>Trickopedia</h3>
-                <div class="well">
-                    <a class="btn btn-default btn-block" data-toggle="collapse" data-target="#tabs" aria-expanded="false" aria-controls="tablist"> Lees meer informatie over de tricks! </a>
-                    <div class="text-left collapse" id="tabs">
-                        <br>
-                        <ul class="nav nav-tabs">
-                            <li class="active"><a data-toggle="tab" href="#spinsinfo">Spins</a></li>
-                            <li><a data-toggle="tab" href="#railsinfo">Rails</a></li>
-                            <li><a data-toggle="tab" href="#grabsinfo">Grabs</a></li>
-                            <li><a data-toggle="tab" href="#flipsinfo">Flips</a></li>
-                        </ul>
-                        <div class="tab-content">
-                            <div id="spinsinfo" class="tab-pane fade in active">
-                                <h4></h4>
-                                <p>
-                                    Spins are typically performed in 180° increments due to the nature of the obstacles on which they are performed. Even in cases where spins are performed on unconventional obstacles, the rotation is regarded as the nearest increment of 180°, and can be identified by the direction of approach and landing (regular and switch). A spin attempted from a jump to a rail is the only time a spin can be referred to in a 90 degree increment, examples: 270 (between a 180 and 360 degree spin) or 450 (between a 360 and 540 degree spin). These spins can be frontside, backside, cab, or switch-backside just like any other spins. Billy Morgan landed the biggest spin ever, a quad cork 1800. </p>
-                                <p>
-                                    The term "Cab" in snowboarding generally refers to any switch-frontside spin (no matter what the amount of rotation) on any feature (halfpipe, jumps, rails, boxes). For example, a "switch-frontside 1080 double cork" off a jump would be referred to as a "cab 1080 double cork". The term was originally only applied to a switch-frontside 360 in a halfpipe in which a rider would take off a wall switch, spin 360 degrees frontside, and land on his/her comfortable stance (regular/goofy). Therefore, the term "Cab" only applied to tricks in the halfpipe in which rotations were in full 360 increments, such as a "Cab 360" or "Cab 720." For example, since a switch-frontside 540 would land a rider in the same switch position he/she took off from in the halfpipe, it was not referred to as a "Cab 540" because the rider did not take off switch, spin frontside, and land in his/her comfortable stance.
-                                </p>
-                                <p>
-                                    A Half-Cab is a switch-frontside 180 spin.
-                                </p>
-                                <p>
-                                    An alley-oop is a spin performed in a halfpipe or quarterpipe in which the spin is rotated in the opposite direction of the air. For example, performing a frontside rotation on the backside wall of a halfpipe, or spinning clockwise while traveling right-to-left through the air on a quarterpipe would mean the spin was alley-oop.
-                                </p>
-                                <p>
-                                    Hard Way: A term used when spinning onto a feature or off a jump using your opposite edge to start the direction of your spin. Example- If a regular rider was to spin Hard Way front side 270 onto rail, they would start that spin off their toe side edge. That would make the trick a Hard Way front side 270. Opposite of the traditional front side rotation starting with your heel edge. Same applies to goofy riders.
-                                </p>
-                                <h4>Shifty</h4>
-                                <p>
-                                    An aerial trick in which a snowboarder twists his body, rotating his/her board 90° and then returning it to its original position before landing. This trick can be performed frontside or backside, and also in variation with other tricks and spins.
-                                </p>
-                                <h4>Infographic</h4>
-                                <a href="img/spins.jpeg" target="_blank"><img class="img-responsive" src="img/spins.jpeg"></a>
-                            </div>
-                            <div id="railsinfo" class="tab-pane fade">
-                                <h4>Boardslide</h4>
-                                <p>A slide performed where the riders leading foot passes over the rail on approach, with his/her snowboard traveling perpendicular along the rail or other obstacle. When performing a frontside boardslide, the snowboarder is facing uphill. When performing a backside boardslide, a snowboarder is facing downhill. This is often confusing to new riders learning the trick because with a frontside boardslide you are moving backward and with a backside boardslide you are moving forward.</p>
-                                <h4>Lipslide</h4>
-                                <p>A slide performed where the rider's trailing foot passes over the rail on approach, with his/her snowboard traveling perpendicular along the rail or other obstacle. When performing a frontside lipslide, the snowboarder is facing downhill. When performing a backside lipslide, a snowboarder is facing uphill.</p>
-                                <h4>50-50</h4>
-                                <p>A slide in which a snowboarder rides straight along a rail or other obstacle. This trick has its origin in skateboarding, where the trick is performed with both skateboard trucks grinding along a rail.</p>
-                                <h4>Bluntslide</h4>
-                                <p>A slide performed where the rider's leading foot passes over the rail on approach, with their snowboard traveling perpendicular and trailing foot directly above the rail or other obstacle (like a tailslide). When performing a frontside bluntslide, the snowboarder is facing uphill. When performing a backside bluntslide, the snowboarder is facing downhill.</p>
-                                <h4>Noseblunt</h4>
-                                <p>A slide performed where the rider's trailing foot passes over the rail on approach, with their snowboard traveling perpendicular and leading foot directly above the rail or other obstacle (like a noseslide). When performing a frontside noseblunt, the snowboarder is facing downhill. When performing a backside noseblunt, the snowboarder is facing uphill.</p>
-                                <h4>Overzicht</h4>
-                                <div class="row">
-                                    <div class="col-xs-6 col-sm-6">
-                                        <a href="img/goofgrinds.jpg" target="_blank">
-                                            <img class="img-responsive" src="img/goofgrinds.jpg">
-                                        </a>
-                                    </div>
-                                    <div class="col-xs-6 col-sm-6">
-                                        <a href="img/reggrinds.jpg" target="_blank">
-                                            <img class="img-responsive" src="img/reggrinds.jpg">
-                                        </a>
-                                    </div>
-                                </div>
-                                <h4>Infographic</h4>
-                                <a href="img/grinds.jpeg" target="_blank">
-                                    <img class="img-responsive" src="img/grinds.jpeg">
-                                </a>
-                            </div>
+	<div class="container-fluid text-center">
+		<div class="row content">
+			<div class="col-md-6 pistes col-md-offset-3">
+				<br>
+				<h3>Tricklist</h3>
+				<div class="well">
+					<h4>Spins <span id="tellermenzwart"></span></h4>
+					<ul id="menuireszwart" class="list-group"></ul>
+					<h4>Rails <span id="tellermenrood"></span></h4>
+					<ul id="menuiresrood" class="list-group"></ul>
+					<h4>Grabs <span id="tellergrabs"></span></h4>
+					<ul id="grabs" class="list-group"></ul>
+					<h4>Flips <span id="tellerflips"></span></h4>
+					<ul id="flips" class="list-group"></ul>
+				</div>
+				<br>
+				<h3>Trickopedia</h3>
+				<div class="well">
+					<a class="btn btn-default btn-block" data-toggle="collapse" data-target="#tabs" aria-expanded="false" aria-controls="tablist"> Lees meer informatie over de tricks! </a>
+					<div class="text-left collapse" id="tabs">
+						<br>
+						<ul class="nav nav-tabs">
+							<li class="active"><a data-toggle="tab" href="#spinsinfo">Spins</a></li>
+							<li><a data-toggle="tab" href="#railsinfo">Rails</a></li>
+							<li><a data-toggle="tab" href="#grabsinfo">Grabs</a></li>
+							<li><a data-toggle="tab" href="#flipsinfo">Flips</a></li>
+						</ul>
+						<div class="tab-content">
+							<div id="spinsinfo" class="tab-pane fade in active">
+								<h4></h4>
+								<p>
+									Spins are typically performed in 180° increments due to the nature of the obstacles on which they are performed. Even in cases where spins are performed on unconventional obstacles, the rotation is regarded as the nearest increment of 180°, and can be identified by the direction of approach and landing (regular and switch). A spin attempted from a jump to a rail is the only time a spin can be referred to in a 90 degree increment, examples: 270 (between a 180 and 360 degree spin) or 450 (between a 360 and 540 degree spin). These spins can be frontside, backside, cab, or switch-backside just like any other spins. Billy Morgan landed the biggest spin ever, a quad cork 1800. </p>
+								<p>
+									The term "Cab" in snowboarding generally refers to any switch-frontside spin (no matter what the amount of rotation) on any feature (halfpipe, jumps, rails, boxes). For example, a "switch-frontside 1080 double cork" off a jump would be referred to as a "cab 1080 double cork". The term was originally only applied to a switch-frontside 360 in a halfpipe in which a rider would take off a wall switch, spin 360 degrees frontside, and land on his/her comfortable stance (regular/goofy). Therefore, the term "Cab" only applied to tricks in the halfpipe in which rotations were in full 360 increments, such as a "Cab 360" or "Cab 720." For example, since a switch-frontside 540 would land a rider in the same switch position he/she took off from in the halfpipe, it was not referred to as a "Cab 540" because the rider did not take off switch, spin frontside, and land in his/her comfortable stance.
+								</p>
+								<p>
+									A Half-Cab is a switch-frontside 180 spin.
+								</p>
+								<p>
+									An alley-oop is a spin performed in a halfpipe or quarterpipe in which the spin is rotated in the opposite direction of the air. For example, performing a frontside rotation on the backside wall of a halfpipe, or spinning clockwise while traveling right-to-left through the air on a quarterpipe would mean the spin was alley-oop.
+								</p>
+								<p>
+									Hard Way: A term used when spinning onto a feature or off a jump using your opposite edge to start the direction of your spin. Example- If a regular rider was to spin Hard Way front side 270 onto rail, they would start that spin off their toe side edge. That would make the trick a Hard Way front side 270. Opposite of the traditional front side rotation starting with your heel edge. Same applies to goofy riders.
+								</p>
+								<h4>Shifty</h4>
+								<p>
+									An aerial trick in which a snowboarder twists his body, rotating his/her board 90° and then returning it to its original position before landing. This trick can be performed frontside or backside, and also in variation with other tricks and spins.
+								</p>
+								<h4>Infographic</h4>
+								<a href="img/spins.jpeg" target="_blank"><img class="img-responsive" src="img/spins.jpeg"></a>
+							</div>
+							<div id="railsinfo" class="tab-pane fade">
+								<h4>Boardslide</h4>
+								<p>A slide performed where the riders leading foot passes over the rail on approach, with his/her snowboard traveling perpendicular along the rail or other obstacle. When performing a frontside boardslide, the snowboarder is facing uphill. When performing a backside boardslide, a snowboarder is facing downhill. This is often confusing to new riders learning the trick because with a frontside boardslide you are moving backward and with a backside boardslide you are moving forward.</p>
+								<h4>Lipslide</h4>
+								<p>A slide performed where the rider's trailing foot passes over the rail on approach, with his/her snowboard traveling perpendicular along the rail or other obstacle. When performing a frontside lipslide, the snowboarder is facing downhill. When performing a backside lipslide, a snowboarder is facing uphill.</p>
+								<h4>50-50</h4>
+								<p>A slide in which a snowboarder rides straight along a rail or other obstacle. This trick has its origin in skateboarding, where the trick is performed with both skateboard trucks grinding along a rail.</p>
+								<h4>Bluntslide</h4>
+								<p>A slide performed where the rider's leading foot passes over the rail on approach, with their snowboard traveling perpendicular and trailing foot directly above the rail or other obstacle (like a tailslide). When performing a frontside bluntslide, the snowboarder is facing uphill. When performing a backside bluntslide, the snowboarder is facing downhill.</p>
+								<h4>Noseblunt</h4>
+								<p>A slide performed where the rider's trailing foot passes over the rail on approach, with their snowboard traveling perpendicular and leading foot directly above the rail or other obstacle (like a noseslide). When performing a frontside noseblunt, the snowboarder is facing downhill. When performing a backside noseblunt, the snowboarder is facing uphill.</p>
+								<h4>Overzicht</h4>
+								<div class="row">
+									<div class="col-xs-6 col-sm-6">
+										<a href="img/goofgrinds.jpg" target="_blank">
+											<img class="img-responsive" src="img/goofgrinds.jpg">
+										</a>
+									</div>
+									<div class="col-xs-6 col-sm-6">
+										<a href="img/reggrinds.jpg" target="_blank">
+											<img class="img-responsive" src="img/reggrinds.jpg">
+										</a>
+									</div>
+								</div>
+								<h4>Infographic</h4>
+								<a href="img/grinds.jpeg" target="_blank">
+									<img class="img-responsive" src="img/grinds.jpeg">
+								</a>
+							</div>
 
-                            <div id="grabsinfo" class="tab-pane fade">
-                                <h4>Frontside grab/indy</h4>
-                                <p>
-                                    A fundamental trick performed by grabbing the toe edge between the bindings with the trailing hand. This trick is referred to as a frontside grab on a straight air, or while performing a frontside spin. When performing a backside aerial or backside rotation, this grab is referred to as an Indy. The frontside air was popularized by skateboarder Tony Alva.
-                                </p>
-                                <h4>Mute</h4>
-                                <p>
-                                    Front hand grabs the toe edge between the bindings. Variations include the Mute Stiffy, in which a mute grab is performed while straightening both legs, or alternatively, some snowboarders will grab mute and rotate the board frontside 90 degrees.
-                                </p>
-                                <h4>Melon, water</h4>
-                                <p>A melon grab where the rider bones the front leg and turns the board the 45° angle.</p>
-                                <h4>Stalefish</h4>
-                                <p>Back hand grabs the heel edge of the board between the feet, around the outside of the knee.</p>
-                                <h4>Nosegrab</h4>
-                                <p>Front hand grabs the nose of the board.</p>
-                                <h4>Tailgrab</h4>
-                                <p>The trailing hand grabs the tail of the board. Variations include straightening, or 'boning' the front leg, or 'tweaking' the board slightly frontside or backside.</p>
-                                <h4>Overzicht</h4>
-                                <a href="img/grabs.jpg" target="_blank"><img class="img-responsive" src="img/grabs.jpg"></a>
-                                <br>
-                                <a href="img/grabsgoof.jpg" target="_blank"><img class="img-responsive" src="img/grabsgoof.jpg"></a>
-                            </div>
-                            <div id="flipsinfo" class="tab-pane fade">
-                                <h4>Wildcat</h4>
-                                <p>A backflip performed on a straight jump, with an axis of rotation in which the snowboarder flips in a backward, cartwheel-like fashion. A double wildcat is called a supercat.</p>
-                                <h4>Tamedog</h4>
-                                <p>A frontflip performed on a straight jump, with an axis of rotation in which the snowboarder flips in a forward, cartwheel-like fashion.</p>
-                                <h4>Backflip</h4>
-                                <p>Flipping backwards (like a standing backflip) off of a jump.</p>
-                                <h4>Frontflip</h4>
-                                <p>Flipping forward (like a standing frontflip) off of a jump.</p>
-                                <h4>Millerflip</h4>
-                                <p>A 360° frontside handplant to fakie.</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <br>
-                <h3>Eigen aanvulling <span id="tellereigen"></span></h3>
-                <div class="well">
-                    <ul id="eigenaanvulling" class="list-group"></ul>
-                    <form action="#">
-                        <input type="text" required class="form-control" name="item" id="item" placeholder="Nieuw toevoegen" />
-                    </form>
-                </div>
-                <br>
-                <h3>Reset</h3>
-                <div class="well">
-                    <p>Enkel doen indien je zeker bent dat je alles wil resetten (dit kan niet ongedaan gemaakt worden)</p>
-                    <button id="reset" type="button" class="btn btn-danger btn-block">Reset alles</button>
-                </div>
-                <br>
-            </div>
-        </div>
-    </div>
-    <script src="tricklist.js"></script>
-    <!-- GKK Service Worker -->
-    <script>
-        if ('serviceWorker' in navigator) {
-            navigator.serviceWorker.register('service-worker.js');
-        }
-
-    </script>
+							<div id="grabsinfo" class="tab-pane fade">
+								<h4>Frontside grab/indy</h4>
+								<p>
+									A fundamental trick performed by grabbing the toe edge between the bindings with the trailing hand. This trick is referred to as a frontside grab on a straight air, or while performing a frontside spin. When performing a backside aerial or backside rotation, this grab is referred to as an Indy. The frontside air was popularized by skateboarder Tony Alva.
+								</p>
+								<h4>Mute</h4>
+								<p>
+									Front hand grabs the toe edge between the bindings. Variations include the Mute Stiffy, in which a mute grab is performed while straightening both legs, or alternatively, some snowboarders will grab mute and rotate the board frontside 90 degrees.
+								</p>
+								<h4>Melon, water</h4>
+								<p>A melon grab where the rider bones the front leg and turns the board the 45° angle.</p>
+								<h4>Stalefish</h4>
+								<p>Back hand grabs the heel edge of the board between the feet, around the outside of the knee.</p>
+								<h4>Nosegrab</h4>
+								<p>Front hand grabs the nose of the board.</p>
+								<h4>Tailgrab</h4>
+								<p>The trailing hand grabs the tail of the board. Variations include straightening, or 'boning' the front leg, or 'tweaking' the board slightly frontside or backside.</p>
+								<h4>Overzicht</h4>
+								<a href="img/grabs.jpg" target="_blank"><img class="img-responsive" src="img/grabs.jpg"></a>
+								<br>
+								<a href="img/grabsgoof.jpg" target="_blank"><img class="img-responsive" src="img/grabsgoof.jpg"></a>
+							</div>
+							<div id="flipsinfo" class="tab-pane fade">
+								<h4>Wildcat</h4>
+								<p>A backflip performed on a straight jump, with an axis of rotation in which the snowboarder flips in a backward, cartwheel-like fashion. A double wildcat is called a supercat.</p>
+								<h4>Tamedog</h4>
+								<p>A frontflip performed on a straight jump, with an axis of rotation in which the snowboarder flips in a forward, cartwheel-like fashion.</p>
+								<h4>Backflip</h4>
+								<p>Flipping backwards (like a standing backflip) off of a jump.</p>
+								<h4>Frontflip</h4>
+								<p>Flipping forward (like a standing frontflip) off of a jump.</p>
+								<h4>Millerflip</h4>
+								<p>A 360° frontside handplant to fakie.</p>
+							</div>
+						</div>
+					</div>
+				</div>
+				<br>
+				<h3>Eigen aanvulling <span id="tellereigen"></span></h3>
+				<div class="well">
+					<ul id="eigenaanvulling" class="list-group"></ul>
+					<form action="#">
+						<input type="text" required class="form-control" name="item" id="item" placeholder="Nieuw toevoegen" />
+					</form>
+				</div>
+				<br>
+				<h3>Reset</h3>
+				<div class="well">
+					<p>Enkel doen indien je zeker bent dat je alles wil resetten (dit kan niet ongedaan gemaakt worden)</p>
+					<button id="reset" type="button" class="btn btn-danger btn-block">Reset alles</button>
+				</div>
+				<br>
+			</div>
+		</div>
+	</div>
+	<script src="tricklist.js"></script>
+	<!-- GKK Service Worker -->
+	<script>
+		if ('serviceWorker' in navigator) {
+			navigator.serviceWorker.register('service-worker.js');
+		}
+	</script>
 
 </body>
 
