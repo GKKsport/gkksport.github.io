@@ -47,29 +47,28 @@ var tpl = function (venue) {
 	var imgPrefix = "https://igx.4sqi.net/img/general/150x200"
 	var gmaps = "https://www.google.be/maps?q="
 
-	node += '<div class="thumbnail"><li class="list-item" data-id="' + venue.id + '"';
-	node += 'data-req=0>';
-	node += '<div class="name">' + venue.name + '</div>';
-	if (typeof venue.rating != "undefined") {
-		node += '<div class="score">(' + venue.rating + ')</div>';
-	} else {
-		node += '<div>Geen score</div>';
-	}
 	if (typeof venue.location.address != "undefined") {
-		node += '<div class="address"><i class="fa fa-map-marker"></i> ' + '<a target="_blank" href="' + gmaps + venue.location.lat + ',' + venue.location.lng + '">' + venue.location.address + '</a> (op ' + venue.location.distance + 'm)</div>';
-	} else {
-		node += '<div>Onbekend adres</div>'
+
+		node += '<div class="thumbnail"><li class="list-item" data-id="' + venue.id + '"';
+		node += 'data-req=0>';
+		node += '<div class="name">' + venue.name + '</div>';
+		if (typeof venue.rating != "undefined") {
+			node += '<div class="score">(' + venue.rating + ')</div>';
+		} else {
+			node += '<div>Geen score</div>';
+		}
+		node += '<div class="address"><i class="fas fa-map-marker"></i> ' + '<a target="_blank" href="' + gmaps + venue.location.lat + ',' + venue.location.lng + '">' + venue.location.address + '</a> (op ' + venue.location.distance + 'm)</div>';
+		node += '</li>';
+		node += '<div class="details"><br>';
+		if (typeof venue.hours != "undefined") {
+			node += '<div class="time"><i class="fas fa-clock"></i> ' + venue.hours.status + '</div>'
+		} else {
+			'<div>Geen uren opgegeven</div>'
+		}
+		node += '</div>';
+		node += '</div>';
+
 	}
-	node += '</li>';
-	node += '<div class="details">';
-	if (typeof venue.hours != "undefined") {
-		node += '<div class="time">' + venue.hours.status + '</div>'
-	}
-	if (venue.photos.count != 0) {
-		node += '<img src="' + imgPrefix + venue.photos.groups[0].items[0].suffix + '">';
-	}
-	node += '</div>';
-	node += '</div>';
 
 	return $(node);
 }
