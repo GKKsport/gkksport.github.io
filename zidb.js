@@ -9,7 +9,7 @@ var today = yyyymmdd(new Date());
 //basis-API-url met datum, clientID en secretID
 var clientID = 'YOPY5G3EOBXN2CRDNUNRC3EK0UK54GWFKKRJJAJRTA0ITOOZ',
 	secretID = '24XZ5NOGJPFUIZNGEIXDM3QGUBKJA1154012JMUMBI2TFVTX',
-	url = 'https://api.foursquare.com/v2/venues/explore?client_id=' + clientID + '&client_secret=' + secretID + '&v=' + today + '&limit=30' + '&sortByDistance=1&venuePhotos=1';
+	url = 'https://api.foursquare.com/v2/venues/explore?client_id=' + clientID + '&client_secret=' + secretID + '&v=' + today + '&limit=30' + '&sortByDistance=1';
 
 var ctrl = function (url, el) {
 	this.url = url || null;
@@ -39,6 +39,7 @@ createFK.createEl = function (res) {
 		el.append($node);
 	}
 	this.data = res;
+	console.log(venues.length);
 }
 
 var tpl = function (venue) {
