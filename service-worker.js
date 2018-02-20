@@ -41,12 +41,12 @@ const RUNTIME = 'GKKv2.0';
 
 // A list of local resources we always want to be cached.
 const PRECACHE_URLS = [
-  'index.html',
+  /*'index.html',
     'triathloncalc.html',
     'tussenstand.html',
     'zwemmen.html',
     'kaartregels.html',
-  'calc.js',
+  'calc.js', */
    /*
 	'tricklist.html',
     'tricklist.js',
