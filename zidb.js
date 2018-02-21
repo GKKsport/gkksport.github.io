@@ -1,6 +1,14 @@
 // PROJECT SG - FOURSQUARE API ZELF AANGELEERD
 // Op GKK-site voor vrij gebruik door vrienden
 
+// Online checker
+window.addEventListener('load', function () {
+	if (navigator.onLine === false) {
+		$('#status').css('display', 'block');
+		console.log('offline');
+	}
+});
+
 
 //voor datum van vandaag
 function yyyymmdd(dateIn) {
