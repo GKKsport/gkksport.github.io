@@ -82,7 +82,7 @@ createShops.createEl = function (res) {
 
 
 var tpl = function (venue) {
-	console.log(venue);
+	// console.log(venue);
 	var node = '';
 	var imgPrefix = "https://igx.4sqi.net/img/general/150x200"
 	var gmaps = "https://www.google.be/maps?q="
@@ -263,7 +263,6 @@ function setLoc() {
 		createShops.update = true;
 		createShops.url += '&ll=' + pos.coords.latitude + ',' + pos.coords.longitude;
 		createShops.getData();
-
 
 		console.log(pos.coords.latitude + ',' + pos.coords.longitude)
 		document.getElementById('loc').innerHTML += '<a href="https://www.google.be/maps?q=' + pos.coords.latitude + ',' + pos.coords.longitude + '" target="_blank"><u> klik hier om je aangegeven locatie te bekijken</u></a>';
