@@ -1,3 +1,7 @@
+// PROJECT SG - FOURSQUARE API ZELF AANGELEERD
+// Op GKK-site voor vrij gebruik door vrienden
+
+
 //voor datum van vandaag
 function yyyymmdd(dateIn) {
 	var yyyy = dateIn.getFullYear();
@@ -9,7 +13,7 @@ var today = yyyymmdd(new Date());
 //basis-API-url met datum, clientID en secretID
 var clientID = 'YOPY5G3EOBXN2CRDNUNRC3EK0UK54GWFKKRJJAJRTA0ITOOZ',
 	secretID = '24XZ5NOGJPFUIZNGEIXDM3QGUBKJA1154012JMUMBI2TFVTX',
-	url = 'https://api.foursquare.com/v2/venues/explore?client_id=' + clientID + '&client_secret=' + secretID + '&v=' + today + '&limit=30' + '&sortByDistance=1';
+	url = 'https://api.foursquare.com/v2/venues/explore?client_id=' + clientID + '&client_secret=' + secretID + '&v=' + today + '&limit=35' + '&sortByDistance=1';
 
 var ctrl = function (url, el) {
 	this.url = url || null;
@@ -25,11 +29,19 @@ ctrl.prototype.getData = function () {
 		});
 }
 
-var createFK = new ctrl();
-createFK.url = url + '&query=nightlife';
-createFK.el = $('.outdoor');
+var createDrinks = new ctrl();
+createDrinks.url = url + '&section=drinks';
+createDrinks.el = $('.drinks');
 
-createFK.createEl = function (res) {
+var createFood = new ctrl();
+createFood.url = url + '&section=food';
+createFood.el = $('.food');
+
+var createShops = new ctrl();
+createShops.url = url + '&section=shops';
+createShops.el = $('.shops');
+
+createDrinks.createEl = function (res) {
 	var venues = res.response.groups[0].items,
 		el = this.el,
 		$node;
@@ -41,6 +53,33 @@ createFK.createEl = function (res) {
 	this.data = res;
 	console.log(venues.length);
 }
+
+createFood.createEl = function (res) {
+	var venues = res.response.groups[0].items,
+		el = this.el,
+		$node;
+
+	for (var i = 0; i < venues.length; i++) {
+		$node = tpl(venues[i].venue);
+		el.append($node);
+	}
+	this.data = res;
+	console.log(venues.length);
+}
+
+createShops.createEl = function (res) {
+	var venues = res.response.groups[0].items,
+		el = this.el,
+		$node;
+
+	for (var i = 0; i < venues.length; i++) {
+		$node = tpl(venues[i].venue);
+		el.append($node);
+	}
+	this.data = res;
+	console.log(venues.length);
+}
+
 
 var tpl = function (venue) {
 	console.log(venue);
@@ -121,6 +160,8 @@ var tpl = function (venue) {
 		} else {
 			node += 'Geen info over de prijs';
 		}
+		node += '<div class="foursquare"><i class="fab fa-foursquare"></i><a target="_blank" href="https://www.foursquare.com/v/' + venue.id + '"> Foursquare link</a></div>';
+		node += '<div class="categorie"><i class="far fa-question-circle"></i> ' + venue.categories[0].name + '</div>'
 		node += '</div>';
 		node += '</div>';
 
@@ -128,12 +169,35 @@ var tpl = function (venue) {
 	return $(node);
 }
 
-function showContent(text) {
-	$('.list-container').css('display', 'none');
+$('#showButtons').on('click', function (e) {
+	$("#buttons").toggle();
+});
 
-	if (text == 'Frietkot')
-		$('.outdoor').css('display', 'block');
+function showFood() {
+	if ($('.drinks').css('display', 'block')) {
+		$('.drinks').css('display', 'none');
+		$('.shops').css('display', 'none')
+		$('.food').css('display', 'block');
+		$('.queryTitel').text('ETEN');
+	}
+}
 
+function showDrinks() {
+	if ($('.drinks').css('display', 'none')) {
+		$('.drinks').css('display', 'block');
+		$('.shops').css('display', 'none')
+		$('.food').css('display', 'none');
+		$('.queryTitel').text('ZUIPEN');
+	}
+}
+
+function showShops() {
+	if ($('.shops').css('display', 'none')) {
+		$('.shops').css('display', 'block');
+		$('.food').css('display', 'none');
+		$('.drinks').css('display', 'none');
+		$('.queryTitel').text('SHOPPEN');
+	}
 }
 
 function createDetails($node) {
@@ -150,6 +214,9 @@ function domEvents() {
 	$('.list-container').on('click', '.list-item', function () {
 		createDetails($(this));
 	});
+
+	$('.food').css('display', 'none');
+	$('.shops').css('display', 'none');
 }
 
 function geoCoder() {
@@ -184,9 +251,20 @@ function setCity(city) {
 function setLoc() {
 	navigator.geolocation.getCurrentPosition(function (pos) {
 		geocoder = new google.maps.Geocoder();
-		createFK.update = true;
-		createFK.url += '&ll=' + pos.coords.latitude + ',' + pos.coords.longitude;
-		createFK.getData();
+
+		createDrinks.update = true;
+		createDrinks.url += '&ll=' + pos.coords.latitude + ',' + pos.coords.longitude;
+		createDrinks.getData();
+
+		createFood.update = true;
+		createFood.url += '&ll=' + pos.coords.latitude + ',' + pos.coords.longitude;
+		createFood.getData();
+
+		createShops.update = true;
+		createShops.url += '&ll=' + pos.coords.latitude + ',' + pos.coords.longitude;
+		createShops.getData();
+
+
 		console.log(pos.coords.latitude + ',' + pos.coords.longitude)
 		document.getElementById('loc').innerHTML += '<a href="https://www.google.be/maps?q=' + pos.coords.latitude + ',' + pos.coords.longitude + '" target="_blank"><u> klik hier om je aangegeven locatie te bekijken</u></a>';
 	});
