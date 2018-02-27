@@ -14,8 +14,8 @@
 // Names of the two caches used in this version of the service worker.
 // Change to v2, etc. when you update any of the local resources, which will
 // in turn trigger the install event again.
-const PRECACHE = 'GKKv2.0.5';
-const RUNTIME = 'GKKv2.0.5';
+const PRECACHE = 'GKKv2.0.6';
+const RUNTIME = 'GKKv2.0.6';
 
 //Update-log
 //1.0.0 - Eerste test-versie
@@ -42,7 +42,7 @@ const RUNTIME = 'GKKv2.0.5';
 //2.0.2 - Eten en shoppen anvulling
 //2.0.3 - offline notificatie
 //2.0.4 - css-tweaks
-//2.0.5 - Triathlon-calc update (eigen afstand)
+//2.0.6 - Triathlon-calc update (eigen afstand)
 
 // A list of local resources we always want to be cached.
 const PRECACHE_URLS = [
