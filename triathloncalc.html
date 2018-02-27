@@ -12,6 +12,14 @@
 	<style>
 		/* Remove the navbar's default margin-bottom and rounded borders */
 		
+		.btn {
+			width: 100%;
+		}
+		
+		#afstand {
+			display: none;
+		}
+		
 		.navbar {
 			margin-bottom: 0;
 			border-radius: 0;
@@ -55,6 +63,7 @@
 				height: auto;
 			}
 		}
+
 	</style>
 </head>
 
@@ -93,9 +102,42 @@
 		<div class="row content">
 			<div class="col-md-10 col-md-offset-1">
 				<h3>Triathlon-calculator</h3>
-				<p>Deze calculator berekent je tijd (exclusief de wissels) voor de 1/8e triathlon te Geel. Vul je zwem-, fiets- en loopsnelheden in en druk op berekenen!</p>
 				<div class="col-md-6 col-md-offset-3">
+					<p class="well">Deze calculator berekent je tijd (met de mogelijkheid om de wissels in achte te nemen) voor de 1/8e triathlon te Geel (het is ook mogelijk andere afstanden in te geven). Vul je zwem-, fiets- en loopsnelheden in alsook je tussentijden en druk op berekenen!</p>
+					<button class="btn btn-default" id="button" onclick="show()">Klik hier om de afstanden van de triathlon aan te passen</button>
 					<form class="form" id="triathlon-calc" action="">
+
+						<div class="row" id="afstand">
+							<div class="col-md-4">
+								<label class="control-label" for="fietsen">Zwemafstand</label>
+								<div class="form-group">
+									<div class="input-group">
+										<input type="number" value="500" onfocus="if (this.value=='500') this.value='';" class="form-control" id="zwemafstand">
+										<span class="input-group-addon">m</span>
+									</div>
+								</div>
+							</div>
+							<div class="col-md-4">
+								<label class="control-label" for="fietsen">Fietsafstand</label>
+								<div class="form-group">
+									<div class="input-group">
+										<input type="number" value="18.8" onfocus="if (this.value=='18.8') this.value='';" class="form-control" id="fietsafstand">
+										<span class="input-group-addon">km</span>
+									</div>
+								</div>
+							</div>
+							<div class="col-md-4">
+								<label class="control-label" for="fietsen">Loopafstand</label>
+								<div class="form-group">
+									<div class="input-group">
+										<input type="number" value="5.1" onfocus="if (this.value=='5.1') this.value='';" class="form-control" id="loopafstand">
+										<span class="input-group-addon">km</span>
+									</div>
+								</div>
+							</div>
+							<p>Bovenstaande afstanden zijn aan te passen maar momenteel ingesteld op deze van de wedstrijd in Geel.</p>
+						</div>
+						<hr>
 						<label class="control-label" for="zwemmen">Zwemmen (per 100m)</label>
 						<div class="form-group">
 							<div class="input-group">
@@ -121,12 +163,38 @@
 								<span class="input-group-addon">seconden</span>
 							</div>
 						</div>
+						<div class="row">
+							<div class="col-md-6">
+								<label class="control-label" for="t1">Tussenstop 1</label>
+								<div class="form-group">
+									<div class="input-group">
+										<input type="number" class="form-control" id="t1min">
+										<span class="input-group-addon">min</span>
+										<input type="number" class="form-control" id="t1sec">
+										<span class="input-group-addon">sec</span>
+									</div>
+								</div>
+							</div>
+							<div class="col-md-6">
+								<label class="control-label" for="t2">Tussenstop 2</label>
+								<div class="form-group">
+									<div class="input-group">
+										<input type="number" class="form-control" id="t2min">
+										<span class="input-group-addon">min</span>
+										<input type="number" class="form-control" id="t2sec">
+										<span class="input-group-addon">sec</span>
+									</div>
+								</div>
+							</div>
+						</div>
 					</form>
+					<br>
 					<p><button onclick="onClick()" class="btn btn-danger">Berekenen!</button></p>
 					<br>
 					<p>Je totale tijd is:</p>
 					<div class="well">
 						<h3><span id="totaaltijd"></span></h3>
+						<p><span id="totaalzondertussentijd"></span></p>
 					</div>
 
 				</div>
@@ -152,6 +220,22 @@
 						</div>
 					</div>
 				</div>
+				<div class="row">
+					<div class="col-md-6 col-md-offset-3">
+						<div class="col-md-6">
+							<p>T1-tijd:</p>
+							<div class="well">
+								<span id="t1tijd"></span>
+							</div>
+						</div>
+						<div class="col-md-6">
+							<p>T2-tijd:</p>
+							<div class="well">
+								<span id="t2tijd"></span>
+							</div>
+						</div>
+					</div>
+				</div>
 			</div>
 		</div>
 	</div>
@@ -160,6 +244,7 @@
 		if ('serviceWorker' in navigator) {
 			navigator.serviceWorker.register('service-worker.js');
 		}
+
 	</script>
 
 
