@@ -8,6 +8,7 @@
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+	<script src="jquery.countdown.min.js"></script>
 	<link rel="icon" sizes="192x192" href="icon.png">
 	<style>
 		/* Remove the navbar's default margin-bottom and rounded borders */
@@ -59,6 +60,7 @@
 				height: auto;
 			}
 		}
+
 	</style>
 </head>
 
@@ -127,6 +129,10 @@
 						</tr>
 					</tbody>
 				</table>
+				<h4>Triathlon-countdown</h4>
+				<div class="alert alert-danger">
+					<p class="text-center">Nog <strong><span id="countdown"></span></strong> te gaan tot de triathlon in Geel!</p>
+				</div>
 			</div>
 			<div class="col-sm-8 text-left">
 				<h4>Sporten</h4>
@@ -256,12 +262,21 @@
 			</div>
 		</div>
 	</div>
+	<script type="text/javascript">
+		$("#countdown")
+			.countdown("2018/05/13", function(event) {
+				$(this).text(
+					event.strftime('%-w weken, %-d dagen en %-H uren')
+				);
+			});
 
+	</script>
 	<!-- GKK Service Worker -->
 	<script>
 		if ('serviceWorker' in navigator) {
 			navigator.serviceWorker.register('service-worker.js');
 		}
+
 	</script>
 </body>
 
