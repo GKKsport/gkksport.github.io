@@ -180,41 +180,42 @@
 									<span id="zwemtechcd"></span>
 								</div>
 							</div>
-							<br>
-							<div class="alert alert-warning" role="alert">
+							<div id="content" class="alert alert-warning" role="alert">
 								<p>
 									<strong>FC</strong> Front Crawl - gewoon crawl, <strong>PULL</strong> Crawl met pullbuoy, <strong>RI</strong> Rest Interval - rusttijd, <strong>BUILD</strong> Elke 25m sneller en sneller zwemmen, <strong>KICK</strong> Benen met plankje, <strong>FISTS</strong> Zwemmen met vuisten gesloten, <strong>NS</strong> Negative Split - het tweede deel sneller zwemmen dan het eerste deel, <strong>RT</strong> Race Tempo - tempo zoals op de wedstrijd, <strong>FTIP</strong> Vingers over het water laten glijden, <strong>CATCH UP</strong> Elke slag 2 seconden laten glijden terwijl je armen voor je zijn, <strong>EASY</strong> Zwemmen op comfortabel tempo.</p>
 							</div>
+
 						</div>
 						<div id="editor"></div>
-					</div>
+						<div id="voet" style="display: none">
+							<p></p>
+							<button type="button" class="btn btn-danger" onclick="window.location.reload()">Begin opnieuw</button>
+							<button type="button" class="btn btn-primary" onclick="zwemsnel();zwemtech();">Herberekenen</button>
+							<button type="button" class="btn btn-success" id="cmd">Afprinten</button>
+							<p></p>
 
-				</div>
-				<div id="zwemsnelheid">
-					<h3 class="staptitel">SNELHEID</h3>
-					<div id="zwemsnelafstand" style="display: block">
-						<label class="control-label" for="zsa">Afstand</label>
-						<div class="form-group">
-							<div class="input-group">
-								<input type="number" class="form-control" id="zsa">
-								<span class="input-group-addon">m</span>
-							</div>
 						</div>
-						<button type="button" class="btn btn-default" onclick="vis('zwemsnelafstand');vis('zwemsneloef');vis('voet');zwemsnel();">Klik hier om oefeningen te geven!</button>
+
 					</div>
-					<div id="zwemsneloef" style="display: none">
-						<p>De afstand van je gekozen oefening is <span id="zwemsnelafst"></span> meter</p>
-						<p><span id="zwemsnelverdeling"></span></p>
-					</div>
-				</div>
-				<div id="voet" style="display: none">
-					<p></p>
-					<button type="button" class="btn btn-danger" onclick="window.location.reload()">Begin opnieuw</button>
-					<button type="button" class="btn btn-primary" onclick="zwemsnel();zwemtech();">Herberekenen</button>
-					<button type="button" class="btn btn-success" id="cmd">Afprinten</button>
-					<p></p>
 				</div>
 
+			</div>
+			<div id="zwemsnelheid">
+				<h3 class="staptitel">SNELHEID</h3>
+				<div id="zwemsnelafstand" style="display: block">
+					<label class="control-label" for="zsa">Afstand</label>
+					<div class="form-group">
+						<div class="input-group">
+							<input type="number" class="form-control" id="zsa">
+							<span class="input-group-addon">m</span>
+						</div>
+					</div>
+					<button type="button" class="btn btn-default" onclick="vis('zwemsnelafstand');vis('zwemsneloef');vis('voet');zwemsnel();">Klik hier om oefeningen te geven!</button>
+				</div>
+				<div id="zwemsneloef" style="display: none">
+					<p>De afstand van je gekozen oefening is <span id="zwemsnelafst"></span> meter</p>
+					<p><span id="zwemsnelverdeling"></span></p>
+				</div>
 			</div>
 		</div>
 	</div>
@@ -237,11 +238,11 @@
 
 
 	<!-- GKK Service Worker -->
-	<!-- <script>
-	if ('serviceWorker' in navigator) {
-		navigator.serviceWorker.register('service-worker.js');
-	}
-</script> -->
+	<script>
+		if ('serviceWorker' in navigator) {
+			navigator.serviceWorker.register('service-worker.js');
+		}
+	</script>
 </body>
 
 </html>
