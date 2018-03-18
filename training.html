@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<title>GKK Sport</title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.3.5/jspdf.debug.js" integrity="sha384-CchuzHs077vGtfhGYl9Qtc7Vx64rXBXdIAZIPbItbNyWIRTdG0oYAqki3Ry13Yzu" crossorigin="anonymous"></script>
+
+	<script src="training.js"></script>
+	<link rel="icon" sizes="192x192" href="icon.png">
+	<style>
+		/* Remove the navbar's default margin-bottom and rounded borders */
+		
+		.voet {
+			position: fixed;
+			bottom: 0;
+			width: 100%;
+		}
+		
+		.staptitel {
+			padding: 6px;
+			display: inline-block;
+			color: white;
+			background-color: black;
+			border-style: solid;
+			border-color: black;
+			margin-bottom: 20px;
+		}
+		
+		#zwemstap2,
+		#zwemtech,
+		#zwemsnelheid {
+			display: none;
+		}
+		
+		.navbar {
+			margin-bottom: 0;
+			border-radius: 0;
+		}
+		/* Set height of the grid so .sidenav can be 100% (adjust as needed) */
+		
+		.row.content {
+			height: 450px
+		}
+		/* Set gray background color and 100% height */
+		
+		.sidenav {
+			padding-top: 20px;
+			background-color: #f1f1f1;
+			height: 100%;
+		}
+		/* Set black background color, white text and some padding */
+		
+		.navbar-brand img {
+			height: 40px;
+		}
+		
+		.navbar-brand {
+			padding-bottom: 3px;
+			padding-top: 6px;
+		}
+		
+		.gold {
+			background-color: gold;
+		}
+		
+		footer {
+			background-color: #555;
+			color: white;
+			padding: 15px;
+		}
+		/* On small screens, set height to 'auto' for sidenav and grid */
+		
+		@media screen and (max-width: 767px) {
+			.sidenav {
+				height: auto;
+				padding: 15px;
+			}
+			.row.content {
+				height: auto;
+			}
+		}
+
+	</style>
+</head>
+
+<body>
+
+	<nav class="navbar navbar-inverse">
+		<div class="container-fluid">
+			<div class="navbar-header">
+				<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>                        
+      </button>
+				<a class="navbar-brand" href="index.html"><img src="GKK.png"></a>
+			</div>
+			<div class="collapse navbar-collapse" id="myNavbar">
+				<ul class="nav navbar-nav">
+					<li><a href="tussenstand.html">Tussenstand/Kalender</a></li>
+					<li><a href="zwemmen.html">Zwemmen</a></li>
+					<li class="active">
+						<a href="training">Training</a>
+					</li>
+					<li><a href="triathloncalc.html">Triathlon-calc</a></li>
+					<li><a href="kaartregels.html">Kaartregels</a></li>
+					<li><a href="zidb.html">ZIDB</a></li>
+					<li class="dropdown">
+						<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Archief <span class="caret"></span></a>
+						<ul class="dropdown-menu">
+							<li><a href="tricklist.html">Tricklist</a></li>
+						</ul>
+					</li>
+				</ul>
+			</div>
+		</div>
+	</nav>
+	<div class="container-fluid text-center">
+		<div class="row">
+			<div class="col-md-8 col-md-offset-2">
+				<br>
+				<div id="stap1" style="display: block">
+					<h3 class="staptitel">STAP 1</h3>
+					<div>
+						<button type="button" class="btn btn-default" onclick="vis('stap1');vis('zwemstap2');">Zwemmen</button>
+						<button type="button" class="btn btn-default" disabled="disabled">Lopen</button>
+						<button type="button" class="btn btn-default" disabled="disabled">Fietsen</button>
+					</div>
+				</div>
+				<div id="zwemstap2">
+					<h3 class="staptitel">STAP 2</h3>
+					<div>
+						<button type="button" class="btn btn-default" onclick="vis('zwemtech');vis('zwemstap2');">Techniek</button>
+						<button type="button" class="btn btn-default" onclick="vis('zwemsnelheid');vis('zwemstap2');" disabled="disabled">Snelheid</button>
+					</div>
+				</div>
+				<div id="zwemtech">
+					<div id="zwemtechafstand" style="display: block">
+						<h3 class="staptitel">STAP 3</h3>
+						<div><label class="control-label" for="zta">Afstand</label>
+							<div class="form-group">
+								<div class="input-group">
+									<input type="number" class="form-control" id="zta">
+									<span class="input-group-addon">m</span>
+								</div>
+							</div>
+							<button type="button" class="btn btn-default" onclick="vis('zwemtechafstand');vis('zwemtechoef');zwemtech();vis('voet');">Klik hier om oefeningen te geven!</button></div>
+					</div>
+					<div id="zwemtechoef" style="display: none">
+						<h3 class="staptitel">OEFENINGEN</h3>
+						<div id="content">
+							<div class="alert alert-info" role="alert">
+								<p>De afstand van je gekozen training is <strong><span id="zwemtechafst"></span></strong> meter</p>
+							</div>
+							<div class="panel panel-primary">
+								<div class="panel-heading">
+									<h3 class="panel-title">Opwarming <small>(<span id="zwemtechopwa"></span>)</small></h3>
+								</div>
+								<div class="panel-body">
+									<span id="zwemtechopw"></span>
+								</div>
+							</div>
+							<div class="panel panel-primary">
+								<div class="panel-heading">
+									<h3 class="panel-title">Basis <small>(<span id="zwemtechtraininga"></span>)</small></h3>
+								</div>
+								<div class="panel-body">
+									<span id="zwemtechtraining"></span>
+								</div>
+							</div>
+							<div class="panel panel-primary">
+								<div class="panel-heading">
+									<h3 class="panel-title">Uitzwemmen <small>(<span id="zwemtechcda"></span>)</small></h3>
+								</div>
+								<div class="panel-body">
+									<span id="zwemtechcd"></span>
+								</div>
+							</div>
+							<br>
+							<div class="alert alert-warning" role="alert">
+								<p>
+									<strong>FC</strong> Front Crawl - gewoon crawl, <strong>PULL</strong> Crawl met pullbuoy, <strong>RI</strong> Rest Interval - rusttijd, <strong>BUILD</strong> Elke 25m sneller en sneller zwemmen, <strong>KICK</strong> Benen met plankje, <strong>FISTS</strong> Zwemmen met vuisten gesloten, <strong>NS</strong> Negative Split - het tweede deel sneller zwemmen dan het eerste deel, <strong>RT</strong> Race Tempo - tempo zoals op de wedstrijd, <strong>FTIP</strong> Vingers over het water laten glijden, <strong>CATCH UP</strong> Elke slag 2 seconden laten glijden terwijl je armen voor je zijn, <strong>EASY</strong> Zwemmen op comfortabel tempo.</p>
+							</div>
+						</div>
+						<div id="editor"></div>
+					</div>
+
+				</div>
+				<div id="zwemsnelheid">
+					<h3 class="staptitel">SNELHEID</h3>
+					<div id="zwemsnelafstand" style="display: block">
+						<label class="control-label" for="zsa">Afstand</label>
+						<div class="form-group">
+							<div class="input-group">
+								<input type="number" class="form-control" id="zsa">
+								<span class="input-group-addon">m</span>
+							</div>
+						</div>
+						<button type="button" class="btn btn-default" onclick="vis('zwemsnelafstand');vis('zwemsneloef');vis('voet');zwemsnel();">Klik hier om oefeningen te geven!</button>
+					</div>
+					<div id="zwemsneloef" style="display: none">
+						<p>De afstand van je gekozen oefening is <span id="zwemsnelafst"></span> meter</p>
+						<p><span id="zwemsnelverdeling"></span></p>
+					</div>
+				</div>
+
+			</div>
+			<div id="voet" class="voet" style="display: none">
+				<button type="button" class="btn btn-danger" onclick="window.location.reload()">Begin opnieuw</button>
+				<button type="button" class="btn btn-primary" onclick="zwemsnel();zwemtech();">Bereken opnieuw</button>
+				<button type="button" class="btn btn-success" id="cmd">Afprinten</button>
+				<p></p>
+			</div>
+		</div>
+	</div>
+
+
+	<script>
+		var doc = new jsPDF();
+		var specialElementHandlers = {
+			'#editor': function(element, renderer) {
+				return true;
+			}
+		};
+
+		$('#cmd').click(function() {
+			doc.fromHTML($('#content').html(), 15, 15, {
+				'width': 170,
+				'elementHandlers': specialElementHandlers
+			});
+			doc.save('zwemtechniek.pdf');
+		});
+
+	</script>
+
+
+
+	<!-- GKK Service Worker -->
+	<!-- <script>
+	if ('serviceWorker' in navigator) {
+		navigator.serviceWorker.register('service-worker.js');
+	}
+</script> -->
+</body>
+
+</html>
