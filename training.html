@@ -135,7 +135,7 @@
 					<h3 class="staptitel">STAP 2</h3>
 					<div>
 						<button type="button" class="btn btn-default" onclick="vis('zwemtech');vis('zwemstap2');">Techniek</button>
-						<button type="button" class="btn btn-default" onclick="vis('zwemsnelheid');vis('zwemstap2');" disabled="disabled">Snelheid</button>
+						<button type="button" class="btn btn-default" onclick="vis('zwemsnelheid');vis('zwemstap2');">Snelheid</button>
 					</div>
 				</div>
 				<div id="zwemtech">
@@ -144,7 +144,7 @@
 						<div><label class="control-label" for="zta">Afstand</label>
 							<div class="form-group">
 								<div class="input-group">
-									<input type="number" class="form-control" id="zta">
+									<input type="number" class="form-control" id="zta" value="2000">
 									<span class="input-group-addon">m</span>
 								</div>
 							</div>
@@ -182,39 +182,71 @@
 							</div>
 							<div id="content" class="alert alert-warning" role="alert">
 								<p>
-									<strong>FC</strong> Front Crawl - gewoon crawl, <strong>PULL</strong> Crawl met pullbuoy, <strong>RI</strong> Rest Interval - rusttijd, <strong>BUILD</strong> Elke 25m sneller en sneller zwemmen, <strong>KICK</strong> Benen met plankje, <strong>FISTS</strong> Zwemmen met vuisten gesloten, <strong>NS</strong> Negative Split - het tweede deel sneller zwemmen dan het eerste deel, <strong>RT</strong> Race Tempo - tempo zoals op de wedstrijd, <strong>FTIP</strong> Vingers over het water laten glijden, <strong>CATCH UP</strong> Elke slag 2 seconden laten glijden terwijl je armen voor je zijn, <strong>EASY</strong> Zwemmen op comfortabel tempo.</p>
+									<strong>FC</strong> Front Crawl - gewoon crawl, <strong>PULL</strong> Crawl met pullbuoy, <strong>RI</strong> Rest Interval - rusttijd, <strong>BUILD</strong> Elke 25m sneller en sneller zwemmen, <strong>KICK</strong> Benen met plankje, <strong>FISTS</strong> Zwemmen met vuisten gesloten, <strong>NS</strong> Negative Split - het tweede deel sneller zwemmen dan het eerste deel, <strong>RT</strong> Race Tempo - tempo zoals op de wedstrijd, <strong>FTIP</strong> Vingers over het water laten glijden, <strong>CATCH UP</strong> Elke slag 2 seconden laten glijden terwijl je armen voor je zijn,
+									<strong>SPRINT</strong> Zo snel als je kan zwemmen.</p>
 							</div>
-
 						</div>
 						<div id="editor"></div>
-						<div id="voet" style="display: none">
-							<p></p>
-							<button type="button" class="btn btn-danger" onclick="window.location.reload()">Begin opnieuw</button>
-							<button type="button" class="btn btn-primary" onclick="zwemsnel();zwemtech();">Herberekenen</button>
-							<button type="button" class="btn btn-success" id="cmd">Afprinten</button>
-							<p></p>
-
-						</div>
-
 					</div>
 				</div>
+				<div id="zwemsnelheid">
+					<div id="zwemsnelafstand" style="display: block">
+						<h3 class="staptitel">STAP 3</h3>
+						<div><label class="control-label" for="zsa">Afstand</label>
 
-			</div>
-			<div id="zwemsnelheid">
-				<h3 class="staptitel">SNELHEID</h3>
-				<div id="zwemsnelafstand" style="display: block">
-					<label class="control-label" for="zsa">Afstand</label>
-					<div class="form-group">
-						<div class="input-group">
-							<input type="number" class="form-control" id="zsa">
-							<span class="input-group-addon">m</span>
-						</div>
+							<div class="form-group">
+								<div class="input-group">
+									<input type="number" class="form-control" id="zsa" step="100" value="2000">
+									<span class="input-group-addon">m</span>
+								</div>
+							</div>
+							<button type="button" class="btn btn-default" onclick="vis('zwemsnelafstand');vis('zwemsneloef');zwemsnel();vis('voet');">Klik hier om oefeningen te geven!</button></div>
 					</div>
-					<button type="button" class="btn btn-default" onclick="vis('zwemsnelafstand');vis('zwemsneloef');vis('voet');zwemsnel();">Klik hier om oefeningen te geven!</button>
+					<div id="zwemsneloef" style="display: none">
+						<h3 class="staptitel">OEFENINGEN</h3>
+						<div id="content">
+							<div class="alert alert-info" role="alert">
+								<p>De afstand van je gekozen training is <strong><span id="zwemsnelafst"></span></strong> meter</p>
+							</div>
+							<div class="panel panel-primary">
+								<div class="panel-heading">
+									<h3 class="panel-title">Opwarming <small>(<span id="zwemsnelopwa"></span>)</small></h3>
+								</div>
+								<div class="panel-body">
+									<span id="zwemsnelopw"></span>
+								</div>
+							</div>
+							<div class="panel panel-primary">
+								<div class="panel-heading">
+									<h3 class="panel-title">Basis <small>(<span id="zwemsneltraininga"></span>)</small></h3>
+								</div>
+								<div class="panel-body">
+									<span id="zwemsneltraining"></span>
+								</div>
+							</div>
+							<div class="panel panel-primary">
+								<div class="panel-heading">
+									<h3 class="panel-title">Uitzwemmen <small>(<span id="zwemsnelcda"></span>)</small></h3>
+								</div>
+								<div class="panel-body">
+									<span id="zwemsnelcd"></span>
+								</div>
+							</div>
+							<div id="content" class="alert alert-warning" role="alert">
+								<p>
+									<strong>FC</strong> Front Crawl - gewoon crawl, <strong>PULL</strong> Crawl met pullbuoy, <strong>RI</strong> Rest Interval - rusttijd, <strong>BUILD</strong> Elke 25m sneller en sneller zwemmen, <strong>KICK</strong> Benen met plankje, <strong>FISTS</strong> Zwemmen met vuisten gesloten, <strong>NS</strong> Negative Split - het tweede deel sneller zwemmen dan het eerste deel, <strong>RT</strong> Race Tempo - tempo zoals op de wedstrijd, <strong>FTIP</strong> Vingers over het water laten glijden, <strong>CATCH UP</strong> Elke slag 2 seconden laten glijden terwijl je armen voor je zijn,
+									<strong>SPRINT</strong> Zo snel als je kan zwemmen.</p>
+							</div>
+						</div>
+						<div id="editor"></div>
+					</div>
 				</div>
-				<div id="zwemsneloef" style="display: none">
-					<p>De afstand van je gekozen oefening is <span id="zwemsnelafst"></span> meter</p>
-					<p><span id="zwemsnelverdeling"></span></p>
+				<div id="voet" style="display: none">
+					<p></p>
+					<button type="button" class="btn btn-danger" onclick="window.location.reload()">Begin opnieuw</button>
+					<button type="button" class="btn btn-primary" onclick="zwemsnel();zwemtech();">Herberekenen</button>
+					<button type="button" class="btn btn-success" id="cmd">Afprinten</button>
+					<p></p>
 				</div>
 			</div>
 		</div>
