@@ -14,8 +14,8 @@
 // Names of the two caches used in this version of the service worker.
 // Change to v2, etc. when you update any of the local resources, which will
 // in turn trigger the install event again.
-const PRECACHE = 'GKKv3';
-const RUNTIME = 'GKKv3';
+const PRECACHE = 'GKKv3.0.1';
+const RUNTIME = 'GKKv3.0.1';
 
 //Update-log
 //1.0.0 - Eerste test-versie
@@ -47,7 +47,8 @@ const RUNTIME = 'GKKv3';
 //2.0.8 - Chat
 //2.1.0 - Oefeningen update
 //2.1.1 - Snelheidsoefeningen toegevoegd
-//3 - Wielerkalender
+//3.0.0 - Wielerkalender
+//3.0.1 - Push messages wielerkalender
 
 // A list of local resources we always want to be cached.
 const PRECACHE_URLS = [

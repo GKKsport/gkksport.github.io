@@ -60,7 +60,21 @@
 				height: auto;
 			}
 		}
+
 	</style>
+
+	<!-- Onesignal Push messages -->
+	<link rel="manifest" href="/manifest.json" />
+	<script src="https://cdn.onesignal.com/sdks/OneSignalSDK.js" async=""></script>
+	<script>
+		var OneSignal = window.OneSignal || [];
+		OneSignal.push(function() {
+			OneSignal.init({
+				appId: "77f332f3-98b8-4635-8edb-10b394fae679",
+			});
+		});
+
+	</script>
 </head>
 
 <body>
@@ -1002,12 +1016,14 @@
 					event.strftime('%-w weken, %-d dagen en %-H uren')
 				);
 			});
+
 	</script>
 	<!-- GKK Service Worker -->
 	<script>
 		if ('serviceWorker' in navigator) {
 			navigator.serviceWorker.register('service-worker.js');
 		}
+
 	</script>
 </body>
 
