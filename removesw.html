@@ -1,0 +1,21 @@
+<html>
+
+<head>
+	<script>
+		if (window.navigator && navigator.serviceWorker) {
+			navigator.serviceWorker.getRegistrations()
+				.then(function(registrations) {
+					for (let registration of registrations) {
+						registration.unregister();
+					}
+				});
+		}
+
+	</script>
+</head>
+
+<body>
+	<p>Hier hoef je nooit meer terug te komen</p>
+</body>
+
+</html>
