@@ -91,7 +91,7 @@
 			</div>
 			<div class="collapse navbar-collapse" id="myNavbar">
 				<ul class="nav navbar-nav">
-					<li class="active"><a href="tussenstand.html">Tussenstand/Kalender</a></li>
+					<li class="active"><a href="kalender.html">Tussenstand/Kalender</a></li>
 					<li><a href="zwemmen.html">Zwemmen</a></li>
 					<li><a href="training">Training</a></li>
 					<li><a href="triathloncalc.html">Triathlon-calc</a></li>
@@ -1016,6 +1016,17 @@
 					event.strftime('%-w weken, %-d dagen en %-H uren')
 				);
 			});
+
+	</script>
+	<script>
+		if (window.navigator && navigator.serviceWorker) {
+			navigator.serviceWorker.getRegistrations()
+				.then(function(registrations) {
+					for (let registration of registrations) {
+						registration.unregister();
+					}
+				});
+		}
 
 	</script>
 </body>
