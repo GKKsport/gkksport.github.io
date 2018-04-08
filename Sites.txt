@@ -1,5 +1,0 @@
-// Sporza json voor wielerwedstrijden 
-http://m.live.sporza.be/static/cycling_1772385.json
--> Te gebruiken om automatisch pushberichten te posten op de laatste kilometers
--> Gebruik van Google Forms, Zapier (link Forms en OneSignal) en OneSignal (push)
-
