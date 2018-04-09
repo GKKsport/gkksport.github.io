@@ -3,7 +3,7 @@
 	"match": {
 		"isExternal": true,
 		"matchType": "CYCLING",
-		"distanceToFinish": 150,
+		"distanceToFinish": 101,
 		"distanceUnit": "KM",
 		"gaps": [{
 	"name" : "Winnaar",
