@@ -67,7 +67,7 @@
 		}
 
 		function normaal() {
-			var url = 'http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',
+			var url = 'https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',
 				attr = '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>',
 				service = new L.TileLayer(url, {
 					attribution: attr
@@ -75,7 +75,7 @@
 			map.addLayer(service);
 		}
 
-		var url = 'http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',
+		var url = 'https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',
 			attr = '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>',
 			service = new L.TileLayer(url, {
 				attribution: attr
