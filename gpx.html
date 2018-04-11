@@ -13,16 +13,17 @@
 			padding: 0px;
 			margin: 0px;
 		}
+
 	</style>
-	<script src="http://d3js.org/d3.v3.min.js" charset="utf-8"></script>
-	<link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.7.2/leaflet.css" />
-	<!--[if lte IE 8]><link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.7.2/leaflet.ie.css" /><![endif]-->
+	<script src="https://d3js.org/d3.v3.min.js" charset="utf-8"></script>
+	<link rel="stylesheet" href="https://cdn.leafletjs.com/leaflet-0.7.2/leaflet.css" />
+	<!--[if lte IE 8]><link rel="stylesheet" href="https://cdn.leafletjs.com/leaflet-0.7.2/leaflet.ie.css" /><![endif]-->
 
-	<link rel="stylesheet" href="http://mrmufflon.github.io/Leaflet.Elevation/example/lib/elevation/Leaflet.Elevation-0.0.2.css" />
+	<link rel="stylesheet" href="https://mrmufflon.github.io/Leaflet.Elevation/example/lib/elevation/Leaflet.Elevation-0.0.2.css" />
 
-	<script type="text/javascript" src="http://cdn.leafletjs.com/leaflet-0.7.2/leaflet.js"></script>
-	<script type="text/javascript" src="http://mrmufflon.github.io/Leaflet.Elevation/example/lib/elevation/Leaflet.Elevation-0.0.2.min.js"></script>
-	<script type="text/javascript" src="http://mrmufflon.github.io/Leaflet.Elevation/example/lib/leaflet-gpx/gpx.js"></script>
+	<script type="text/javascript" src="https://cdn.leafletjs.com/leaflet-0.7.2/leaflet.js"></script>
+	<script type="text/javascript" src="https://mrmufflon.github.io/Leaflet.Elevation/example/lib/elevation/Leaflet.Elevation-0.0.2.min.js"></script>
+	<script type="text/javascript" src="https://mrmufflon.github.io/Leaflet.Elevation/example/lib/leaflet-gpx/gpx.js"></script>
 </head>
 
 <body>
@@ -33,7 +34,7 @@
 		var map = new L.Map('map');
 
 		var url = 'https://{s}.tile.thunderforest.com/cycle/{z}/{x}/{y}.png?apikey=7d27de9815e648cdaf3bf4dc1cf9d075',
-			attr = 'Tiles Courtesy of <a href="http://www.mapquest.com/">MapQuest</a> &mdash; Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, <a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>',
+			attr = 'Tiles Courtesy of <a href="https://www.mapquest.com/">MapQuest</a> &mdash; Map data &copy; <a href="https://openstreetmap.org">OpenStreetMap</a> contributors, <a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>',
 			service = new L.TileLayer(url, {
 				subdomains: "1234",
 				attribution: attr
@@ -44,9 +45,9 @@
 		var g = new L.GPX("./ovv83.gpx", {
 			async: true,
 			marker_options: {
-				startIconUrl: 'http://mrmufflon.github.io/Leaflet.Elevation/example/lib/leaflet-gpx/pin-icon-start.png',
-				endIconUrl: 'http://mrmufflon.github.io/Leaflet.Elevation/example/lib/leaflet-gpx/pin-icon-end.png',
-				shadowUrl: 'http://mrmufflon.github.io/Leaflet.Elevation/example/lib/leaflet-gpx/pin-shadow.png'
+				startIconUrl: 'https://mrmufflon.github.io/Leaflet.Elevation/example/lib/leaflet-gpx/pin-icon-start.png',
+				endIconUrl: 'https://mrmufflon.github.io/Leaflet.Elevation/example/lib/leaflet-gpx/pin-icon-end.png',
+				shadowUrl: 'https://mrmufflon.github.io/Leaflet.Elevation/example/lib/leaflet-gpx/pin-shadow.png'
 			}
 		});
 		g.on('loaded', function(e) {
@@ -57,6 +58,7 @@
 		});
 		g.addTo(map);
 		map.addLayer(service);
+
 	</script>
 </body>
 
