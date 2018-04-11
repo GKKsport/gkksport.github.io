@@ -1,8 +1,8 @@
-
 <!DOCTYPE html>
 <html>
+
 <head>
-	<title>Leaflet.Elevation</title>
+	<title>GKK GPX-viewer</title>
 	<meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
 	<style>
 		html,
@@ -21,31 +21,37 @@
 	<link rel="stylesheet" href="https://mrmufflon.github.io/Leaflet.Elevation/example/lib/elevation/Leaflet.Elevation-0.0.2.css" />
 
 	<script type="text/javascript" src="./leaflet/leaflet.js"></script>
-	<script type="text/javascript" src="https://mrmufflon.github.io/Leaflet.Elevation/example/lib/elevation/Leaflet.Elevation-0.0.2.min.js"></script>
+	<script type="text/javascript" src="./leaflet/elevation.js"></script>
 	<script type="text/javascript" src="./leaflet/gpx.js"></script>
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 </head>
 
 <body>
-
 	<div id="map"></div>
 	<br>
-	<label class="btn btn-primary btn-block" id="bestand">
-                Selecteer een GPX-bestand <input type="file" id="upload" style="display: none;" accept="*.gpx">
-    </label>
-	<button class="btn btn-danger btn-block" style="display:none" onclick="location.reload()" id="reload">Een ander bestand checken</button>
-	<br>
+	<div id="bestand">
+		<label class="btn btn-primary btn-block">Selecteer een GPX-bestand <input type="file" id="upload" style="display: none;" accept="*.gpx"></label>
+		<br>
+	</div>
+	<div class="row" id="reload" style="display:none">
+		<div class="col-md-10 col-sm-10 col-xs-10">
+			<div id="status" class="alert alert-success text-center">
+				<strong>Naam bestand: <span id="name"></span></strong> / Stijging: <span id="stijgen"></span>m / Daling: <span id="dalen"></span>m / Hoogteverschil: <span id="net"></span>m
+			</div>
+		</div>
+		<div class="col-md-2 col-sm-2 col-xs-2">
+			<button class="btn btn-danger btn-block alert" onclick="location.reload()">Opnieuw</button>
+		</div>
+	</div>
 	<div class="row">
-		<div class="col-md-6 col-sm-6"><button class="btn btn-default btn-block" onclick="fiets()">Fietskaart</button></div>
-		<div class="col-md-6 col-sm-6"><button class="btn btn-default btn-block" onclick="normaal()">Normaal</button></div>
+		<div class="col-md-2 col-sm-2 col-xs-2"></div>
+		<div class="col-md-4 col-sm-4 col-xs-4"><button class="btn btn-default btn-block" onclick="fiets()">Fietskaart</button></div>
+		<div class="col-md-4 col-sm-4 col-xs-4"><button class="btn btn-default btn-block" onclick="normaal()">Normale kaart</button></div>
+		<div class="col-md-2 col-sm-2 col-xs-2"></div>
 	</div>
 
 	<br>
-
-	<span id="name"></span><span id="stijgen"></span><span id="dalen"></span><span id="net"></span>
-
-
 
 	<script type="text/javascript">
 		var map = new L.Map('map').setView([51.05, 3.71667], 12);
@@ -75,10 +81,12 @@
 			});
 		map.addLayer(service);
 
+		var scherm = $(window).width();
+
 		var el = L.control.elevation({
 			position: "bottomright",
 			theme: "steelblue-theme", //default: lime-theme
-			width: 500,
+			width: scherm / 2,
 			height: 125,
 			margins: {
 				top: 10,
@@ -148,4 +156,5 @@
 		});
 	</script>
 </body>
+
 </html>
