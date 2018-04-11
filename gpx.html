@@ -1,56 +1,54 @@
+
 <!DOCTYPE html>
 <html>
-
 <head>
-	<title>GKK GPX-reader</title>
+	<title>Leaflet.Elevation</title>
 	<meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
 	<style>
+		html,
+		body,
 		#map {
-			height: 90%;
+			height: 94%;
 			width: 100%;
 			padding: 4px;
 			margin: 0px;
 		}
 	</style>
-
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-
-	<script src="https://d3js.org/d3.v3.min.js" charset="utf-8"></script>
-
-	<link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.7.2/leaflet.css" />
+	<script src="http://d3js.org/d3.v3.min.js" charset="utf-8"></script>
+	<link rel="stylesheet" href="./leaflet/leaflet.css" />
 	<!--[if lte IE 8]><link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.7.2/leaflet.ie.css" /><![endif]-->
-	<script type="text/javascript" src="http://cdn.leafletjs.com/leaflet-0.7.2/leaflet.js"></script>
 
 	<link rel="stylesheet" href="https://mrmufflon.github.io/Leaflet.Elevation/example/lib/elevation/Leaflet.Elevation-0.0.2.css" />
 
+	<script type="text/javascript" src="./leaflet/leaflet.js"></script>
 	<script type="text/javascript" src="https://mrmufflon.github.io/Leaflet.Elevation/example/lib/elevation/Leaflet.Elevation-0.0.2.min.js"></script>
-	<script type="text/javascript" src="https://mrmufflon.github.io/Leaflet.Elevation/example/lib/leaflet-gpx/gpx.js"></script>
+	<script type="text/javascript" src="./leaflet/gpx.js"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 </head>
 
 <body>
 
 	<div id="map"></div>
-
+	<br>
 	<label class="btn btn-primary btn-block" id="bestand">
-                Selecteer een GPX-bestand <input type="file" id="the-file-input" style="display: none;" accept="*.gpx">
+                Selecteer een GPX-bestand <input type="file" id="upload" style="display: none;" accept="*.gpx">
     </label>
-	<!--<div id="foot">
-		<label class="btn btn-primary btn-block" id="bestand">
-                Selecteer een GPX-bestand <input type="file" id="the-file-input" style="display: none;" accept="*.gpx">
-    </label>
-		<button class="btn btn-danger btn-block" style="display:none" onclick="reload()" id="reload">Een ander bestand checken</button>
-		<br>
-		<div class="row">
-			<div class="col-md-6"><button class="btn btn-default btn-block" onclick="fiets()">Fietskaart</button></div>
-			<div class="col-md-6"><button class="btn btn-default btn-block" onclick="normaal()">Normaal</button></div>
-		</div>
-	</div>-->
+	<button class="btn btn-danger btn-block" style="display:none" onclick="location.reload()" id="reload">Een ander bestand checken</button>
+	<br>
+	<div class="row">
+		<div class="col-md-6 col-sm-6"><button class="btn btn-default btn-block" onclick="fiets()">Fietskaart</button></div>
+		<div class="col-md-6 col-sm-6"><button class="btn btn-default btn-block" onclick="normaal()">Normaal</button></div>
+	</div>
+
+	<br>
+
+	<span id="name"></span><span id="stijgen"></span><span id="dalen"></span><span id="net"></span>
+
 
 
 	<script type="text/javascript">
-		var map = new L.Map('map');
+		var map = new L.Map('map').setView([51.05, 3.71667], 12);
 
 		function fiets() {
 			var url = 'https://{s}.tile.thunderforest.com/cycle/{z}/{x}/{y}.png?apikey=7d27de9815e648cdaf3bf4dc1cf9d075',
@@ -75,23 +73,6 @@
 			service = new L.TileLayer(url, {
 				attribution: attr
 			});
-
-		var g = new L.GPX('./ovv83.gpx', {
-			async: true,
-			marker_options: {
-				startIconUrl: 'https://mrmufflon.github.io/Leaflet.Elevation/example/lib/leaflet-gpx/pin-icon-start.png',
-				endIconUrl: 'https://mrmufflon.github.io/Leaflet.Elevation/example/lib/leaflet-gpx/pin-icon-end.png',
-				shadowUrl: 'https://mrmufflon.github.io/Leaflet.Elevation/example/lib/leaflet-gpx/pin-shadow.png'
-			}
-		});
-
-		g.on('loaded', function(e) {
-			map.fitBounds(e.target.getBounds());
-		});
-		g.on("addline", function(e) {
-			el.addData(e.line);
-		});
-		g.addTo(map);
 		map.addLayer(service);
 
 		var el = L.control.elevation({
@@ -118,30 +99,10 @@
 		});
 		el.addTo(map);
 
-		var g = new L.GPX('./ovv83.gpx', {
-			async: true,
-			marker_options: {
-				startIconUrl: 'https://mrmufflon.github.io/Leaflet.Elevation/example/lib/leaflet-gpx/pin-icon-start.png',
-				endIconUrl: 'https://mrmufflon.github.io/Leaflet.Elevation/example/lib/leaflet-gpx/pin-icon-end.png',
-				shadowUrl: 'https://mrmufflon.github.io/Leaflet.Elevation/example/lib/leaflet-gpx/pin-shadow.png'
-			}
-		});
-
-		g.on('loaded', function(e) {
-			map.fitBounds(e.target.getBounds());
-		});
-		g.on("addline", function(e) {
-			el.addData(e.line);
-		});
-		g.addTo(map);
-		map.addLayer(service);
-
 		function renderGPX(file) {
 
 			// generate a new FileReader object
 			var reader = new FileReader();
-
-			$('#map').css('height', '90%');
 
 			// inject an image with the src url
 			reader.onload = function(event) {
@@ -157,6 +118,13 @@
 
 				g.on('loaded', function(e) {
 					map.fitBounds(e.target.getBounds());
+					var gpx = e.target;
+					document.getElementById("name").textContent = gpx.get_name();
+					document.getElementById("stijgen").textContent = gpx.get_elevation_gain().toFixed(0);
+					document.getElementById("dalen").textContent = gpx.get_elevation_loss().toFixed(0);
+					document.getElementById("net").textContent = (gpx.get_elevation_gain() -
+						gpx.get_elevation_loss()).toFixed(0);
+
 				});
 				g.on("addline", function(e) {
 					el.addData(e.line);
@@ -164,19 +132,20 @@
 				g.addTo(map);
 				map.addLayer(service);
 			}
+
+			// when the file is read it triggers the onload event above.
+			reader.readAsDataURL(file);
+
+			$('#reload').css('display', 'block');
+			$('#bestand').css('display', 'none');
 		}
 
-		// when the file is read it triggers the onload event above.
-		reader.readAsDataURL(file);
-
 		// handle input changes
-		$("#the-file-input").change(function() {
+		$("#upload").change(function() {
 			console.log(this.files)
 			// grab the first image in the FileList object and pass it to the function
 			renderGPX(this.files[0])
 		});
 	</script>
-
 </body>
-
 </html>
