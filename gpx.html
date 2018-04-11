@@ -8,7 +8,7 @@
 		html,
 		body,
 		#map {
-			height: 100%;
+			height: 90%;
 			width: 100%;
 			padding: 4px;
 			margin: 0px;
@@ -37,10 +37,11 @@
 	<div id="map"></div>
 
 
-	<!--<form>
-	<input type="file" name="file">
-	<input type="submit" id="submit">
-</form>-->
+	<form>
+		<input type="text" id="file">
+	</form>
+
+	<button onclick="test()">Test</button>
 
 	<script type="text/javascript">
 		var map = new L.Map('map');
@@ -92,6 +93,27 @@
 		});
 		g.addTo(map);
 		map.addLayer(service);
+
+		function test() {
+			var gpx = document.getElementById('file').value;
+			var h = new L.GPX(gpx, {
+				async: true,
+				marker_options: {
+					startIconUrl: 'https://mrmufflon.github.io/Leaflet.Elevation/example/lib/leaflet-gpx/pin-icon-start.png',
+					endIconUrl: 'https://mrmufflon.github.io/Leaflet.Elevation/example/lib/leaflet-gpx/pin-icon-end.png',
+					shadowUrl: 'https://mrmufflon.github.io/Leaflet.Elevation/example/lib/leaflet-gpx/pin-shadow.png'
+				}
+			});
+
+			h.on('loaded', function(e) {
+				map.fitBounds(e.target.getBounds());
+			});
+			h.on("addline", function(e) {
+				el.addData(e.line);
+			});
+			h.addTo(map);
+			map.addLayer(service);
+		}
 	</script>
 
 </body>
