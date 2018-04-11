@@ -2,17 +2,17 @@
 <html>
 
 <head>
-	<title>Leaflet.Elevation</title>
+	<title>GKK GPX-reader</title>
 	<meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
 	<style>
-		html,
-		body,
 		#map {
 			height: 90%;
 			width: 100%;
 			padding: 4px;
 			margin: 0px;
 		}
+		/* Remove the navbar's default margin-bottom and rounded borders */
+
 	</style>
 
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
@@ -32,22 +32,42 @@
 </head>
 
 <body>
+	<div id="map" style="display:none"></div>
+	<br>
+	<label class="btn btn-primary btn-block" id="bestand">
+                Selecteer een GPX-bestand <input type="file" id="the-file-input" style="display: none;" accept="*.gpx">
+    </label>
+	<button class="btn btn-danger btn-block" style="display:none" onclick="reload()" id="reload">Een ander bestand checken</button>
+	<br>
+	<div class="row">
+		<div class="col-md-6"><button class="btn btn-default btn-block" onclick="fiets()">Fietskaart</button></div>
+		<div class="col-md-6"><button class="btn btn-default btn-block" onclick="normaal()">Normaal</button></div>
+	</div>
 
-
-	<div id="map"></div>
-
-
-	<form>
-		<input type="text" id="file">
-	</form>
-
-	<button onclick="test()">Test</button>
 
 	<script type="text/javascript">
 		var map = new L.Map('map');
 
-		var url = 'https://{s}.tile.thunderforest.com/cycle/{z}/{x}/{y}.png?apikey=7d27de9815e648cdaf3bf4dc1cf9d075',
-			attr = 'Tiles Courtesy of <a href="https://www.mapquest.com/">MapQuest</a> &mdash; Map data &copy; <a href="https://openstreetmap.org">OpenStreetMap</a> contributors, <a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>',
+		function fiets() {
+			var url = 'https://{s}.tile.thunderforest.com/cycle/{z}/{x}/{y}.png?apikey=7d27de9815e648cdaf3bf4dc1cf9d075',
+				attr = '&copy; <a href="http://www.thunderforest.com/">Thunderforest</a>, &copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>',
+				service = new L.TileLayer(url, {
+					attribution: attr
+				});
+			map.addLayer(service);
+		}
+
+		function normaal() {
+			var url = 'http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',
+				attr = '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>',
+				service = new L.TileLayer(url, {
+					attribution: attr
+				});
+			map.addLayer(service);
+		}
+
+		var url = 'http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',
+			attr = '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>',
 			service = new L.TileLayer(url, {
 				attribution: attr
 			});
@@ -76,44 +96,50 @@
 		});
 		el.addTo(map);
 
-		var g = new L.GPX('ovv83.gpx', {
-			async: true,
-			marker_options: {
-				startIconUrl: 'https://mrmufflon.github.io/Leaflet.Elevation/example/lib/leaflet-gpx/pin-icon-start.png',
-				endIconUrl: 'https://mrmufflon.github.io/Leaflet.Elevation/example/lib/leaflet-gpx/pin-icon-end.png',
-				shadowUrl: 'https://mrmufflon.github.io/Leaflet.Elevation/example/lib/leaflet-gpx/pin-shadow.png'
+		function renderGPX(file) {
+
+			// generate a new FileReader object
+			var reader = new FileReader();
+
+			$('#map').css('height', '90%');
+
+			// inject an image with the src url
+			reader.onload = function(event) {
+				the_url = event.target.result
+				var g = new L.GPX(the_url, {
+					async: true,
+					marker_options: {
+						startIconUrl: 'https://mrmufflon.github.io/Leaflet.Elevation/example/lib/leaflet-gpx/pin-icon-start.png',
+						endIconUrl: 'https://mrmufflon.github.io/Leaflet.Elevation/example/lib/leaflet-gpx/pin-icon-end.png',
+						shadowUrl: 'https://mrmufflon.github.io/Leaflet.Elevation/example/lib/leaflet-gpx/pin-shadow.png'
+					}
+				});
+
+				g.on('loaded', function(e) {
+					map.fitBounds(e.target.getBounds());
+				});
+				g.on("addline", function(e) {
+					el.addData(e.line);
+				});
+				g.addTo(map);
+				map.addLayer(service);
 			}
-		});
 
-		g.on('loaded', function(e) {
-			map.fitBounds(e.target.getBounds());
-		});
-		g.on("addline", function(e) {
-			el.addData(e.line);
-		});
-		g.addTo(map);
-		map.addLayer(service);
+			// when the file is read it triggers the onload event above.
+			reader.readAsDataURL(file);
 
-		function test() {
-			var gpx = document.getElementById('file').value;
-			var h = new L.GPX(gpx, {
-				async: true,
-				marker_options: {
-					startIconUrl: 'https://mrmufflon.github.io/Leaflet.Elevation/example/lib/leaflet-gpx/pin-icon-start.png',
-					endIconUrl: 'https://mrmufflon.github.io/Leaflet.Elevation/example/lib/leaflet-gpx/pin-icon-end.png',
-					shadowUrl: 'https://mrmufflon.github.io/Leaflet.Elevation/example/lib/leaflet-gpx/pin-shadow.png'
-				}
-			});
-
-			h.on('loaded', function(e) {
-				map.fitBounds(e.target.getBounds());
-			});
-			h.on("addline", function(e) {
-				el.addData(e.line);
-			});
-			h.addTo(map);
-			map.addLayer(service);
+			$('#reload').css('display', 'block');
+			$('#bestand').css('display', 'none');
 		}
+
+		// handle input changes
+		$("#the-file-input").change(function() {
+			console.log(this.files)
+			$('#map').css('display', 'block');
+			// grab the first image in the FileList object and pass it to the function
+			renderGPX(this.files[0])
+		});
+
 	</script>
 
 </body>
