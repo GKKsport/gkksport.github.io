@@ -13,14 +13,13 @@
 			padding: 4px;
 			margin: 0px;
 		}
-
 	</style>
 	<script src="./leaflet/d3.js" charset="utf-8"></script>
 	<link rel="stylesheet" href="./leaflet/leaflet.css" />
 	<!--[if lte IE 8]><link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.7.2/leaflet.ie.css" /><![endif]-->
 
 	<link rel="stylesheet" href="https://mrmufflon.github.io/Leaflet.Elevation/example/lib/elevation/Leaflet.Elevation-0.0.2.css" />
-
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.10/css/all.css" integrity="sha384-+d0P83n9kaQMCwj8F4RJB66tzIwOKmrdb46+porD/OvrJ+37WqIM7UoBtwHO6Nlg" crossorigin="anonymous">
 	<script type="text/javascript" src="./leaflet/leaflet.js"></script>
 	<script type="text/javascript" src="./leaflet/elevation.js"></script>
 	<script type="text/javascript" src="./leaflet/gpx.js"></script>
@@ -38,11 +37,13 @@
 	<div class="row" id="reload" style="display:none">
 		<div class="col-md-10 col-sm-10 col-xs-10">
 			<div id="status" class="alert alert-success text-center">
-				<strong>Naam bestand: <span id="name"></span></strong> / Stijging: <span id="stijgen"></span>m / Daling: <span id="dalen"></span>m / Hoogteverschil: <span id="net"></span>m
+				<strong>Naam bestand: <span id="name"></span></strong> / Afstand: <span id="lengte"></span> / Stijging: <span id="stijgen"></span>m / Daling: <span id="dalen"></span>m / Hoogteverschil: <span id="net"></span>m
 			</div>
 		</div>
 		<div class="col-md-2 col-sm-2 col-xs-2">
-			<button class="btn btn-danger btn-block alert" onclick="location.reload()">Opnieuw</button>
+			<button class="btn btn-danger btn-block alert" onclick="location.reload()"><i class="fas fa-redo-alt"></i>
+
+</button>
 		</div>
 	</div>
 	<div class="row">
@@ -129,6 +130,11 @@
 					map.fitBounds(e.target.getBounds());
 					var gpx = e.target;
 					document.getElementById("name").textContent = gpx.get_name();
+					if (gpx.get_distance() < 10000) {
+						document.getElementById("lengte").textContent = gpx.get_distance().toFixed(0) + "m";
+					} else {
+						document.getElementById("lengte").textContent = gpx.m_to_km(gpx.get_distance()).toFixed(0) + "km";
+					}
 					document.getElementById("stijgen").textContent = gpx.get_elevation_gain().toFixed(0);
 					document.getElementById("dalen").textContent = gpx.get_elevation_loss().toFixed(0);
 					document.getElementById("net").textContent = (gpx.get_elevation_gain() -
@@ -155,7 +161,6 @@
 			// grab the first image in the FileList object and pass it to the function
 			renderGPX(this.files[0])
 		});
-
 	</script>
 </body>
 
