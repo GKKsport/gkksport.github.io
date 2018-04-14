@@ -1,0 +1,31 @@
+[	
+{
+	"match": {
+		"isExternal": true,
+		"matchType": "CYCLING",
+		"distanceToFinish": 0,
+		"distanceUnit": "KM",
+		"gaps": [{
+	"name" : "Winnaar",
+	"description" : "Peter Sagan (SLW)",
+	"formattedTimeAfterPrecedingGroup" : "",
+	"jerseys" : [ "DEFAULT" ]
+},{
+	"name" : "Tweede",
+	"description" : "Silvan Dillier (ZWI)",
+	"formattedTimeAfterPrecedingGroup" : "",
+	"jerseys" : [ "DEFAULT" ]
+},{
+	"name" : "Derde",
+	"description" : "Niki Terpstra (NED)",
+	"formattedTimeAfterPrecedingGroup" : "",
+	"jerseys" : [ "DEFAULT" ]
+}],
+		"currentOffset": 100,
+		"matchStatus": {
+			"status": "FINISHED"
+		},
+		"intermediates": []
+	}
+}
+]

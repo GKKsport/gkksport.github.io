@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<script
+  src="https://code.jquery.com/jquery-3.3.1.js"
+  integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
+  crossorigin="anonymous"></script>
+
+	<style>
+		table,
+		th,
+		td {
+			border: solid 1px #DDD;
+			padding: 3px;
+			font: 14px Verdana;
+			text-align: center;
+		}
+		
+		th {
+			font-weight: bold;
+		}
+	</style>
+</head>
+
+<body>
+	
+</body>
+
+<script>
+	$.ajax({
+    url: 'http://m.live.sporza.be/static/cycling_1772385.json',
+    headers: {
+        'Content-Type': 'application/x-www-form-urlencoded'
+    },
+    type: "GET", /* or type:"GET" or type:"PUT" */
+    dataType: "json",
+    data: {
+    },
+    success: function (result) {
+        console.log(result);    
+    },
+    error: function () {
+        console.log("error");
+    }
+});
+</script>
+	
+</html>
