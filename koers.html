@@ -1,10 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<script
-  src="https://code.jquery.com/jquery-3.3.1.js"
-  integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
-  crossorigin="anonymous"></script>
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
 
 	<style>
 		table,
@@ -23,17 +20,17 @@
 </head>
 
 <body>
-	
+
 </body>
 
 <script>
-	
-	$(document).ready(function(){
-		$getJSON('https://m.live.sporza.be/static/cycling_1772385.json', function(results)) {
-				 document.write(results.match.name);
-				 });
+	$(document).ready(function() {
+
+		$.getJSON('https://m.live.sporza.be/static/cycling_1772385.json', function(xResults) {
+			document.write(xResults.match.matchType);
+		});
+
 	});
-	
 </script>
 	
 </html>
