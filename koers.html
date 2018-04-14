@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<title>GKK Sport</title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+	<script src='https://cdnjs.cloudflare.com/ajax/libs/tabletop.js/1.5.1/tabletop.min.js'></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+	<link rel="icon" sizes="192x192" href="icon.png">
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.10/css/all.css" integrity="sha384-+d0P83n9kaQMCwj8F4RJB66tzIwOKmrdb46+porD/OvrJ+37WqIM7UoBtwHO6Nlg" crossorigin="anonymous">
+
+
+	<style>
+		/* Remove the navbar's default margin-bottom and rounded borders */
+		
+		.navbar {
+			margin-bottom: 0;
+			border-radius: 0;
+		}
+		/* Set height of the grid so .sidenav can be 100% (adjust as needed) */
+		
+		.row.content {
+			height: 450px
+		}
+		/* Set gray background color and 100% height */
+		
+		.sidenav {
+			padding-top: 20px;
+			background-color: #f1f1f1;
+			height: 100%;
+		}
+		/* Set black background color, white text and some padding */
+		
+		.navbar-brand img {
+			height: 40px;
+		}
+		
+		.navbar-brand {
+			padding-bottom: 3px;
+			padding-top: 6px;
+		}
+		
+		footer {
+			background-color: #555;
+			color: white;
+			padding: 15px;
+		}
+		/* On small screens, set height to 'auto' for sidenav and grid */
+		
+		@media screen and (max-width: 767px) {
+			.sidenav {
+				height: auto;
+				padding: 15px;
+			}
+			.row.content {
+				height: auto;
+			}
+		}
+	</style>
+</head>
+
+<body>
+
+	<nav class="navbar navbar-inverse">
+		<div class="container-fluid">
+			<div class="navbar-header">
+				<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>                        
+      </button>
+				<a class="navbar-brand" href="index.html"><img src="GKK.png"></a>
+			</div>
+			<div class="collapse navbar-collapse" id="myNavbar">
+				<ul class="nav navbar-nav">
+					<li><a href="kalender.html">Tussenstand/Kalender</a></li>
+					<li><a href="zwemmen.html">Zwemmen</a></li>
+					<li><a href="training">Training</a></li>
+					<li><a href="triathloncalc.html">Triathlon-calc</a></li>
+					<li><a href="kaartregels.html">Kaartregels</a></li>
+					<li><a href="zidb.html">ZIDB</a></li>
+					<li class="dropdown">
+						<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Archief <span class="caret"></span></a>
+						<ul class="dropdown-menu">
+							<li><a href="tricklist.html">Tricklist</a></li>
+						</ul>
+					</li>
+				</ul>
+			</div>
+		</div>
+	</nav>
+
+	<div class="container-fluid text-center">
+		<br>
+		<h1><span id="wedstrijd"></span></h1>
+		<br>
+		<div class="well">
+			<i class="fas fa-spinner fa-7x fa-spin" id="loader"></i>
+			<span id="nognietbezig"></span>
+			<div id="bezig" style="display:none">
+				<p>Nog <kbd><span id="left"></span>km</kbd> tot de finish.</p>
+				<p id="gap1"></p>
+				<p id="gap2"></p>
+				<p id="gap3"></p>
+				<p id="gap4"></p>
+				<p id="gap5"></p>
+			</div>
+			<div id="podium" style="display:none">
+				<p>De wedstrijd is afgelopen! Bekijk hieronder het podium</p>
+				<p><strong>Winnaar:</strong>
+					<span id="winnaar"></span></p>
+				<p><strong>Tweede:</strong>
+					<span id="tweede"></span></p>
+				<p><strong>Derde:</strong>
+					<span id="derde"></span></p>
+			</div>
+		</div>
+	</div>
+	<script type='text/javascript'>
+		var publicSpreadsheetUrl = 'https://docs.google.com/spreadsheets/d/1HW4rR9Dehu2-sga989vXPxo7_KefCktLIp6Orb5DoXg/edit?usp=sharing';
+
+		function init() {
+			Tabletop.init({
+				key: publicSpreadsheetUrl,
+				callback: showInfo,
+				simpleSheet: true
+			})
+		}
+
+		function showInfo(data, tabletop) {
+			$('#loader').css('display', 'none');
+			document.getElementById("wedstrijd").innerHTML = data[0].koers;
+			//Als koers afgelopen is
+			if (data[0].matchstatus === "FINISHED") {
+				$('#podium').css('display', 'block');
+				document.getElementById("winnaar").innerHTML = data[0].gapsdescription;
+				document.getElementById("tweede").innerHTML = data[1].gapsdescription;
+				document.getElementById("derde").innerHTML = data[2].gapsdescription;
+				console.log(data);
+			} else if (data[0].matchstatus === "") { //Als de koers nog niet begonnen is
+				document.getElementById("nognietbezig").innerHTML = "<p>De wedstrijd is nog niet bezig, kom later terug.</p>"
+			} else { //Als koers bezig is	
+				document.getElementById("left").innerHTML = data[0].distancetofinish;
+				$('#bezig').css('display', 'block');
+				if (data.length === 1) {
+					document.getElementById("gap1").innerHTML = "<strong>" + data[0].gapsname + "</strong> (" + data[0].intermediates + ")<br>" + data[0].gapsdescription;
+					document.getElementById("gap2").innerHTML = "";
+					document.getElementById("gap3").innerHTML = "";
+					document.getElementById("gap4").innerHTML = "";
+					console.log(data);
+				} else if (data.length === 2) {
+					document.getElementById("gap1").innerHTML = "<strong>" + data[0].gapsname + "</strong> (" + data[0].intermediates + ")<br>" + data[0].gapsdescription;
+					document.getElementById("gap2").innerHTML = "<strong>" + data[1].gapsname + "</strong> (" + data[0].intermediates + ")<br>" + data[1].gapsdescription;
+					document.getElementById("gap3").innerHTML = "";
+					document.getElementById("gap4").innerHTML = "";
+					console.log(data);
+				} else if (data.length === 3) {
+					document.getElementById("gap1").innerHTML = "<strong>" + data[0].gapsname + "</strong> (" + data[0].intermediates + ")<br>" + data[0].gapsdescription;
+					document.getElementById("gap2").innerHTML = "<strong>" + data[1].gapsname + "</strong> (" + data[0].intermediates + ")<br>" + data[1].gapsdescription;
+					document.getElementById("gap3").innerHTML = "<strong>" + data[2].gapsname + "</strong> (" + data[0].intermediates + ")<br>" + data[2].gapsdescription;
+					document.getElementById("gap4").innerHTML = "";
+					console.log(data);
+				} else if (data.length === 4) {
+					document.getElementById("gap1").innerHTML = "<strong>" + data[0].gapsname + "</strong> (" + data[0].intermediates + ")<br>" + data[0].gapsdescription;
+					document.getElementById("gap2").innerHTML = "<strong>" + data[1].gapsname + "</strong> (" + data[0].intermediates + ")<br>" + data[1].gapsdescription;
+					document.getElementById("gap3").innerHTML = "<strong>" + data[2].gapsname + "</strong> (" + data[0].intermediates + ")<br>" + data[2].gapsdescription;
+					document.getElementById("gap4").innerHTML = "<strong>" + data[3].gapsname + "</strong> (" + data[0].intermediates + ")<br>" + data[3].gapsdescription;
+				}
+			}
+		}
+		window.addEventListener('DOMContentLoaded', init);
+
+		setInterval(function() {
+			location.reload();
+		}, 50000);
+	</script>
+</body>
+
+</html>
