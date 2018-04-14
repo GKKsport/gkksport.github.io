@@ -59,6 +59,7 @@
 				height: auto;
 			}
 		}
+
 	</style>
 </head>
 
@@ -140,8 +141,9 @@
 				document.getElementById("tweede").innerHTML = data[1].gapsdescription;
 				document.getElementById("derde").innerHTML = data[2].gapsdescription;
 				console.log(data);
-			} else if (data[0].matchstatus === "") { //Als de koers nog niet begonnen is
+			} else if (data[0].matchstatus === "" || data.length = "0") { //Als de koers nog niet begonnen is
 				document.getElementById("nognietbezig").innerHTML = "<p>De wedstrijd is nog niet bezig, kom later terug.</p>"
+				console.log("nog niet bezig");
 			} else { //Als koers bezig is	
 				document.getElementById("left").innerHTML = data[0].distancetofinish;
 				$('#bezig').css('display', 'block');
@@ -176,6 +178,7 @@
 		setInterval(function() {
 			location.reload();
 		}, 50000);
+
 	</script>
 </body>
 
