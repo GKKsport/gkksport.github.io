@@ -141,7 +141,7 @@
 				document.getElementById("tweede").innerHTML = data[1].gapsdescription;
 				document.getElementById("derde").innerHTML = data[2].gapsdescription;
 				console.log(data);
-			} else if (data[0].matchstatus === "" || data.length = "0") { //Als de koers nog niet begonnen is
+			} else if (data[0].matchstatus === "" || data.length === "0") { //Als de koers nog niet begonnen is
 				document.getElementById("nognietbezig").innerHTML = "<p>De wedstrijd is nog niet bezig, kom later terug.</p>"
 				console.log("nog niet bezig");
 			} else { //Als koers bezig is	
