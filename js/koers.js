@@ -1,3 +1,6 @@
+var cors = new EnableCorsAttribute("*", "*", "*");
+config.EnableCors(cors);
+
 var url = 'https://m.live.sporza.be/static/cycling_1772385.json';
 
 var ctrl = function (url, el) {
