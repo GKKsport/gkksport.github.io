@@ -27,22 +27,13 @@
 </body>
 
 <script>
-	$.ajax({
-    url: 'http://m.live.sporza.be/static/cycling_1772385.json',
-    headers: {
-        'Content-Type': 'application/x-www-form-urlencoded'
-    },
-    type: "GET", /* or type:"GET" or type:"PUT" */
-    dataType: "json",
-    data: {
-    },
-    success: function (result) {
-        console.log(result);    
-    },
-    error: function () {
-        console.log("error");
-    }
-});
+	
+	$(document).ready(function(){
+		$getJSON('https://m.live.sporza.be/static/cycling_1772385.json', function(results)) {
+				 document.write(results.match.name);
+				 });
+	});
+	
 </script>
 	
 </html>
