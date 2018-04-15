@@ -166,25 +166,25 @@
 				document.getElementById("left").innerHTML = data[0].distancetofinish;
 				$('#bezig').css('display', 'block');
 				if (data.length === 1) {
-					document.getElementById("gap1").innerHTML = "<strong>" + data[0].gapsname + "</strong> (" + data[0].gapsformatted + ")<br>" + data[0].gapsdescription;
+					document.getElementById("gap1").innerHTML = "<strong>" + data[0].gapsname + "</strong><br>" + data[0].gapsdescription;
 					document.getElementById("gap2").innerHTML = "";
 					document.getElementById("gap3").innerHTML = "";
 					document.getElementById("gap4").innerHTML = "";
 					console.log(data);
 				} else if (data.length === 2) {
-					document.getElementById("gap1").innerHTML = "<strong>" + data[0].gapsname + "</strong> (" + data[0].gapsformatted + ")<br>" + data[0].gapsdescription;
+					document.getElementById("gap1").innerHTML = "<strong>" + data[0].gapsname + "</strong><br>" + data[0].gapsdescription;
 					document.getElementById("gap2").innerHTML = "<strong>" + data[1].gapsname + "</strong> (" + data[1].gapsformatted + ")<br>" + data[1].gapsdescription;
 					document.getElementById("gap3").innerHTML = "";
 					document.getElementById("gap4").innerHTML = "";
 					console.log(data);
 				} else if (data.length === 3) {
-					document.getElementById("gap1").innerHTML = "<strong>" + data[0].gapsname + "</strong> (" + data[0].gapsformatted + ")<br>" + data[0].gapsdescription;
+					document.getElementById("gap1").innerHTML = "<strong>" + data[0].gapsname + "</strong><br>" + data[0].gapsdescription;
 					document.getElementById("gap2").innerHTML = "<strong>" + data[1].gapsname + "</strong> (" + data[1].gapsformatted + ")<br>" + data[1].gapsdescription;
 					document.getElementById("gap3").innerHTML = "<strong>" + data[2].gapsname + "</strong> (" + data[2].gapsformatted + ")<br>" + data[2].gapsdescription;
 					document.getElementById("gap4").innerHTML = "";
 					console.log(data);
 				} else if (data.length === 4) {
-					document.getElementById("gap1").innerHTML = "<strong>" + data[0].gapsname + "</strong> (" + data[0].gapsformatted + ")<br>" + data[0].gapsdescription;
+					document.getElementById("gap1").innerHTML = "<strong>" + data[0].gapsname + "</strong><br>" + data[0].gapsdescription;
 					document.getElementById("gap2").innerHTML = "<strong>" + data[1].gapsname + "</strong> (" + data[1].gapsformatted + ")<br>" + data[1].gapsdescription;
 					document.getElementById("gap3").innerHTML = "<strong>" + data[2].gapsname + "</strong> (" + data[2].gapsformatted + ")<br>" + data[2].gapsdescription;
 					document.getElementById("gap4").innerHTML = "<strong>" + data[3].gapsname + "</strong> (" + data[3].gapsformatted + ")<br>" + data[3].gapsdescription;
