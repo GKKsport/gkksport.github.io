@@ -102,7 +102,7 @@
 			<i class="fas fa-spinner fa-7x fa-spin" id="loader"></i>
 			<p><span id="nognietbezig"></span></p>
 			<div id="bezig" style="display:none">
-				<p>Nog <kbd><span id="left"></span>km</kbd> tot de finish.</p>
+				<h3>Nog <kbd><span id="left"></span>km</kbd> tot de finish.</h3>
 				<p id="gap1"></p>
 				<p id="gap2"></p>
 				<p id="gap3"></p>
@@ -173,21 +173,21 @@
 					console.log(data);
 				} else if (data.length === 2) {
 					document.getElementById("gap1").innerHTML = "<strong>" + data[0].gapsname + "</strong><br>" + data[0].gapsdescription;
-					document.getElementById("gap2").innerHTML = "<strong>" + data[1].gapsname + "</strong> (" + data[1].gapsformatted + ")<br>" + data[1].gapsdescription;
+					document.getElementById("gap2").innerHTML = "<strong>" + data[1].gapsname + "</strong> (op " + data[1].gapsformatted + ")";
 					document.getElementById("gap3").innerHTML = "";
 					document.getElementById("gap4").innerHTML = "";
 					console.log(data);
 				} else if (data.length === 3) {
 					document.getElementById("gap1").innerHTML = "<strong>" + data[0].gapsname + "</strong><br>" + data[0].gapsdescription;
-					document.getElementById("gap2").innerHTML = "<strong>" + data[1].gapsname + "</strong> (" + data[1].gapsformatted + ")<br>" + data[1].gapsdescription;
-					document.getElementById("gap3").innerHTML = "<strong>" + data[2].gapsname + "</strong> (" + data[2].gapsformatted + ")<br>" + data[2].gapsdescription;
+					document.getElementById("gap2").innerHTML = "<strong>" + data[1].gapsname + "</strong> (op " + data[1].gapsformatted + ")<br>" + data[1].gapsdescription;
+					document.getElementById("gap3").innerHTML = "<strong>" + data[2].gapsname + "</strong> (op " + data[2].gapsformatted + ")";
 					document.getElementById("gap4").innerHTML = "";
 					console.log(data);
 				} else if (data.length === 4) {
 					document.getElementById("gap1").innerHTML = "<strong>" + data[0].gapsname + "</strong><br>" + data[0].gapsdescription;
-					document.getElementById("gap2").innerHTML = "<strong>" + data[1].gapsname + "</strong> (" + data[1].gapsformatted + ")<br>" + data[1].gapsdescription;
-					document.getElementById("gap3").innerHTML = "<strong>" + data[2].gapsname + "</strong> (" + data[2].gapsformatted + ")<br>" + data[2].gapsdescription;
-					document.getElementById("gap4").innerHTML = "<strong>" + data[3].gapsname + "</strong> (" + data[3].gapsformatted + ")<br>" + data[3].gapsdescription;
+					document.getElementById("gap2").innerHTML = "<strong>" + data[1].gapsname + "</strong> (op " + data[1].gapsformatted + ")<br>" + data[1].gapsdescription;
+					document.getElementById("gap3").innerHTML = "<strong>" + data[2].gapsname + "</strong> (op " + data[2].gapsformatted + ")<br>" + data[2].gapsdescription;
+					document.getElementById("gap4").innerHTML = "<strong>" + data[3].gapsname + "</strong> (op " + data[3].gapsformatted + ")";
 				}
 			}
 		}
