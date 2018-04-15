@@ -56,7 +56,7 @@
 				padding: 15px;
 			}
 			.row.content {
-				height: auto;
+				height: 2em;
 			}
 		}
 
@@ -100,7 +100,7 @@
 		<br>
 		<div class="well">
 			<i class="fas fa-spinner fa-7x fa-spin" id="loader"></i>
-			<span id="nognietbezig"></span>
+			<p><span id="nognietbezig"></span></p>
 			<div id="bezig" style="display:none">
 				<p>Nog <kbd><span id="left"></span>km</kbd> tot de finish.</p>
 				<p id="gap1"></p>
@@ -119,8 +119,26 @@
 					<span id="derde"></span></p>
 			</div>
 		</div>
+		<div id="refresh" class="alert alert-success">
+			Deze pagina refresht zichzelf om de minuut. De data hierboven zal dus steeds up to date zijn.
+		</div>
+		<div id="status" class="alert alert-danger" style="display:none">
+			Oeps! Deze pagina heeft een internetverbinding nodig om te werken. Controleer of je internet wel aan staat en werkt.
+		</div>
+
+
+
 	</div>
 	<script type='text/javascript'>
+		window.addEventListener('load', function() {
+			if (navigator.onLine === false) {
+				$('#status').css('display', 'block');
+				$('#refresh').css('display', 'none');
+				console.log('offline');
+			}
+		});
+
+
 		var publicSpreadsheetUrl = 'https://docs.google.com/spreadsheets/d/1HW4rR9Dehu2-sga989vXPxo7_KefCktLIp6Orb5DoXg/edit?usp=sharing';
 
 		function init() {
@@ -177,7 +195,7 @@
 
 		setInterval(function() {
 			location.reload();
-		}, 50000);
+		}, 60000);
 
 	</script>
 </body>
