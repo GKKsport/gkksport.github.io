@@ -14,6 +14,16 @@
 
 
 	<style>
+		.titelgap {
+			padding: 3px;
+			display: inline-block;
+			color: white;
+			background-color: #e74c3c;
+			border-style: solid;
+			border-color: #e74c3c;
+			border-radius: 5px;
+			font-weight: 600;
+		}
 		/* Remove the navbar's default margin-bottom and rounded borders */
 		
 		.navbar {
@@ -59,7 +69,6 @@
 				height: 2em;
 			}
 		}
-
 	</style>
 </head>
 
@@ -103,6 +112,7 @@
 			<p><span id="nognietbezig"></span></p>
 			<div id="bezig" style="display:none">
 				<h3>Nog <kbd><span id="left"></span>km</kbd> tot de finish.</h3>
+				<hr>
 				<p id="gap1"></p>
 				<p id="gap2"></p>
 				<p id="gap3"></p>
@@ -166,28 +176,28 @@
 				document.getElementById("left").innerHTML = data[0].distancetofinish;
 				$('#bezig').css('display', 'block');
 				if (data.length === 1) {
-					document.getElementById("gap1").innerHTML = "<strong>" + data[0].gapsname + "</strong><br>" + data[0].gapsdescription;
+					document.getElementById("gap1").innerHTML = "<p class='titelgap'>" + data[0].gapsname + "</p><br>" + data[0].gapsdescription;
 					document.getElementById("gap2").innerHTML = "";
 					document.getElementById("gap3").innerHTML = "";
 					document.getElementById("gap4").innerHTML = "";
 					console.log(data);
 				} else if (data.length === 2) {
-					document.getElementById("gap1").innerHTML = "<strong>" + data[0].gapsname + "</strong><br>" + data[0].gapsdescription;
-					document.getElementById("gap2").innerHTML = "<strong>" + data[1].gapsname + "</strong> (op " + data[1].gapsformatted + ")";
+					document.getElementById("gap1").innerHTML = "<p class='titelgap'>" + data[0].gapsname + "</p><br>" + data[0].gapsdescription;
+					document.getElementById("gap2").innerHTML = "<p class='titelgap'>" + data[1].gapsname + "</p><strong> (op " + data[1].gapsformatted + ")</strong>";
 					document.getElementById("gap3").innerHTML = "";
 					document.getElementById("gap4").innerHTML = "";
 					console.log(data);
 				} else if (data.length === 3) {
-					document.getElementById("gap1").innerHTML = "<strong>" + data[0].gapsname + "</strong><br>" + data[0].gapsdescription;
-					document.getElementById("gap2").innerHTML = "<strong>" + data[1].gapsname + "</strong> (op " + data[1].gapsformatted + ")<br>" + data[1].gapsdescription;
-					document.getElementById("gap3").innerHTML = "<strong>" + data[2].gapsname + "</strong> (op " + data[2].gapsformatted + ")";
+					document.getElementById("gap1").innerHTML = "<p class='titelgap'>" + data[0].gapsname + "</p><br>" + data[0].gapsdescription;
+					document.getElementById("gap2").innerHTML = "<p class='titelgap'>" + data[1].gapsname + "</p><strong> (op " + data[1].gapsformatted + ")</strong><br>" + data[1].gapsdescription;
+					document.getElementById("gap3").innerHTML = "<p class='titelgap'>" + data[2].gapsname + "</p><strong> (op " + data[2].gapsformatted + ")</strong>";
 					document.getElementById("gap4").innerHTML = "";
 					console.log(data);
 				} else if (data.length === 4) {
-					document.getElementById("gap1").innerHTML = "<strong>" + data[0].gapsname + "</strong><br>" + data[0].gapsdescription;
-					document.getElementById("gap2").innerHTML = "<strong>" + data[1].gapsname + "</strong> (op " + data[1].gapsformatted + ")<br>" + data[1].gapsdescription;
-					document.getElementById("gap3").innerHTML = "<strong>" + data[2].gapsname + "</strong> (op " + data[2].gapsformatted + ")<br>" + data[2].gapsdescription;
-					document.getElementById("gap4").innerHTML = "<strong>" + data[3].gapsname + "</strong> (op " + data[3].gapsformatted + ")";
+					document.getElementById("gap1").innerHTML = "<p class='titelgap'>" + data[0].gapsname + "</p><br>" + data[0].gapsdescription;
+					document.getElementById("gap2").innerHTML = "<p class='titelgap'>" + data[1].gapsname + "</p><strong> (op " + data[1].gapsformatted + ")</strong><br>" + data[1].gapsdescription;
+					document.getElementById("gap3").innerHTML = "<p class='titelgap'>" + data[2].gapsname + "</p><strong> (op " + data[2].gapsformatted + ")</strong><br>" + data[2].gapsdescription;
+					document.getElementById("gap4").innerHTML = "<p class='titelgap'>" + data[3].gapsname + "</p><strong> (op " + data[3].gapsformatted + ")</strong>";
 				}
 			}
 		}
@@ -196,7 +206,6 @@
 		setInterval(function() {
 			location.reload();
 		}, 60000);
-
 	</script>
 </body>
 
