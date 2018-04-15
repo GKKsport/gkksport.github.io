@@ -90,12 +90,14 @@
 					<li><a href="zwemmen.html">Zwemmen</a></li>
 					<li><a href="training">Training</a></li>
 					<li><a href="triathloncalc.html">Triathlon-calc</a></li>
-					<li><a href="kaartregels.html">Kaartregels</a></li>
 					<li><a href="zidb.html">ZIDB</a></li>
+					<li><a href="gpx.html">GPX</a></li>
+					<li><a href="koers.html" class="active">Koers</a></li>
 					<li class="dropdown">
 						<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Archief <span class="caret"></span></a>
 						<ul class="dropdown-menu">
 							<li><a href="tricklist.html">Tricklist</a></li>
+							<li><a href="kaartregels.html">Kaartregels</a></li>
 						</ul>
 					</li>
 				</ul>
@@ -118,6 +120,10 @@
 				<p id="gap3"></p>
 				<p id="gap4"></p>
 				<p id="gap5"></p>
+				<hr>
+				<center>
+					<button id="livestream" class="btn btn-success" style="display: none" href="http://sporza.be/cm/sporza/matchcenter/mc_livestream">Zin om live te kijken? Klik hier om naar de Sporza Livestream te gaan!</button>
+				</center>
 			</div>
 			<div id="podium" style="display:none">
 				<p>De wedstrijd is afgelopen! Bekijk hieronder het podium</p>
@@ -135,9 +141,6 @@
 		<div id="status" class="alert alert-danger" style="display:none">
 			Oeps! Deze pagina heeft een internetverbinding nodig om te werken. Controleer of je internet wel aan staat en werkt.
 		</div>
-
-
-
 	</div>
 	<script type='text/javascript'>
 		window.addEventListener('load', function() {
@@ -175,6 +178,7 @@
 			} else { //Als koers bezig is	
 				document.getElementById("left").innerHTML = data[0].distancetofinish;
 				$('#bezig').css('display', 'block');
+				$('#livestream').css('display', 'block');
 				if (data.length === 1) {
 					document.getElementById("gap1").innerHTML = "<p class='titelgap'>" + data[0].gapsname + "</p><br>" + data[0].gapsdescription;
 					document.getElementById("gap2").innerHTML = "";
