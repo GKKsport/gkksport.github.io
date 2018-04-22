@@ -17,7 +17,6 @@
 	<script src="./leaflet/d3.js" charset="utf-8"></script>
 	<link rel="stylesheet" href="./leaflet/leaflet.css" />
 	<!--[if lte IE 8]><link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.7.2/leaflet.ie.css" /><![endif]-->
-
 	<link rel="stylesheet" href="https://mrmufflon.github.io/Leaflet.Elevation/example/lib/elevation/Leaflet.Elevation-0.0.2.css" />
 	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.10/css/all.css" integrity="sha384-+d0P83n9kaQMCwj8F4RJB66tzIwOKmrdb46+porD/OvrJ+37WqIM7UoBtwHO6Nlg" crossorigin="anonymous">
 	<script type="text/javascript" src="./leaflet/leaflet.js"></script>
@@ -42,10 +41,14 @@
 			</div>
 		</div>
 		<div class="col-md-2 col-sm-2 col-xs-2">
-			<button class="btn btn-danger btn-block alert" onclick="location.reload()"><i class="fas fa-redo-alt"></i>
-
-</button>
+			<button class="btn btn-danger btn-block alert" onclick="location.reload()"><i class="fas fa-redo-alt"></i></button>
+			<button class="btn" onclick="weer()"></button>
 		</div>
+	</div>
+	<div class="row">
+		<div class="col-md-2 col-sm-2 col-xs-2"></div>
+		<div class="col-md-4 col-sm-8 col-xs-8"><span id="weer"></span></div>
+		<div class="col-md-2 col-sm-2 col-xs-2"></div>
 	</div>
 	<div class="row">
 		<div class="col-md-2 col-sm-2 col-xs-2"></div>
@@ -110,6 +113,10 @@
 		});
 		el.addTo(map);
 
+		var weerurl;
+
+
+		//Om geuploade GPX-files te behandelen
 		function renderGPX(file) {
 
 			// generate a new FileReader object
@@ -141,12 +148,26 @@
 					document.getElementById("net").textContent = (gpx.get_elevation_gain() -
 						gpx.get_elevation_loss()).toFixed(0);
 
+
 				});
 				g.on("addline", function(e) {
 					el.addData(e.line);
 				});
 				g.addTo(map);
 				map.addLayer(service);
+
+				$.ajax({
+					url: the_url,
+					type: "GET",
+					datatype: "xml",
+					success: function(xml) {
+						var test = parseFloat($(xml).find("trkpt").attr("lat"));
+						var test2 = parseFloat($(xml).find("trkpt").attr("lon"));
+						var key = "bc19b1b471805791801dd3098e6b3b59";
+						weerurl = "https://api.darksky.net/forecast/" + key + "/" + test + "," + test2;
+						console.log(weerurl);
+					}
+				});
 			}
 
 			// when the file is read it triggers the onload event above.
@@ -154,6 +175,21 @@
 
 			$('#reload').css('display', 'block');
 			$('#bestand').css('display', 'none');
+		}
+
+		function weer() {
+			jQuery.ajax({
+				url: weerurl,
+				type: "GET",
+
+				contentType: 'application/json; charset=utf-8',
+				success: function(resultData) {
+					console.log("succes");
+				},
+				error: function(jqXHR, textStatus, errorThrown) {},
+
+				timeout: 120000,
+			});
 		}
 
 		// handle input changes
