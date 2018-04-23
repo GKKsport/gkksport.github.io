@@ -489,7 +489,7 @@
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 
 	<!--Date time picker-->
-	<script type="text/javascript" src="http://momentjs.com/downloads/moment.js"></script>
+	<script type="text/javascript" src="https://momentjs.com/downloads/moment.js"></script>
 	<script type="text/javascript" src="./js/bootstrap.js"></script>
 	<script type="text/javascript" src="./js/bsdatepicker.js"></script>
 	<link rel="stylesheet" href="" />
@@ -505,70 +505,66 @@
 	<div id="bestand">
 		<label class="btn btn-primary btn-block">Selecteer een GPX-bestand <input type="file" id="upload" style="display: none;" accept="*.gpx"></label>
 		<br>
-		<div class="row">
-			<div class="col-md-12 col-sm-12 col-xs-12 text-center">
-				<div class="form-group">
-					<div class="row">
-						<div class="col-md-1 col-sm-1 col-xs-1"></div>
-						<div class="col-md-10 col-sm-10 col-xs-10">
-							<div class="alert alert-info">
-								<p>Pas onderstaande datum en tijd aan indien je de weersvoorspelling wil zien voor het startpunt van je route.</p>
-								<br>
-								<div class="row">
-									<div class="col-md-6 col-sm-6 col-xs-6">
-										<div class='input-group date' id='datetimepicker1'>
-											<input id="datum" type='text' class="form-control" />
-											<span class="input-group-addon">
+		<div class="form-group">
+			<div class="row">
+				<div class="col-md-3"></div>
+				<div class="col-md-6 ">
+					<div class="alert alert-info">
+						<p class="text-center">Pas onderstaande datum en tijd aan alvorens het GPX-bestand te selecteren indien je de weersvoorspelling wil zien voor het startpunt van je route. Laat leeg om de huidige datum en tijd te gebruiken.</p>
+						<br>
+						<div class="row">
+							<div class="col-md-6 col-sm-6 col-xs-6">
+								<div class='input-group date' id='datetimepicker1'>
+									<input id="datum" type='text' class="form-control" />
+									<span class="input-group-addon">
 									<span class="glyphicon glyphicon-calendar"></span>
-											</span>
-										</div>
-									</div>
-									<div class="col-md-6 col-sm-6 col-xs-6">
-										<div class='input-group date' id='datetimepicker2'>
-											<input id="tijd" type='text' class="form-control" />
-											<span class="input-group-addon">
+									</span>
+								</div>
+							</div>
+							<div class="col-md-6 col-sm-6 col-xs-6">
+								<div class='input-group date' id='datetimepicker2'>
+									<input id="tijd" type='text' class="form-control" />
+									<span class="input-group-addon">
                         			<span class="glyphicon glyphicon-time"></span>
-											</span>
-										</div>
-									</div>
+									</span>
 								</div>
 							</div>
 						</div>
-						<div class="col-md-1 col-sm-1 col-xs-1"></div>
 					</div>
 				</div>
-				<script type="text/javascript">
-					$(function() {
-						$('#datetimepicker1').datetimepicker({
-							format: 'YYYY-MM-DD',
-							defaultDate: moment(),
-						});
-						$('#datetimepicker2').datetimepicker({
-							format: 'HH:mm',
-							defaultDate: moment(),
-							disabledTimeIntervals: [
-								[moment({
-									h: 0
-								}), moment({
-									h: 6
-								})],
-								[moment({
-									h: 20,
-									m: 30
-								}), moment({
-									h: 24
-								})]
-							],
-							enabledHours: [6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20],
-							stepping: 15
-						});
-					});
-				</script>
-
+				<div class="col-md-3"></div>
 			</div>
 		</div>
-		<br>
+		<script type="text/javascript">
+			$(function() {
+				$('#datetimepicker1').datetimepicker({
+					format: 'YYYY-MM-DD',
+					defaultDate: moment(),
+				});
+				$('#datetimepicker2').datetimepicker({
+					format: 'HH:mm',
+					defaultDate: moment(),
+					disabledTimeIntervals: [
+						[moment({
+							h: 0
+						}), moment({
+							h: 6
+						})],
+						[moment({
+							h: 20,
+							m: 30
+						}), moment({
+							h: 24
+						})]
+					],
+					enabledHours: [6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20],
+					stepping: 15
+				});
+			});
+		</script>
+
 	</div>
+
 	<div id="reload" style="display:none">
 		<div class="row">
 			<div class="col-md-10 col-sm-10 col-xs-10">
