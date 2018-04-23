@@ -53,6 +53,13 @@
  * https://github.com/Eonasdan/bootstrap-datetimepicker/
  */
 		
+		.form-control[disabled],
+		.form-control[readonly],
+		fieldset[disabled] .form-control {
+			background-color: #fff !important;
+			opacity: 1;
+		}
+		
 		.bootstrap-datetimepicker-widget {
 			list-style: none;
 		}
@@ -517,7 +524,7 @@
 						<div class="row">
 							<div class="col-md-6 col-sm-6 col-xs-6">
 								<div class='input-group date' id='datetimepicker1'>
-									<input id="datum" type='text' class="form-control" />
+									<input id="datum" type='text' class="form-control" readonly="true" />
 									<span class="input-group-addon">
 									<span class="glyphicon glyphicon-calendar"></span>
 									</span>
@@ -525,7 +532,7 @@
 							</div>
 							<div class="col-md-6 col-sm-6 col-xs-6">
 								<div class='input-group date' id='datetimepicker2'>
-									<input id="tijd" type='text' class="form-control" />
+									<input id="tijd" type='text' class="form-control" readonly="true" />
 									<span class="input-group-addon">
                         			<span class="glyphicon glyphicon-time"></span>
 									</span>
@@ -544,7 +551,9 @@
 					defaultDate: moment(),
 					widgetPositioning: {
 						horizontal: 'left'
-					}
+					},
+					ignoreReadonly: true,
+					allowInputToggle: true
 				});
 				$('#datetimepicker2').datetimepicker({
 					format: 'HH:mm',
@@ -563,7 +572,9 @@
 						})]
 					],
 					enabledHours: [6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20],
-					stepping: 15
+					stepping: 15,
+					ignoreReadonly: true,
+					allowInputToggle: true
 				});
 			});
 		</script>
