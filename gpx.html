@@ -466,6 +466,7 @@
 			height: 100%;
 			display: none;
 		}
+
 	</style>
 	<script src="./leaflet/d3.js" charset="utf-8"></script>
 	<link rel="stylesheet" href="./leaflet/leaflet.css" />
@@ -569,6 +570,7 @@
 										allowInputToggle: true
 									});
 								});
+
 							</script>
 						</div>
 					</div>
@@ -669,8 +671,6 @@
 			// generate a new FileReader object
 			var reader = new FileReader();
 
-
-
 			// inject an image with the src url
 			reader.onload = function(event) {
 
@@ -700,7 +700,6 @@
 
 
 				});
-				$('body').removeClass("loading");
 
 				g.on("addline", function(e) {
 					el.addData(e.line);
@@ -729,9 +728,9 @@
 			}
 			// when the file is read it triggers the onload event above.
 			reader.readAsDataURL(file);
-
 			$('#reload').css('display', 'block');
 			$('#bestand').css('display', 'none');
+			$('body').removeClass("loading");
 		}
 
 		function getWeer() {
@@ -781,6 +780,7 @@
 				}, 400);
 			}
 		}
+
 	</script>
 </body>
 
