@@ -13,6 +13,469 @@
 			padding: 4px;
 			margin: 0px;
 		}
+		
+		input {
+			position: relative;
+			width: 150px;
+			height: 20px;
+			color: white;
+		}
+		
+		input:before {
+			position: absolute;
+			top: 3px;
+			left: 3px;
+			content: attr(data-date);
+			display: inline-block;
+			color: black;
+		}
+		
+		input::-webkit-datetime-edit,
+		input::-webkit-inner-spin-button,
+		input::-webkit-clear-button {
+			display: none;
+		}
+		
+		input::-webkit-calendar-picker-indicator {
+			position: absolute;
+			top: 3px;
+			right: 0;
+			color: black;
+			opacity: 1;
+		}
+		/*!
+ * Datetimepicker for Bootstrap 3
+ * version : 4.17.47
+ * https://github.com/Eonasdan/bootstrap-datetimepicker/
+ */
+		
+		.bootstrap-datetimepicker-widget {
+			list-style: none;
+		}
+		
+		.bootstrap-datetimepicker-widget.dropdown-menu {
+			display: block;
+			margin: 2px 0;
+			padding: 4px;
+			width: 19em;
+		}
+		
+		@media (min-width: 768px) {
+			.bootstrap-datetimepicker-widget.dropdown-menu.timepicker-sbs {
+				width: 38em;
+			}
+		}
+		
+		@media (min-width: 992px) {
+			.bootstrap-datetimepicker-widget.dropdown-menu.timepicker-sbs {
+				width: 38em;
+			}
+		}
+		
+		@media (min-width: 1200px) {
+			.bootstrap-datetimepicker-widget.dropdown-menu.timepicker-sbs {
+				width: 38em;
+			}
+		}
+		
+		.bootstrap-datetimepicker-widget.dropdown-menu:before,
+		.bootstrap-datetimepicker-widget.dropdown-menu:after {
+			content: '';
+			display: inline-block;
+			position: absolute;
+		}
+		
+		.bootstrap-datetimepicker-widget.dropdown-menu.bottom:before {
+			border-left: 7px solid transparent;
+			border-right: 7px solid transparent;
+			border-bottom: 7px solid #ccc;
+			border-bottom-color: rgba(0, 0, 0, 0.2);
+			top: -7px;
+			left: 7px;
+		}
+		
+		.bootstrap-datetimepicker-widget.dropdown-menu.bottom:after {
+			border-left: 6px solid transparent;
+			border-right: 6px solid transparent;
+			border-bottom: 6px solid white;
+			top: -6px;
+			left: 8px;
+		}
+		
+		.bootstrap-datetimepicker-widget.dropdown-menu.top:before {
+			border-left: 7px solid transparent;
+			border-right: 7px solid transparent;
+			border-top: 7px solid #ccc;
+			border-top-color: rgba(0, 0, 0, 0.2);
+			bottom: -7px;
+			left: 6px;
+		}
+		
+		.bootstrap-datetimepicker-widget.dropdown-menu.top:after {
+			border-left: 6px solid transparent;
+			border-right: 6px solid transparent;
+			border-top: 6px solid white;
+			bottom: -6px;
+			left: 7px;
+		}
+		
+		.bootstrap-datetimepicker-widget.dropdown-menu.pull-right:before {
+			left: auto;
+			right: 6px;
+		}
+		
+		.bootstrap-datetimepicker-widget.dropdown-menu.pull-right:after {
+			left: auto;
+			right: 7px;
+		}
+		
+		.bootstrap-datetimepicker-widget .list-unstyled {
+			margin: 0;
+		}
+		
+		.bootstrap-datetimepicker-widget a[data-action] {
+			padding: 6px 0;
+		}
+		
+		.bootstrap-datetimepicker-widget a[data-action]:active {
+			box-shadow: none;
+		}
+		
+		.bootstrap-datetimepicker-widget .timepicker-hour,
+		.bootstrap-datetimepicker-widget .timepicker-minute,
+		.bootstrap-datetimepicker-widget .timepicker-second {
+			width: 54px;
+			font-weight: bold;
+			font-size: 1.2em;
+			margin: 0;
+		}
+		
+		.bootstrap-datetimepicker-widget button[data-action] {
+			padding: 6px;
+		}
+		
+		.bootstrap-datetimepicker-widget .btn[data-action="incrementHours"]::after {
+			position: absolute;
+			width: 1px;
+			height: 1px;
+			margin: -1px;
+			padding: 0;
+			overflow: hidden;
+			clip: rect(0, 0, 0, 0);
+			border: 0;
+			content: "Increment Hours";
+		}
+		
+		.bootstrap-datetimepicker-widget .btn[data-action="incrementMinutes"]::after {
+			position: absolute;
+			width: 1px;
+			height: 1px;
+			margin: -1px;
+			padding: 0;
+			overflow: hidden;
+			clip: rect(0, 0, 0, 0);
+			border: 0;
+			content: "Increment Minutes";
+		}
+		
+		.bootstrap-datetimepicker-widget .btn[data-action="decrementHours"]::after {
+			position: absolute;
+			width: 1px;
+			height: 1px;
+			margin: -1px;
+			padding: 0;
+			overflow: hidden;
+			clip: rect(0, 0, 0, 0);
+			border: 0;
+			content: "Decrement Hours";
+		}
+		
+		.bootstrap-datetimepicker-widget .btn[data-action="decrementMinutes"]::after {
+			position: absolute;
+			width: 1px;
+			height: 1px;
+			margin: -1px;
+			padding: 0;
+			overflow: hidden;
+			clip: rect(0, 0, 0, 0);
+			border: 0;
+			content: "Decrement Minutes";
+		}
+		
+		.bootstrap-datetimepicker-widget .btn[data-action="showHours"]::after {
+			position: absolute;
+			width: 1px;
+			height: 1px;
+			margin: -1px;
+			padding: 0;
+			overflow: hidden;
+			clip: rect(0, 0, 0, 0);
+			border: 0;
+			content: "Show Hours";
+		}
+		
+		.bootstrap-datetimepicker-widget .btn[data-action="showMinutes"]::after {
+			position: absolute;
+			width: 1px;
+			height: 1px;
+			margin: -1px;
+			padding: 0;
+			overflow: hidden;
+			clip: rect(0, 0, 0, 0);
+			border: 0;
+			content: "Show Minutes";
+		}
+		
+		.bootstrap-datetimepicker-widget .btn[data-action="togglePeriod"]::after {
+			position: absolute;
+			width: 1px;
+			height: 1px;
+			margin: -1px;
+			padding: 0;
+			overflow: hidden;
+			clip: rect(0, 0, 0, 0);
+			border: 0;
+			content: "Toggle AM/PM";
+		}
+		
+		.bootstrap-datetimepicker-widget .btn[data-action="clear"]::after {
+			position: absolute;
+			width: 1px;
+			height: 1px;
+			margin: -1px;
+			padding: 0;
+			overflow: hidden;
+			clip: rect(0, 0, 0, 0);
+			border: 0;
+			content: "Clear the picker";
+		}
+		
+		.bootstrap-datetimepicker-widget .btn[data-action="today"]::after {
+			position: absolute;
+			width: 1px;
+			height: 1px;
+			margin: -1px;
+			padding: 0;
+			overflow: hidden;
+			clip: rect(0, 0, 0, 0);
+			border: 0;
+			content: "Set the date to today";
+		}
+		
+		.bootstrap-datetimepicker-widget .picker-switch {
+			text-align: center;
+		}
+		
+		.bootstrap-datetimepicker-widget .picker-switch::after {
+			position: absolute;
+			width: 1px;
+			height: 1px;
+			margin: -1px;
+			padding: 0;
+			overflow: hidden;
+			clip: rect(0, 0, 0, 0);
+			border: 0;
+			content: "Toggle Date and Time Screens";
+		}
+		
+		.bootstrap-datetimepicker-widget .picker-switch td {
+			padding: 0;
+			margin: 0;
+			height: auto;
+			width: auto;
+			line-height: inherit;
+		}
+		
+		.bootstrap-datetimepicker-widget .picker-switch td span {
+			line-height: 2.5;
+			height: 2.5em;
+			width: 100%;
+		}
+		
+		.bootstrap-datetimepicker-widget table {
+			width: 100%;
+			margin: 0;
+		}
+		
+		.bootstrap-datetimepicker-widget table td,
+		.bootstrap-datetimepicker-widget table th {
+			text-align: center;
+			border-radius: 4px;
+		}
+		
+		.bootstrap-datetimepicker-widget table th {
+			height: 20px;
+			line-height: 20px;
+			width: 20px;
+		}
+		
+		.bootstrap-datetimepicker-widget table th.picker-switch {
+			width: 145px;
+		}
+		
+		.bootstrap-datetimepicker-widget table th.disabled,
+		.bootstrap-datetimepicker-widget table th.disabled:hover {
+			background: none;
+			color: #777777;
+			cursor: not-allowed;
+		}
+		
+		.bootstrap-datetimepicker-widget table th.prev::after {
+			position: absolute;
+			width: 1px;
+			height: 1px;
+			margin: -1px;
+			padding: 0;
+			overflow: hidden;
+			clip: rect(0, 0, 0, 0);
+			border: 0;
+			content: "Previous Month";
+		}
+		
+		.bootstrap-datetimepicker-widget table th.next::after {
+			position: absolute;
+			width: 1px;
+			height: 1px;
+			margin: -1px;
+			padding: 0;
+			overflow: hidden;
+			clip: rect(0, 0, 0, 0);
+			border: 0;
+			content: "Next Month";
+		}
+		
+		.bootstrap-datetimepicker-widget table thead tr:first-child th {
+			cursor: pointer;
+		}
+		
+		.bootstrap-datetimepicker-widget table thead tr:first-child th:hover {
+			background: #eeeeee;
+		}
+		
+		.bootstrap-datetimepicker-widget table td {
+			height: 54px;
+			line-height: 54px;
+			width: 54px;
+		}
+		
+		.bootstrap-datetimepicker-widget table td.cw {
+			font-size: .8em;
+			height: 20px;
+			line-height: 20px;
+			color: #777777;
+		}
+		
+		.bootstrap-datetimepicker-widget table td.day {
+			height: 20px;
+			line-height: 20px;
+			width: 20px;
+		}
+		
+		.bootstrap-datetimepicker-widget table td.day:hover,
+		.bootstrap-datetimepicker-widget table td.hour:hover,
+		.bootstrap-datetimepicker-widget table td.minute:hover,
+		.bootstrap-datetimepicker-widget table td.second:hover {
+			background: #eeeeee;
+			cursor: pointer;
+		}
+		
+		.bootstrap-datetimepicker-widget table td.old,
+		.bootstrap-datetimepicker-widget table td.new {
+			color: #777777;
+		}
+		
+		.bootstrap-datetimepicker-widget table td.today {
+			position: relative;
+		}
+		
+		.bootstrap-datetimepicker-widget table td.today:before {
+			content: '';
+			display: inline-block;
+			border: solid transparent;
+			border-width: 0 0 7px 7px;
+			border-bottom-color: #337ab7;
+			border-top-color: rgba(0, 0, 0, 0.2);
+			position: absolute;
+			bottom: 4px;
+			right: 4px;
+		}
+		
+		.bootstrap-datetimepicker-widget table td.active,
+		.bootstrap-datetimepicker-widget table td.active:hover {
+			background-color: #337ab7;
+			color: #fff;
+			text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25);
+		}
+		
+		.bootstrap-datetimepicker-widget table td.active.today:before {
+			border-bottom-color: #fff;
+		}
+		
+		.bootstrap-datetimepicker-widget table td.disabled,
+		.bootstrap-datetimepicker-widget table td.disabled:hover {
+			background: none;
+			color: #777777;
+			cursor: not-allowed;
+		}
+		
+		.bootstrap-datetimepicker-widget table td span {
+			display: inline-block;
+			width: 54px;
+			height: 54px;
+			line-height: 54px;
+			margin: 2px 1.5px;
+			cursor: pointer;
+			border-radius: 4px;
+		}
+		
+		.bootstrap-datetimepicker-widget table td span:hover {
+			background: #eeeeee;
+		}
+		
+		.bootstrap-datetimepicker-widget table td span.active {
+			background-color: #337ab7;
+			color: #fff;
+			text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25);
+		}
+		
+		.bootstrap-datetimepicker-widget table td span.old {
+			color: #777777;
+		}
+		
+		.bootstrap-datetimepicker-widget table td span.disabled,
+		.bootstrap-datetimepicker-widget table td span.disabled:hover {
+			background: none;
+			color: #777777;
+			cursor: not-allowed;
+		}
+		
+		.bootstrap-datetimepicker-widget.usetwentyfour td.hour {
+			height: 27px;
+			line-height: 27px;
+		}
+		
+		.bootstrap-datetimepicker-widget.wider {
+			width: 21em;
+		}
+		
+		.bootstrap-datetimepicker-widget .datepicker-decades .decade {
+			line-height: 1.8em !important;
+		}
+		
+		.input-group.date .input-group-addon {
+			cursor: pointer;
+		}
+		
+		.sr-only {
+			position: absolute;
+			width: 1px;
+			height: 1px;
+			margin: -1px;
+			padding: 0;
+			overflow: hidden;
+			clip: rect(0, 0, 0, 0);
+			border: 0;
+		}
 	</style>
 	<script src="./leaflet/d3.js" charset="utf-8"></script>
 	<link rel="stylesheet" href="./leaflet/leaflet.css" />
@@ -24,6 +487,15 @@
 	<script type="text/javascript" src="./leaflet/gpx.js"></script>
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+	<!--Date time picker-->
+	<script type="text/javascript" src="http://momentjs.com/downloads/moment.js"></script>
+	<script type="text/javascript" src="./js/bootstrap.js"></script>
+	<script type="text/javascript" src="./js/bsdatepicker.js"></script>
+	<link rel="stylesheet" href="" />
+
+
+
 </head>
 
 <body>
@@ -33,52 +505,115 @@
 	<div id="bestand">
 		<label class="btn btn-primary btn-block">Selecteer een GPX-bestand <input type="file" id="upload" style="display: none;" accept="*.gpx"></label>
 		<br>
-	</div>
-	<div class="row" id="reload" style="display:none">
-		<div class="col-md-10 col-sm-10 col-xs-10">
-			<div id="status" class="alert alert-success text-center">
-				<strong>Naam bestand: <span id="name"></span></strong> / Afstand: <span id="lengte"></span> / Stijging: <span id="stijgen"></span>m / Daling: <span id="dalen"></span>m / Hoogteverschil: <span id="net"></span>m
+		<div class="row">
+			<div class="col-md-12 col-sm-12 col-xs-12 text-center">
+				<div class="form-group">
+					<div class="row">
+						<div class="col-md-1 col-sm-1 col-xs-1"></div>
+						<div class="col-md-10 col-sm-10 col-xs-10">
+							<div class="alert alert-info">
+								<p>Pas onderstaande datum en tijd aan indien je de weersvoorspelling wil zien voor het startpunt van je route.</p>
+								<br>
+								<div class="row">
+									<div class="col-md-6 col-sm-6 col-xs-6">
+										<div class='input-group date' id='datetimepicker1'>
+											<input id="datum" type='text' class="form-control" />
+											<span class="input-group-addon">
+									<span class="glyphicon glyphicon-calendar"></span>
+											</span>
+										</div>
+									</div>
+									<div class="col-md-6 col-sm-6 col-xs-6">
+										<div class='input-group date' id='datetimepicker2'>
+											<input id="tijd" type='text' class="form-control" />
+											<span class="input-group-addon">
+                        			<span class="glyphicon glyphicon-time"></span>
+											</span>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="col-md-1 col-sm-1 col-xs-1"></div>
+					</div>
+				</div>
+				<script type="text/javascript">
+					$(function() {
+						$('#datetimepicker1').datetimepicker({
+							format: 'YYYY-MM-DD',
+							defaultDate: moment(),
+						});
+						$('#datetimepicker2').datetimepicker({
+							format: 'HH:mm',
+							defaultDate: moment(),
+							disabledTimeIntervals: [
+								[moment({
+									h: 0
+								}), moment({
+									h: 6
+								})],
+								[moment({
+									h: 20,
+									m: 30
+								}), moment({
+									h: 24
+								})]
+							],
+							enabledHours: [6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20],
+							stepping: 15
+						});
+					});
+				</script>
+
 			</div>
 		</div>
-		<div class="col-md-2 col-sm-2 col-xs-2">
-			<button class="btn btn-danger btn-block alert" onclick="location.reload()"><i class="fas fa-redo-alt"></i></button>
-			<button class="btn" onclick="weer()"></button>
+		<br>
+	</div>
+	<div id="reload" style="display:none">
+		<div class="row">
+			<div class="col-md-10 col-sm-10 col-xs-10">
+				<div id="status" class="alert alert-success text-center">
+					<strong>Naam bestand: <span id="name"></span></strong> / Afstand: <span id="lengte"></span> / Stijging: <span id="stijgen"></span>m / Daling: <span id="dalen"></span>m / Hoogteverschil: <span id="net"></span>m
+				</div>
+			</div>
+			<div class="col-md-2 col-sm-2 col-xs-2">
+				<button class="btn btn-danger btn-block alert" onclick="location.reload()"><i class="fas fa-redo-alt"></i></button>
+			</div>
 		</div>
 	</div>
-	<div class="row">
-		<div class="col-md-2 col-sm-2 col-xs-2"></div>
-		<div class="col-md-4 col-sm-8 col-xs-8"><span id="weer"></span></div>
-		<div class="col-md-2 col-sm-2 col-xs-2"></div>
+	<div id="weerrij" style="display:none">
+		<div class="row" style="margin: 0px">
+			<div class="col-md-2 col-sm-2 col-xs-2 text-center alert alert-warning"><span id="weer1"></span></div>
+			<div class="col-md-2 col-sm-2 col-xs-2 text-center alert alert-warning"><span id="weer2"></span></div>
+			<div class="col-md-2 col-sm-2 col-xs-2 text-center alert alert-danger"><strong><span id="weer3"></span></strong></div>
+			<div class="col-md-2 col-sm-2 col-xs-2 text-center alert alert-info"><span id="weer4"></span></div>
+			<div class="col-md-2 col-sm-2 col-xs-2 text-center alert alert-info"><span id="weer5"></span></div>
+			<div class="col-md-2 col-sm-2 col-xs-2 text-center alert alert-info"><span id="weer6"></span></div>
+		</div>
+		<p class="well text-center">Dit toont momenteel enkel het weerbericht voor het startpunt van de route. Maar wegens de kleinschaligheid van meeste routes (onder de 100km) is dit hoogstwaarschijnlijk accuraat voor de volledige route. </p>
 	</div>
-	<div class="row">
-		<div class="col-md-2 col-sm-2 col-xs-2"></div>
-		<div class="col-md-4 col-sm-4 col-xs-4"><button class="btn btn-default btn-block" onclick="fiets()">Fietskaart</button></div>
-		<div class="col-md-4 col-sm-4 col-xs-4"><button class="btn btn-default btn-block" onclick="normaal()">Normale kaart</button></div>
-		<div class="col-md-2 col-sm-2 col-xs-2"></div>
-	</div>
-
-	<br>
 
 	<script type="text/javascript">
-		var map = new L.Map('map').setView([51.05, 3.71667], 12);
+		var map = new L.Map('map', {
+			center: [51.05, 3.71667],
+			zoom: 12,
+			layers: normaal
+		});
 
-		function fiets() {
-			var url = 'https://{s}.tile.thunderforest.com/cycle/{z}/{x}/{y}.png?apikey=7d27de9815e648cdaf3bf4dc1cf9d075',
-				attr = '&copy; <a href="http://www.thunderforest.com/">Thunderforest</a>, &copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>',
-				service = new L.TileLayer(url, {
-					attribution: attr
-				});
-			map.addLayer(service);
-		}
 
-		function normaal() {
-			var url = 'https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',
-				attr = '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>',
-				service = new L.TileLayer(url, {
-					attribution: attr
-				});
-			map.addLayer(service);
-		}
+		var fiets = L.tileLayer("https://{s}.tile.thunderforest.com/cycle/{z}/{x}/{y}.png?apikey=7d27de9815e648cdaf3bf4dc1cf9d075", {
+				attribution: '&copy; <a href="http://www.thunderforest.com/">Thunderforest</a>, &copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
+			}),
+			normaal = L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
+				attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
+			});
+
+		var baseMaps = {
+			"Normaal": normaal,
+			"Fietskaart": fiets
+		};
+
+		L.control.layers(baseMaps).addTo(map);
 
 		var url = 'https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',
 			attr = '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>',
@@ -114,7 +649,6 @@
 		el.addTo(map);
 
 		var weerurl;
-
 
 		//Om geuploade GPX-files te behandelen
 		function renderGPX(file) {
@@ -163,13 +697,16 @@
 					success: function(xml) {
 						var test = parseFloat($(xml).find("trkpt").attr("lat"));
 						var test2 = parseFloat($(xml).find("trkpt").attr("lon"));
+						var datum = $('#datum').val();
+						var tijd = $('#tijd').val();
 						var key = "bc19b1b471805791801dd3098e6b3b59";
-						weerurl = "https://api.darksky.net/forecast/" + key + "/" + test + "," + test2;
+						weerurl = "https://api.darksky.net/forecast/" + key + "/" + test + "," + test2 + "," + datum + "T" + tijd + ":00?exclude=minutely,flags&lang=nl&units=ca&extend=hourly";
 						console.log(weerurl);
+						getWeer();
 					}
 				});
-			}
 
+			}
 			// when the file is read it triggers the onload event above.
 			reader.readAsDataURL(file);
 
@@ -177,21 +714,22 @@
 			$('#bestand').css('display', 'none');
 		}
 
-		function weer() {
-			jQuery.ajax({
+		function getWeer() {
+			$.ajax({
 				url: weerurl,
-				type: "GET",
-
-				contentType: 'application/json; charset=utf-8',
-				success: function(resultData) {
-					console.log("succes");
-				},
-				error: function(jqXHR, textStatus, errorThrown) {},
-
-				timeout: 120000,
+				dataType: 'JSONP',
+				jsonpCallback: 'callback',
+				type: 'GET',
+				success: function(data) {
+					var test = Number(((data.currently.time - data.hourly.data[0].time) / 3600).toFixed(0)) - 2;
+					var i;
+					for (i = 0; i < 6; i++) {
+						$('#weer' + [i + 1]).html(moment.unix(data.hourly.data[i + test].time).format("MM/DD/YYYY HH:mm") + "<hr><i class='fas fa-sun'></i> " + (data.hourly.data[i + test].temperature).toFixed(0) + "°C<br><i class='fas fa-tint'></i> " + (data.hourly.data[i + test].precipProbability * 100).toFixed(0) + "%<br><i class='fas fa-cloud'></i> " + (data.hourly.data[i + test].windSpeed).toFixed(0) + " km/h");
+					}
+				}
 			});
+			$('#weerrij').css('display', 'block');
 		}
-
 		// handle input changes
 		$("#upload").change(function() {
 			console.log(this.files)
