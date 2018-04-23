@@ -456,16 +456,6 @@
 		.checkbox {
 			padding: inherit;
 		}
-		
-		.loading {
-			position: absolute;
-			background: white url('http://sampsonresume.com/labs/pIkfp.gif') no-repeat center center;
-			top: 0;
-			left: 0;
-			width: 100%;
-			height: 100%;
-			display: none;
-		}
 	</style>
 	<script src="./leaflet/d3.js" charset="utf-8"></script>
 	<link rel="stylesheet" href="./leaflet/leaflet.css" />
@@ -763,6 +753,7 @@
 		// handle input changes
 		$("#upload").change(function() {
 			console.log(this.files)
+
 			// grab the first image in the FileList object and pass it to the function
 			renderGPX(this.files[0])
 		});
