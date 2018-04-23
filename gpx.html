@@ -456,6 +456,16 @@
 		.checkbox {
 			padding: inherit;
 		}
+		
+		.loading {
+			position: absolute;
+			background: white url('http://sampsonresume.com/labs/pIkfp.gif') no-repeat center center;
+			top: 0;
+			left: 0;
+			width: 100%;
+			height: 100%;
+			display: none;
+		}
 	</style>
 	<script src="./leaflet/d3.js" charset="utf-8"></script>
 	<link rel="stylesheet" href="./leaflet/leaflet.css" />
@@ -593,6 +603,10 @@
 	</div>
 
 	<script type="text/javascript">
+		function laden() {
+			$('.load').toggle();
+		}
+
 		var map = new L.Map('map', {
 			center: [51.05, 3.71667],
 			zoom: 12,
@@ -651,6 +665,7 @@
 
 		//Om geuploade GPX-files te behandelen
 		function renderGPX(file) {
+			$('body').addClass("loading");
 
 			// generate a new FileReader object
 			var reader = new FileReader();
@@ -689,7 +704,7 @@
 				g.addTo(map);
 				map.addLayer(service);
 
-				console.log(weerjanee);
+				$('body').removeClass("loading");
 
 				if ($('#weerjanee').attr('aria-expanded') === "true") {
 					$.ajax({
