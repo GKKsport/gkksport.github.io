@@ -466,6 +466,7 @@
 			height: 100%;
 			display: none;
 		}
+
 	</style>
 	<script src="./leaflet/d3.js" charset="utf-8"></script>
 	<link rel="stylesheet" href="./leaflet/leaflet.css" />
@@ -569,6 +570,7 @@
 										allowInputToggle: true
 									});
 								});
+
 							</script>
 						</div>
 					</div>
@@ -698,14 +700,13 @@
 
 
 				});
+				$('body').removeClass("loading");
+
 				g.on("addline", function(e) {
 					el.addData(e.line);
 				});
 				g.addTo(map);
 				map.addLayer(service);
-				$('body').removeClass("loading");
-
-
 
 				if ($('#weerjanee').attr('aria-expanded') === "true") {
 					$.ajax({
@@ -780,6 +781,7 @@
 				}, 400);
 			}
 		}
+
 	</script>
 </body>
 
