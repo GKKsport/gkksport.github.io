@@ -720,12 +720,19 @@
 					var test = Number(((data.currently.time - data.hourly.data[0].time) / 3600).toFixed(0)) - 2;
 					var i;
 					for (i = 0; i < 6; i++) {
-						$('#weer' + [i + 1]).html(moment.unix(data.hourly.data[i + test].time).format("MM/DD/YYYY HH:mm") + "<hr><i class='fas fa-sun'></i> " + (data.hourly.data[i + test].temperature).toFixed(0) + "°C<br><i class='fas fa-tint'></i> " + (data.hourly.data[i + test].precipProbability * 100).toFixed(0) + "%<br><i class='fas fa-cloud'></i> " + (data.hourly.data[i + test].windSpeed).toFixed(0) + " km/h");
+						$('#weer' + [i + 1]).html(moment.unix(data.hourly.data[i + test].time).format("DD/MM HH:mm") + "<hr><i class='fas fa-sun'></i> " + (data.hourly.data[i + test].temperature).toFixed(0) + "°C<br><i class='fas fa-tint'></i> " + (data.hourly.data[i + test].precipProbability * 100).toFixed(0) + "%<br><i class='fas fa-cloud'></i> " + (data.hourly.data[i + test].windSpeed).toFixed(0) + " km/h<br>" + degToCompass(data.hourly.data[i + test].windBearing));
 					}
 				}
 			});
 			$('#weerrij').css('display', 'block');
 		}
+
+		function degToCompass(num) {
+			var val = Math.floor((num / 22.5) + 0.5);
+			var arr = ["<i style='transform: rotate(135deg)' class='fas fa-location-arrow'></i>", "<i style='transform: rotate(158deg)' class='fas fa-location-arrow'></i>", "<i style='transform: rotate(180deg)' class='fas fa-location-arrow'></i>", "<i style='transform: rotate(203deg)' class='fas fa-location-arrow'></i>", "<i style='transform: rotate(225deg)' class='fas fa-location-arrow'></i>", "<i style='transform: rotate(248deg)' class='fas fa-location-arrow'></i>", "<i style='transform: rotate(270deg)' class='fas fa-location-arrow'></i>", "<i style='transform: rotate(293deg)' class='fas fa-location-arrow'></i>", "<i style='transform: rotate(315deg)' class='fas fa-location-arrow'></i>", "<i style='transform: rotate(338deg)' class='fas fa-location-arrow'></i>", "<i style='transform: rotate(0deg)' class='fas fa-location-arrow'></i>", "<i style='transform: rotate(22deg)' class='fas fa-location-arrow'></i>", "<i style='transform: rotate(45deg)' class='fas fa-location-arrow'></i>", "<i style='transform: rotate(67deg)' class='fas fa-location-arrow'></i>", "<i style='transform: rotate(90deg)' class='fas fa-location-arrow'></i>", "<i style='transform: rotate(112deg)' class='fas fa-location-arrow'></i>"];
+			return arr[(val % 16)];
+		}
+
 		// handle input changes
 		$("#upload").change(function() {
 			console.log(this.files)
