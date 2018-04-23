@@ -18,41 +18,6 @@
 			margin: 0px;
 		}
 		
-		input {
-			position: relative;
-			width: 150px;
-			height: 20px;
-			color: white;
-		}
-		
-		input:before {
-			position: absolute;
-			top: 3px;
-			left: 3px;
-			content: attr(data-date);
-			display: inline-block;
-			color: black;
-		}
-		
-		input::-webkit-datetime-edit,
-		input::-webkit-inner-spin-button,
-		input::-webkit-clear-button {
-			display: none;
-		}
-		
-		input::-webkit-calendar-picker-indicator {
-			position: absolute;
-			top: 3px;
-			right: 0;
-			color: black;
-			opacity: 1;
-		}
-		/*!
- * Datetimepicker for Bootstrap 3
- * version : 4.17.47
- * https://github.com/Eonasdan/bootstrap-datetimepicker/
- */
-		
 		.form-control[disabled],
 		.form-control[readonly],
 		fieldset[disabled] .form-control {
@@ -487,6 +452,10 @@
 			clip: rect(0, 0, 0, 0);
 			border: 0;
 		}
+		
+		.checkbox {
+			padding: inherit;
+		}
 	</style>
 	<script src="./leaflet/d3.js" charset="utf-8"></script>
 	<link rel="stylesheet" href="./leaflet/leaflet.css" />
@@ -499,6 +468,8 @@
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 
+	<link href="https://gitcdn.github.io/bootstrap-toggle/2.2.2/css/bootstrap-toggle.min.css" rel="stylesheet">
+	<script src="https://gitcdn.github.io/bootstrap-toggle/2.2.2/js/bootstrap-toggle.min.js"></script>
 
 	<!--Date time picker-->
 	<script type="text/javascript" src="./js/moment.js"></script>
@@ -512,73 +483,88 @@
 	<div id="testrelief"></div>
 	<br>
 	<div id="bestand">
-		<label class="btn btn-primary btn-block">Selecteer een GPX-bestand <input type="file" id="upload" style="display: none;" accept="*.gpx"></label>
+		<div class="row">
+			<div class="col-md-6">
+				<label class="btn btn-primary btn-block">Selecteer een GPX-bestand <input type="file" id="upload" style="display: none;" accept="*.gpx"></label></div>
+			<div class="col-md-6">
+				<button id="weerjanee" class="btn btn-default btn-block" type="button" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample"> Toon me de weer-opties (enkel te gebruiken indien nodig) </button>
+			</div>
+		</div>
 		<br>
 		<div class="form-group">
 			<div class="row">
-				<div class="col-md-3"></div>
-				<div class="col-md-6 ">
-					<div class="alert alert-info">
-						<p class="text-center">Pas onderstaande datum en tijd aan alvorens het GPX-bestand te selecteren indien je de weersvoorspelling wil zien voor het startpunt van je route. Laat leeg om de huidige datum en tijd te gebruiken.</p>
-						<br>
-						<div class="row">
-							<div class="col-md-6 col-sm-6 col-xs-6">
-								<div class='input-group date' id='datetimepicker1'>
-									<input id="datum" type='text' class="form-control" readonly="true" />
-									<span class="input-group-addon">
+				<!--<div class="col-md-3"></div>-->
+				<div class="col-md-12 ">
+					<div class="collapse" id="collapseExample">
+						<div class="alert alert-info text-center">
+							<br>
+							<p><u>Let op</u>: gebruik dit <strong>enkel als je het effectief kan gebruiken</strong>. Wegens limitaties van de API kan dit slechts 1000x per maand gebruikt worden. Als je het niet nodig hebt, druk nog eens <strong>op de knop om deze functie te verbergen</strong>.</p>
+							<br>
+							<div class="row">
+								<div class="col-md-1 col-sm-1 col-xs-1">
+								</div>
+								<div class="col-md-5 col-sm-5 col-xs-5 text-center">
+									<div class='input-group date' id='datetimepicker1'>
+										<input id="datum" type='text' class="form-control" readonly="true" />
+										<span class="input-group-addon">
 									<span class="glyphicon glyphicon-calendar"></span>
-									</span>
+										</span>
+									</div>
 								</div>
-							</div>
-							<div class="col-md-6 col-sm-6 col-xs-6">
-								<div class='input-group date' id='datetimepicker2'>
-									<input id="tijd" type='text' class="form-control" readonly="true" />
-									<span class="input-group-addon">
+								<div class="col-md-5 col-sm-5 col-xs-5 text-center">
+									<div class='input-group date' id='datetimepicker2'>
+										<input id="tijd" type='text' class="form-control" readonly="true" />
+										<span class="input-group-addon">
                         			<span class="glyphicon glyphicon-time"></span>
-									</span>
+										</span>
+									</div>
+								</div>
+								<div class="col-md-1 col-sm-1 col-xs-1">
 								</div>
 							</div>
+							<br>
+							<p>
+								<u>Instructie</u>: pas onderstaande datum en tijd aan alvorens het GPX-bestand te selecteren indien je de weersvoorspelling wil zien voor het startpunt van je route. Laat leeg om de huidige datum en tijd te gebruiken. </p>
+							<script type="text/javascript">
+								$(function() {
+									$('#datetimepicker1').datetimepicker({
+										format: 'YYYY-MM-DD',
+										defaultDate: moment(),
+										widgetPositioning: {
+											horizontal: 'left'
+										},
+										ignoreReadonly: true,
+										allowInputToggle: true
+									});
+									$('#datetimepicker2').datetimepicker({
+										format: 'HH:mm',
+										defaultDate: moment(),
+										disabledTimeIntervals: [
+											[moment({
+												h: 0
+											}), moment({
+												h: 6
+											})],
+											[moment({
+												h: 20,
+												m: 30
+											}), moment({
+												h: 24
+											})]
+										],
+										enabledHours: [6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20],
+										stepping: 15,
+										ignoreReadonly: true,
+										allowInputToggle: true
+									});
+								});
+							</script>
 						</div>
 					</div>
 				</div>
-				<div class="col-md-3"></div>
+				<!--<div class="col-md-3"></div>-->
 			</div>
 		</div>
-		<script type="text/javascript">
-			$(function() {
-				$('#datetimepicker1').datetimepicker({
-					format: 'YYYY-MM-DD',
-					defaultDate: moment(),
-					widgetPositioning: {
-						horizontal: 'left'
-					},
-					ignoreReadonly: true,
-					allowInputToggle: true
-				});
-				$('#datetimepicker2').datetimepicker({
-					format: 'HH:mm',
-					defaultDate: moment(),
-					disabledTimeIntervals: [
-						[moment({
-							h: 0
-						}), moment({
-							h: 6
-						})],
-						[moment({
-							h: 20,
-							m: 30
-						}), moment({
-							h: 24
-						})]
-					],
-					enabledHours: [6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20],
-					stepping: 15,
-					ignoreReadonly: true,
-					allowInputToggle: true
-				});
-			});
-		</script>
-
 	</div>
 
 	<div id="reload" style="display:none">
@@ -702,21 +688,25 @@
 				g.addTo(map);
 				map.addLayer(service);
 
-				$.ajax({
-					url: the_url,
-					type: "GET",
-					datatype: "xml",
-					success: function(xml) {
-						var test = parseFloat($(xml).find("trkpt").attr("lat"));
-						var test2 = parseFloat($(xml).find("trkpt").attr("lon"));
-						var datum = $('#datum').val();
-						var tijd = $('#tijd').val();
-						var key = "bc19b1b471805791801dd3098e6b3b59";
-						weerurl = "https://api.darksky.net/forecast/" + key + "/" + test + "," + test2 + "," + datum + "T" + tijd + ":00?exclude=minutely,flags&lang=nl&units=ca&extend=hourly";
-						console.log(weerurl);
-						getWeer();
-					}
-				});
+				console.log(weerjanee);
+
+				if ($('#weerjanee').attr('aria-expanded') === "true") {
+					$.ajax({
+						url: the_url,
+						type: "GET",
+						datatype: "xml",
+						success: function(xml) {
+							var test = parseFloat($(xml).find("trkpt").attr("lat"));
+							var test2 = parseFloat($(xml).find("trkpt").attr("lon"));
+							var datum = $('#datum').val();
+							var tijd = $('#tijd').val();
+							var key = "bc19b1b471805791801dd3098e6b3b59";
+							weerurl = "https://api.darksky.net/forecast/" + key + "/" + test + "," + test2 + "," + datum + "T" + tijd + ":00?exclude=minutely,flags&lang=nl&units=ca&extend=hourly";
+							console.log(weerurl);
+							getWeer();
+						}
+					});
+				}
 
 			}
 			// when the file is read it triggers the onload event above.
