@@ -666,12 +666,12 @@
 		//Om geuploade GPX-files te behandelen
 		function renderGPX(file) {
 			$('body').addClass("loading");
-
 			// generate a new FileReader object
 			var reader = new FileReader();
 
 			// inject an image with the src url
 			reader.onload = function(event) {
+
 				the_url = event.target.result
 				var g = new L.GPX(the_url, {
 					async: true,
@@ -703,8 +703,9 @@
 				});
 				g.addTo(map);
 				map.addLayer(service);
-
 				$('body').removeClass("loading");
+
+
 
 				if ($('#weerjanee').attr('aria-expanded') === "true") {
 					$.ajax({
