@@ -724,13 +724,12 @@
 						}
 					});
 				}
-
+				$('body').removeClass("loading");
 			}
 			// when the file is read it triggers the onload event above.
 			reader.readAsDataURL(file);
 			$('#reload').css('display', 'block');
 			$('#bestand').css('display', 'none');
-			$('body').removeClass("loading");
 		}
 
 		function getWeer() {
