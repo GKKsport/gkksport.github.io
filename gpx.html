@@ -5,6 +5,10 @@
 	<title>GKK GPX-viewer</title>
 	<meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
 	<style>
+		html {
+			overflow-x: hidden;
+		}
+		
 		html,
 		body,
 		#map {
@@ -476,6 +480,7 @@
 			clip: rect(0, 0, 0, 0);
 			border: 0;
 		}
+
 	</style>
 	<script src="./leaflet/d3.js" charset="utf-8"></script>
 	<link rel="stylesheet" href="./leaflet/leaflet.css" />
@@ -561,6 +566,7 @@
 					stepping: 15
 				});
 			});
+
 		</script>
 
 	</div>
@@ -739,6 +745,7 @@
 			// grab the first image in the FileList object and pass it to the function
 			renderGPX(this.files[0])
 		});
+
 	</script>
 </body>
 
