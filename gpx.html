@@ -466,7 +466,6 @@
 			height: 100%;
 			display: none;
 		}
-
 	</style>
 	<script src="./leaflet/d3.js" charset="utf-8"></script>
 	<link rel="stylesheet" href="./leaflet/leaflet.css" />
@@ -570,7 +569,6 @@
 										allowInputToggle: true
 									});
 								});
-
 							</script>
 						</div>
 					</div>
@@ -667,7 +665,7 @@
 
 		//Om geuploade GPX-files te behandelen
 		function renderGPX(file) {
-			$('body').addClass("loading");
+			//$('body').addClass("loading");
 			// generate a new FileReader object
 			var reader = new FileReader();
 
@@ -724,7 +722,6 @@
 						}
 					});
 				}
-				$('body').removeClass("loading");
 			}
 			// when the file is read it triggers the onload event above.
 			reader.readAsDataURL(file);
@@ -779,7 +776,6 @@
 				}, 400);
 			}
 		}
-
 	</script>
 </body>
 
