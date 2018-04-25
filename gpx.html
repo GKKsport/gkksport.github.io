@@ -586,11 +586,10 @@
 		</div>
 	</div>
 	<div id="weerrij" style="display:none">
-		<div class="text-center well"><strong>Weerbericht voor de dag</strong>: <span id="weerbericht"></span></div>
 		<div class="row" style="margin: 0px">
 			<div class="col-md-2 col-sm-2 col-xs-4 text-center alert alert-warning"><span id="weer1"></span></div>
-			<div class="col-md-2 col-sm-2 col-xs-4 text-center alert alert-warning"><span id="weer2"></span></div>
-			<div class="col-md-2 col-sm-2 col-xs-4 text-center alert alert-danger"><strong><span id="weer3"></span></strong></div>
+			<div class="col-md-2 col-sm-2 col-xs-4 text-center alert alert-danger"><strong><span id="weer2"></span></strong></div>
+			<div class="col-md-2 col-sm-2 col-xs-4 text-center alert alert-info"><span id="weer3"></span></div>
 			<div class="col-md-2 col-sm-2 col-xs-4 text-center alert alert-info"><span id="weer4"></span></div>
 			<div class="col-md-2 col-sm-2 col-xs-4 text-center alert alert-info"><span id="weer5"></span></div>
 			<div class="col-md-2 col-sm-2 col-xs-4 text-center alert alert-info"><span id="weer6"></span></div>
@@ -733,8 +732,7 @@
 				jsonpCallback: 'callback',
 				type: 'GET',
 				success: function(data) {
-					var test = Number(((data.currently.time - data.hourly.data[0].time) / 3600).toFixed(0)) - 2;
-					$('#weerbericht').html(data.hourly.summary.toLowerCase());
+					var test = Number(((data.currently.time - data.hourly.data[0].time) / 3600).toFixed(0)) - 1;
 					var i;
 					/*for (i = 0; i < 6; i++) {
 						$('#weer' + [i + 1]).html(moment.unix(data.hourly.data[i + test].time).format("DD/MM HH:mm") + "<hr><i class='fas fa-sun'></i> " + (data.hourly.data[i + test].temperature).toFixed(1) + "°C (" + (data.hourly.data[i + test].apparentTemperature).toFixed(1) + "°C)<br><i class='fas fa-tint'></i> " + (data.hourly.data[i + test].precipProbability * 100).toFixed(0) + "%<br><i class='fas fa-cloud'></i> " + (data.hourly.data[i + test].windSpeed).toFixed(1) + " km/h<br><span data-toggle='tooltip' data-placement='bottom' title='" + degToWD(data.hourly.data[i + test].windBearing) + "'>" + degToCompass(data.hourly.data[i + test].windBearing) + "</span>");
