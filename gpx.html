@@ -551,13 +551,13 @@
 												h: 6
 											})],
 											[moment({
-												h: 20,
+												h: 19,
 												m: 30
 											}), moment({
 												h: 24
 											})]
 										],
-										enabledHours: [6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20],
+										enabledHours: [6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19],
 										stepping: 15,
 										ignoreReadonly: true,
 										allowInputToggle: true
@@ -733,6 +733,7 @@
 				type: 'GET',
 				success: function(data) {
 					var test = Number(((data.currently.time - data.hourly.data[0].time) / 3600).toFixed(0)) - 1;
+					// console.log(test);
 					var i;
 					/*for (i = 0; i < 6; i++) {
 						$('#weer' + [i + 1]).html(moment.unix(data.hourly.data[i + test].time).format("DD/MM HH:mm") + "<hr><i class='fas fa-sun'></i> " + (data.hourly.data[i + test].temperature).toFixed(1) + "°C (" + (data.hourly.data[i + test].apparentTemperature).toFixed(1) + "°C)<br><i class='fas fa-tint'></i> " + (data.hourly.data[i + test].precipProbability * 100).toFixed(0) + "%<br><i class='fas fa-cloud'></i> " + (data.hourly.data[i + test].windSpeed).toFixed(1) + " km/h<br><span data-toggle='tooltip' data-placement='bottom' title='" + degToWD(data.hourly.data[i + test].windBearing) + "'>" + degToCompass(data.hourly.data[i + test].windBearing) + "</span>");
@@ -845,7 +846,7 @@
 
 		// handle input changes
 		$("#upload").change(function() {
-			console.log(this.files)
+			// console.log(this.files)
 			// grab the first image in the FileList object and pass it to the function
 			renderGPX(this.files[0])
 		});
