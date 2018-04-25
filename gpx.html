@@ -592,9 +592,9 @@
 							</div>
 							<div class="panel-body">
 								<div class="row">
-									<div class="col-md-3 col-sm-3 col-xs-3">
+									<div class="col-md-3 col-sm-1 col-xs-1">
 									</div>
-									<div class="col-md-6 col-sm-6 col-xs-6 text-center">
+									<div class="col-md-6 col-sm-10 col-xs-10 text-center">
 										<p>Geef hieronder een adres in als je geen GPX-file hebt maar toch het weerbericht wil weten van je startpunt.</p>
 										<br>
 										<div class='input-group'>
@@ -606,7 +606,7 @@
 										<br>
 										<div onclick="adresWeer();"><button id="adres" class="btn btn-primary btn-block" style="white-space: normal;" type="button"> Go! </button></div>
 									</div>
-									<div class="col-md-3 col-sm-3 col-xs-3">
+									<div class="col-md-3 col-sm-1 col-xs-1">
 									</div>
 								</div>
 								<br>
@@ -793,7 +793,13 @@
 
 					var lat = autocomplete.getPlace().geometry.location.lat();
 					var long = autocomplete.getPlace().geometry.location.lng();
-					var marker = L.marker([lat, long]).addTo(map);
+					var icon = L.icon({
+						iconUrl: './leaflet/images/marker-icon.png',
+						shadowUrl: './leaflet/images/marker-shadow.png',
+					});
+					var marker = L.marker([lat, long], {
+						icon: icon
+					}).addTo(map);
 					map.setView(new L.LatLng(lat, long), 14);
 
 					if ($('#weerjanee').attr('aria-expanded') === "true") {
