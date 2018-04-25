@@ -12,7 +12,7 @@
 		html,
 		body,
 		#map {
-			height: 94%;
+			height: 93%;
 			width: 100%;
 			padding: 4px;
 			margin: 0px;
@@ -492,11 +492,10 @@
 		</div>
 		<div class="row">
 			<div class="col-md-6">
-				<div onclick="scrollen();enableAdres();"><button id="weerjanee" class="btn btn-default btn-block" style="white-space: normal;" type="button" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample"> Toon me de weer-opties (enkel te gebruiken indien nodig) </button></div>
+				<div onclick="scrollen();enableAdres();"><button id="weerjanee" class="btn btn-default btn-block" style="white-space: normal;" type="button" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample"> Toon me de weer-opties (enkel te gebruiken indien nodig) </button></div><br>
 			</div>
-			<br>
 			<div class="col-md-6">
-				<div onclick="scrollen();"><button disabled id="adres" class="btn btn-default btn-block" style="white-space: normal;" type="button" data-toggle="collapse" data-target="#collapseAdres" aria-expanded="false" aria-controls="collapseAdres"> Geef een adres in in plaats van  een GPX-bestand </button></div>
+				<div onclick="scrollen();"><button disabled id="adres" class="btn btn-default btn-block" style="white-space: normal;" type="button" data-toggle="collapse" data-target="#collapseAdres" aria-expanded="false" aria-controls="collapseAdres"> Geef een adres (indien je geen GPX-bestand hebt) </button></div>
 			</div>
 		</div>
 		<br>
@@ -505,35 +504,43 @@
 				<!--<div class="col-md-3"></div>-->
 				<div class="col-md-12 ">
 					<div class="collapse" id="collapseExample">
-						<div class="alert alert-info text-center">
-							<br>
-							<p><u>Let op</u>: gebruik dit <strong>enkel als je het effectief kan gebruiken</strong>. Wegens limitaties van de API kan dit slechts 1000x per maand gebruikt worden. Als je het niet nodig hebt, druk nog eens <strong>op de knop om deze functie te verbergen</strong>.</p>
-							<br>
-							<div class="row">
-								<div class="col-md-1 col-sm-1 col-xs-1">
-								</div>
-								<div class="col-md-5 col-sm-5 col-xs-5 text-center">
-									<div class='input-group date' id='datetimepicker1'>
-										<input id="datum" type='text' class="form-control" readonly="true" />
-										<span class="input-group-addon">
+						<div class="panel panel-default text-center">
+							<div class="panel-heading">
+								Tijd-opties
+							</div>
+							<div class="panel-body">
+								<div class="row">
+									<div class="col-md-1 col-sm-1 col-xs-1">
+									</div>
+									<div class="col-md-10 col-sm-10 col-xs-10">
+										<p><u>Let op</u>: gebruik dit <strong>enkel als je het effectief kan gebruiken</strong>. Wegens limitaties van de API kan dit slechts 1000x per maand gebruikt worden. Als je het niet nodig hebt, druk nog eens <strong>op de knop om deze functie te verbergen</strong>.</p>
+										<br>
+										<div class="row">
+											<div class="col-md-6 col-sm-6 col-xs-6 text-center">
+												<div class='input-group date' id='datetimepicker1'>
+													<input id="datum" type='text' class="form-control" readonly="true" />
+													<span class="input-group-addon">
 									<span class="glyphicon glyphicon-calendar"></span>
-										</span>
-									</div>
-								</div>
-								<div class="col-md-5 col-sm-5 col-xs-5 text-center">
-									<div class='input-group date' id='datetimepicker2'>
-										<input id="tijd" type='text' class="form-control" readonly="true" />
-										<span class="input-group-addon">
+													</span>
+												</div>
+											</div>
+											<div class="col-md-6 col-sm-6 col-xs-6 text-center">
+												<div class='input-group date' id='datetimepicker2'>
+													<input id="tijd" type='text' class="form-control" readonly="true" />
+													<span class="input-group-addon">
                         			<span class="glyphicon glyphicon-time"></span>
-										</span>
+													</span>
+												</div>
+											</div>
+										</div>
+										<br>
+										<p>
+											<u>Instructie</u>: pas onderstaande datum en tijd aan alvorens het GPX-bestand te selecteren (of een adres op te geven) indien je de weersvoorspelling wil zien voor het startpunt van je route. Laat leeg om de huidige datum en tijd te gebruiken. </p>
 									</div>
-								</div>
-								<div class="col-md-1 col-sm-1 col-xs-1">
+									<div class="col-md-1 col-sm-1 col-xs-1">
+									</div>
 								</div>
 							</div>
-							<br>
-							<p>
-								<u>Instructie</u>: pas onderstaande datum en tijd aan alvorens het GPX-bestand te selecteren indien je de weersvoorspelling wil zien voor het startpunt van je route. Laat leeg om de huidige datum en tijd te gebruiken. </p>
 							<script type="text/javascript">
 								$(function() {
 									$('#datetimepicker1').datetimepicker({
@@ -579,27 +586,31 @@
 				<!--<div class="col-md-3"></div>-->
 				<div class="col-md-12 ">
 					<div class="collapse" id="collapseAdres">
-						<div class="alert alert-warning text-center">
-							<br>
-							<p>Dit is om een adres in te geven</p>
-							<br>
-							<div class="row">
-								<div class="col-md-3 col-sm-3 col-xs-3">
-								</div>
-								<div class="col-md-6 col-sm-6 col-xs-6 text-center">
-									<div class='input-group'>
-										<input id="adresinput" type='text' class="form-control" />
-										<span class="input-group-addon">
+						<div class="panel panel-default text-center">
+							<div class="panel-heading">
+								Adres invoegen
+							</div>
+							<div class="panel-body">
+								<div class="row">
+									<div class="col-md-3 col-sm-3 col-xs-3">
+									</div>
+									<div class="col-md-6 col-sm-6 col-xs-6 text-center">
+										<p>Geef hieronder een adres in als je geen GPX-file hebt maar toch het weerbericht wil weten van je startpunt.</p>
+										<br>
+										<div class='input-group'>
+											<input id="autocomplete" placeholder="Enter your address" onFocus="geolocate()" type="text" class="form-control">
+											<span class="input-group-addon">
                         					<i class="fas fa-map-marker"></i>
 										</span>
+										</div>
+										<br>
+										<div onclick="adresWeer();"><button id="adres" class="btn btn-primary btn-block" style="white-space: normal;" type="button"> Go! </button></div>
 									</div>
-									<br>
-									<div onclick="adresWeer();"><button id="adres" class="btn btn-primary btn-block" style="white-space: normal;" type="button"> Go! </button></div>
+									<div class="col-md-3 col-sm-3 col-xs-3">
+									</div>
 								</div>
-								<div class="col-md-3 col-sm-3 col-xs-3">
-								</div>
+								<br>
 							</div>
-							<br>
 						</div>
 					</div>
 				</div>
@@ -761,38 +772,37 @@
 
 		// Om weer op basis van een adres te geven en niet op GPX-basis
 		function adresWeer() {
-			/*var marker = L.marker([51.05, 3.71667]);
-			marker.addTo(map);*/
-			$('#statusweeradres').css('display', 'block');
-			$('#status').css('display', 'none');
-			$('#reload').css('display', 'block');
-			$('#bestand').css('display', 'none');
-			geocoder = new google.maps.Geocoder();
 
-			function codeAddress() {
+			var address = document.getElementById('autocomplete').value;
+			if (address != "") {
+				/*var marker = L.marker([51.05, 3.71667]);
+				marker.addTo(map);*/
+				$('#statusweeradres').css('display', 'block');
+				$('#status').css('display', 'none');
+				$('#reload').css('display', 'block');
+				$('#bestand').css('display', 'none');
+				geocoder = new google.maps.Geocoder();
 
-				//In this case it gets the address from an element on the page, but obviously you  could just pass it to the method instead
-				var address = document.getElementById('adresinput').value;
-				document.getElementById("adreslog").textContent = address;
-				console.log(address);
+				function codeAddress() {
 
-				geocoder.geocode({
-					'address': address
-				}, function(results, status) {
-					if (status == google.maps.GeocoderStatus.OK) {
-						var lat = results[0].geometry.location.lat();
-						var long = results[0].geometry.location.lng();
-						var marker = L.marker([lat, long]).addTo(map);
-						map.setView(new L.LatLng(lat, long), 12);
+					//In this case it gets the address from an element on the page, but obviously you  could just pass it to the method instead
 
-						if ($('#weerjanee').attr('aria-expanded') === "true") {
-							var datum = $('#datum').val();
-							var tijd = $('#tijd').val();
-							var key = "bc19b1b471805791801dd3098e6b3b59";
-							weerurl = "https://api.darksky.net/forecast/" + key + "/" + lat + "," + long + "," + datum + "T" + tijd + ":00?exclude=minutely,flags&lang=nl&units=ca&extend=hourly";
-							console.log(weerurl);
-							// getWeer();
-						}
+					document.getElementById("adreslog").textContent = address;
+					console.log(address);
+
+
+					var lat = autocomplete.getPlace().geometry.location.lat();
+					var long = autocomplete.getPlace().geometry.location.lng();
+					var marker = L.marker([lat, long]).addTo(map);
+					map.setView(new L.LatLng(lat, long), 14);
+
+					if ($('#weerjanee').attr('aria-expanded') === "true") {
+						var datum = $('#datum').val();
+						var tijd = $('#tijd').val();
+						var key = "bc19b1b471805791801dd3098e6b3b59";
+						weerurl = "https://api.darksky.net/forecast/" + key + "/" + lat + "," + long + "," + datum + "T" + tijd + ":00?exclude=minutely,flags&lang=nl&units=ca&extend=hourly";
+						console.log(weerurl);
+						// getWeer();
 
 						//In this case it creates a marker, but you can get the lat and lng from the location.LatLng
 						/*map.setCenter(results[0].geometry.location);
@@ -800,12 +810,14 @@
 							map: map,
 							position: results[0].geometry.location
 						});*/
-					} else {
-						alert('Geocode was not successful for the following reason: ' + status);
+
 					}
-				});
+				}
+				codeAddress();
+				getWeer();
+			} else {
+				alert("Dit veld kan niet leegblijven.");
 			}
-			codeAddress();
 		}
 
 		function getWeer() {
@@ -830,6 +842,11 @@
 				selector: '[data-toggle=tooltip]'
 			});
 			$('#weerrij').css('display', 'block');
+			setTimeout(function() {
+				$("html, body").animate({
+					scrollTop: 0
+				}, "slow");
+			}, 400);
 		}
 
 		function UVIndex(num) {
@@ -939,8 +956,7 @@
 				setTimeout(function() {
 					$('html, body').scrollTop($(document).height() - $(window).height());
 				}, 400);
-			}
-			if ($('#adres').attr('aria-expanded') === "false") {
+			} else if ($('#adres').attr('aria-expanded') === "false") {
 				setTimeout(function() {
 					$('html, body').scrollTop($(document).height() - $(window).height());
 				}, 400);
@@ -954,11 +970,11 @@
 			if ($('#weerjanee').attr('aria-expanded') === "true") {
 				$('#adres').prop('disabled', true);
 				$('#collapseAdres').collapse('hide');
-
 			}
 		}
 	</script>
-	<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDn6j5Y1i67M1C_4hJL_N4zuD6DuPuzY2g"></script>
+	<script src="js/auto-complete.js"></script>
+	<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCm3cVtor4bk3KbwU7w26MZtmKxePJAtsc&libraries=places&callback=initAutocomplete" async defer></script>
 
 </body>
 
