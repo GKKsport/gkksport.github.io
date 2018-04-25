@@ -456,10 +456,12 @@
 		.checkbox {
 			padding: inherit;
 		}
+
 	</style>
 	<script src="./leaflet/d3.js" charset="utf-8"></script>
 	<link rel="stylesheet" href="./leaflet/leaflet.css" />
 	<!--[if lte IE 8]><link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.7.2/leaflet.ie.css" /><![endif]-->
+	<link rel="stylesheet" href="./weathericons/css/weather-icons.min.css" />
 	<link rel="stylesheet" href="https://mrmufflon.github.io/Leaflet.Elevation/example/lib/elevation/Leaflet.Elevation-0.0.2.css" />
 	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.10/css/all.css" integrity="sha384-+d0P83n9kaQMCwj8F4RJB66tzIwOKmrdb46+porD/OvrJ+37WqIM7UoBtwHO6Nlg" crossorigin="anonymous">
 	<script type="text/javascript" src="./leaflet/leaflet.js"></script>
@@ -470,6 +472,8 @@
 
 	<link href="https://gitcdn.github.io/bootstrap-toggle/2.2.2/css/bootstrap-toggle.min.css" rel="stylesheet">
 	<script src="https://gitcdn.github.io/bootstrap-toggle/2.2.2/js/bootstrap-toggle.min.js"></script>
+
+
 
 	<!--Date time picker-->
 	<script type="text/javascript" src="./js/moment.js"></script>
@@ -485,7 +489,7 @@
 	<div id="bestand">
 		<div class="row">
 			<div class="col-md-6">
-				<label class="btn btn-primary btn-block">Selecteer een GPX-bestand <input type="file" id="upload" style="display: none;" accept="*.gpx"></label><br>
+				<label class="btn btn-primary btn-block">Selecteer een GPX-bestand<input type="file" id="upload" style="display: none;" accept="*.gpx"></label><br>
 			</div>
 			<div class="col-md-6">
 				<div onclick="scrollen();"><button id="weerjanee" class="btn btn-default btn-block" style="white-space: normal;" type="button" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample"> Toon me de weer-opties (enkel te gebruiken indien nodig) </button></div>
@@ -559,6 +563,7 @@
 										allowInputToggle: true
 									});
 								});
+
 							</script>
 						</div>
 					</div>
@@ -581,15 +586,17 @@
 		</div>
 	</div>
 	<div id="weerrij" style="display:none">
+		<div class="text-center well"><strong>Weerbericht voor de dag</strong>: <span id="weerbericht"></span></div>
 		<div class="row" style="margin: 0px">
-			<div class="col-md-2 col-sm-2 col-xs-2 text-center alert alert-warning"><span id="weer1"></span></div>
-			<div class="col-md-2 col-sm-2 col-xs-2 text-center alert alert-warning"><span id="weer2"></span></div>
-			<div class="col-md-2 col-sm-2 col-xs-2 text-center alert alert-danger"><strong><span id="weer3"></span></strong></div>
-			<div class="col-md-2 col-sm-2 col-xs-2 text-center alert alert-info"><span id="weer4"></span></div>
-			<div class="col-md-2 col-sm-2 col-xs-2 text-center alert alert-info"><span id="weer5"></span></div>
-			<div class="col-md-2 col-sm-2 col-xs-2 text-center alert alert-info"><span id="weer6"></span></div>
+			<div class="col-md-2 col-sm-2 col-xs-4 text-center alert alert-warning"><span id="weer1"></span></div>
+			<div class="col-md-2 col-sm-2 col-xs-4 text-center alert alert-warning"><span id="weer2"></span></div>
+			<div class="col-md-2 col-sm-2 col-xs-4 text-center alert alert-danger"><strong><span id="weer3"></span></strong></div>
+			<div class="col-md-2 col-sm-2 col-xs-4 text-center alert alert-info"><span id="weer4"></span></div>
+			<div class="col-md-2 col-sm-2 col-xs-4 text-center alert alert-info"><span id="weer5"></span></div>
+			<div class="col-md-2 col-sm-2 col-xs-4 text-center alert alert-info"><span id="weer6"></span></div>
 		</div>
-		<p class="well text-center">Dit toont momenteel enkel het weerbericht voor het startpunt van de route. Maar wegens de kleinschaligheid van meeste routes (onder de 100km) is dit hoogstwaarschijnlijk accuraat voor de volledige route. </p>
+		<div class="well text-center">Dit toont momenteel enkel het weerbericht voor het startpunt van de route. Maar wegens de kleinschaligheid van meeste routes (onder de 100km) is dit hoogstwaarschijnlijk accuraat voor de volledige route.
+			<hr><strong>Legende:</strong> <i class='wi wi-thermometer'></i> temperatuur / <i class='fas fa-tint'></i> kans op neerslag / <i class='wi wi-windy'></i> windsnelheid (ook in beaufort (0-12) als je er over gaat met je muis) / <i class='wi wi-strong-wind'></i> snelheid van windstoten (ook beaufort) / <i class='fas fa-location-arrow'></i> windrichting (in tekst als je er over gaat met je muis) / <i class='wi wi-humidity'></i> relatieve luchtvochtigheid (RH) / <i class="fas fa-cloud"></i> wolkentapijt (0% is open hemel, 100% is volledig bewolkt) / <i class='fas fa-sun'></i> UV-index (0-10 met gevaar-indicatie als je er over gaat met je muis)</div>
 	</div>
 
 	<script type="text/javascript">
@@ -722,14 +729,18 @@
 		function getWeer() {
 			$.ajax({
 				url: weerurl,
-				dataType: 'JSONP',
+				dataType: 'JSONP', // JSONP bij normale weerurl
 				jsonpCallback: 'callback',
 				type: 'GET',
 				success: function(data) {
 					var test = Number(((data.currently.time - data.hourly.data[0].time) / 3600).toFixed(0)) - 2;
+					$('#weerbericht').html(data.hourly.summary.toLowerCase());
 					var i;
+					/*for (i = 0; i < 6; i++) {
+						$('#weer' + [i + 1]).html(moment.unix(data.hourly.data[i + test].time).format("DD/MM HH:mm") + "<hr><i class='fas fa-sun'></i> " + (data.hourly.data[i + test].temperature).toFixed(1) + "°C (" + (data.hourly.data[i + test].apparentTemperature).toFixed(1) + "°C)<br><i class='fas fa-tint'></i> " + (data.hourly.data[i + test].precipProbability * 100).toFixed(0) + "%<br><i class='fas fa-cloud'></i> " + (data.hourly.data[i + test].windSpeed).toFixed(1) + " km/h<br><span data-toggle='tooltip' data-placement='bottom' title='" + degToWD(data.hourly.data[i + test].windBearing) + "'>" + degToCompass(data.hourly.data[i + test].windBearing) + "</span>");
+					}*/
 					for (i = 0; i < 6; i++) {
-						$('#weer' + [i + 1]).html(moment.unix(data.hourly.data[i + test].time).format("DD/MM HH:mm") + "<hr><i class='fas fa-sun'></i> " + (data.hourly.data[i + test].temperature).toFixed(0) + "°C<br><i class='fas fa-tint'></i> " + (data.hourly.data[i + test].precipProbability * 100).toFixed(0) + "%<br><i class='fas fa-cloud'></i> " + (data.hourly.data[i + test].windSpeed).toFixed(0) + " km/h<br><span data-toggle='tooltip' data-placement='bottom' title='" + degToWD(data.hourly.data[i + test].windBearing) + "'>" + degToCompass(data.hourly.data[i + test].windBearing) + "</span>");
+						$('#weer' + [i + 1]).html(moment.unix(data.hourly.data[i + test].time).format("DD/MM HH:mm") + "<hr><i class='wi wi-thermometer'> </i> " + (data.hourly.data[i + test].temperature).toFixed(1) + "°C<br><i class='fas fa-tint'></i> " + (data.hourly.data[i + test].precipProbability * 100).toFixed(0) + "%<br><i class='wi wi-windy'></i><span data-toggle='tooltip' data-placement='bottom' title='" + beaufort(data.hourly.data[i + test].windSpeed.toFixed(2)) + " beaufort'> " + (data.hourly.data[i + test].windSpeed).toFixed(1) + " km/h</span><br><i class='wi wi-strong-wind'></i><span data-toggle='tooltip' data-placement='bottom' title='" + beaufort(data.hourly.data[i + test].windGust.toFixed(2)) + " beaufort'> " + (data.hourly.data[i + test].windGust).toFixed(1) + " km/h</span><br><span data-toggle='tooltip' data-placement='bottom' title='" + degToWD(data.hourly.data[i + test].windBearing) + "'>" + degToCompass(data.hourly.data[i + test].windBearing) + "</span><hr><i class='wi wi-humidity'></i> " + (data.hourly.data[i + test].humidity * 100).toFixed(0) + "%<br><i class='fas fa-cloud'></i> " + (data.hourly.data[i + test].cloudCover * 100).toFixed(0) + "%<br>" + UVIndex(data.hourly.data[i + test].uvIndex) + "<hr>" + iconweer(data.hourly.data[i + test].icon));
 					}
 				}
 			});
@@ -739,10 +750,49 @@
 			$('#weerrij').css('display', 'block');
 		}
 
+		function UVIndex(num) {
+			var uv = num;
+			if (num < 4) {
+				return "<span data-toggle='tooltip' data-placement='bottom' title='geen gevaar'><i class='fas fa-sun'></i> " + num + "</span>";
+			} else if (num < 7) {
+				return "<span data-toggle='tooltip' data-placement='bottom' title='smeer je in'><i class='fas fa-sun'></i> " + num + "</span>";
+			} else if (num < 9) {
+				return "<span data-toggle='tooltip' data-placement='bottom' title='zeker insmeren'><i class='fas fa-sun'></i> " + num + "</span>";
+			} else {
+				return "<span data-toggle='tooltip' data-placement='bottom' title='pas op!'><i class='fas fa-sun'></i> " + num + "</span>";
+			}
+		}
+
+		function iconweer(string) {
+			var icon = string;
+			if (icon === "clear-day") {
+				return "<i class='wi wi-day-sunny' style='font-size:6vmin'></i>"
+			} else if (icon === "clear-night") {
+				return "<i class='wi wi-night-clear' style='font-size:6vmin'></i>"
+			} else if (icon === "rain") {
+				return "<i class='wi wi-rain' style='font-size:6vmin'></i>"
+			} else if (icon === "snow") {
+				return "<i class='wi wi-snow' style='font-size:6vmin'></i>"
+			} else if (icon === "sleet") {
+				return "<i class='wi wi-sleet' style='font-size:6vmin'></i>"
+			} else if (icon === "wind") {
+				return "<i class='wi wi-cloudy-gusts' style='font-size:6vmin'></i>"
+			} else if (icon === "fog") {
+				return "<i class='wi wi-fog' style='font-size:6vmin'></i>"
+			} else if (icon === "cloudy") {
+				return "<i class='wi wi-cloudy' style='font-size:6vmin'></i>"
+			} else if (icon === "partly-cloudy-day") {
+				return "<i class='wi wi-day-sunny-overcast' style='font-size:6vmin'></i>"
+			} else if (icon === "partly-cloudy-night") {
+				return "<i class='wi wi-night-partly-cloudy' style='font-size:6vmin'></i>"
+			} else {
+				return "<i class='wi wi-na' style='font-size:6vmin'></i>"
+			}
+		}
+
 		function degToCompass(num) {
-			var val = Math.floor((num / 22.5) + 0.5);
-			var arr = ["<i style='transform: rotate(135deg)' class='fas fa-location-arrow'></i>", "<i style='transform: rotate(158deg)' class='fas fa-location-arrow'></i>", "<i style='transform: rotate(180deg)' class='fas fa-location-arrow'></i>", "<i style='transform: rotate(203deg)' class='fas fa-location-arrow'></i>", "<i style='transform: rotate(225deg)' class='fas fa-location-arrow'></i>", "<i style='transform: rotate(248deg)' class='fas fa-location-arrow'></i>", "<i style='transform: rotate(270deg)' class='fas fa-location-arrow'></i>", "<i style='transform: rotate(293deg)' class='fas fa-location-arrow'></i>", "<i style='transform: rotate(315deg)' class='fas fa-location-arrow'></i>", "<i style='transform: rotate(338deg)' class='fas fa-location-arrow'></i>", "<i style='transform: rotate(0deg)' class='fas fa-location-arrow'></i>", "<i style='transform: rotate(22deg)' class='fas fa-location-arrow'></i>", "<i style='transform: rotate(45deg)' class='fas fa-location-arrow'></i>", "<i style='transform: rotate(67deg)' class='fas fa-location-arrow'></i>", "<i style='transform: rotate(90deg)' class='fas fa-location-arrow'></i>", "<i style='transform: rotate(112deg)' class='fas fa-location-arrow'></i>"];
-			return arr[(val % 16)];
+			var val = num - 45;
+			return "<i style='transform: rotate(" + val + "deg)' class='fas fa-location-arrow'></i>";
 		}
 
 		function degToWD(num) {
@@ -750,15 +800,57 @@
 			var arr = ["N", "NNO", "NO", "ONO", "O", "OZO", "ZO", "ZO", "Z", "ZW", "ZW", "WZW", "W", "WNW", "NW", "NNW"];
 			return arr[(val % 16)];
 		}
+
+		function beaufort(num) {
+			var wind = num;
+			if (wind < 2) {
+				return ("0");
+			}
+			if (wind < 6) {
+				return ("1");
+			}
+			if (wind < 12) {
+				return ("2");
+			}
+			if (wind < 20) {
+				return ("3");
+			}
+			if (wind < 29) {
+				return ("4");
+			}
+			if (wind < 39) {
+				return ("5");
+			}
+			if (wind < 50) {
+				return ("6");
+			}
+			if (wind < 62) {
+				return ("7");
+			}
+			if (wind < 75) {
+				return ("8");
+			}
+			if (wind < 89) {
+				return ("9");
+			}
+			if (wind < 103) {
+				return ("10");
+			}
+			if (wind < 117) {
+				return ("11");
+			}
+			if (wind >= 117) {
+				return ("12");
+			}
+			return ("0");
+		}
+
 		// handle input changes
 		$("#upload").change(function() {
 			console.log(this.files)
-
 			// grab the first image in the FileList object and pass it to the function
 			renderGPX(this.files[0])
 		});
-
-
 
 		function scrollen() {
 			if ($('#weerjanee').attr('aria-expanded') === "false") {
@@ -767,6 +859,7 @@
 				}, 400);
 			}
 		}
+
 	</script>
 </body>
 
