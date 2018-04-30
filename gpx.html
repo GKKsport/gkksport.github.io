@@ -896,12 +896,12 @@
 		}
 
 		function degToCompass(num) {
-			var val = num - 45;
+			var val = num - 225;
 			return "<i style='transform: rotate(" + val + "deg)' class='fas fa-location-arrow'></i>";
 		}
 
 		function degToWD(num) {
-			var val = Math.floor((num / 22.5) + 0.5);
+			var val = Math.floor(((num) / 22.5) + 0.5);
 			var arr = ["N", "NNO", "NO", "ONO", "O", "OZO", "ZO", "ZO", "Z", "ZW", "ZW", "WZW", "W", "WNW", "NW", "NNW"];
 			return arr[(val % 16)];
 		}
