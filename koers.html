@@ -14,6 +14,12 @@
 
 
 	<style>
+		.iframe {
+			border: none;
+			height: 600px;
+			width: 100%;
+		}
+		
 		.titelgap {
 			padding: 3px;
 			display: inline-block;
@@ -69,7 +75,6 @@
 				height: 2em;
 			}
 		}
-
 	</style>
 </head>
 
@@ -112,6 +117,7 @@
 		<br>
 		<div class="well">
 			<i class="fas fa-spinner fa-7x fa-spin" id="loader"></i>
+			<br>
 			<p><span id="nognietbezig"></span></p>
 			<div id="bezig" style="display:none">
 				<h3>Nog <kbd><span id="left"></span>km</kbd> tot de finish.</h3>
@@ -142,6 +148,17 @@
 		<div id="status" class="alert alert-danger" style="display:none">
 			Oeps! Deze pagina heeft een internetverbinding nodig om te werken. Controleer of je internet wel aan staat en werkt.
 		</div>
+		<button data-toggle="collapse" data-target="#demo" class="btn btn-block btn-default">Klik hier voor de volledige stand van de Giro</button>
+		<div id="demo" class="collapse">
+			<br>
+			<div class="row">
+				<div class="col-md-3 col-sm-6 col-xs-12"><iframe height="100%" class="iframe" src="http://sporza.be/cm/1.3189121?view=default7&locale=nl"></iframe></div>
+				<div class="col-md-3 col-sm-6 col-xs-12"><iframe height="100%" class="iframe" src="http://sporza.be/cm/1.3189120?view=default7&locale=nl"></iframe></div>
+				<div class="col-md-3 col-sm-6 col-xs-12"><iframe height="100%" class="iframe" src="http://sporza.be/cm/1.3189122?view=default7&locale=nl"></iframe></div>
+				<div class="col-md-3 col-sm-6 col-xs-12"><iframe height="400px" class="iframe" src="http://sporza.be/cm/1.3189123?view=default7&locale=nl"></iframe></div>
+			</div>
+		</div>
+
 	</div>
 	<script type='text/javascript'>
 		window.addEventListener('load', function() {
@@ -211,7 +228,6 @@
 		setInterval(function() {
 			location.reload();
 		}, 60000);
-
 	</script>
 </body>
 
