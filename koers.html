@@ -12,10 +12,6 @@
 	<link rel="icon" sizes="192x192" href="icon.png">
 	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.10/css/all.css" integrity="sha384-+d0P83n9kaQMCwj8F4RJB66tzIwOKmrdb46+porD/OvrJ+37WqIM7UoBtwHO6Nlg" crossorigin="anonymous">
 
-	<script src="https://cdn.jsdelivr.net/npm/js-cookie@2/src/js.cookie.min.js"></script>
-
-
-
 	<style>
 		.iframe {
 			border: none;
@@ -173,21 +169,150 @@
 					<span id="derde"></span></p>
 			</div>
 		</div>
-		<button data-toggle="collapse" data-target="#profiel" class="btn btn-block btn-default">Klik hier om het profiel van de wedstrijd te bekijken</button>
+		<div class="row">
+			<div class="col-md-6 col-sm-6 col-xs-6">
+				<button data-toggle="collapse" data-target="#profiel" class="btn btn-block btn-default">Klik hier om het profiel van de wedstrijd te bekijken</button>
+			</div>
+			<div class="col-md-6 col-sm-6 col-xs-6">
+				<button data-toggle="collapse" data-target="#klassement" onclick="initKlas();" class="btn btn-block btn-default">Klik hier voor de volledige stand van de Giro</button>
+			</div>
+		</div>
+
 		<div id="profiel" class="collapse">
 		</div>
 		<br>
-		<!--<button data-toggle="collapse" data-target="#demo" class="btn btn-block btn-default">Klik hier voor de volledige stand van de Giro</button>
-<div id="demo" class="collapse">
-	<br>
-	<div class="row">
-		<div class="col-md-3 col-sm-6 col-xs-12"><iframe height="100%" class="iframe" src="https://sporza.be/cm/1.3189120?view=default7&locale=nl"></iframe></div>
-		<div class="col-md-3 col-sm-6 col-xs-12"><iframe height="400px" class="iframe" src="https://sporza.be/cm/1.3189132?view=default7&locale=nl"></iframe></div>
-		<div class="col-md-3 col-sm-6 col-xs-12"><iframe height="100%" class="iframe" src="https://sporza.be/cm/1.3189144?view=default7&locale=nl"></iframe></div>
-		<div class="col-md-3 col-sm-6 col-xs-12"><iframe height="100%" class="iframe" src="https://sporza.be/cm/1.3189156?view=default7&locale=nl"></iframe></div>
-	</div>
-</div>
-<br>-->
+
+		<div id="klassement" class="collapse">
+			<br>
+			<div class="row">
+				<div class="col-md-3 col-sm-6 col-xs-12">
+					<table class="table table-hover">
+						<thead>
+							<tr>
+								<th colspan="4">ALGEMEEN</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr id="algklas0"> </tr>
+							<tr id="algklas1"> </tr>
+							<tr id="algklas2"> </tr>
+							<tr id="algklas3"> </tr>
+							<tr id="algklas4"> </tr>
+							<tr id="algklas5"> </tr>
+							<tr id="algklas6"> </tr>
+							<tr id="algklas7"> </tr>
+							<tr id="algklas8"> </tr>
+							<tr id="algklas9"> </tr>
+							<tr id="algklas10"> </tr>
+							<tr id="algklas11"> </tr>
+							<tr id="algklas12"> </tr>
+							<tr id="algklas13"> </tr>
+							<tr id="algklas14"> </tr>
+							<tr id="algklas15"> </tr>
+							<tr id="algklas16"> </tr>
+							<tr id="algklas17"> </tr>
+							<tr id="algklas18"> </tr>
+							<tr id="algklas19"> </tr>
+						</tbody>
+					</table>
+				</div>
+				<div class="col-md-3 col-sm-6 col-xs-12">
+					<table class="table table-hover">
+						<thead>
+							<tr>
+								<th colspan="4">PUNTEN</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr id="puntklas0"> </tr>
+							<tr id="puntklas1"> </tr>
+							<tr id="puntklas2"> </tr>
+							<tr id="puntklas3"> </tr>
+							<tr id="puntklas4"> </tr>
+							<tr id="puntklas5"> </tr>
+							<tr id="puntklas6"> </tr>
+							<tr id="puntklas7"> </tr>
+							<tr id="puntklas8"> </tr>
+							<tr id="puntklas9"> </tr>
+							<tr id="puntklas10"> </tr>
+							<tr id="puntklas11"> </tr>
+							<tr id="puntklas12"> </tr>
+							<tr id="puntklas13"> </tr>
+							<tr id="puntklas14"> </tr>
+							<tr id="puntklas15"> </tr>
+							<tr id="puntklas16"> </tr>
+							<tr id="puntklas17"> </tr>
+							<tr id="puntklas18"> </tr>
+							<tr id="puntklas19"> </tr>
+						</tbody>
+					</table>
+				</div>
+				<div class="col-md-3 col-sm-6 col-xs-12">
+					<table class="table table-hover">
+						<thead>
+							<tr>
+								<th colspan="4">BERG</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr id="bergklas0"> </tr>
+							<tr id="bergklas1"> </tr>
+							<tr id="bergklas2"> </tr>
+							<tr id="bergklas3"> </tr>
+							<tr id="bergklas4"> </tr>
+							<tr id="bergklas5"> </tr>
+							<tr id="bergklas6"> </tr>
+							<tr id="bergklas7"> </tr>
+							<tr id="bergklas8"> </tr>
+							<tr id="bergklas9"> </tr>
+							<tr id="bergklas10"> </tr>
+							<tr id="bergklas11"> </tr>
+							<tr id="bergklas12"> </tr>
+							<tr id="bergklas13"> </tr>
+							<tr id="bergklas14"> </tr>
+							<tr id="bergklas15"> </tr>
+							<tr id="bergklas16"> </tr>
+							<tr id="bergklas17"> </tr>
+							<tr id="bergklas18"> </tr>
+							<tr id="bergklas19"> </tr>
+						</tbody>
+					</table>
+				</div>
+				<div class="col-md-3 col-sm-6 col-xs-12">
+					<table class="table table-hover">
+						<thead>
+							<tr>
+								<th colspan="4">JONGEREN</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr id="jongklas0"> </tr>
+							<tr id="jongklas1"> </tr>
+							<tr id="jongklas2"> </tr>
+							<tr id="jongklas3"> </tr>
+							<tr id="jongklas4"> </tr>
+							<tr id="jongklas5"> </tr>
+							<tr id="jongklas6"> </tr>
+							<tr id="jongklas7"> </tr>
+							<tr id="jongklas8"> </tr>
+							<tr id="jongklas9"> </tr>
+							<tr id="jongklas10"> </tr>
+							<tr id="jongklas11"> </tr>
+							<tr id="jongklas12"> </tr>
+							<tr id="jongklas13"> </tr>
+							<tr id="jongklas14"> </tr>
+							<tr id="jongklas15"> </tr>
+							<tr id="jongklas16"> </tr>
+							<tr id="jongklas17"> </tr>
+							<tr id="jongklas18"> </tr>
+							<tr id="jongklas19"> </tr>
+						</tbody>
+					</table>
+				</div>
+
+			</div>
+		</div>
+		<br>
 	</div>
 	<script type='text/javascript'>
 		window.addEventListener('load', function() {
@@ -210,10 +335,26 @@
 			})
 		}
 
+		function klassement(data, tabletop) {
+
+		}
+
 		function showInfo(data, tabletop) {
 			$('#loader').css('display', 'none');
 			document.getElementById("wedstrijd").innerHTML = data[0].koers;
 			document.getElementById("profiel").innerHTML = "<img width='100%' src='" + data[0].kaart + "'>";
+			for (i = 0; i < 20; i++) {
+				document.getElementById("algklas" + i).innerHTML = "<td>" + data[i].algnum + "</td><td>" + data[i].algnaam + "</td><td>" + data[i].algteam + "</td><td>" + data[i].algtijd + "</td>";
+			}
+			for (i = 0; i < 20; i++) {
+				document.getElementById("puntklas" + i).innerHTML = "<td>" + data[i].puntnum + "</td><td>" + data[i].puntnaam + "</td><td>" + data[i].puntteam + "</td><td>" + data[i].punttijd + "</td>";
+			}
+			for (i = 0; i < 20; i++) {
+				document.getElementById("bergklas" + i).innerHTML = "<td>" + data[i].bergnum + "</td><td>" + data[i].bergnaam + "</td><td>" + data[i].bergteam + "</td><td>" + data[i].bergtijd + "</td>";
+			}
+			for (i = 0; i < 20; i++) {
+				document.getElementById("jongklas" + i).innerHTML = "<td>" + data[i].jongnum + "</td><td>" + data[i].jongnaam + "</td><td>" + data[i].jongteam + "</td><td>" + data[i].jongtijd + "</td>";
+			}
 			//Als koers afgelopen is
 			if (data[0].matchstatus === "FINISHED") {
 				$('#podium').css('display', 'block');
@@ -221,36 +362,36 @@
 				document.getElementById("tweede").innerHTML = data[1].gapsdescription;
 				document.getElementById("derde").innerHTML = data[2].gapsdescription;
 				console.log(data);
-			} else if (data[0].matchstatus === "" || data.length === "0") { //Als de koers nog niet begonnen is
+			} else if (data[0].matchstatus === "" || data[0].gapsname === "") { //Als de koers nog niet begonnen is
 				document.getElementById("nognietbezig").innerHTML = "<p>De wedstrijd is nog niet bezig, kom later terug.</p>"
 				console.log("nog niet bezig");
 			} else { //Als koers bezig is	
 				document.getElementById("left").innerHTML = data[0].distancetofinish;
 				$('#bezig').css('display', 'block');
 				$('#livestream').css('display', 'block');
-				if (data.length === 1) {
+				if (data[3].gapsname != "") {
 					document.getElementById("gap1").innerHTML = "<p class='titelgap'>" + data[0].gapsname + "</p><br>" + data[0].gapsdescription;
-					document.getElementById("gap2").innerHTML = "";
-					document.getElementById("gap3").innerHTML = "";
-					document.getElementById("gap4").innerHTML = "";
-					console.log(data);
-				} else if (data.length === 2) {
-					document.getElementById("gap1").innerHTML = "<p class='titelgap'>" + data[0].gapsname + "</p><br>" + data[0].gapsdescription;
-					document.getElementById("gap2").innerHTML = "<p class='titelgap'>" + data[1].gapsname + "</p><strong> (op " + data[1].gapsformatted + ")</strong>";
-					document.getElementById("gap3").innerHTML = "";
-					document.getElementById("gap4").innerHTML = "";
-					console.log(data);
-				} else if (data.length === 3) {
+					document.getElementById("gap2").innerHTML = "<p class='titelgap'>" + data[1].gapsname + "</p><strong> (op " + data[1].gapsformatted + ")</strong><br>" + data[1].gapsdescription;
+					document.getElementById("gap3").innerHTML = "<p class='titelgap'>" + data[2].gapsname + "</p><strong> (op " + data[2].gapsformatted + ")</strong><br>" + data[2].gapsdescription;
+					document.getElementById("gap4").innerHTML = "<p class='titelgap'>" + data[3].gapsname + "</p><strong> (op " + data[3].gapsformatted + ")</strong>";
+				} else if (data[2].gapsname != "") {
 					document.getElementById("gap1").innerHTML = "<p class='titelgap'>" + data[0].gapsname + "</p><br>" + data[0].gapsdescription;
 					document.getElementById("gap2").innerHTML = "<p class='titelgap'>" + data[1].gapsname + "</p><strong> (op " + data[1].gapsformatted + ")</strong><br>" + data[1].gapsdescription;
 					document.getElementById("gap3").innerHTML = "<p class='titelgap'>" + data[2].gapsname + "</p><strong> (op " + data[2].gapsformatted + ")</strong>";
 					document.getElementById("gap4").innerHTML = "";
 					console.log(data);
-				} else if (data.length === 4) {
+				} else if (data[1].gapsname != "") {
 					document.getElementById("gap1").innerHTML = "<p class='titelgap'>" + data[0].gapsname + "</p><br>" + data[0].gapsdescription;
-					document.getElementById("gap2").innerHTML = "<p class='titelgap'>" + data[1].gapsname + "</p><strong> (op " + data[1].gapsformatted + ")</strong><br>" + data[1].gapsdescription;
-					document.getElementById("gap3").innerHTML = "<p class='titelgap'>" + data[2].gapsname + "</p><strong> (op " + data[2].gapsformatted + ")</strong><br>" + data[2].gapsdescription;
-					document.getElementById("gap4").innerHTML = "<p class='titelgap'>" + data[3].gapsname + "</p><strong> (op " + data[3].gapsformatted + ")</strong>";
+					document.getElementById("gap2").innerHTML = "<p class='titelgap'>" + data[1].gapsname + "</p><strong> (op " + data[1].gapsformatted + ")</strong>";
+					document.getElementById("gap3").innerHTML = "";
+					document.getElementById("gap4").innerHTML = "";
+					console.log(data);
+				} else if (data[0].gapsname != "") {
+					document.getElementById("gap1").innerHTML = "<p class='titelgap'>" + data[0].gapsname + "</p><br>" + data[0].gapsdescription;
+					document.getElementById("gap2").innerHTML = "";
+					document.getElementById("gap3").innerHTML = "";
+					document.getElementById("gap4").innerHTML = "";
+					console.log(data);
 				}
 			}
 		}
