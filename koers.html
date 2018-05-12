@@ -338,7 +338,7 @@
 		function showInfo(data, tabletop) {
 			$('#loader').css('display', 'none');
 			document.getElementById("wedstrijd").innerHTML = data[0].koers;
-			document.getElementById("profiel").innerHTML = "<img width='100%' src='" + data[0].kaart + "'>";
+			document.getElementById("profiel").innerHTML = "<br><img width='100%' src='" + data[0].kaart + "'>";
 			for (i = 0; i < 20; i++) {
 				document.getElementById("algklas" + i).innerHTML = "<td>" + data[i].algnum + "</td><td>" + data[i].algnaam + "</td><td>" + data[i].algteam + "</td><td>" + data[i].algtijd + "</td>";
 			}
@@ -399,8 +399,8 @@
 		}, 60000);
 
 		function vlaggen() {
-			var landnaam = ["GBR", "NED", "FRA", "ITA", "IER", "AUS", "ESP", "NZL", "ECU", "CAN", "COL", "POR", "AUT", "EST", "GER", "IRL", "RUS", "BEL", "DEN", "ALB", "LUX", "SLO", "RSA", "CZE", "SUI", "USA", "ERI", "KAZ", "ENG", "NOR", "ARG", "ISR", "LAT", "BLR", "POL", "SWE", "FIN", "SVK", "UKR", "SRB", "HUN", "LTU", "BRA", "DOM", "URU", "CRC", "RWA", "JAP", "MEX", "CRO", "MDA"];
-			var vlagnaam = ["gb", "nl", "fr", "it", "ie", "au", "es", "nz", "ec", "ca", "co", "pt", "at", "ee", "de", "ie", "ru", "be", "dk", "al", "lu", "si", "za", "cz", "ch", "us", "er", "kz", "england", "no", "ar", "il", "lv", "by", "pl", "se", "fi", "sk", "ua", "rs", "hu", "lt", "br", "do", "uy", "cr", "rw", "jp", "mx", "hr", "md"];
+			var landnaam = ["GBR", "NED", "FRA", "ITA", "IER", "AUS", "ESP", "NZL", "ECU", "CAN", "COL", "POR", "AUT", "EST", "GER", "IRL", "RUS", "BEL", "DEN", "ALB", "LUX", "SLO", "RSA", "CZE", "SUI", "USA", "ERI", "KAZ", "ENG", "NOR", "ARG", "ISR", "LAT", "BLR", "POL", "SWE", "FIN", "SVK", "UKR", "SRB", "HUN", "LTU", "BRA", "DOM", "URU", "CRC", "RWA", "JAP", "MEX", "CRO", "MDA", "SPA"];
+			var vlagnaam = ["gb", "nl", "fr", "it", "ie", "au", "es", "nz", "ec", "ca", "co", "pt", "at", "ee", "de", "ie", "ru", "be", "dk", "al", "lu", "si", "za", "cz", "ch", "us", "er", "kz", "england", "no", "ar", "il", "lv", "by", "pl", "se", "fi", "sk", "ua", "rs", "hu", "lt", "br", "do", "uy", "cr", "rw", "jp", "mx", "hr", "md", "es"];
 			for (i = 0; i < landnaam.length; i++) {
 				var landn = "\\(+" + landnaam[i] + "\\)+";
 				var vlagn = "&nbsp;<i class=\"famfamfam-flag-" + vlagnaam[i] + "\" data-toggle=\"tooltip\" data-placement=\"right\" title=\"" + landnaam[i] + "\"></i>";
