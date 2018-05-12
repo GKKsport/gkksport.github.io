@@ -403,9 +403,12 @@
 			var vlagnaam = ["gb", "nl", "fr", "it", "ie", "au", "es", "nz", "ec", "ca", "co", "pt", "at", "ee", "de", "ie", "ru", "be", "dk", "al", "lu", "si", "za", "cz", "ch", "us", "er", "kz", "england", "no", "ar", "il", "lv", "by", "pl", "se", "fi", "sk", "ua", "rs", "hu", "lt", "br", "do", "uy", "cr", "rw", "jp", "mx", "hr", "md"];
 			for (i = 0; i < landnaam.length; i++) {
 				var landn = "\\(+" + landnaam[i] + "\\)+";
-				var vlagn = "&nbsp;<i class=\"famfamfam-flag-" + vlagnaam[i] + "\"></i>";
+				var vlagn = "&nbsp;<i class=\"famfamfam-flag-" + vlagnaam[i] + "\" data-toggle=\"tooltip\" data-placement=\"right\" title=\"" + landnaam[i] + "\"></i>";
 				document.body.innerHTML = document.body.innerHTML.replace(new RegExp(landn, "g"), vlagn);
 			}
+			$(function() {
+				$('[data-toggle="tooltip"]').tooltip()
+			})
 		}
 	</script>
 </body>
