@@ -81,22 +81,6 @@
 			display: none;
 		}
 	</style>
-	<script>
-		$(document).ready(function() {
-			var isshow = localStorage.getItem('isshow');
-			if (isshow == null) {
-				$('#refresh').show();
-
-				$('.close').click(function() {
-					localStorage.setItem('isshow', 1);
-
-				});
-
-			} else {
-				$('#refresh').hide();
-			}
-		});
-	</script>
 </head>
 
 <body>
@@ -134,7 +118,7 @@
 	<div class="container-fluid text-center">
 		<br>
 		<div id="refresh" class="alert alert-danger alert-dismissable refresh">
-			<a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a> Deze pagina refresht zichzelf om de minuut. De data hieronder zal dus steeds up to date zijn.
+			<div onclick="closealert();"><a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a></div> Deze pagina refresht zichzelf om de minuut. De data hieronder zal dus steeds up to date zijn.
 		</div>
 		<div id="status" class="alert alert-danger" style="display:none">
 			Oeps! Deze pagina heeft een internetverbinding nodig om te werken. Controleer of je internet wel aan staat en werkt.
@@ -171,7 +155,7 @@
 		</div>
 		<div class="row">
 			<div class="col-md-6 col-sm-6 col-xs-6">
-				<button data-toggle="collapse" data-target="#profiel" class="btn btn-block btn-default" style="white-space: normal;">Klik hier om het profiel van de wedstrijd te bekijken</button>
+				<button data-toggle="collapse" data-target="#profiel" class="btn btn-block btn-default" style="white-space: normal;" id="btnprofiel">Klik hier om het profiel van de wedstrijd te bekijken</button>
 			</div>
 			<div class="col-md-6 col-sm-6 col-xs-6">
 				<button data-toggle="collapse" data-target="#klassement" class="btn btn-block btn-default" style="white-space: normal;">Klik hier voor de volledige stand van de Giro</button>
@@ -179,6 +163,8 @@
 		</div>
 
 		<div id="profiel" class="collapse">
+			<div id="profielgroot"></div>
+			<div id="profielberg"></div>
 		</div>
 		<br>
 
@@ -337,8 +323,16 @@
 
 		function showInfo(data, tabletop) {
 			$('#loader').css('display', 'none');
-			document.getElementById("wedstrijd").innerHTML = data[0].koers;
-			document.getElementById("profiel").innerHTML = "<br><img width='100%' src='" + data[0].kaart + "'>";
+			if (data[0].koers != "") {
+				document.getElementById("wedstrijd").innerHTML = data[1].koers;
+				document.getElementById("profielgroot").innerHTML += "<br><img width='100%' src='" + data[0].kaart + "'>";
+				for (i = 1; i < 5; i++) {
+					document.getElementById("profielberg").innerHTML += "<br><img width='100%' src='" + data[i].kaart + "'>";
+				}
+			} else {
+				document.getElementById("wedstrijd").innerHTML = "GEEN wedstrijd";
+				document.getElementById("btnprofiel").disabled = true;
+			}
 			for (i = 0; i < 20; i++) {
 				document.getElementById("algklas" + i).innerHTML = "<td>" + data[i].algnum + "</td><td>" + data[i].algnaam + "</td><td>" + data[i].algteam + "</td><td>" + data[i].algtijd + "</td>";
 			}
@@ -359,8 +353,12 @@
 				document.getElementById("derde").innerHTML = data[2].gapsdescription;
 				console.log(data);
 			} else if (data[0].matchstatus === "" || data[0].gapsname === "") { //Als de koers nog niet begonnen is
-				document.getElementById("nognietbezig").innerHTML = "<p>De wedstrijd is nog niet bezig, kom later terug.</p>"
-				console.log("nog niet bezig");
+				if (data[0].koers != "") {
+					document.getElementById("nognietbezig").innerHTML = "<p>De wedstrijd is nog niet bezig, kom later terug.</p>"
+					console.log("nog niet bezig");
+				} else {
+					document.getElementById("nognietbezig").innerHTML = "<p>Er is geen noemenswaardige wedstrijd gepland vandaag!</p><br><small>(Of deze is niet ingegeven, in dat geval trek aan de oren van Simon)</small>"
+				}
 			} else { //Als koers bezig is	
 				document.getElementById("left").innerHTML = data[0].distancetofinish;
 				$('#bezig').css('display', 'block');
@@ -393,6 +391,19 @@
 			vlaggen();
 		}
 		window.addEventListener('DOMContentLoaded', init);
+
+		// Localstorage voor alert
+		var isshow = localStorage.getItem('isshow');
+		if (isshow == null || isshow === "0") {
+			$('#refresh').show();
+			localStorage.setItem('isshow', 0);
+		} else {
+			$('#refresh').hide();
+		}
+
+		function closealert() {
+			localStorage.setItem('isshow', 1);
+		}
 
 		setInterval(function() {
 			location.reload();
