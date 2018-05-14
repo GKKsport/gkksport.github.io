@@ -80,7 +80,6 @@
 		#refresh {
 			display: none;
 		}
-
 	</style>
 </head>
 
@@ -141,7 +140,7 @@
 				<p id="gap5"></p>
 				<hr>
 				<center>
-					<a id="livestream" class="btn btn-success" style="display: none; white-space: normal;" href="http://sporza.be/cm/sporza/matchcenter/mc_livestream">Zin om live te kijken? Klik hier om naar de Sporza Livestream te gaan (indien ze de rechten hebben)!</a>
+					<a id="livestream" class="btn btn-success" style="display: none; white-space: normal;" href="http://sporza.be/cm/sporza/matchcenter/mc_livestream" disabled>Zin om live te kijken? Klik hier om naar de Sporza Livestream te gaan (indien ze de rechten hebben)!</a>
 				</center>
 			</div>
 			<div id="podium" style="display:none">
@@ -156,7 +155,7 @@
 		</div>
 		<div class="row">
 			<div class="col-md-6 col-sm-6 col-xs-6">
-				<button data-toggle="collapse" data-target="#profiel" class="btn btn-block btn-default" style="white-space: normal;" id="btnprofiel">Klik hier om het profiel van de wedstrijd te bekijken</button>
+				<button data-toggle="collapse" data-target="#profiel" class="btn btn-block btn-default" style="white-space: normal;" id="btnprofiel" disabled>Klik hier om het profiel van de wedstrijd te bekijken</button>
 			</div>
 			<div class="col-md-6 col-sm-6 col-xs-6">
 				<button data-toggle="collapse" data-target="#klassement" class="btn btn-block btn-default" style="white-space: normal;">Klik hier voor de volledige stand van de Giro</button>
@@ -330,12 +329,12 @@
 				for (i = 1; i < 5; i++) {
 					document.getElementById("profielberg").innerHTML += "<br><img width='100%' src='" + data[i].kaart + "'>";
 				}
-				if (data[3].koers === "") {
-					document.getElementById("livestream").disabled = true;
+				if (data[3].koers != "") {
+					document.getElementById("livestream").disabled = false;
 				}
+				document.getElementById("btnprofiel").disabled = false;
 			} else {
 				document.getElementById("wedstrijd").innerHTML = "GEEN wedstrijd";
-				document.getElementById("btnprofiel").disabled = true;
 			}
 			for (i = 0; i < 20; i++) {
 				document.getElementById("algklas" + i).innerHTML = "<td>" + data[i].algnum + "</td><td>" + data[i].algnaam + "</td><td>" + data[i].algteam + "</td><td>" + data[i].algtijd + "</td>";
@@ -425,7 +424,6 @@
 				$('[data-toggle="tooltip"]').tooltip()
 			})
 		}
-
 	</script>
 </body>
 
