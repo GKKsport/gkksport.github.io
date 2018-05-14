@@ -80,6 +80,7 @@
 		#refresh {
 			display: none;
 		}
+
 	</style>
 </head>
 
@@ -329,6 +330,9 @@
 				for (i = 1; i < 5; i++) {
 					document.getElementById("profielberg").innerHTML += "<br><img width='100%' src='" + data[i].kaart + "'>";
 				}
+				if (data[3].koers === "") {
+					document.getElementById("livestream").disabled = true;
+				}
 			} else {
 				document.getElementById("wedstrijd").innerHTML = "GEEN wedstrijd";
 				document.getElementById("btnprofiel").disabled = true;
@@ -421,6 +425,7 @@
 				$('[data-toggle="tooltip"]').tooltip()
 			})
 		}
+
 	</script>
 </body>
 
