@@ -80,6 +80,7 @@
 		#refresh {
 			display: none;
 		}
+
 	</style>
 </head>
 
@@ -140,7 +141,7 @@
 				<p id="gap5"></p>
 				<hr>
 				<center>
-					<a id="livestream" class="btn btn-success" style="display: none; white-space: normal;" href="http://sporza.be/cm/sporza/matchcenter/mc_livestream" disabled>Zin om live te kijken? Klik hier om naar de Sporza Livestream te gaan (indien ze de rechten hebben)!</a>
+					<button id="livestream" class="btn btn-success" style="display: none; white-space: normal;" onclick="window.location.href = 'http://sporza.be/cm/sporza/matchcenter/mc_livestream'" disabled>Zin om live te kijken? Klik hier om naar de Sporza Livestream te gaan (indien ze de rechten hebben)!</button>
 				</center>
 			</div>
 			<div id="podium" style="display:none">
@@ -329,7 +330,8 @@
 				for (i = 1; i < 5; i++) {
 					document.getElementById("profielberg").innerHTML += "<br><img width='100%' src='" + data[i].kaart + "'>";
 				}
-				if (data[3].koers != "") {
+				if (data[3].koers === "TRUE") {
+					console.log("er is livestream");
 					document.getElementById("livestream").disabled = false;
 				}
 				document.getElementById("btnprofiel").disabled = false;
@@ -424,6 +426,7 @@
 				$('[data-toggle="tooltip"]').tooltip()
 			})
 		}
+
 	</script>
 </body>
 
