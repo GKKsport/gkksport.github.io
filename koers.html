@@ -376,8 +376,8 @@
 				} else if (data[2].gapsname != "") {
 					document.getElementById("gap1").innerHTML = "<p class='titelgap'>" + data[0].gapsname + "</p><br>" + data[0].gapsdescription;
 					if (data[1].gapsname === "Peloton") {
-						document.getElementById("gap2").innerHTML = "<p class='titelgap'>" + data[1].gapsname + "</p><strong> (op " + data[1].gapsformatted + ")</strong><br>";
-						document.getElementById("gap3").innerHTML = "<p class='titelgap'>" + data[2].gapsname + "</p><strong> (op " + data[2].gapsformatted + ")</strong>" + data[2].gapsdescription;;
+						document.getElementById("gap2").innerHTML = "<p class='titelgap'>" + data[1].gapsname + "</p><strong> (op " + data[1].gapsformatted + ")</strong>";
+						document.getElementById("gap3").innerHTML = "<p class='titelgap'>" + data[2].gapsname + "</p><strong> (op " + data[2].gapsformatted + ")</strong><br>" + data[2].gapsdescription;;
 					} else {
 						document.getElementById("gap2").innerHTML = "<p class='titelgap'>" + data[1].gapsname + "</p><strong> (op " + data[1].gapsformatted + ")</strong><br>" + data[1].gapsdescription;
 						document.getElementById("gap3").innerHTML = "<p class='titelgap'>" + data[2].gapsname + "</p><strong> (op " + data[2].gapsformatted + ")</strong>";
