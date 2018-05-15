@@ -125,6 +125,12 @@
 		<div id="refresh" class="alert alert-danger alert-dismissable refresh">
 			<div onclick="closealert();"><a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a></div> Deze pagina refresht zichzelf om de minuut. De data hieronder zal dus steeds up to date zijn.
 		</div>
+		<div id="updates" class="alert alert-success alert-dismissable refresh">
+			<div onclick="closealert2();"><a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a></div> <strong>Updates (15/05):</strong>
+			<p>- Het profiel van de beklimmingen zijn nu ook te vinden onder de knop om het algemeen profiel te bekijken.</p>
+			<p>- Truitjes worden weergegeven tijdens de race en in het klassement (algemeen klassement, bergklassement, puntenklassement en jongerenklassement).</p>
+			<p>- Je kan nu direct live kijken via de website voor wedstrijden die niet uitgezonden worden door Sporza. Indien wel uitgezonden door Sporza zal er een link zijn om direct door te klikken naar de nederlandstalige Sporza-livestream.</p>
+		</div>
 		<div id="status" class="alert alert-danger" style="display:none">
 			Oeps! Deze pagina heeft een internetverbinding nodig om te werken. Controleer of je internet wel aan staat en werkt.
 		</div>
@@ -145,7 +151,12 @@
 				<p id="gap5"></p>
 				<hr>
 				<center>
-					<button id="livestream" class="btn btn-success" style="display: none; white-space: normal;" onclick="window.location.href = 'http://sporza.be/cm/sporza/matchcenter/mc_livestream'" disabled>Zin om live te kijken? Klik hier om naar de Sporza Livestream te gaan (indien ze de rechten hebben)!</button>
+					<button id="livestream" class="btn btn-success" style="display: none; white-space: normal;" onclick="window.location.href = 'http://sporza.be/cm/sporza/matchcenter/mc_livestream'">Zin om live te kijken? Klik hier om naar de Sporza Livestream te gaan (indien ze de rechten hebben)!</button>
+					<button id="tizlivestream" class="btn btn-success btn-block" style="display: none; white-space: normal;" data-toggle="collapse" data-target="#tizstream">Klik hier om direct live te kijken!</button>
+					<div id="tizstream" class="collapse">
+						<br>
+						<iframe width="100%" class="frame" src="//ok.ru/videoembed/922912235217?nochat=1" height="400px" frameborder="0" allow="autoplay" allowfullscreen></iframe>
+					</div>
 				</center>
 			</div>
 			<div id="podium" style="display:none">
@@ -334,10 +345,6 @@
 				for (i = 1; i < 5; i++) {
 					document.getElementById("profielberg").innerHTML += "<br><img width='100%' src='" + data[i].kaart + "'>";
 				}
-				if (data[3].koers === "TRUE") {
-					console.log("er is livestream");
-					document.getElementById("livestream").disabled = false;
-				}
 				document.getElementById("btnprofiel").disabled = false;
 			} else {
 				document.getElementById("wedstrijd").innerHTML = "GEEN wedstrijd";
@@ -373,7 +380,12 @@
 			} else { //Als koers bezig is	
 				document.getElementById("left").innerHTML = data[0].distancetofinish;
 				$('#bezig').css('display', 'block');
-				$('#livestream').css('display', 'block');
+				if (data[3].koers === "TRUE") {
+					console.log("er is livestream");
+					$("#livestream").show();
+				} else {
+					$("#tizlivestream").show();
+				}
 				if (data[3].gapsname != "") {
 					document.getElementById("gap1").innerHTML = "<p class='titelgap'>" + data[0].gapsname + "</p><br>" + data[0].gapsdescription;
 					document.getElementById("gap2").innerHTML = "<p class='titelgap'>" + data[1].gapsname + "</p><strong> (op " + data[1].gapsformatted + ")</strong><br>" + data[1].gapsdescription;
@@ -431,6 +443,19 @@
 
 		function closealert() {
 			localStorage.setItem('isshow', 1);
+		}
+
+		// Localstorage voor updates
+		var updates = localStorage.getItem('updates');
+		if (updates == null || updates === "0") {
+			$('#updates').show();
+			localStorage.setItem('updates', 0);
+		} else {
+			$('#updates').hide();
+		}
+
+		function closealert2() {
+			localStorage.setItem('updates', 1);
 		}
 
 		setInterval(function() {
