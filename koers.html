@@ -129,14 +129,14 @@
 			<div onclick="closealert2();"><a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a></div> <strong>Updates (15/05):</strong>
 			<p>- Het profiel van de beklimmingen zijn nu ook te vinden onder de knop om het algemeen profiel te bekijken.</p>
 			<p>- Truitjes worden weergegeven tijdens de race en in het klassement (algemeen klassement, bergklassement, puntenklassement en jongerenklassement).</p>
-			<p>- Je kan nu direct live kijken via de website voor wedstrijden die niet uitgezonden worden door Sporza. Indien wel uitgezonden door Sporza zal er een link zijn om direct door te klikken naar de nederlandstalige Sporza-livestream.</p>
+			<p>- Je kan nu ook wedstrijden die niet uitgezonden worden door Sporza live bekijken. Jammer genoeg niet direct op de website maar dat komt misschien nog in de toekomst (problemen met automatisch herladen).</p>
 		</div>
 		<div id="status" class="alert alert-danger" style="display:none">
 			Oeps! Deze pagina heeft een internetverbinding nodig om te werken. Controleer of je internet wel aan staat en werkt.
 		</div>
 		<h1><span id="wedstrijd"></span></h1>
 		<br>
-		<div class="well">
+		<div id="target" class="well">
 			<i class="fas fa-spinner fa-7x fa-spin" id="loader"></i>
 			<br>
 			<p><span id="nognietbezig"></span></p>
@@ -152,11 +152,7 @@
 				<hr>
 				<center>
 					<button id="livestream" class="btn btn-success" style="display: none; white-space: normal;" onclick="window.location.href = 'http://sporza.be/cm/sporza/matchcenter/mc_livestream'">Zin om live te kijken? Klik hier om naar de Sporza Livestream te gaan (indien ze de rechten hebben)!</button>
-					<button id="tizlivestream" class="btn btn-success btn-block" style="display: none; white-space: normal;" data-toggle="collapse" data-target="#tizstream">Klik hier om direct live te kijken!</button>
-					<div id="tizstream" class="collapse">
-						<br>
-						<iframe width="100%" class="frame" src="//ok.ru/videoembed/922912235217?nochat=1" height="400px" frameborder="0" allow="autoplay" allowfullscreen></iframe>
-					</div>
+					<button id="tizlivestream" class="btn btn-success btn-block" style="display: none; white-space: normal;" onclick="window.location.href='http://tiz-cycling.stream/'">Klik hier om direct live te kijken (engelstalige Eurosport 1)!</button>
 				</center>
 			</div>
 			<div id="podium" style="display:none">
@@ -311,7 +307,6 @@
 						</tbody>
 					</table>
 				</div>
-
 			</div>
 		</div>
 		<br>
