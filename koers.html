@@ -10,7 +10,7 @@
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 	<link rel="icon" sizes="192x192" href="icon.png">
-	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.10/css/all.css" integrity="sha384-+d0P83n9kaQMCwj8F4RJB66tzIwOKmrdb46+porD/OvrJ+37WqIM7UoBtwHO6Nlg" crossorigin="anonymous">
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
 	<link rel="stylesheet" href="vlaggen/famfamfam-flags.css">
 	<script src="vlaggen/findandreplace.js"></script>
 
@@ -80,7 +80,6 @@
 		#refresh {
 			display: none;
 		}
-
 	</style>
 </head>
 
@@ -338,17 +337,19 @@
 			} else {
 				document.getElementById("wedstrijd").innerHTML = "GEEN wedstrijd";
 			}
-			for (i = 0; i < 20; i++) {
-				document.getElementById("algklas" + i).innerHTML = "<td>" + data[i].algnum + "</td><td>" + data[i].algnaam + "</td><td>" + data[i].algteam + "</td><td>" + data[i].algtijd + "</td>";
-			}
-			for (i = 0; i < 20; i++) {
-				document.getElementById("puntklas" + i).innerHTML = "<td>" + data[i].puntnum + "</td><td>" + data[i].puntnaam + "</td><td>" + data[i].puntteam + "</td><td>" + data[i].punttijd + "</td>";
-			}
-			for (i = 0; i < 20; i++) {
-				document.getElementById("bergklas" + i).innerHTML = "<td>" + data[i].bergnum + "</td><td>" + data[i].bergnaam + "</td><td>" + data[i].bergteam + "</td><td>" + data[i].bergtijd + "</td>";
-			}
-			for (i = 0; i < 20; i++) {
-				document.getElementById("jongklas" + i).innerHTML = "<td>" + data[i].jongnum + "</td><td>" + data[i].jongnaam + "</td><td>" + data[i].jongteam + "</td><td>" + data[i].jongtijd + "</td>";
+			if (data[0].algnaam != "") {
+				for (i = 0; i < 20; i++) {
+					document.getElementById("algklas" + i).innerHTML = "<td>" + data[i].algnum + "</td><td>" + data[i].algnaam + "</td><td>" + data[i].algteam + "</td><td>" + data[i].algtijd + "</td>";
+				}
+				for (i = 0; i < 20; i++) {
+					document.getElementById("puntklas" + i).innerHTML = "<td>" + data[i].puntnum + "</td><td>" + data[i].puntnaam + "</td><td>" + data[i].puntteam + "</td><td>" + data[i].punttijd + "</td>";
+				}
+				for (i = 0; i < 20; i++) {
+					document.getElementById("bergklas" + i).innerHTML = "<td>" + data[i].bergnum + "</td><td>" + data[i].bergnaam + "</td><td>" + data[i].bergteam + "</td><td>" + data[i].bergtijd + "</td>";
+				}
+				for (i = 0; i < 20; i++) {
+					document.getElementById("jongklas" + i).innerHTML = "<td>" + data[i].jongnum + "</td><td>" + data[i].jongnaam + "</td><td>" + data[i].jongteam + "</td><td>" + data[i].jongtijd + "</td>";
+				}
 			}
 			//Als koers afgelopen is
 			if (data[0].matchstatus === "FINISHED") {
@@ -371,8 +372,13 @@
 				if (data[3].gapsname != "") {
 					document.getElementById("gap1").innerHTML = "<p class='titelgap'>" + data[0].gapsname + "</p><br>" + data[0].gapsdescription;
 					document.getElementById("gap2").innerHTML = "<p class='titelgap'>" + data[1].gapsname + "</p><strong> (op " + data[1].gapsformatted + ")</strong><br>" + data[1].gapsdescription;
-					document.getElementById("gap3").innerHTML = "<p class='titelgap'>" + data[2].gapsname + "</p><strong> (op " + data[2].gapsformatted + ")</strong><br>" + data[2].gapsdescription;
-					document.getElementById("gap4").innerHTML = "<p class='titelgap'>" + data[3].gapsname + "</p><strong> (op " + data[3].gapsformatted + ")</strong>";
+					if (data[2].gapsname === "Peloton") {
+						document.getElementById("gap3").innerHTML = "<p class='titelgap'>" + data[2].gapsname + "</p><strong> (op " + data[2].gapsformatted + ")</strong>";
+						document.getElementById("gap4").innerHTML = "<p class='titelgap'>" + data[3].gapsname + "</p><strong> (op " + data[3].gapsformatted + ")</strong><br>" + data[3].gapsdescription;
+					} else {
+						document.getElementById("gap3").innerHTML = "<p class='titelgap'>" + data[2].gapsname + "</p><strong> (op " + data[2].gapsformatted + ")</strong><br>" + data[2].gapsdescription;
+						document.getElementById("gap4").innerHTML = "<p class='titelgap'>" + data[3].gapsname + "</p><strong> (op " + data[3].gapsformatted + ")</strong>";
+					}
 				} else if (data[2].gapsname != "") {
 					document.getElementById("gap1").innerHTML = "<p class='titelgap'>" + data[0].gapsname + "</p><br>" + data[0].gapsdescription;
 					if (data[1].gapsname === "Peloton") {
@@ -398,6 +404,13 @@
 					console.log(data);
 				}
 			}
+			// Om truitjes toe te voegen
+			document.body.innerHTML = document.body.innerHTML.split(data[0].algnaam).join("<i class='fas fa-tshirt' style='color:" + data[6].koers + ";'></i> " + data[0].algnaam);
+			document.body.innerHTML = document.body.innerHTML.split(data[0].puntnaam).join("<i class='fas fa-tshirt' style='color:" + data[7].koers + ";'></i> " + data[0].puntnaam);
+			document.body.innerHTML = document.body.innerHTML.split(data[0].bergnaam).join("<i class='fas fa-tshirt' style='color:" + data[8].koers + ";'></i> " + data[0].bergnaam);
+			document.body.innerHTML = document.body.innerHTML.split(data[0].jongnaam).join("<i class='fas fa-tshirt' style='color:" + data[9].koers + ";'></i> " + data[0].jongnaam);
+
+			// Verandert de vlagtekst naar werkelijke vlagjes op de site
 			vlaggen();
 		}
 		window.addEventListener('DOMContentLoaded', init);
@@ -431,7 +444,6 @@
 				$('[data-toggle="tooltip"]').tooltip()
 			})
 		}
-
 	</script>
 </body>
 
