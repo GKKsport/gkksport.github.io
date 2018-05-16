@@ -85,7 +85,6 @@
 		#refresh {
 			display: none;
 		}
-
 	</style>
 </head>
 
@@ -164,6 +163,25 @@
 					<span id="tweede"></span></p>
 				<p><strong>Derde:</strong>
 					<span id="derde"></span></p>
+				<hr>
+				<button data-toggle="collapse" data-target="#laatsterit" class="btn btn-block btn-primary" style="white-space: normal;" id="btnprofiel" disabled>Bekijk de volledige stand van deze rit</button>
+				<div id="laatsterit" class="collapse">
+					<div class="row">
+						<div class="col-md-3 col-sm-2"></div>
+						<div class="col-md-6 col-sm-8 col-xs-12">
+							<table class="table table-hover">
+								<thead>
+									<tr>
+										<th colspan="4" class="text-center"><small><span id="rittitel"></span></small></th>
+									</tr>
+								</thead>
+								<tbody id="laatsterittabel">
+								</tbody>
+							</table>
+						</div>
+						<div class="col-md-3 col-sm-2"></div>
+					</div>
+				</div>
 			</div>
 		</div>
 		<div class="row">
@@ -171,7 +189,7 @@
 				<button data-toggle="collapse" data-target="#profiel" class="btn btn-block btn-default" style="white-space: normal;" id="btnprofiel" disabled>Klik hier om het profiel van de wedstrijd te bekijken</button>
 			</div>
 			<div class="col-md-6 col-sm-6 col-xs-6">
-				<button data-toggle="collapse" data-target="#klassement" class="btn btn-block btn-default" style="white-space: normal;">Klik hier voor de volledige stand van de Giro</button>
+				<button data-toggle="collapse" data-target="#klassement" class="btn btn-block btn-default" style="white-space: normal;" id="btnklassement" disabled>Klik hier voor de volledige stand van de Giro</button>
 			</div>
 		</div>
 
@@ -191,27 +209,8 @@
 								<th colspan="4">ALGEMEEN</th>
 							</tr>
 						</thead>
-						<tbody>
-							<tr id="algklas0"> </tr>
-							<tr id="algklas1"> </tr>
-							<tr id="algklas2"> </tr>
-							<tr id="algklas3"> </tr>
-							<tr id="algklas4"> </tr>
-							<tr id="algklas5"> </tr>
-							<tr id="algklas6"> </tr>
-							<tr id="algklas7"> </tr>
-							<tr id="algklas8"> </tr>
-							<tr id="algklas9"> </tr>
-							<tr id="algklas10"> </tr>
-							<tr id="algklas11"> </tr>
-							<tr id="algklas12"> </tr>
-							<tr id="algklas13"> </tr>
-							<tr id="algklas14"> </tr>
-							<tr id="algklas15"> </tr>
-							<tr id="algklas16"> </tr>
-							<tr id="algklas17"> </tr>
-							<tr id="algklas18"> </tr>
-							<tr id="algklas19"> </tr>
+						<tbody id="algtabel">
+
 						</tbody>
 					</table>
 				</div>
@@ -222,27 +221,7 @@
 								<th colspan="4">PUNTEN</th>
 							</tr>
 						</thead>
-						<tbody>
-							<tr id="puntklas0"> </tr>
-							<tr id="puntklas1"> </tr>
-							<tr id="puntklas2"> </tr>
-							<tr id="puntklas3"> </tr>
-							<tr id="puntklas4"> </tr>
-							<tr id="puntklas5"> </tr>
-							<tr id="puntklas6"> </tr>
-							<tr id="puntklas7"> </tr>
-							<tr id="puntklas8"> </tr>
-							<tr id="puntklas9"> </tr>
-							<tr id="puntklas10"> </tr>
-							<tr id="puntklas11"> </tr>
-							<tr id="puntklas12"> </tr>
-							<tr id="puntklas13"> </tr>
-							<tr id="puntklas14"> </tr>
-							<tr id="puntklas15"> </tr>
-							<tr id="puntklas16"> </tr>
-							<tr id="puntklas17"> </tr>
-							<tr id="puntklas18"> </tr>
-							<tr id="puntklas19"> </tr>
+						<tbody id="punttabel">
 						</tbody>
 					</table>
 				</div>
@@ -253,27 +232,7 @@
 								<th colspan="4">BERG</th>
 							</tr>
 						</thead>
-						<tbody>
-							<tr id="bergklas0"> </tr>
-							<tr id="bergklas1"> </tr>
-							<tr id="bergklas2"> </tr>
-							<tr id="bergklas3"> </tr>
-							<tr id="bergklas4"> </tr>
-							<tr id="bergklas5"> </tr>
-							<tr id="bergklas6"> </tr>
-							<tr id="bergklas7"> </tr>
-							<tr id="bergklas8"> </tr>
-							<tr id="bergklas9"> </tr>
-							<tr id="bergklas10"> </tr>
-							<tr id="bergklas11"> </tr>
-							<tr id="bergklas12"> </tr>
-							<tr id="bergklas13"> </tr>
-							<tr id="bergklas14"> </tr>
-							<tr id="bergklas15"> </tr>
-							<tr id="bergklas16"> </tr>
-							<tr id="bergklas17"> </tr>
-							<tr id="bergklas18"> </tr>
-							<tr id="bergklas19"> </tr>
+						<tbody id="bergtabel">
 						</tbody>
 					</table>
 				</div>
@@ -284,27 +243,7 @@
 								<th colspan="4">JONGEREN</th>
 							</tr>
 						</thead>
-						<tbody>
-							<tr id="jongklas0"> </tr>
-							<tr id="jongklas1"> </tr>
-							<tr id="jongklas2"> </tr>
-							<tr id="jongklas3"> </tr>
-							<tr id="jongklas4"> </tr>
-							<tr id="jongklas5"> </tr>
-							<tr id="jongklas6"> </tr>
-							<tr id="jongklas7"> </tr>
-							<tr id="jongklas8"> </tr>
-							<tr id="jongklas9"> </tr>
-							<tr id="jongklas10"> </tr>
-							<tr id="jongklas11"> </tr>
-							<tr id="jongklas12"> </tr>
-							<tr id="jongklas13"> </tr>
-							<tr id="jongklas14"> </tr>
-							<tr id="jongklas15"> </tr>
-							<tr id="jongklas16"> </tr>
-							<tr id="jongklas17"> </tr>
-							<tr id="jongklas18"> </tr>
-							<tr id="jongklas19"> </tr>
+						<tbody id="jongtabel">
 						</tbody>
 					</table>
 				</div>
@@ -345,27 +284,42 @@
 			} else {
 				document.getElementById("wedstrijd").innerHTML = "GEEN wedstrijd";
 			}
+
+			// Als er een klassement opgegeven is, dan zal dit het klassement tonen 
 			if (data[0].algnaam != "") {
+				document.getElementById("btnklassement").disabled = false;
 				for (i = 0; i < 20; i++) {
+					document.getElementById("algtabel").innerHTML += "<tr id='algklas" + [i] + "'> </tr>";
 					document.getElementById("algklas" + i).innerHTML = "<td>" + data[i].algnum + "</td><td>" + data[i].algnaam + "</td><td>" + data[i].algteam + "</td><td>" + data[i].algtijd + "</td>";
 				}
 				for (i = 0; i < 20; i++) {
+					document.getElementById("punttabel").innerHTML += "<tr id='puntklas" + [i] + "'> </tr>";
 					document.getElementById("puntklas" + i).innerHTML = "<td>" + data[i].puntnum + "</td><td>" + data[i].puntnaam + "</td><td>" + data[i].puntteam + "</td><td>" + data[i].punttijd + "</td>";
 				}
 				for (i = 0; i < 20; i++) {
+					document.getElementById("bergtabel").innerHTML += "<tr id='bergklas" + [i] + "'> </tr>";
 					document.getElementById("bergklas" + i).innerHTML = "<td>" + data[i].bergnum + "</td><td>" + data[i].bergnaam + "</td><td>" + data[i].bergteam + "</td><td>" + data[i].bergtijd + "</td>";
 				}
 				for (i = 0; i < 20; i++) {
+					document.getElementById("jongtabel").innerHTML += "<tr id='jongklas" + [i] + "'> </tr>";
 					document.getElementById("jongklas" + i).innerHTML = "<td>" + data[i].jongnum + "</td><td>" + data[i].jongnaam + "</td><td>" + data[i].jongteam + "</td><td>" + data[i].jongtijd + "</td>";
 				}
 			}
+
 			//Als koers afgelopen is
 			if (data[0].matchstatus === "FINISHED") {
 				$('#podium').css('display', 'block');
 				document.getElementById("winnaar").innerHTML = data[0].gapsdescription;
 				document.getElementById("tweede").innerHTML = data[1].gapsdescription;
 				document.getElementById("derde").innerHTML = data[2].gapsdescription;
-				console.log(data);
+				document.getElementById("rittitel").innerHTML = data[0].rittitel;
+				for (i = 0; i < 40; i++) {
+					document.getElementById("laatsterittabel").innerHTML += "<tr id='rittab" + [i] + "'> </tr>";
+				}
+				document.getElementById("rittitel").innerHTML = data[0].rittitel;
+				for (i = 0; i < 40; i++) {
+					document.getElementById("rittab" + [i]).innerHTML = "<td>" + data[i].ritnum + "</td><td>" + data[i].ritnaam + "</td><td>" + data[i].ritteam + "</td><td>" + data[i].rittijd + "</td>";
+				}
 			} else if (data[0].matchstatus === "" || data[0].gapsname === "") { //Als de koers nog niet begonnen is
 				if (data[0].koers != "") {
 					document.getElementById("nognietbezig").innerHTML = "<p>De wedstrijd is nog niet bezig, kom later terug.</p>"
@@ -454,6 +408,9 @@
 			localStorage.setItem('updates', 1);
 		}
 
+
+
+
 		setInterval(function() {
 			location.reload();
 		}, 60000);
@@ -470,7 +427,6 @@
 				$('[data-toggle="tooltip"]').tooltip()
 			})
 		}
-
 	</script>
 </body>
 
