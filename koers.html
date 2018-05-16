@@ -89,6 +89,11 @@
 		#refresh {
 			display: none;
 		}
+		
+		.vertical-align {
+			display: flex;
+			align-items: center;
+		}
 	</style>
 </head>
 
@@ -131,18 +136,18 @@
 		</div>
 		<div id="updates" class="alert alert-success alert-dismissable refresh">
 			<div onclick="closealert2();"><a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a></div> <strong>Updates (16/05):</strong>
-			<small>The perfect koersvolger doesn't exi...</small>
+			<p><small>The perfect koersvolger doesn't exi...</small></p>
 			<p>- Er verschijnt nu automatisch een "countdown" balk die aantoont wanneer de website zal herladen</p>
 			<p>- <strong>KLIK</strong> op de balk om het <u>refreshen van de pagina tijdelijk uit te zetten</u> (om bijvoorbeeld het klassement te lezen). Opnieuw refresh aanzetten? Klik dan opnieuw op de balk om de pagina te herladen.</p>
 		</div>
 		<div id="status" class="alert alert-danger" style="display:none">
 			Oeps! Deze pagina heeft een internetverbinding nodig om te werken. Controleer of je internet wel aan staat en werkt.
 		</div>
-		<div class="row">
-			<div class="col-md-11 col-sm-10 col-xs-10">
+		<div class="row vertical-align">
+			<div class="col-md-11 col-sm-10 col-xs-9">
 				<h1><span id="wedstrijd"></span></h1>
 			</div>
-			<div class="col-md-1 col-sm-2 col-xs-2">
+			<div class="col-md-1 col-sm-2 col-xs-3">
 				<h1>
 					<div class="progress" onclick="stoprefresh();">
 						<div id="counter" class="progress-bar" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="60">
