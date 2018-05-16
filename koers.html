@@ -134,7 +134,18 @@
 		<div id="status" class="alert alert-danger" style="display:none">
 			Oeps! Deze pagina heeft een internetverbinding nodig om te werken. Controleer of je internet wel aan staat en werkt.
 		</div>
-		<h1><span id="wedstrijd"></span></h1>
+		<div class="row">
+			<div class="col-md-11 col-sm-10 col-xs-9">
+				<h1><span id="wedstrijd"></span></h1>
+			</div>
+			<div class="col-md-1 col-sm-2 col-xs-3">
+				<h1>
+					<div class="progress">
+						<div id="counter" class="progress-bar" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="10"></div>
+					</div>
+				</h1>
+			</div>
+		</div>
 		<br>
 		<div id="target" class="well">
 			<i class="fas fa-spinner fa-7x fa-spin" id="loader"></i>
@@ -408,13 +419,22 @@
 			localStorage.setItem('updates', 1);
 		}
 
+		var count = 100;
+		var counterBack = setInterval(function() {
+			count--;
+			if (count > 0) {
+				$('.progress-bar').css('width', count + '%');
+			} else {
+				clearInterval(counterBack);
+			}
+		}, 600);
 
-
-
+		// Herladen van de pagina
 		setInterval(function() {
 			location.reload();
 		}, 60000);
 
+		// Vlaggen ipv tekst
 		function vlaggen() {
 			var landnaam = ["GBR", "NED", "FRA", "ITA", "IER", "AUS", "ESP", "NZL", "ECU", "CAN", "COL", "POR", "AUT", "EST", "GER", "IRL", "RUS", "BEL", "DEN", "ALB", "LUX", "SLO", "RSA", "CZE", "SUI", "USA", "ERI", "KAZ", "ENG", "NOR", "ARG", "ISR", "LAT", "BLR", "POL", "SWE", "FIN", "SVK", "UKR", "SRB", "HUN", "LTU", "BRA", "DOM", "URU", "CRC", "RWA", "JAP", "MEX", "CRO", "MDA", "SPA", "LET", "VS", "DUI"];
 			var vlagnaam = ["gb", "nl", "fr", "it", "ie", "au", "es", "nz", "ec", "ca", "co", "pt", "at", "ee", "de", "ie", "ru", "be", "dk", "al", "lu", "si", "za", "cz", "ch", "us", "er", "kz", "england", "no", "ar", "il", "lv", "by", "pl", "se", "fi", "sk", "ua", "rs", "hu", "lt", "br", "do", "uy", "cr", "rw", "jp", "mx", "hr", "md", "es", "lv", "us", "de"];
