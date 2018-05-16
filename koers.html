@@ -15,7 +15,11 @@
 	<script src="vlaggen/findandreplace.js"></script>
 
 	<style>
-		.fas {
+		.progress:hover {
+			cursor: pointer;
+		}
+		
+		.rand {
 			-webkit-text-stroke-width: 1px;
 			-webkit-text-stroke-color: black;
 		}
@@ -126,22 +130,24 @@
 			<div onclick="closealert();"><a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a></div> Deze pagina refresht zichzelf om de minuut. De data hieronder zal dus steeds up to date zijn.
 		</div>
 		<div id="updates" class="alert alert-success alert-dismissable refresh">
-			<div onclick="closealert2();"><a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a></div> <strong>Updates (15/05):</strong>
-			<p>- Het profiel van de beklimmingen zijn nu ook te vinden onder de knop om het algemeen profiel te bekijken.</p>
-			<p>- Truitjes worden weergegeven tijdens de race en in het klassement (algemeen klassement, bergklassement, puntenklassement en jongerenklassement).</p>
-			<p>- Je kan nu ook wedstrijden die niet uitgezonden worden door Sporza live bekijken. Jammer genoeg niet direct op de website maar dat komt misschien nog in de toekomst (problemen met automatisch herladen).</p>
+			<div onclick="closealert2();"><a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a></div> <strong>Updates (16/05):</strong>
+			<small>The perfect koersvolger doesn't exi...</small>
+			<p>- Er verschijnt nu automatisch een "countdown" balk die aantoont wanneer de website zal herladen</p>
+			<p>- <strong>KLIK</strong> op de balk om het <u>refreshen van de pagina tijdelijk uit te zetten</u> (om bijvoorbeeld het klassement te lezen). Opnieuw refresh aanzetten? Klik dan opnieuw op de balk om de pagina te herladen.</p>
 		</div>
 		<div id="status" class="alert alert-danger" style="display:none">
 			Oeps! Deze pagina heeft een internetverbinding nodig om te werken. Controleer of je internet wel aan staat en werkt.
 		</div>
 		<div class="row">
-			<div class="col-md-11 col-sm-10 col-xs-9">
+			<div class="col-md-11 col-sm-10 col-xs-10">
 				<h1><span id="wedstrijd"></span></h1>
 			</div>
-			<div class="col-md-1 col-sm-2 col-xs-3">
+			<div class="col-md-1 col-sm-2 col-xs-2">
 				<h1>
 					<div class="progress" onclick="stoprefresh();">
-						<div id="counter" class="progress-bar" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="60"></div>
+						<div id="counter" class="progress-bar" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="60">
+							<i id="sync" style="display: none;" class="fas fa-sync"></i>
+						</div>
 					</div>
 				</h1>
 			</div>
@@ -383,10 +389,10 @@
 				}
 			}
 			// Om truitjes toe te voegen
-			document.body.innerHTML = document.body.innerHTML.split(data[0].algnaam).join("<i class='fas fa-tshirt' style='color:" + data[6].koers + ";'></i> " + data[0].algnaam);
-			document.body.innerHTML = document.body.innerHTML.split(data[0].puntnaam).join("<i class='fas fa-tshirt' style='color:" + data[7].koers + ";'></i> " + data[0].puntnaam);
-			document.body.innerHTML = document.body.innerHTML.split(data[0].bergnaam).join("<i class='fas fa-tshirt' style='color:" + data[8].koers + ";'></i> " + data[0].bergnaam);
-			document.body.innerHTML = document.body.innerHTML.split(data[0].jongnaam).join("<i class='fas fa-tshirt' style='color:" + data[9].koers + ";'></i> " + data[0].jongnaam);
+			document.body.innerHTML = document.body.innerHTML.split(data[0].algnaam).join("<i class='fas rand fa-tshirt' style='color:" + data[6].koers + ";'></i> " + data[0].algnaam);
+			document.body.innerHTML = document.body.innerHTML.split(data[0].puntnaam).join("<i class='fas rand fa-tshirt' style='color:" + data[7].koers + ";'></i> " + data[0].puntnaam);
+			document.body.innerHTML = document.body.innerHTML.split(data[0].bergnaam).join("<i class='fas rand fa-tshirt' style='color:" + data[8].koers + ";'></i> " + data[0].bergnaam);
+			document.body.innerHTML = document.body.innerHTML.split(data[0].jongnaam).join("<i class='fas rand fa-tshirt' style='color:" + data[9].koers + ";'></i> " + data[0].jongnaam);
 
 			// Verandert de vlagtekst naar werkelijke vlagjes op de site
 			vlaggen();
@@ -407,22 +413,32 @@
 		}
 
 		// Localstorage voor updates
-		var updates = localStorage.getItem('updates');
-		if (updates == null || updates === "0") {
+		var update1 = localStorage.getItem('update1');
+		if (update1 == null || update1 === "0") {
 			$('#updates').show();
-			localStorage.setItem('updates', 0);
+			localStorage.setItem('update1', 0);
 		} else {
 			$('#updates').hide();
 		}
 
 		function closealert2() {
-			localStorage.setItem('updates', 1);
+			localStorage.setItem('update1', 1);
 		}
 
 		// Refresh van de pagina uitzetten
+		var refreshklik = 0;
+
 		function stoprefresh() {
-			clearInterval(counterBack);
-			clearInterval(reload);
+			if (refreshklik != 1) {
+				clearInterval(counterBack);
+				clearInterval(reload);
+				refreshklik = 1;
+				$('.progress-bar').addClass("progress-bar-danger");
+				$('#sync').show();
+			} else {
+				location.reload();
+			}
+
 		}
 
 		// Counter progress bar
