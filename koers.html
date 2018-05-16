@@ -186,32 +186,19 @@
 				<p><strong>Derde:</strong>
 					<span id="derde"></span></p>
 				<hr>
-				<button data-toggle="collapse" data-target="#laatsterit" class="btn btn-block btn-primary" style="white-space: normal;" id="btnprofiel" disabled>Bekijk de volledige stand van deze rit</button>
-				<div id="laatsterit" class="collapse">
-					<div class="row">
-						<div class="col-md-3 col-sm-2"></div>
-						<div class="col-md-6 col-sm-8 col-xs-12">
-							<table class="table table-hover">
-								<thead>
-									<tr>
-										<th colspan="4" class="text-center"><small><span id="rittitel"></span></small></th>
-									</tr>
-								</thead>
-								<tbody id="laatsterittabel">
-								</tbody>
-							</table>
-						</div>
-						<div class="col-md-3 col-sm-2"></div>
-					</div>
-				</div>
+
 			</div>
 		</div>
+		<div id="klasrit" style="display: none">
+			<button data-toggle="collapse" data-target="#laatsterit" class="btn btn-block btn-primary" style="white-space: normal;" id="btnrit" onclick="colrit();"><span id="btnrittekst"></span></button>
+		</div>
+		<br>
 		<div class="row">
 			<div class="col-md-6 col-sm-6 col-xs-6">
-				<button data-toggle="collapse" data-target="#profiel" class="btn btn-block btn-default" style="white-space: normal;" id="btnprofiel" disabled>Klik hier om het profiel van de wedstrijd te bekijken</button>
+				<button data-toggle="collapse" data-target="#profiel" class="btn btn-block btn-default" style="white-space: normal;" id="btnprofiel" onclick="colprof();" disabled>Klik hier om het profiel van de wedstrijd te bekijken</button>
 			</div>
 			<div class="col-md-6 col-sm-6 col-xs-6">
-				<button data-toggle="collapse" data-target="#klassement" class="btn btn-block btn-default" style="white-space: normal;" id="btnklassement" disabled>Klik hier voor de volledige stand van de Giro</button>
+				<button data-toggle="collapse" data-target="#klassement" class="btn btn-block btn-default" style="white-space: normal;" id="btnklassement" onclick="colklas();" disabled>Klik hier voor de volledige stand van de Giro</button>
 			</div>
 		</div>
 
@@ -272,6 +259,24 @@
 			</div>
 		</div>
 		<br>
+
+		<div id="laatsterit" class="collapse">
+			<div class="row">
+				<div class="col-md-3 col-sm-2"></div>
+				<div class="col-md-6 col-sm-8 col-xs-12">
+					<table class="table table-hover">
+						<thead>
+							<tr>
+								<th colspan="4" class="text-center"><small><span id="rittitel"></span></small></th>
+							</tr>
+						</thead>
+						<tbody id="laatsterittabel">
+						</tbody>
+					</table>
+				</div>
+				<div class="col-md-3 col-sm-2"></div>
+			</div>
+		</div>
 	</div>
 	<script type='text/javascript'>
 		window.addEventListener('load', function() {
@@ -326,6 +331,16 @@
 					document.getElementById("jongtabel").innerHTML += "<tr id='jongklas" + [i] + "'> </tr>";
 					document.getElementById("jongklas" + i).innerHTML = "<td>" + data[i].jongnum + "</td><td>" + data[i].jongnaam + "</td><td>" + data[i].jongteam + "</td><td>" + data[i].jongtijd + "</td>";
 				}
+
+				if (data[4].koers === "tour") {
+					for (i = 0; i < 60; i++) {
+						document.getElementById("laatsterittabel").innerHTML += "<tr id='rittab" + [i] + "'> </tr>";
+					}
+					document.getElementById("rittitel").innerHTML = data[0].rittitel;
+					for (i = 0; i < 60; i++) {
+						document.getElementById("rittab" + [i]).innerHTML = "<td>" + data[i].ritnum + "</td><td>" + data[i].ritnaam + "</td><td>" + data[i].ritteam + "</td><td>" + data[i].rittijd + "</td>";
+					}
+				}
 			}
 
 			//Als koers afgelopen is
@@ -335,16 +350,17 @@
 				document.getElementById("tweede").innerHTML = data[1].gapsdescription;
 				document.getElementById("derde").innerHTML = data[2].gapsdescription;
 				document.getElementById("rittitel").innerHTML = data[0].rittitel;
-				for (i = 0; i < 40; i++) {
-					document.getElementById("laatsterittabel").innerHTML += "<tr id='rittab" + [i] + "'> </tr>";
-				}
-				document.getElementById("rittitel").innerHTML = data[0].rittitel;
-				for (i = 0; i < 40; i++) {
-					document.getElementById("rittab" + [i]).innerHTML = "<td>" + data[i].ritnum + "</td><td>" + data[i].ritnaam + "</td><td>" + data[i].ritteam + "</td><td>" + data[i].rittijd + "</td>";
+				if (data[4].koers === "tour") {
+					document.getElementById("btnrittekst").innerHTML = "Bekijk de uitslag van deze rit (top 60)!"
+					$("#klasrit").show();
 				}
 			} else if (data[0].matchstatus === "" || data[0].gapsname === "") { //Als de koers nog niet begonnen is
 				if (data[0].koers != "") {
 					document.getElementById("nognietbezig").innerHTML = "<p>De wedstrijd is nog niet bezig, kom later terug.</p>"
+					if (data[4].koers === "tour") {
+						document.getElementById("btnrittekst").innerHTML = "Bekijk de stand van de vorige rit!"
+						$("#klasrit").show();
+					}
 					console.log("nog niet bezig");
 				} else {
 					document.getElementById("nognietbezig").innerHTML = "<p>Er is geen noemenswaardige wedstrijd gepland vandaag!</p><br><small>(Of deze is niet ingegeven, in dat geval trek aan de oren van Simon)</small>"
@@ -476,6 +492,21 @@
 			$(function() {
 				$('[data-toggle="tooltip"]').tooltip()
 			})
+		}
+
+		function colrit() {
+			$("#klassement").collapse('hide');
+			$("#profiel").collapse('hide');
+		}
+
+		function colprof() {
+			$("#klassement").collapse('hide');
+			$("#laatsterit").collapse('hide');
+		}
+
+		function colklas() {
+			$("#profiel").collapse('hide');
+			$("#laatsterit").collapse('hide');
 		}
 	</script>
 </body>
