@@ -10,6 +10,39 @@ function show() {
 
 }
 
+function init() {
+	$("#zwemafst").html(localStorage.getItem('zwema'));
+	$("#fietsafst").html(localStorage.getItem('fietsa'));
+	$("#loopafst").html(localStorage.getItem('loopa'));
+}
+init();
+
+var calcstor = localStorage.getItem('calc');
+if (calcstor === "0" || calcstor == null) {
+	localStorage.setItem('zwema', "750");
+	localStorage.setItem('fietsa', "20");
+	localStorage.setItem('loopa', "5");
+	$("#zwemafstand").val(localStorage.getItem('zwema'));
+	$("#fietsafstand").val(localStorage.getItem('fietsa'));
+	$("#loopafstand").val(localStorage.getItem('loopa'));
+	localStorage.setItem('calc', 1);
+} else {
+	$("#zwemafstand").val(localStorage.getItem('zwema'));
+	$("#fietsafstand").val(localStorage.getItem('fietsa'));
+	$("#loopafstand").val(localStorage.getItem('loopa'));
+	$("#zwemmenmin").val(localStorage.getItem('zwemmin'));
+	$("#zwemmensec").val(localStorage.getItem('zwemsec'));
+	$("#lopenmin").val(localStorage.getItem('lopenmin'));
+	$("#lopensec").val(localStorage.getItem('lopensec'));
+	$("#fietsen").val(localStorage.getItem('fietsen'));
+	$("#t1min").val(localStorage.getItem('t1m'));
+	$("#t2min").val(localStorage.getItem('t2m'));
+	$("#t1sec").val(localStorage.getItem('t1s'));
+	$("#t2sec").val(localStorage.getItem('t2s'));
+}
+/*var test = localStorage.getItem('test');*/
+
+
 //onClick() function zal enkel afgaan indien op de button gedrukt wordt (zie html)
 function onClick() {
 	//Leest waarden uit formulier
@@ -24,12 +57,25 @@ function onClick() {
 	var zwemafstand = $("#zwemafstand").val();
 	var fietsafstand = $("#fietsafstand").val();
 	var loopafstand = $("#loopafstand").val();
+	var fietsen = $("#fietsen").val(); // fietssnelheid in km/h
+
+	//Steekt ze in local storage
+
+	localStorage.setItem('zwemmin', zwemmin);
+	localStorage.setItem('zwemsec', zwemsec);
+	localStorage.setItem('lopenmin', loopmin);
+	localStorage.setItem('lopensec', loopsec);
+	localStorage.setItem('fietsen', fietsen);
+	localStorage.setItem('t1m', t1min);
+	localStorage.setItem('t2m', t2min);
+	localStorage.setItem('t1s', t1sec);
+	localStorage.setItem('t2s', t2sec);
+
 
 	var zwemberekening = zwemafstand / 100;
 
 
 	//Alles omzetten naar seconden (bij zwemmen en lopen) en km/h behouden bij fietsen
-	var fietsen = $("#fietsen").val(); // fietssnelheid in km/h
 	var zwemmen = (+zwemmin * 60) + +zwemsec;
 	var lopen = (+loopmin * 60) + +loopsec;
 	var t1 = (+t1min * 60) + +t1sec;
@@ -79,6 +125,10 @@ function onClick() {
 	document.getElementById("t1tijd").innerHTML = t1min + " minuten en " + t1sec + " seconden (" + t1p + "%)";
 	document.getElementById("t2tijd").innerHTML = t2min + " minuten en " + t2sec + " seconden (" + t2p + "%)";
 
+	localStorage.setItem('zwema', zwemafstand);
+	localStorage.setItem('loopa', loopafstand);
+	localStorage.setItem('fietsa', fietsafstand);
+	init();
 
 	//Gaat refresh van pagina tegen
 	return false;
