@@ -24,7 +24,7 @@
 <script type="text/javascript">
 	firebase.auth().onAuthStateChanged(function(user) {
 		if (user) {
-			document.body.innerHTML = "nice!";
+			document.body.innerHTML = "nice!" + user.name;
 		} else {
 			console.log("foutje");
 		}
