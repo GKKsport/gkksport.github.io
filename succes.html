@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+	<title>Test</title>
+</head>
+
+<script src="https://www.gstatic.com/firebasejs/5.0.3/firebase.js"></script>
+<script>
+	// Initialize Firebase
+	var config = {
+		apiKey: "AIzaSyCb31CJTEybBl433uwaQst5V1BevmruBEI",
+		authDomain: "gkk-sport.firebaseapp.com",
+		databaseURL: "https://gkk-sport.firebaseio.com",
+		projectId: "gkk-sport",
+		storageBucket: "gkk-sport.appspot.com",
+		messagingSenderId: "244482025755"
+	};
+	firebase.initializeApp(config);
+
+</script>
+<script src="https://cdn.firebase.com/libs/firebaseui/3.0.0/firebaseui.js"></script>
+<link type="text/css" rel="stylesheet" href="https://cdn.firebase.com/libs/firebaseui/3.0.0/firebaseui.css" />
+<script type="text/javascript">
+	firebase.auth().onAuthStateChanged(function(user) {
+		if (user) {
+			document.body.innerHTML = "nice!";
+		} else {
+			console.log("foutje");
+		}
+	});
+
+</script>
+
+<body>
+	<h1>Hoppa!</h1>
+</body>
+
+
+</html>
