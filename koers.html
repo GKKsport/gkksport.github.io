@@ -2,506 +2,513 @@
 <html>
 
 <head>
-	<title>GKK Sport</title>
-	<meta charset="utf-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-	<script src='https://cdnjs.cloudflare.com/ajax/libs/tabletop.js/1.5.1/tabletop.min.js'></script>
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-	<link rel="icon" sizes="192x192" href="icon.png">
-	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
-	<link rel="stylesheet" href="vlaggen/famfamfam-flags.css">
-	<script src="vlaggen/findandreplace.js"></script>
+  <title>GKK Sport</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/tabletop.js/1.5.1/tabletop.min.js'></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <link rel="icon" sizes="192x192" href="icon.png">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
+  <link rel="stylesheet" href="vlaggen/famfamfam-flags.css">
+  <script src="vlaggen/findandreplace.js"></script>
 
-	<style>
-		.progress:hover {
-			cursor: pointer;
-		}
+  <style>
+    .progress:hover {
+      cursor: pointer;
+    }
 
-		.rand {
-			-webkit-text-stroke-width: 1px;
-			-webkit-text-stroke-color: black;
-		}
-				
-		.titelgap {
-			padding: 3px;
-			display: inline-block;
-			color: white;
-			background-color: #e74c3c;
-			border-style: solid;
-			border-color: #e74c3c;
-			border-radius: 5px;
-			font-weight: 600;
-		}
-		/* Remove the navbar's default margin-bottom and rounded borders */
+    .rand {
+      -webkit-text-stroke-width: 1px;
+      -webkit-text-stroke-color: black;
+    }
 
-		.navbar {
-			margin-bottom: 0;
-			border-radius: 0;
-		}
-		/* Set height of the grid so .sidenav can be 100% (adjust as needed) */
+    .titelgap {
+      padding: 3px;
+      display: inline-block;
+      color: white;
+      background-color: #e74c3c;
+      border-style: solid;
+      border-color: #e74c3c;
+      border-radius: 5px;
+      font-weight: 600;
+    }
 
-		.row.content {
-			height: 450px
-		}
-		/* Set gray background color and 100% height */
+    /* Remove the navbar's default margin-bottom and rounded borders */
 
-		.sidenav {
-			padding-top: 20px;
-			background-color: #f1f1f1;
-			height: 100%;
-		}
-		/* Set black background color, white text and some padding */
+    .navbar {
+      margin-bottom: 0;
+      border-radius: 0;
+    }
 
-		.navbar-brand img {
-			height: 40px;
-		}
+    /* Set height of the grid so .sidenav can be 100% (adjust as needed) */
 
-		.navbar-brand {
-			padding-bottom: 3px;
-			padding-top: 6px;
-		}
+    .row.content {
+      height: 450px
+    }
 
-		footer {
-			background-color: #555;
-			color: white;
-			padding: 15px;
-		}
-		/* On small screens, set height to 'auto' for sidenav and grid */
+    /* Set gray background color and 100% height */
 
-		@media screen and (max-width: 767px) {
-			.sidenav {
-				height: auto;
-				padding: 15px;
-			}
-			.row.content {
-				height: 2em;
-			}
-		}
+    .sidenav {
+      padding-top: 20px;
+      background-color: #f1f1f1;
+      height: 100%;
+    }
 
-		#refresh {
-			display: none;
-		}
+    /* Set black background color, white text and some padding */
 
-		.vertical-align {
-			display: flex;
-			align-items: center;
-		}
+    .navbar-brand img {
+      height: 40px;
+    }
 
-	</style>
+    .navbar-brand {
+      padding-bottom: 3px;
+      padding-top: 6px;
+    }
+
+    footer {
+      background-color: #555;
+      color: white;
+      padding: 15px;
+    }
+
+    /* On small screens, set height to 'auto' for sidenav and grid */
+
+    @media screen and (max-width: 767px) {
+      .sidenav {
+        height: auto;
+        padding: 15px;
+      }
+      .row.content {
+        height: 2em;
+      }
+    }
+
+    #refresh {
+      display: none;
+    }
+
+    .vertical-align {
+      display: flex;
+      align-items: center;
+    }
+  </style>
 </head>
 
 <body>
 
-	<nav class="navbar navbar-inverse">
-		<div class="container-fluid">
-			<div class="navbar-header">
-				<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+  <nav class="navbar navbar-inverse">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-				<a class="navbar-brand" href="index.html"><img src="GKK.png"></a>
-			</div>
-			<div class="collapse navbar-collapse" id="myNavbar">
-				<ul class="nav navbar-nav">
-					<li><a href="kalender.html">Tussenstand/Kalender</a></li>
-					<li><a href="zwemmen.html">Zwemmen</a></li>
-					<li><a href="training">Training</a></li>
-					<li><a href="triathloncalc.html">Triathlon-calc</a></li>
-					<li><a href="zidb.html">ZIDB</a></li>
-					<li><a href="gpx.html">GPX</a></li>
-					<li><a href="koers.html" class="active">Koers</a></li>
-					<li class="dropdown">
-						<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Archief <span class="caret"></span></a>
-						<ul class="dropdown-menu">
-							<li><a href="tricklist.html">Tricklist</a></li>
-							<li><a href="kaartregels.html">Kaartregels</a></li>
-						</ul>
-					</li>
-				</ul>
-			</div>
-		</div>
-	</nav>
-	<div class="container-fluid text-center">
-		<br>
-		<div id="refresh" class="alert alert-danger alert-dismissable refresh">
-			<div onclick="closealert();"><a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a></div> Deze pagina refresht zichzelf om de minuut. De data hieronder zal dus steeds up to date zijn.
-		</div>
-		<div id="updates" class="alert alert-success alert-dismissable refresh">
-			<div onclick="closealert2();"><a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a></div> <strong>Updates (16/05):</strong>
-			<p><small>The perfect koersvolger doesn't exi...</small></p>
-			<p>- Er verschijnt nu automatisch een "countdown" balk die aantoont wanneer de website zal herladen</p>
-			<p>- <strong>KLIK</strong> op de balk om het <u>refreshen van de pagina tijdelijk uit te zetten</u> (om bijvoorbeeld het klassement te lezen). Opnieuw refresh aanzetten? Klik dan opnieuw op de balk om de pagina te herladen.</p>
-		</div>
-		<div id="status" class="alert alert-danger" style="display:none">
-			Oeps! Deze pagina heeft een internetverbinding nodig om te werken. Controleer of je internet wel aan staat en werkt.
-		</div>
-		<div class="row vertical-align">
-			<div class="col-md-11 col-sm-10 col-xs-9">
-				<h1><span id="wedstrijd"></span></h1>
-			</div>
-			<div class="col-md-1 col-sm-2 col-xs-3">
-				<h1>
+        <a class="navbar-brand" href="index.html"><img src="GKK.png"></a>
+      </div>
+      <div class="collapse navbar-collapse" id="myNavbar">
+        <ul class="nav navbar-nav">
+          <li><a href="kalender.html">Tussenstand/Kalender</a></li>
+          <li><a href="zwemmen.html">Zwemmen</a></li>
+          <li><a href="training">Training</a></li>
+          <li><a href="triathloncalc.html">Triathlon-calc</a></li>
+          <li><a href="zidb.html">ZIDB</a></li>
+          <li><a href="gpx.html">GPX</a></li>
+          <li><a href="koers.html" class="active">Koers</a></li>
+          <li class="dropdown">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Archief <span class="caret"></span></a>
+            <ul class="dropdown-menu">
+              <li><a href="tricklist.html">Tricklist</a></li>
+              <li><a href="kaartregels.html">Kaartregels</a></li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+  <div class="container-fluid text-center">
+    <br>
+    <div id="refresh" class="alert alert-danger alert-dismissable refresh">
+      <div onclick="closealert();"><a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a></div> Deze pagina refresht zichzelf om de minuut. De data hieronder zal dus steeds up to date zijn.
+    </div>
+    <div id="updates" class="alert alert-success alert-dismissable refresh">
+      <div onclick="closealert2();"><a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a></div> <strong>Updates (16/05):</strong>
+      <p><small>The perfect koersvolger doesn't exi...</small></p>
+      <p>- Er verschijnt nu automatisch een "countdown" balk die aantoont wanneer de website zal herladen</p>
+      <p>- <strong>KLIK</strong> op de balk om het <u>refreshen van de pagina tijdelijk uit te zetten</u> (om bijvoorbeeld het klassement te lezen). Opnieuw refresh aanzetten? Klik dan opnieuw op de balk om de pagina te herladen.</p>
+    </div>
+    <div id="status" class="alert alert-danger" style="display:none">
+      Oeps! Deze pagina heeft een internetverbinding nodig om te werken. Controleer of je internet wel aan staat en werkt.
+    </div>
+    <div class="row vertical-align">
+      <div class="col-md-11 col-sm-10 col-xs-9">
+        <h1><span id="wedstrijd"></span></h1>
+      </div>
+      <div class="col-md-1 col-sm-2 col-xs-3">
+        <h1>
 					<div class="progress" onclick="stoprefresh();">
 						<div id="counter" class="progress-bar" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="60">
 							<i id="sync" style="display: none;" class="fas fa-sync"></i>
 						</div>
 					</div>
 				</h1>
-			</div>
-		</div>
-		<br>
-		<div id="target" class="well">
-			<i class="fas fa-spinner fa-7x fa-spin" id="loader"></i>
-			<br>
-			<p><span id="nognietbezig"></span></p>
-			<div id="bezig" style="display:none">
-				<h3>Nog <kbd><span id="left"></span>km</kbd> tot de finish.</h3>
-				<small>(herlaadt automatisch elke minuut)</small>
-				<hr>
-				<p id="gap1"></p>
-				<p id="gap2"></p>
-				<p id="gap3"></p>
-				<p id="gap4"></p>
-				<p id="gap5"></p>
-				<hr>
-				<center>
-					<button id="livestream" class="btn btn-success" style="display: none; white-space: normal;" onclick="window.location.href = 'http://sporza.be/cm/sporza/matchcenter/mc_livestream'">Zin om live te kijken? Klik hier om naar de Sporza Livestream te gaan (indien ze de rechten hebben)!</button>
-					<button id="tizlivestream" class="btn btn-success btn-block" style="display: none; white-space: normal;" onclick="window.location.href='http://tiz-cycling.stream/'">Klik hier om direct live te kijken (Eurosport 1)!</button>
-				</center>
-			</div>
-			<div id="podium" style="display:none">
-				<p>De wedstrijd is afgelopen! Bekijk hieronder het podium</p>
-				<p><strong>Winnaar:</strong>
-					<span id="winnaar"></span></p>
-				<p><strong>Tweede:</strong>
-					<span id="tweede"></span></p>
-				<p><strong>Derde:</strong>
-					<span id="derde"></span></p>
-			</div>
-		</div>
-		<div id="klasrit" style="display: none">
-			<button data-toggle="collapse" data-target="#laatsterit" class="btn btn-block btn-primary" style="white-space: normal;" id="btnrit" onclick="colrit();"><span id="btnrittekst"></span></button>
-		</div>
-		<br>
-		<div class="row">
-			<div class="col-md-6 col-sm-6 col-xs-6">
-				<button data-toggle="collapse" data-target="#profiel" class="btn btn-block btn-default" style="white-space: normal;" id="btnprofiel" onclick="colprof();" disabled>Klik hier om het profiel van de wedstrijd te bekijken</button>
-			</div>
-			<div class="col-md-6 col-sm-6 col-xs-6">
-				<button data-toggle="collapse" data-target="#klassement" class="btn btn-block btn-default" style="white-space: normal;" id="btnklassement" onclick="colklas();" disabled>Klik hier voor de volledige stand van de Giro</button>
-			</div>
-		</div>
+      </div>
+    </div>
+    <br>
+    <div id="target" class="well">
+      <i class="fas fa-spinner fa-7x fa-spin" id="loader"></i>
+      <br>
+      <p><span id="nognietbezig"></span></p>
+      <div id="bezig" style="display:none">
+        <h3>Nog <kbd><span id="left"></span>km</kbd> tot de finish.</h3>
+        <small>(herlaadt automatisch elke minuut)</small>
+        <hr>
+        <p id="gap1"></p>
+        <p id="gap2"></p>
+        <p id="gap3"></p>
+        <p id="gap4"></p>
+        <p id="gap5"></p>
+        <hr>
+        <center>
+          <button id="livestream" class="btn btn-success" style="display: none; white-space: normal;" onclick="window.location.href = 'http://sporza.be/cm/sporza/matchcenter/mc_livestream'">Zin om live te kijken? Klik hier om naar de Sporza Livestream te gaan (indien ze de rechten hebben)!</button>
+          <button id="tizlivestream" class="btn btn-success btn-block" style="display: none; white-space: normal;" onclick="window.location.href='http://tiz-cycling.stream/'">Klik hier om direct live te kijken (Eurosport 1)!</button>
+        </center>
+      </div>
+      <div id="podium" style="display:none">
+        <p>De wedstrijd is afgelopen! Bekijk hieronder het podium</p>
+        <p><strong>Winnaar:</strong>
+          <span id="winnaar"></span></p>
+        <p><strong>Tweede:</strong>
+          <span id="tweede"></span></p>
+        <p><strong>Derde:</strong>
+          <span id="derde"></span></p>
+      </div>
+    </div>
+    <div id="klasrit" style="display: none">
+      <button data-toggle="collapse" data-target="#laatsterit" class="btn btn-block btn-primary" style="white-space: normal;" id="btnrit" onclick="colrit();"><span id="btnrittekst"></span></button>
+    </div>
+    <br>
+    <div class="row">
+      <div class="col-md-6 col-sm-6 col-xs-6">
+        <button data-toggle="collapse" data-target="#profiel" class="btn btn-block btn-default" style="white-space: normal;" id="btnprofiel" onclick="colprof();" disabled>Klik hier om het profiel van de wedstrijd te bekijken</button>
+      </div>
+      <div class="col-md-6 col-sm-6 col-xs-6">
+        <button data-toggle="collapse" data-target="#klassement" class="btn btn-block btn-default" style="white-space: normal;" id="btnklassement" onclick="colklas();" disabled>Klik hier voor de volledige stand van de Giro</button>
+      </div>
+    </div>
 
-		<div id="profiel" class="collapse">
-			<div id="profielgroot"></div>
-			<div id="profielberg"></div>
-		</div>
-		<br>
-		<div id="klassement" class="collapse">
-			<br>
-			<div class="row">
-				<div class="col-md-3 col-sm-6 col-xs-12">
-					<table class="table table-hover">
-						<thead>
-							<tr>
-								<th colspan="4">ALGEMEEN</th>
-							</tr>
-						</thead>
-						<tbody id="algtabel">
+    <div id="profiel" class="collapse">
+      <div id="profielgroot"></div>
+      <div id="profielberg"></div>
+    </div>
+    <br>
+    <div id="klassement" class="collapse">
+      <br>
+      <div class="row">
+        <div class="col-md-3 col-sm-6 col-xs-12">
+          <table class="table table-hover">
+            <thead>
+              <tr>
+                <th colspan="4">ALGEMEEN</th>
+              </tr>
+            </thead>
+            <tbody id="algtabel">
 
-						</tbody>
-					</table>
-				</div>
-				<div class="col-md-3 col-sm-6 col-xs-12">
-					<table class="table table-hover">
-						<thead>
-							<tr>
-								<th colspan="4">PUNTEN</th>
-							</tr>
-						</thead>
-						<tbody id="punttabel">
-						</tbody>
-					</table>
-				</div>
-				<div class="col-md-3 col-sm-6 col-xs-12">
-					<table class="table table-hover">
-						<thead>
-							<tr>
-								<th colspan="4">BERG</th>
-							</tr>
-						</thead>
-						<tbody id="bergtabel">
-						</tbody>
-					</table>
-				</div>
-				<div class="col-md-3 col-sm-6 col-xs-12">
-					<table class="table table-hover">
-						<thead>
-							<tr>
-								<th colspan="4">JONGEREN</th>
-							</tr>
-						</thead>
-						<tbody id="jongtabel">
-						</tbody>
-					</table>
-				</div>
-			</div>
-		</div>
-		<br>
+            </tbody>
+          </table>
+        </div>
+        <div class="col-md-3 col-sm-6 col-xs-12">
+          <table class="table table-hover">
+            <thead>
+              <tr>
+                <th colspan="4">PUNTEN</th>
+              </tr>
+            </thead>
+            <tbody id="punttabel">
+            </tbody>
+          </table>
+        </div>
+        <div class="col-md-3 col-sm-6 col-xs-12">
+          <table class="table table-hover">
+            <thead>
+              <tr>
+                <th colspan="4">BERG</th>
+              </tr>
+            </thead>
+            <tbody id="bergtabel">
+            </tbody>
+          </table>
+        </div>
+        <div class="col-md-3 col-sm-6 col-xs-12">
+          <table class="table table-hover">
+            <thead>
+              <tr>
+                <th colspan="4">JONGEREN</th>
+              </tr>
+            </thead>
+            <tbody id="jongtabel">
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+    <br>
 
-		<div id="laatsterit" class="collapse">
-			<div class="row">
-				<div class="col-md-3 col-sm-2"></div>
-				<div class="col-md-6 col-sm-8 col-xs-12">
-					<table class="table table-hover">
-						<thead>
-							<tr>
-								<th colspan="4" class="text-center"><small><span id="rittitel"></span></small></th>
-							</tr>
-						</thead>
-						<tbody id="laatsterittabel">
-						</tbody>
-					</table>
-				</div>
-				<div class="col-md-3 col-sm-2"></div>
-			</div>
-		</div>
-	</div>
-	<script type='text/javascript'>
-		window.addEventListener('load', function() {
-			if (navigator.onLine === false) {
-				$('#status').css('display', 'block');
-				$('#refresh').css('display', 'none');
-				$('#profiel').css('display', 'none');
-				$('.well').css('display', 'none');
-				console.log('offline');
-			}
-		});
+    <div id="laatsterit" class="collapse">
+      <div class="row">
+        <div class="col-md-3 col-sm-2"></div>
+        <div class="col-md-6 col-sm-8 col-xs-12">
+          <table class="table table-hover">
+            <thead>
+              <tr>
+                <th colspan="4" class="text-center"><small><span id="rittitel"></span></small></th>
+              </tr>
+            </thead>
+            <tbody id="laatsterittabel">
+            </tbody>
+          </table>
+        </div>
+        <div class="col-md-3 col-sm-2"></div>
+      </div>
+    </div>
+  </div>
+  <script type='text/javascript'>
+    window.addEventListener('load', function() {
+      if (navigator.onLine === false) {
+        $('#status').css('display', 'block');
+        $('#refresh').css('display', 'none');
+        $('#profiel').css('display', 'none');
+        $('.well').css('display', 'none');
+        console.log('offline');
+      }
+    });
 
-		var publicSpreadsheetUrl = 'https://docs.google.com/spreadsheets/d/1HW4rR9Dehu2-sga989vXPxo7_KefCktLIp6Orb5DoXg/edit?usp=sharing';
+    var publicSpreadsheetUrl = 'https://docs.google.com/spreadsheets/d/1HW4rR9Dehu2-sga989vXPxo7_KefCktLIp6Orb5DoXg/edit?usp=sharing';
 
-		function init() {
-			Tabletop.init({
-				key: publicSpreadsheetUrl,
-				callback: showInfo,
-				simpleSheet: true
-			})
-		}
+    function init() {
+      Tabletop.init({
+        key: publicSpreadsheetUrl,
+        callback: showInfo,
+        simpleSheet: true
+      })
+    }
 
-		function showInfo(data, tabletop) {
-			$('#loader').css('display', 'none');
-			if (data[0].koers != "") {
-				document.getElementById("wedstrijd").innerHTML = data[1].koers;
-				document.getElementById("profielgroot").innerHTML += "<br><img width='100%' src='" + data[0].kaart + "'>";
-				for (i = 1; i < 5; i++) {
-					document.getElementById("profielberg").innerHTML += "<br><img width='100%' src='" + data[i].kaart + "'>";
-				}
-				document.getElementById("btnprofiel").disabled = false;
-			} else {
-				document.getElementById("wedstrijd").innerHTML = "GEEN wedstrijd";
-			}
+    function showInfo(data, tabletop) {
+      $('#loader').css('display', 'none');
+      if (data[0].koers != "") {
+        document.getElementById("wedstrijd").innerHTML = data[1].koers;
+        document.getElementById("profielgroot").innerHTML += "<br><img width='100%' src='" + data[0].kaart + "'>";
+        for (i = 1; i < 5; i++) {
+          document.getElementById("profielberg").innerHTML += "<br><img width='100%' src='" + data[i].kaart + "'>";
+        }
+        document.getElementById("btnprofiel").disabled = false;
+      } else {
+        document.getElementById("wedstrijd").innerHTML = "GEEN wedstrijd";
+      }
 
-			// Als er een klassement opgegeven is, dan zal dit het klassement tonen
-			if (data[0].algnaam != "") {
-				document.getElementById("btnklassement").disabled = false;
-				for (i = 0; i < 20; i++) {
-					document.getElementById("algtabel").innerHTML += "<tr id='algklas" + [i] + "'> </tr>";
-					document.getElementById("algklas" + i).innerHTML = "<td>" + data[i].algnum + "</td><td>" + data[i].algnaam + "</td><td>" + data[i].algteam + "</td><td>" + data[i].algtijd + "</td>";
-				}
-				for (i = 0; i < 20; i++) {
-					document.getElementById("punttabel").innerHTML += "<tr id='puntklas" + [i] + "'> </tr>";
-					document.getElementById("puntklas" + i).innerHTML = "<td>" + data[i].puntnum + "</td><td>" + data[i].puntnaam + "</td><td>" + data[i].puntteam + "</td><td>" + data[i].punttijd + "</td>";
-				}
-				for (i = 0; i < 20; i++) {
-					document.getElementById("bergtabel").innerHTML += "<tr id='bergklas" + [i] + "'> </tr>";
-					document.getElementById("bergklas" + i).innerHTML = "<td>" + data[i].bergnum + "</td><td>" + data[i].bergnaam + "</td><td>" + data[i].bergteam + "</td><td>" + data[i].bergtijd + "</td>";
-				}
-				for (i = 0; i < 20; i++) {
-					document.getElementById("jongtabel").innerHTML += "<tr id='jongklas" + [i] + "'> </tr>";
-					document.getElementById("jongklas" + i).innerHTML = "<td>" + data[i].jongnum + "</td><td>" + data[i].jongnaam + "</td><td>" + data[i].jongteam + "</td><td>" + data[i].jongtijd + "</td>";
-				}
+      // Als er een klassement opgegeven is, dan zal dit het klassement tonen
+      if (data[0].algnaam != "") {
+        document.getElementById("btnklassement").disabled = false;
+        for (i = 0; i < 20; i++) {
+          document.getElementById("algtabel").innerHTML += "<tr id='algklas" + [i] + "'> </tr>";
+          document.getElementById("algklas" + i).innerHTML = "<td>" + data[i].algnum + "</td><td>" + data[i].algnaam + "</td><td>" + data[i].algteam + "</td><td>" + data[i].algtijd + "</td>";
+        }
+        for (i = 0; i < 20; i++) {
+          document.getElementById("punttabel").innerHTML += "<tr id='puntklas" + [i] + "'> </tr>";
+          document.getElementById("puntklas" + i).innerHTML = "<td>" + data[i].puntnum + "</td><td>" + data[i].puntnaam + "</td><td>" + data[i].puntteam + "</td><td>" + data[i].punttijd + "</td>";
+        }
+        for (i = 0; i < 20; i++) {
+          document.getElementById("bergtabel").innerHTML += "<tr id='bergklas" + [i] + "'> </tr>";
+          document.getElementById("bergklas" + i).innerHTML = "<td>" + data[i].bergnum + "</td><td>" + data[i].bergnaam + "</td><td>" + data[i].bergteam + "</td><td>" + data[i].bergtijd + "</td>";
+        }
+        for (i = 0; i < 20; i++) {
+          document.getElementById("jongtabel").innerHTML += "<tr id='jongklas" + [i] + "'> </tr>";
+          document.getElementById("jongklas" + i).innerHTML = "<td>" + data[i].jongnum + "</td><td>" + data[i].jongnaam + "</td><td>" + data[i].jongteam + "</td><td>" + data[i].jongtijd + "</td>";
+        }
 
-				if (data[4].koers === "tour") {
-					for (i = 0; i < 60; i++) {
-						document.getElementById("laatsterittabel").innerHTML += "<tr id='rittab" + [i] + "'> </tr>";
-					}
-					document.getElementById("rittitel").innerHTML = data[0].rittitel;
-					for (i = 0; i < 60; i++) {
-						document.getElementById("rittab" + [i]).innerHTML = "<td>" + data[i].ritnum + "</td><td>" + data[i].ritnaam + "</td><td>" + data[i].ritteam + "</td><td>" + data[i].rittijd + "</td>";
-					}
-				}
-			}
+        if (data[4].koers === "tour") {
+          for (i = 0; i < 60; i++) {
+            document.getElementById("laatsterittabel").innerHTML += "<tr id='rittab" + [i] + "'> </tr>";
+          }
+          document.getElementById("rittitel").innerHTML = data[0].rittitel;
+          for (i = 0; i < 60; i++) {
+            document.getElementById("rittab" + [i]).innerHTML = "<td>" + data[i].ritnum + "</td><td>" + data[i].ritnaam + "</td><td>" + data[i].ritteam + "</td><td>" + data[i].rittijd + "</td>";
+          }
+        }
+      }
 
-			//Als koers afgelopen is
-			if (data[0].matchstatus === "FINISHED") {
-				$('#podium').css('display', 'block');
-				document.getElementById("winnaar").innerHTML = data[0].gapsdescription;
-				document.getElementById("tweede").innerHTML = data[1].gapsdescription;
-				document.getElementById("derde").innerHTML = data[2].gapsdescription;
-				document.getElementById("rittitel").innerHTML = data[0].rittitel;
-				if (data[4].koers === "tour") {
-					document.getElementById("btnrittekst").innerHTML = "Bekijk de uitslag van deze rit (top 60)!"
-					$("#klasrit").show();
-				}
-			} else if (data[0].matchstatus === "" || data[0].gapsname === "") { //Als de koers nog niet begonnen is
-				if (data[0].koers != "") {
-					document.getElementById("nognietbezig").innerHTML = "<p>De wedstrijd is nog niet bezig, kom later terug.</p>"
-					if (data[4].koers === "tour") {
-						document.getElementById("btnrittekst").innerHTML = "Bekijk de stand van de vorige rit!"
-						$("#klasrit").show();
-					}
-					console.log("nog niet bezig");
-				} else {
-					document.getElementById("nognietbezig").innerHTML = "<p>Er is geen noemenswaardige wedstrijd gepland vandaag!</p><br><small>(Of deze is niet ingegeven, in dat geval trek aan de oren van Simon)</small>"
-				}
-			} else { //Als koers bezig is
-				document.getElementById("left").innerHTML = data[0].distancetofinish;
-				$('#bezig').css('display', 'block');
-				if (data[3].koers === "TRUE") {
-					console.log("er is livestream");
-					$("#livestream").show();
-				} else {
-					$("#tizlivestream").show();
-				}
-				if (data[3].gapsname != "") {
-					document.getElementById("gap1").innerHTML = "<p class='titelgap'>" + data[0].gapsname + "</p><br>" + data[0].gapsdescription;
-					document.getElementById("gap2").innerHTML = "<p class='titelgap'>" + data[1].gapsname + "</p><strong> (op " + data[1].gapsformatted + ")</strong><br>" + data[1].gapsdescription;
-					if (data[2].gapsname === "Peloton") {
-						document.getElementById("gap3").innerHTML = "<p class='titelgap'>" + data[2].gapsname + "</p><strong> (op " + data[2].gapsformatted + ")</strong>";
-						document.getElementById("gap4").innerHTML = "<p class='titelgap'>" + data[3].gapsname + "</p><strong> (op " + data[3].gapsformatted + ")</strong><br>" + data[3].gapsdescription;
-					} else {
-						document.getElementById("gap3").innerHTML = "<p class='titelgap'>" + data[2].gapsname + "</p><strong> (op " + data[2].gapsformatted + ")</strong><br>" + data[2].gapsdescription;
-						document.getElementById("gap4").innerHTML = "<p class='titelgap'>" + data[3].gapsname + "</p><strong> (op " + data[3].gapsformatted + ")</strong>";
-					}
-				} else if (data[2].gapsname != "") {
-					document.getElementById("gap1").innerHTML = "<p class='titelgap'>" + data[0].gapsname + "</p><br>" + data[0].gapsdescription;
-					if (data[1].gapsname === "Peloton") {
-						document.getElementById("gap2").innerHTML = "<p class='titelgap'>" + data[1].gapsname + "</p><strong> (op " + data[1].gapsformatted + ")</strong>";
-						document.getElementById("gap3").innerHTML = "<p class='titelgap'>" + data[2].gapsname + "</p><strong> (op " + data[2].gapsformatted + ")</strong><br>" + data[2].gapsdescription;;
-					} else {
-						document.getElementById("gap2").innerHTML = "<p class='titelgap'>" + data[1].gapsname + "</p><strong> (op " + data[1].gapsformatted + ")</strong><br>" + data[1].gapsdescription;
-						document.getElementById("gap3").innerHTML = "<p class='titelgap'>" + data[2].gapsname + "</p><strong> (op " + data[2].gapsformatted + ")</strong>";
-					}
-					document.getElementById("gap4").innerHTML = "";
-					console.log(data);
-				} else if (data[1].gapsname != "") {
-					document.getElementById("gap1").innerHTML = "<p class='titelgap'>" + data[0].gapsname + "</p><br>" + data[0].gapsdescription;
-					document.getElementById("gap2").innerHTML = "<p class='titelgap'>" + data[1].gapsname + "</p><strong> (op " + data[1].gapsformatted + ")</strong>";
-					document.getElementById("gap3").innerHTML = "";
-					document.getElementById("gap4").innerHTML = "";
-					console.log(data);
-				} else if (data[0].gapsname != "") {
-					document.getElementById("gap1").innerHTML = "<p class='titelgap'>" + data[0].gapsname + "</p><br>" + data[0].gapsdescription;
-					document.getElementById("gap2").innerHTML = "";
-					document.getElementById("gap3").innerHTML = "";
-					document.getElementById("gap4").innerHTML = "";
-					console.log(data);
-				}
-			}
-			// Om truitjes toe te voegen
-			document.body.innerHTML = document.body.innerHTML.split(data[0].algnaam).join("<i class='fas rand fa-tshirt' style='color:" + data[6].koers + ";'></i> " + data[0].algnaam);
-			document.body.innerHTML = document.body.innerHTML.split(data[0].puntnaam).join("<i class='fas rand fa-tshirt' style='color:" + data[7].koers + ";'></i> " + data[0].puntnaam);
-			document.body.innerHTML = document.body.innerHTML.split(data[0].bergnaam).join("<i class='fas rand fa-tshirt' style='color:" + data[8].koers + ";'></i> " + data[0].bergnaam);
-			document.body.innerHTML = document.body.innerHTML.split(data[0].jongnaam).join("<i class='fas rand fa-tshirt' style='color:" + data[9].koers + ";'></i> " + data[0].jongnaam);
+      //Als koers afgelopen is
+      if (data[0].matchstatus === "FINISHED") {
+        $('#podium').css('display', 'block');
+        document.getElementById("winnaar").innerHTML = data[0].gapsdescription;
+        document.getElementById("tweede").innerHTML = data[1].gapsdescription;
+        document.getElementById("derde").innerHTML = data[2].gapsdescription;
+        document.getElementById("rittitel").innerHTML = data[0].rittitel;
+        if (data[4].koers === "tour") {
+          document.getElementById("btnrittekst").innerHTML = "Bekijk de uitslag van deze rit (top 60)!"
+          $("#klasrit").show();
+        }
+      } else if (data[0].matchstatus === "" || data[0].gapsname === "") { //Als de koers nog niet begonnen is
+        if (data[0].koers != "") {
+          document.getElementById("nognietbezig").innerHTML = "<p>De wedstrijd is nog niet bezig, kom later terug.</p>"
+          if (data[4].koers === "tour") {
+            document.getElementById("btnrittekst").innerHTML = "Bekijk de stand van de vorige rit!"
+            $("#klasrit").show();
+          }
+          console.log("nog niet bezig");
+        } else {
+          document.getElementById("nognietbezig").innerHTML = "<p>Er is geen noemenswaardige wedstrijd gepland vandaag!</p><br><small>(Of deze is niet ingegeven, in dat geval trek aan de oren van Simon)</small>"
+        }
+      } else { //Als koers bezig is
+        document.getElementById("left").innerHTML = data[0].distancetofinish;
+        $('#bezig').css('display', 'block');
+        if (data[3].koers === "TRUE") {
+          console.log("er is livestream");
+          $("#livestream").show();
+        } else {
+          $("#tizlivestream").show();
+        }
+        if (data[3].gapsname != "") {
+          document.getElementById("gap1").innerHTML = "<p class='titelgap'>" + data[0].gapsname + "</p><br>" + data[0].gapsdescription;
+          document.getElementById("gap2").innerHTML = "<p class='titelgap'>" + data[1].gapsname + "</p><strong> (op " + data[1].gapsformatted + ")</strong><br>" + data[1].gapsdescription;
+          if (data[2].gapsname === "Peloton") {
+            document.getElementById("gap3").innerHTML = "<p class='titelgap'>" + data[2].gapsname + "</p><strong> (op " + data[2].gapsformatted + ")</strong>";
+            document.getElementById("gap4").innerHTML = "<p class='titelgap'>" + data[3].gapsname + "</p><strong> (op " + data[3].gapsformatted + ")</strong><br>" + data[3].gapsdescription;
+          } else {
+            document.getElementById("gap3").innerHTML = "<p class='titelgap'>" + data[2].gapsname + "</p><strong> (op " + data[2].gapsformatted + ")</strong><br>" + data[2].gapsdescription;
+            document.getElementById("gap4").innerHTML = "<p class='titelgap'>" + data[3].gapsname + "</p><strong> (op " + data[3].gapsformatted + ")</strong>";
+          }
+        } else if (data[2].gapsname != "") {
+          document.getElementById("gap1").innerHTML = "<p class='titelgap'>" + data[0].gapsname + "</p><br>" + data[0].gapsdescription;
+          if (data[1].gapsname === "Peloton") {
+            document.getElementById("gap2").innerHTML = "<p class='titelgap'>" + data[1].gapsname + "</p><strong> (op " + data[1].gapsformatted + ")</strong>";
+            document.getElementById("gap3").innerHTML = "<p class='titelgap'>" + data[2].gapsname + "</p><strong> (op " + data[2].gapsformatted + ")</strong><br>" + data[2].gapsdescription;;
+          } else {
+            document.getElementById("gap2").innerHTML = "<p class='titelgap'>" + data[1].gapsname + "</p><strong> (op " + data[1].gapsformatted + ")</strong><br>" + data[1].gapsdescription;
+            document.getElementById("gap3").innerHTML = "<p class='titelgap'>" + data[2].gapsname + "</p><strong> (op " + data[2].gapsformatted + ")</strong>";
+          }
+          document.getElementById("gap4").innerHTML = "";
+          console.log(data);
+        } else if (data[1].gapsname != "") {
+          document.getElementById("gap1").innerHTML = "<p class='titelgap'>" + data[0].gapsname + "</p><br>" + data[0].gapsdescription;
+          document.getElementById("gap2").innerHTML = "<p class='titelgap'>" + data[1].gapsname + "</p><strong> (op " + data[1].gapsformatted + ")</strong>";
+          document.getElementById("gap3").innerHTML = "";
+          document.getElementById("gap4").innerHTML = "";
+          console.log(data);
+        } else if (data[0].gapsname != "") {
+          document.getElementById("gap1").innerHTML = "<p class='titelgap'>" + data[0].gapsname + "</p><br>" + data[0].gapsdescription;
+          document.getElementById("gap2").innerHTML = "";
+          document.getElementById("gap3").innerHTML = "";
+          document.getElementById("gap4").innerHTML = "";
+          console.log(data);
+        }
+      }
+      // Om truitjes toe te voegen
+      document.body.innerHTML = document.body.innerHTML.split(data[0].algnaam).join("<i class='fas rand fa-tshirt' style='color:" + data[6].koers + ";'></i> " + data[0].algnaam);
+      document.body.innerHTML = document.body.innerHTML.split(data[0].puntnaam).join("<i class='fas rand fa-tshirt' style='color:" + data[7].koers + ";'></i> " + data[0].puntnaam);
+      document.body.innerHTML = document.body.innerHTML.split(data[0].bergnaam).join("<i class='fas rand fa-tshirt' style='color:" + data[8].koers + ";'></i> " + data[0].bergnaam);
+      document.body.innerHTML = document.body.innerHTML.split(data[0].jongnaam).join("<i class='fas rand fa-tshirt' style='color:" + data[9].koers + ";'></i> " + data[0].jongnaam);
 
-			// Verandert de vlagtekst naar werkelijke vlagjes op de site
-			vlaggen();
-		}
-		window.addEventListener('DOMContentLoaded', init);
+      // Verandert de vlagtekst naar werkelijke vlagjes op de site
+      vlaggen();
+    }
+    window.addEventListener('DOMContentLoaded', init);
 
-		// Localstorage voor alert
-		var isshow = localStorage.getItem('isshow');
-		if (isshow == null || isshow === "0") {
-			$('#refresh').show();
-			localStorage.setItem('isshow', 0);
-		} else {
-			$('#refresh').hide();
-		}
+    // Localstorage voor alert
+    var isshow = localStorage.getItem('isshow');
+    if (isshow == null || isshow === "0") {
+      $('#refresh').show();
+      localStorage.setItem('isshow', 0);
+    } else {
+      $('#refresh').hide();
+    }
 
-		function closealert() {
-			localStorage.setItem('isshow', 1);
-		}
+    function closealert() {
+      localStorage.setItem('isshow', 1);
+    }
 
-		// Localstorage voor updates
-		var update1 = localStorage.getItem('update1');
-		if (update1 == null || update1 === "0") {
-			$('#updates').show();
-			localStorage.setItem('update1', 0);
-		} else {
-			$('#updates').hide();
-		}
+    // Localstorage voor updates
+    var update1 = localStorage.getItem('update1');
+    if (update1 == null || update1 === "0") {
+      $('#updates').show();
+      localStorage.setItem('update1', 0);
+    } else {
+      $('#updates').hide();
+    }
 
-		function closealert2() {
-			localStorage.setItem('update1', 1);
-		}
+    function closealert2() {
+      localStorage.setItem('update1', 1);
+    }
 
-		// Refresh van de pagina uitzetten
-		var refreshklik = 0;
+    // Refresh van de pagina uitzetten
+    var refreshklik = 0;
 
-		function stoprefresh() {
-			if (refreshklik != 1) {
-				clearInterval(counterBack);
-				clearInterval(reload);
-				refreshklik = 1;
-				$('.progress-bar').addClass("progress-bar-danger");
-				$('#sync').show();
-			} else {
-				location.reload();
-			}
+    function stoprefresh() {
+      if (refreshklik != 1) {
+        clearInterval(counterBack);
+        clearInterval(reload);
+        refreshklik = 1;
+        $('.progress-bar').addClass("progress-bar-danger");
+        $('#sync').show();
+      } else {
+        location.reload();
+      }
 
-		}
+    }
 
-		// Counter progress bar
-		var count = 100;
+    // Counter progress bar
+    var count = 100;
 
-		function countprogress() {
-			count--;
-			if (count > 0) {
-				$('.progress-bar').css('width', count + '%');
-			} else {
-				clearInterval(counterBack);
-			}
-		}
-		var counterBack = setInterval(countprogress, 600);
+    function countprogress() {
+      count--;
+      if (count > 0) {
+        $('.progress-bar').css('width', count + '%');
+      } else {
+        clearInterval(counterBack);
+      }
+    }
+    var counterBack = setInterval(countprogress, 600);
 
-		// Herladen van de pagina
-		var reload = setInterval(function() {
-			location.reload();
-		}, 60000);
+    // Herladen van de pagina
+    var reload = setInterval(function() {
+      location.reload();
+    }, 60000);
 
-		// Vlaggen ipv tekst
-		function vlaggen() {
-			var landnaam = ["GBR", "NED", "FRA", "ITA", "IER", "AUS", "ESP", "NZL", "ECU", "CAN", "COL", "POR", "AUT", "EST", "GER", "IRL", "RUS", "BEL", "DEN", "ALB", "LUX", "SLO", "RSA", "CZE", "SUI", "USA", "ERI", "KAZ", "ENG", "NOR", "ARG", "ISR", "LAT", "BLR", "POL", "SWE", "FIN", "SVK", "UKR", "SRB", "HUN", "LTU", "BRA", "DOM", "URU", "CRC", "RWA", "JAP", "MEX", "CRO", "MDA", "SPA", "LET", "VS", "DUI"];
-			var vlagnaam = ["gb", "nl", "fr", "it", "ie", "au", "es", "nz", "ec", "ca", "co", "pt", "at", "ee", "de", "ie", "ru", "be", "dk", "al", "lu", "si", "za", "cz", "ch", "us", "er", "kz", "england", "no", "ar", "il", "lv", "by", "pl", "se", "fi", "sk", "ua", "rs", "hu", "lt", "br", "do", "uy", "cr", "rw", "jp", "mx", "hr", "md", "es", "lv", "us", "de"];
-			for (i = 0; i < landnaam.length; i++) {
-				var landn = "\\(+" + landnaam[i] + "\\)+";
-				var vlagn = "&nbsp;<i class=\"famfamfam-flag-" + vlagnaam[i] + "\" data-toggle=\"tooltip\" data-placement=\"right\" title=\"" + landnaam[i] + "\"></i>";
-				document.body.innerHTML = document.body.innerHTML.replace(new RegExp(landn, "g"), vlagn);
-			}
-			$(function() {
-				$('[data-toggle="tooltip"]').tooltip()
-			})
-		}
+    // Vlaggen ipv tekst
+    function vlaggen() {
+      var landnaam = ["GBR", "NED", "FRA", "ITA", "IER", "AUS", "ESP", "NZL", "ECU", "CAN", "COL", "POR", "AUT", "EST", "GER", "IRL", "RUS", "BEL", "DEN", "ALB", "LUX", "SLO", "RSA", "CZE", "SUI", "USA", "ERI", "KAZ", "ENG", "NOR", "ARG", "ISR",
+        "LAT", "BLR", "POL", "SWE", "FIN", "SVK", "UKR", "SRB", "HUN", "LTU", "BRA", "DOM", "URU", "CRC", "RWA", "JAP", "MEX", "CRO", "MDA", "SPA", "LET", "VS", "DUI"
+      ];
+      var vlagnaam = ["gb", "nl", "fr", "it", "ie", "au", "es", "nz", "ec", "ca", "co", "pt", "at", "ee", "de", "ie", "ru", "be", "dk", "al", "lu", "si", "za", "cz", "ch", "us", "er", "kz", "england", "no", "ar", "il", "lv", "by", "pl", "se", "fi",
+        "sk", "ua", "rs", "hu", "lt", "br", "do", "uy", "cr", "rw", "jp", "mx", "hr", "md", "es", "lv", "us", "de"
+      ];
+      for (i = 0; i < landnaam.length; i++) {
+        var landn = "\\(+" + landnaam[i] + "\\)+";
+        var vlagn = "&nbsp;<i class=\"famfamfam-flag-" + vlagnaam[i] + "\" data-toggle=\"tooltip\" data-placement=\"right\" title=\"" + landnaam[i] + "\"></i>";
+        document.body.innerHTML = document.body.innerHTML.replace(new RegExp(landn, "g"), vlagn);
+      }
+      $(function() {
+        $('[data-toggle="tooltip"]').tooltip()
+      })
+    }
 
-		function colrit() {
-			$("#klassement").collapse('hide');
-			$("#profiel").collapse('hide');
-		}
+    function colrit() {
+      $("#klassement").collapse('hide');
+      $("#profiel").collapse('hide');
+    }
 
-		function colprof() {
-			$("#klassement").collapse('hide');
-			$("#laatsterit").collapse('hide');
-		}
+    function colprof() {
+      $("#klassement").collapse('hide');
+      $("#laatsterit").collapse('hide');
+    }
 
-		function colklas() {
-			$("#profiel").collapse('hide');
-			$("#laatsterit").collapse('hide');
-		}
-
-	</script>
+    function colklas() {
+      $("#profiel").collapse('hide');
+      $("#laatsterit").collapse('hide');
+    }
+  </script>
 </body>
 
 </html>
