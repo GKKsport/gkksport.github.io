@@ -18,18 +18,12 @@
 		.progress:hover {
 			cursor: pointer;
 		}
-		
+
 		.rand {
 			-webkit-text-stroke-width: 1px;
 			-webkit-text-stroke-color: black;
 		}
-		
-		.iframe {
-			border: none;
-			height: 600px;
-			width: 100%;
-		}
-		
+				
 		.titelgap {
 			padding: 3px;
 			display: inline-block;
@@ -41,41 +35,41 @@
 			font-weight: 600;
 		}
 		/* Remove the navbar's default margin-bottom and rounded borders */
-		
+
 		.navbar {
 			margin-bottom: 0;
 			border-radius: 0;
 		}
 		/* Set height of the grid so .sidenav can be 100% (adjust as needed) */
-		
+
 		.row.content {
 			height: 450px
 		}
 		/* Set gray background color and 100% height */
-		
+
 		.sidenav {
 			padding-top: 20px;
 			background-color: #f1f1f1;
 			height: 100%;
 		}
 		/* Set black background color, white text and some padding */
-		
+
 		.navbar-brand img {
 			height: 40px;
 		}
-		
+
 		.navbar-brand {
 			padding-bottom: 3px;
 			padding-top: 6px;
 		}
-		
+
 		footer {
 			background-color: #555;
 			color: white;
 			padding: 15px;
 		}
 		/* On small screens, set height to 'auto' for sidenav and grid */
-		
+
 		@media screen and (max-width: 767px) {
 			.sidenav {
 				height: auto;
@@ -85,11 +79,11 @@
 				height: 2em;
 			}
 		}
-		
+
 		#refresh {
 			display: none;
 		}
-		
+
 		.vertical-align {
 			display: flex;
 			align-items: center;
@@ -106,7 +100,7 @@
 				<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
-        <span class="icon-bar"></span>                        
+        <span class="icon-bar"></span>
       </button>
 				<a class="navbar-brand" href="index.html"><img src="GKK.png"></a>
 			</div>
@@ -310,7 +304,7 @@
 				document.getElementById("wedstrijd").innerHTML = "GEEN wedstrijd";
 			}
 
-			// Als er een klassement opgegeven is, dan zal dit het klassement tonen 
+			// Als er een klassement opgegeven is, dan zal dit het klassement tonen
 			if (data[0].algnaam != "") {
 				document.getElementById("btnklassement").disabled = false;
 				for (i = 0; i < 20; i++) {
@@ -363,7 +357,7 @@
 				} else {
 					document.getElementById("nognietbezig").innerHTML = "<p>Er is geen noemenswaardige wedstrijd gepland vandaag!</p><br><small>(Of deze is niet ingegeven, in dat geval trek aan de oren van Simon)</small>"
 				}
-			} else { //Als koers bezig is	
+			} else { //Als koers bezig is
 				document.getElementById("left").innerHTML = data[0].distancetofinish;
 				$('#bezig').css('display', 'block');
 				if (data[3].koers === "TRUE") {
