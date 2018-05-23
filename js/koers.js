@@ -152,16 +152,16 @@ function closealert() {
 }
 
 // Localstorage voor updates
-var update1 = localStorage.getItem('update1');
+var update1 = localStorage.getItem('update2');
 if (update1 == null || update1 === "0") {
   $('#updates').show();
-  localStorage.setItem('update1', 0);
+  localStorage.setItem('update2', 0);
 } else {
   $('#updates').hide();
 }
 
 function closealert2() {
-  localStorage.setItem('update1', 1);
+  localStorage.setItem('update2', 1);
 }
 
 // Refresh van de pagina uitzetten
