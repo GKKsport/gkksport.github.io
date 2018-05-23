@@ -173,7 +173,11 @@
         <hr>
         <center>
           <button id="livestream" class="btn btn-success" style="display: none; white-space: normal;" onclick="window.location.href = 'http://sporza.be/cm/sporza/matchcenter/mc_livestream'">Zin om live te kijken? Klik hier om naar de Sporza Livestream te gaan (indien ze de rechten hebben)!</button>
-          <button id="tizlivestream" class="btn btn-success btn-block" style="display: none; white-space: normal;" onclick="window.location.href='http://tiz-cycling.stream/'">Klik hier om direct live te kijken (Eurosport 1)!</button>
+          <button data-toggle="collapse" onclick="tizframes();" data-target="#tizlive" id="tizlivestream" class="btn btn-success btn-block" style="display: none; white-space: normal;">Klik hier om direct live te kijken (Eurosport 1)!</button>
+          <div id="tizlive" class="collapse">
+            <div id="tizframes"></div>
+            <button class="btn btn-default btn-block" style="white-space: normal;" onclick="window.location.href='http://tiz-cycling.stream/'">Klik hier om op de Tiz-website te kijken (Eurosport 1)!</button>
+          </div>
         </center>
       </div>
       <div id="podium" style="display:none">
@@ -307,7 +311,6 @@
       } else {
         document.getElementById("wedstrijd").innerHTML = "GEEN wedstrijd";
       }
-
       // Als er een klassement opgegeven is, dan zal dit het klassement tonen
       if (data[0].algnaam != "") {
         document.getElementById("btnklassement").disabled = false;
@@ -338,7 +341,6 @@
           }
         }
       }
-
       //Als koers afgelopen is
       if (data[0].matchstatus === "FINISHED") {
         $('#podium').css('display', 'block');
@@ -414,6 +416,7 @@
       // Verandert de vlagtekst naar werkelijke vlagjes op de site
       vlaggen();
     }
+
     window.addEventListener('DOMContentLoaded', init);
 
     // Localstorage voor alert
@@ -492,6 +495,19 @@
       $(function() {
         $('[data-toggle="tooltip"]').tooltip()
       })
+    }
+
+    var klik = "0";
+    function tizframes() {
+      if (klik == null || klik === "0") {
+        $("#tizframes").html(
+          "<br><iframe width='100%' height='360' src='//ok.ru/videoembed/935617371857?nochat=1' frameborder='0' allow='autoplay'  allowfullscreen></iframe><br><iframe width='100%' height='360' src='//ok.ru/videoembed/952158068433?nochat=1' frameborder='0' allow='autoplay'  allowfullscreen></iframe><br><iframe width='100%' height='360' src='//ok.ru/videoembed/927837789905?nochat=1' frameborder='0' allow='autoplay'  allowfullscreen></iframe><br><iframe width='100%' height='360' src='//ok.ru/videoembed/922912235217?nochat=1' frameborder='0' allow='autoplay'  allowfullscreen></iframe><br>"
+        );
+        var klik = "1";
+        console.log(klik);
+      } else if (klik === "1") {
+
+      }
     }
 
     function colrit() {
