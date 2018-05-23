@@ -10,49 +10,53 @@
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 	<style>
 		/* Remove the navbar's default margin-bottom and rounded borders */
-		
+
 		.btn {
 			width: 100%;
 		}
-		
+
 		#afstand {
 			display: none;
 		}
-		
+
 		.navbar {
 			margin-bottom: 0;
 			border-radius: 0;
 		}
+
 		/* Set height of the grid so .sidenav can be 100% (adjust as needed) */
-		
+
 		.row.content {
 			height: 450px
 		}
+
 		/* Set gray background color and 100% height */
-		
+
 		.sidenav {
 			padding-top: 20px;
 			background-color: #f1f1f1;
 			height: 100%;
 		}
+
 		/* Set black background color, white text and some padding */
-		
+
 		.navbar-brand img {
 			height: 40px;
 		}
-		
+
 		.navbar-brand {
 			padding-bottom: 3px;
 			padding-top: 6px;
 		}
-		
+
 		footer {
 			background-color: #555;
 			color: white;
 			padding: 15px;
 		}
+
 		/* On small screens, set height to 'auto' for sidenav and grid */
-		
+
 		@media screen and (max-width: 767px) {
 			.sidenav {
 				height: auto;
@@ -73,7 +77,7 @@
 				<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
-        <span class="icon-bar"></span>                        
+        <span class="icon-bar"></span>
       </button>
 				<a class="navbar-brand" href="index.html"><img src="GKK.png"></a>
 			</div>
@@ -82,7 +86,7 @@
 					<li><a href="kalender.html">Tussenstand/Kalender</a></li>
 					<li><a href="zwemmen.html">Zwemmen</a></li>
 					<li><a href="training">Training</a></li>
-					<li><a href="triathloncalc.html" class="active">Triathlon-calc</a></li>
+					<li class="active"><a href="triathloncalc.html">Triathlon-calc</a></li>
 					<li><a href="zidb.html">ZIDB</a></li>
 					<li><a href="gpx.html">GPX</a></li>
 					<li><a href="koers.html">Koers</a></li>
@@ -104,7 +108,8 @@
 			<div class="col-md-10 col-md-offset-1">
 				<h3>Triathlon-calculator</h3>
 				<div class="col-md-6 col-md-offset-3">
-					<p class="well">Deze calculator berekent je tijd (met de mogelijkheid om de wissels in achte te nemen) voor triathlons. Begin met je <u>afstanden aan te passen</u>, momenteel staan deze op <strong><span id="zwemafst"></span>m zwemmen, <span id="fietsafst"></span>km fietsen en <span id="loopafst"></span>km lopen</strong>. Vul je zwem-, fiets- en loopsnelheden in alsook je tussentijden en druk op berekenen!</p>
+					<p class="well">Deze calculator berekent je tijd (met de mogelijkheid om de wissels in achte te nemen) voor triathlons. Begin met je <u>afstanden aan te passen</u>, momenteel staan deze op <strong><span id="zwemafst"></span>m zwemmen, <span id="fietsafst"></span>km fietsen en <span id="loopafst"></span>km lopen</strong>.
+						Vul je zwem-, fiets- en loopsnelheden in alsook je tussentijden en druk op berekenen!</p>
 					<button class="btn btn-default" id="button" onclick="show()">Klik hier om de afstanden te wijzigen!</button>
 					<form class="form" id="triathlon-calc" action="">
 
