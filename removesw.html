@@ -12,45 +12,49 @@
 	<link rel="icon" sizes="192x192" href="icon.png">
 	<style>
 		/* Remove the navbar's default margin-bottom and rounded borders */
-		
+
 		.navbar {
 			margin-bottom: 0;
 			border-radius: 0;
 		}
+
 		/* Set height of the grid so .sidenav can be 100% (adjust as needed) */
-		
+
 		.row.content {
 			height: 450px
 		}
+
 		/* Set gray background color and 100% height */
-		
+
 		.sidenav {
 			padding-top: 20px;
 			background-color: #f1f1f1;
 			height: 100%;
 		}
+
 		/* Set black background color, white text and some padding */
-		
+
 		.navbar-brand img {
 			height: 40px;
 		}
-		
+
 		.navbar-brand {
 			padding-bottom: 3px;
 			padding-top: 6px;
 		}
-		
+
 		.gold {
 			background-color: gold;
 		}
-		
+
 		footer {
 			background-color: #555;
 			color: white;
 			padding: 15px;
 		}
+
 		/* On small screens, set height to 'auto' for sidenav and grid */
-		
+
 		@media screen and (max-width: 767px) {
 			.sidenav {
 				height: auto;
@@ -60,19 +64,28 @@
 				height: auto;
 			}
 		}
-
 	</style>
+	<script async src="https://www.googletagmanager.com/gtag/js?id=UA-119797754-1"></script>
+	<script>
+		window.dataLayer = window.dataLayer || [];
+
+		function gtag() {
+			dataLayer.push(arguments);
+		}
+		gtag('js', new Date());
+
+		gtag('config', 'UA-119797754-1');
+	</script>
 
 	<script>
-		if (window.navigator && navigator.serviceWorker) {
-			navigator.serviceWorker.getRegistrations()
-				.then(function(registrations) {
-					for (let registration of registrations) {
-						registration.unregister();
-					}
-				});
-		}
-
+		// if (window.navigator && navigator.serviceWorker) {
+		// 	navigator.serviceWorker.getRegistrations()
+		// 		.then(function(registrations) {
+		// 			for (let registration of registrations) {
+		// 				registration.unregister();
+		// 			}
+		// 		});
+		// }
 	</script>
 </head>
 
@@ -84,7 +97,7 @@
 				<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
-        <span class="icon-bar"></span>                        
+        <span class="icon-bar"></span>
       </button>
 				<a class="navbar-brand" href="index.html"><img src="GKK.png"></a>
 			</div>
