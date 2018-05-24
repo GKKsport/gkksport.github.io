@@ -56,7 +56,9 @@ function showInfo(data, tabletop) {
       }
       document.getElementById("rittitel").innerHTML = data[0].rittitel;
       for (i = 0; i < 60; i++) {
-        document.getElementById("rittab" + [i]).innerHTML = "<td>" + data[i].ritnum + "</td><td>" + data[i].ritnaam + "</td><td>" + data[i].ritteam + "</td><td>" + data[i].rittijd + "</td>";
+        if (data[i]) {
+          document.getElementById("rittab" + [i]).innerHTML = "<td>" + data[i].ritnum + "</td><td>" + data[i].ritnaam + "</td><td>" + data[i].ritteam + "</td><td>" + data[i].rittijd + "</td>";
+        }
       }
     }
   }
@@ -217,6 +219,7 @@ function vlaggen() {
 }
 
 var kliker = "0";
+
 function tizframes() {
   if (kliker == null || kliker === "0") {
     $("#tizframes").html(
