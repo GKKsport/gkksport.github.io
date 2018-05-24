@@ -216,6 +216,7 @@ function vlaggen() {
   $(function() {
     $('[data-toggle="tooltip"]').tooltip()
   })
+  document.body.innerHTML = document.body.innerHTML.replace(new RegExp(":00", "g"), "");
 }
 
 var kliker = "0";
