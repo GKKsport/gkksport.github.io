@@ -6,7 +6,7 @@
     <li><a href="triathloncalc.html">Triathlon-calc</a></li>
     <li><a href="zidb.html">ZIDB</a></li>
     <li><a href="gpx.html">GPX</a></li>
-    <li><a href="koers.html">Koers</a></li>
+    <li id="test"><a href="koers.html">Koers</a></li>
     <li class="dropdown">
       <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Archief <span class="caret"></span></a>
       <ul class="dropdown-menu">
@@ -14,6 +14,17 @@
         <li><a href="kaartregels.html">Kaartregels</a></li>
       </ul>
     </li>
-    <li><a href="" #>TEST</a></li>
+    <li><a href="#">TEST</a></li>
   </ul>
 </div>
+<script>
+  var url = window.location;
+  // Will only work if string in href matches with location
+  $('ul.nav a[href="' + url + '"]').parent().addClass('active');
+
+  // Will also work for relative and absolute hrefs
+  $('ul.nav a').filter(function() {
+    return this.href == url;
+  }).parent().addClass('active').parent().parent().addClass('active');
+  console.log("gedaan");
+</script>
