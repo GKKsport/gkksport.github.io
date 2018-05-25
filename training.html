@@ -6,11 +6,12 @@
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.3.5/jspdf.debug.js" integrity="sha384-CchuzHs077vGtfhGYl9Qtc7Vx64rXBXdIAZIPbItbNyWIRTdG0oYAqki3Ry13Yzu" crossorigin="anonymous"></script>
-
-	<script src="js/training.js"></script>
+	<script type='text/javascript' src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+	<script>
+		$(function() {
+			$("#menu").load("menu.html");
+		});
+	</script>
 	<link rel="icon" sizes="192x192" href="icon.png">
 	<style>
 		/* Remove the navbar's default margin-bottom and rounded borders */
@@ -114,24 +115,8 @@
       </button>
 				<a class="navbar-brand" href="index.html"><img src="GKK.png"></a>
 			</div>
-			<div class="collapse navbar-collapse" id="myNavbar">
-				<ul class="nav navbar-nav">
-					<li><a href="kalender.html">Tussenstand/Kalender</a></li>
-					<li><a href="zwemmen.html">Zwemmen</a></li>
-					<li class="active"><a href="training">Training</a></li>
-					<li><a href="triathloncalc.html">Triathlon-calc</a></li>
-					<li><a href="zidb.html">ZIDB</a></li>
-					<li><a href="gpx.html">GPX</a></li>
-					<li><a href="koers.html">Koers</a></li>
-					<li class="dropdown">
-						<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Archief <span class="caret"></span></a>
-						<ul class="dropdown-menu">
-							<li><a href="tricklist.html">Tricklist</a></li>
-							<li><a href="kaartregels.html">Kaartregels</a></li>
-						</ul>
-					</li>
-				</ul>
-			</div>
+			<div id="menu"></div>
+
 		</div>
 	</nav>
 	<div class="container-fluid text-center">
@@ -268,6 +253,9 @@
 			</div>
 		</div>
 	</div>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.3.5/jspdf.debug.js" integrity="sha384-CchuzHs077vGtfhGYl9Qtc7Vx64rXBXdIAZIPbItbNyWIRTdG0oYAqki3Ry13Yzu" crossorigin="anonymous"></script>
+	<script src="js/training.js"></script>
 	<script>
 		var doc = new jsPDF();
 		var specialElementHandlers = {
