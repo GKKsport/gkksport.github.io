@@ -34,14 +34,13 @@ function showInfo(data, tabletop) {
   if (data[0].algnaam != "") {
     document.getElementById("btnklassement").disabled = false;
     for (i = 0; i < 20; i++) {
+      // Algemeen klassement
       document.getElementById("algtabel").innerHTML += "<tr id='algklas" + [i] + "'> </tr>";
       document.getElementById("algklas" + i).innerHTML = "<td>" + data[i].algnum + "</td><td>" + data[i].algnaam + "</td><td>" + data[i].algteam + "</td><td>" + data[i].algtijd + "</td>";
-    }
-    for (i = 0; i < 20; i++) {
+      // Puntklassement
       document.getElementById("punttabel").innerHTML += "<tr id='puntklas" + [i] + "'> </tr>";
       document.getElementById("puntklas" + i).innerHTML = "<td>" + data[i].puntnum + "</td><td>" + data[i].puntnaam + "</td><td>" + data[i].puntteam + "</td><td>" + data[i].punttijd + "</td>";
-    }
-    for (i = 0; i < 20; i++) {
+      // Bergklassement
       document.getElementById("bergtabel").innerHTML += "<tr id='bergklas" + [i] + "'> </tr>";
       document.getElementById("bergklas" + i).innerHTML = "<td>" + data[i].bergnum + "</td><td>" + data[i].bergnaam + "</td><td>" + data[i].bergteam + "</td><td>" + data[i].bergtijd + "</td>";
     }
@@ -51,11 +50,9 @@ function showInfo(data, tabletop) {
     }
 
     if (data[4].koers === "tour") {
-      for (i = 0; i < 60; i++) {
-        document.getElementById("laatsterittabel").innerHTML += "<tr id='rittab" + [i] + "'> </tr>";
-      }
       document.getElementById("rittitel").innerHTML = data[0].rittitel;
       for (i = 0; i < 60; i++) {
+        document.getElementById("laatsterittabel").innerHTML += "<tr id='rittab" + [i] + "'> </tr>";
         if (data[i]) {
           document.getElementById("rittab" + [i]).innerHTML = "<td>" + data[i].ritnum + "</td><td>" + data[i].ritnaam + "</td><td>" + data[i].ritteam + "</td><td>" + data[i].rittijd + "</td>";
         }
@@ -93,41 +90,25 @@ function showInfo(data, tabletop) {
     } else {
       $("#tizlivestream").show();
     }
-    if (data[3].gapsname != "") {
-      document.getElementById("gap1").innerHTML = "<p class='titelgap'>" + data[0].gapsname + "</p><br>" + data[0].gapsdescription;
-      document.getElementById("gap2").innerHTML = "<p class='titelgap'>" + data[1].gapsname + "</p><strong> (op " + data[1].gapsformatted + ")</strong><br>" + data[1].gapsdescription;
-      if (data[2].gapsname === "Peloton") {
-        document.getElementById("gap3").innerHTML = "<p class='titelgap'>" + data[2].gapsname + "</p><strong> (op " + data[2].gapsformatted + ")</strong>";
-        document.getElementById("gap4").innerHTML = "<p class='titelgap'>" + data[3].gapsname + "</p><strong> (op " + data[3].gapsformatted + ")</strong><br>" + data[3].gapsdescription;
-      } else {
-        document.getElementById("gap3").innerHTML = "<p class='titelgap'>" + data[2].gapsname + "</p><strong> (op " + data[2].gapsformatted + ")</strong><br>" + data[2].gapsdescription;
-        document.getElementById("gap4").innerHTML = "<p class='titelgap'>" + data[3].gapsname + "</p><strong> (op " + data[3].gapsformatted + ")</strong>";
+    for (i = 0; i < 10; i++) {
+      if (data[i].gapsname != "") {
+        if (i === 0) {
+          if (data[i].gapsname != "Peloton") {
+            document.getElementById("gaps").innerHTML += "<p><p class='titelgap'>" + data[i].gapsname + "</p><br>" + data[i].gapsdescription + "</p>";
+          } else {
+            document.getElementById("gaps").innerHTML += "<p><p class='titelgap'>" + data[i].gapsname + "</p><br></p>";
+          }
+        } else {
+          if (data[i].gapsname != "Peloton") {
+            document.getElementById("gaps").innerHTML += "<p><p class='titelgap'>" + data[i].gapsname + "</p><strong> (op " + data[i].gapsformatted + ")</strong><br>" + data[i].gapsdescription + "</p>";
+          } else {
+            document.getElementById("gaps").innerHTML += "<p><p class='titelgap'>" + data[i].gapsname + "</p><strong> (op " + data[i].gapsformatted + ")</strong><br></p>";
+          }
+        }
       }
-    } else if (data[2].gapsname != "") {
-      document.getElementById("gap1").innerHTML = "<p class='titelgap'>" + data[0].gapsname + "</p><br>" + data[0].gapsdescription;
-      if (data[1].gapsname === "Peloton") {
-        document.getElementById("gap2").innerHTML = "<p class='titelgap'>" + data[1].gapsname + "</p><strong> (op " + data[1].gapsformatted + ")</strong>";
-        document.getElementById("gap3").innerHTML = "<p class='titelgap'>" + data[2].gapsname + "</p><strong> (op " + data[2].gapsformatted + ")</strong><br>" + data[2].gapsdescription;;
-      } else {
-        document.getElementById("gap2").innerHTML = "<p class='titelgap'>" + data[1].gapsname + "</p><strong> (op " + data[1].gapsformatted + ")</strong><br>" + data[1].gapsdescription;
-        document.getElementById("gap3").innerHTML = "<p class='titelgap'>" + data[2].gapsname + "</p><strong> (op " + data[2].gapsformatted + ")</strong>";
-      }
-      document.getElementById("gap4").innerHTML = "";
-      console.log(data);
-    } else if (data[1].gapsname != "") {
-      document.getElementById("gap1").innerHTML = "<p class='titelgap'>" + data[0].gapsname + "</p><br>" + data[0].gapsdescription;
-      document.getElementById("gap2").innerHTML = "<p class='titelgap'>" + data[1].gapsname + "</p><strong> (op " + data[1].gapsformatted + ")</strong>";
-      document.getElementById("gap3").innerHTML = "";
-      document.getElementById("gap4").innerHTML = "";
-      console.log(data);
-    } else if (data[0].gapsname != "") {
-      document.getElementById("gap1").innerHTML = "<p class='titelgap'>" + data[0].gapsname + "</p><br>" + data[0].gapsdescription;
-      document.getElementById("gap2").innerHTML = "";
-      document.getElementById("gap3").innerHTML = "";
-      document.getElementById("gap4").innerHTML = "";
-      console.log(data);
     }
   }
+
   // Om truitjes toe te voegen
   document.body.innerHTML = document.body.innerHTML.split(data[0].algnaam).join("<i class='fas rand fa-tshirt' style='color:" + data[6].koers + ";'></i> " + data[0].algnaam);
   document.body.innerHTML = document.body.innerHTML.split(data[0].puntnaam).join("<i class='fas rand fa-tshirt' style='color:" + data[7].koers + ";'></i> " + data[0].puntnaam);
