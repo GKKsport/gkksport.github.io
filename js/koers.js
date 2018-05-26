@@ -223,9 +223,11 @@ var kliker = "0";
 
 function tizframes() {
   if (kliker == null || kliker === "0") {
-    $("#tizframes").html(
-      "<br><iframe width='100%' height='360' src='//ok.ru/videoembed/961440063185?nochat=1' frameborder='0' allow='autoplay'  allowfullscreen></iframe><br><iframe width='100%' height='360' src='//ok.ru/videoembed/935617371857?nochat=1' frameborder='0' allow='autoplay'  allowfullscreen></iframe><br><iframe width='100%' height='360' src='//ok.ru/videoembed/952158068433?nochat=1' frameborder='0' allow='autoplay'  allowfullscreen></iframe><br><iframe width='100%' height='360' src='//ok.ru/videoembed/927837789905?nochat=1' frameborder='0' allow='autoplay'  allowfullscreen></iframe><br><iframe width='100%' height='360' src='//ok.ru/videoembed/922912235217?nochat=1' frameborder='0' allow='autoplay'  allowfullscreen></iframe><br>"
-    );
+    var links = ["961440063185", "935617371857", "952158068433", "927837789905", "922912235217"];
+    for (var i = 0; i < links.length; i++) {
+      document.getElementById("tizframes").innerHTML +=
+        "<br><iframe width='100%' height='360' src='//ok.ru/videoembed/" + links[i] + "?nochat=1' frameborder='0' allow='autoplay'  allowfullscreen></iframe>";
+    }
     var klik = "1";
     console.log(klik);
     stoprefresh();
