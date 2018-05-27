@@ -94,20 +94,33 @@ function showInfo(data, tabletop) {
       if (data[i].gapsname != "") {
         if (i === 0) {
           if (data[i].gapsname != "Peloton") {
-            document.getElementById("gaps").innerHTML += "<p><p class='titelgap'>" + data[i].gapsname + "</p><br>" + data[i].gapsdescription + "</p>";
+            document.getElementById("gaps").innerHTML += "<p><p class='titelgap'>" + data[i].gapsname + " <span id='gaptrui" + [i] + "'></span></p><br>" + data[i].gapsdescription + "</p>";
           } else {
-            document.getElementById("gaps").innerHTML += "<p><p class='titelgap'>" + data[i].gapsname + "</p><br></p>";
+            document.getElementById("gaps").innerHTML += "<p><p class='titelgap'>" + data[i].gapsname + " <span id='gaptrui" + [i] + "'></span></p><br></p>";
           }
         } else {
           if (data[i].gapsname != "Peloton") {
-            document.getElementById("gaps").innerHTML += "<p><p class='titelgap'>" + data[i].gapsname + "</p><strong> (op " + data[i].gapsformatted + ")</strong><br>" + data[i].gapsdescription + "</p>";
+            document.getElementById("gaps").innerHTML += "<p><p class='titelgap'>" + data[i].gapsname + " <span id='gaptrui" + [i] + "'></span></p><strong> (op " + data[i].gapsformatted + ")</strong><br>" + data[i].gapsdescription + "</p>";
           } else {
-            document.getElementById("gaps").innerHTML += "<p><p class='titelgap'>" + data[i].gapsname + "</p><strong> (op " + data[i].gapsformatted + ")</strong><br></p>";
+            document.getElementById("gaps").innerHTML += "<p><p class='titelgap'>" + data[i].gapsname + " <span id='gaptrui" + [i] + "'></span></p><strong> (op " + data[i].gapsformatted + ")</strong><br></p>";
+          }
+        }
+        if (data[4].koers === "tour") {
+          var namen = ["SPRINT", "LEADER", "CLIMBING"];
+          var namentrui = ["<i class='fas rand2 fa-tshirt' style='color:" + data[6].koers + ";'></i>", "<i class='fas rand2 fa-tshirt' style='color:" + data[7].koers + ";'></i>", "<i class='fas rand2 fa-tshirt' style='color:" + data[8].koers + ";'></i>", "<i class='fas rand2 fa-tshirt' style='color:" + data[9].koers + ";'></i>"];
+          for (e = 0; e < namen.length; e++) {
+            if ((data[i].gapsjersey).includes(namen[e])) {
+              console.log("gaptrui" + [i]);
+              document.getElementById("gaptrui" + [i]).innerHTML += " " + namentrui[e];
+            }
           }
         }
       }
     }
   }
+
+  // Om eventueel in de toekomst te onderzoeken of er een trui in een deel van de koers zit
+  // if (/SPRINT/i.test(data[i].gapsjersey))
 
   // Om truitjes toe te voegen
   document.body.innerHTML = document.body.innerHTML.split(data[0].algnaam).join("<i class='fas rand fa-tshirt' style='color:" + data[6].koers + ";'></i> " + data[0].algnaam);
