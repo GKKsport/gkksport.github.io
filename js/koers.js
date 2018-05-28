@@ -129,7 +129,7 @@ function showInfo(data, tabletop) {
   // if (/SPRINT/i.test(data[i].gapsjersey))
 
   // Om truitjes toe te voegen
-  if (data[4].koers === "tour") {
+  if (data[4].koers === "tour" && data[0].algnaam != "") {
     document.body.innerHTML = document.body.innerHTML.split(data[0].algnaam).join("<i class='fas rand fa-tshirt' style='color:" + data[6].koers + ";'></i> " + data[0].algnaam);
     document.body.innerHTML = document.body.innerHTML.split(data[0].puntnaam).join("<i class='fas rand fa-tshirt' style='color:" + data[7].koers + ";'></i> " + data[0].puntnaam);
     document.body.innerHTML = document.body.innerHTML.split(data[0].bergnaam).join("<i class='fas rand fa-tshirt' style='color:" + data[8].koers + ";'></i> " + data[0].bergnaam);
