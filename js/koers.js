@@ -22,11 +22,13 @@ function showInfo(data, tabletop) {
   $('#loader').css('display', 'none');
   if (data[0].koers != "") {
     document.getElementById("wedstrijd").innerHTML = data[1].koers;
-    document.getElementById("profielgroot").innerHTML += "<br><img width='100%' src='" + data[0].kaart + "'>";
-    for (i = 1; i < 5; i++) {
-      document.getElementById("profielberg").innerHTML += "<br><img width='100%' src='" + data[i].kaart + "'>";
+    if (data[0].kaart != "") {
+      document.getElementById("profielgroot").innerHTML += "<br><img width='100%' src='" + data[0].kaart + "'>";
+      for (i = 1; i < 5; i++) {
+        document.getElementById("profielberg").innerHTML += "<br><img width='100%' src='" + data[i].kaart + "'>";
+      }
+      document.getElementById("btnprofiel").disabled = false;
     }
-    document.getElementById("btnprofiel").disabled = false;
   } else {
     document.getElementById("wedstrijd").innerHTML = "GEEN wedstrijd";
   }
