@@ -141,7 +141,6 @@ function showInfo(data, tabletop) {
     }
     if (data[0].jongnaam != "") {
       document.body.innerHTML = document.body.innerHTML.split(data[0].jongnaam).join("<i class='fas rand fa-tshirt' style='color:" + data[9].koers + ";'></i> " + data[0].jongnaam);
-
     }
   }
   // Verandert de vlagtekst naar werkelijke vlagjes op de site
