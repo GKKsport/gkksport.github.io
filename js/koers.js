@@ -19,6 +19,7 @@ function init() {
 }
 
 function showInfo(data, tabletop) {
+  console.log(data);
   $('#loader').css('display', 'none');
   if (data[0].koers != "") {
     document.getElementById("wedstrijd").innerHTML = data[1].koers;
