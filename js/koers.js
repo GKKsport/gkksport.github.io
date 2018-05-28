@@ -30,8 +30,11 @@ function showInfo(data, tabletop) {
   } else {
     document.getElementById("wedstrijd").innerHTML = "GEEN wedstrijd";
   }
+  if (data[4].koers != "") {
+    document.getElementById("btnklasstekst").innerHTML += "van de " + data[2].koers;
+  }
   // Als er een klassement opgegeven is, dan zal dit het klassement tonen
-  if (data[0].algnaam != "") {
+  if (data[4].koers != "" && data[0].algnaam != "") {
     document.getElementById("btnklassement").disabled = false;
     for (i = 0; i < 20; i++) {
       // Algemeen klassement
