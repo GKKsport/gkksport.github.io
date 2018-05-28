@@ -125,9 +125,6 @@ function showInfo(data, tabletop) {
     }
   }
 
-  // Om eventueel in de toekomst te onderzoeken of er een trui in een deel van de koers zit
-  // if (/SPRINT/i.test(data[i].gapsjersey))
-
   // Om truitjes toe te voegen
   if (data[4].koers === "tour") {
     if (data[0].algnaam != "") {
