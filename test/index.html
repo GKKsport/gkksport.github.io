@@ -2,6 +2,26 @@
 <html lang="en">
 
 <head>
+  <!-- Firebase App is always required and must be first -->
+
+  <script src="https://www.gstatic.com/firebasejs/5.0.4/firebase.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/5.0.4/firebase-app.js"></script>
+
+  <!-- Add additional services you want to use -->
+  <script src="https://www.gstatic.com/firebasejs/5.0.4/firebase-auth.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/5.0.4/firebase-database.js"></script>
+  <script>
+    // Initialize Firebase
+    var config = {
+      apiKey: "AIzaSyCSI4GeWyVRLpgbqQxOMJZTQImrFpFK6xg",
+      authDomain: "gkksport.firebaseapp.com",
+      databaseURL: "https://gkksport.firebaseio.com",
+      projectId: "gkksport",
+      storageBucket: "gkksport.appspot.com",
+      messagingSenderId: "869556570740"
+    };
+    firebase.initializeApp(config);
+  </script>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -50,20 +70,7 @@
   </div>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
-  <script src="https://www.gstatic.com/firebasejs/5.0.4/firebase.js"></script>
   <script>
-    // Initialize Firebase
-    var config = {
-      apiKey: "AIzaSyCSI4GeWyVRLpgbqQxOMJZTQImrFpFK6xg",
-      authDomain: "gkksport.firebaseapp.com",
-      databaseURL: "https://gkksport.firebaseio.com",
-      projectId: "gkksport",
-      storageBucket: "gkksport.appspot.com",
-      messagingSenderId: "869556570740"
-    };
-    firebase.initializeApp(config);
-
-
     /////////////////////////////////////
 
     var Blog = firebase.database().ref('Entry').orderByChild('updatedAt');
