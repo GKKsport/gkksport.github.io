@@ -136,6 +136,7 @@
 							<button class="btn btn-primary" style="margin-bottom: 5px" onclick="klik();"><i class="far fa-calendar-alt" aria-hidden="true"></i> Andere datum</button>
 						</div>
 					</form>
+					<br>
 					<i class="fas fa-spinner fa-7x fa-spin" id="loader"></i>
 					<div class="row" id="zwemkal">
 
@@ -155,6 +156,7 @@
 			</div>
 		</div>
 	</div>
+	<script src='https://cdnjs.cloudflare.com/ajax/libs/tabletop.js/1.5.1/tabletop.min.js'></script>
 	<script>
 		$(document).ready(function() {
 			document.getElementById('zwemkaldatum').valueAsDate = new Date();
@@ -167,8 +169,11 @@
 			document.getElementById("zwemkal").innerHTML = "";
 			var datum = document.getElementById("zwemkaldatum").value;
 
-			for (i = 1; i < 4; i++) {
-				document.getElementById("zwemkal").innerHTML += "<div class= 'col-md-4 col-md-offset-0 col-sm-10 col-sm-offset-1' id='zwemkal" + [i] + "'></div>";
+			for (i = 1; i < 5; i++) {
+				document.getElementById("zwemkal").innerHTML += "<div class= 'col-lg-3 col-lg-offset-0 col-md-6 col-md-offset-0 col-sm-10 col-sm-offset-1' id='zwemkal" + [i] + "'></div>";
+				if (i === 2) {
+					document.getElementById("zwemkal").innerHTML += "<div class='clearfix visible-sm-block visible-md-block'></div>"
+				}
 			}
 
 			// GUSB
@@ -216,6 +221,25 @@
 					withCredentials: false
 				}
 			})
+
+			var publicSpreadsheetUrl = 'https://docs.google.com/spreadsheets/d/1UACXD_VaVy24L5JsIuE2Qn8-l5DKYAAlxi8V5m_B5zI/edit?usp=sharing';
+
+			init();
+
+			function init() {
+				Tabletop.init({
+					key: publicSpreadsheetUrl,
+					callback: showInfo,
+					simpleSheet: true
+				})
+			}
+
+			function showInfo(data, tabletop) {
+				document.getElementById("zwemkal4").innerHTML += "<div class='panel panel-primary'><div class='panel-heading'><h2 class='panel-title'>BLAARMEERSEN</h2></div><div class='panel-body'><p>Laatste meting: " + data[0].Datum + "<br>Kwaliteit: " + data[
+						0].Kwaliteitsniveau +
+					"</p><p>Watertemperatuur: " + data[0].Temperatuur + " °C</p></div></div>";
+				console.log(data);
+			}
 
 			$("#datum").text(datum);
 
