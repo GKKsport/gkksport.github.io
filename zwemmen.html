@@ -7,7 +7,8 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
 	<link rel="icon" sizes="192x192" href="icon.png">
 	<style>
 		/* Remove the navbar's default margin-bottom and rounded borders */
@@ -69,6 +70,29 @@
 				height: auto;
 			}
 		}
+
+		.item-list>h3 {
+			display: none;
+		}
+
+		.item-list {
+			padding-left: 0;
+			margin-bottom: 20px
+		}
+
+		.item-list>ul {
+			list-style-type: none;
+			padding: 0;
+			margin: 0;
+		}
+
+		/* .last {
+			display: none;
+		} */
+
+		/* #loader {
+			display: none;
+		} */
 	</style>
 	<script async src="https://www.googletagmanager.com/gtag/js?id=UA-119797754-1"></script>
 	<script>
@@ -109,7 +133,22 @@
 		<div class="row content">
 			<div class="col-sm-12">
 				<div id="kalender">
+					<br />
+					<form class="form-inline">
+						<div class="form-group">
+							<input name="datum" type="date" id="zwemkaldatum" class="form-control" style="margin-bottom: 5px">
+							<button class="btn btn-primary" style="margin-bottom: 5px" onclick="klik();"><i class="fa fa-calendar" aria-hidden="true"></i></button>
+						</div>
+					</form>
+					<br />
+					<br>
+					<i class="fas fa-spinner fa-7x fa-spin" id="loader"></i>
+					<div class="row" id="zwemkal">
 
+					</div>
+					<div class="alert alert-info text-center" role="alert">
+						<p>Vul een andere datum in om de openingsuren te krijgen voor die dag! Momenteel toont hij de openingsuren voor <strong><span id="datum"></span></strong></p>
+					</div>
 				</div>
 				<br>
 				<h4>Ter controle</h4>
@@ -123,18 +162,72 @@
 		</div>
 	</div>
 	<script>
-		$.ajax({
-			url: "https://stad.gent/sport2/place/ajax/openinghours/56/2018-06-07",
-			type: "GET",
-			dataType: "jsonp",
-			success: function(data) {
-				console.log(data);
-				// and other stuff i do with the data i get
-			},
-			xhrFields: {
-				withCredentials: false
+		$(document).ready(function() {
+			document.getElementById('zwemkaldatum').valueAsDate = new Date();
+			$("#loader").hide();
+			klik();
+		})
+
+		function klik() {
+			$("#loader").show();
+			document.getElementById("zwemkal").innerHTML = "";
+			var datum = document.getElementById("zwemkaldatum").value;
+
+			for (i = 1; i < 4; i++) {
+				document.getElementById("zwemkal").innerHTML += "<div class= 'col-md-4 col-md-offset-0 col-sm-10 col-sm-offset-1' id='zwemkal" + [i] + "'></div>";
 			}
-		}) // end ajax
+
+			// GUSB
+			$.ajax({
+				url: "https://jsonp.afeld.me/?url=http%3A%2F%2Fstad.gent%2Fsport2%2Fplace%2Fajax%2Fopeninghours%2F56%2F" + datum,
+				type: "GET",
+				dataType: "jsonp",
+				success: function(data) {
+					console.log(data.output);
+					document.getElementById("zwemkal1").innerHTML = "<div class='well'><h2>GUSB</h2><br />" + data.output + "</div>";
+					$("#loader").hide();
+					// and other stuff i do with the data i get
+				},
+				xhrFields: {
+					withCredentials: false
+				}
+			})
+
+			// LAGO
+			$.ajax({
+				url: "https://jsonp.afeld.me/?url=http%3A%2F%2Fstad.gent%2Fsport2%2Fplace%2Fajax%2Fopeninghours%2F5%2F" + datum,
+				type: "GET",
+				dataType: "jsonp",
+				success: function(data) {
+					console.log(data.output);
+					document.getElementById("zwemkal2").innerHTML += "<div class='well'><h2>LAGO</h2><br />" + data.output + "</div>";
+					$("#loader").hide(); // and other stuff i do with the data i get
+				},
+				xhrFields: {
+					withCredentials: false
+				}
+			})
+
+			// STROP
+			$.ajax({
+				url: "https://jsonp.afeld.me/?url=http%3A%2F%2Fstad.gent%2Fsport2%2Fplace%2Fajax%2Fopeninghours%2F19%2F" + datum,
+				type: "GET",
+				dataType: "jsonp",
+				success: function(data) {
+					console.log(data.output);
+					document.getElementById("zwemkal3").innerHTML += "<div class='well'><h2>STROP</h2><br />" + data.output + "</div>";
+					$("#loader").hide();
+				},
+				xhrFields: {
+					withCredentials: false
+				}
+			})
+
+			$("#datum").text(datum);
+
+		}
+
+
 
 		// var view_data;
 		// $.ajax({
