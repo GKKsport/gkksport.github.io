@@ -86,13 +86,9 @@
 			margin: 0;
 		}
 
-		/* .last {
-			display: none;
-		} */
-
-		/* #loader {
-			display: none;
-		} */
+		#loader {
+			margin-bottom: 30px;
+		}
 	</style>
 	<script async src="https://www.googletagmanager.com/gtag/js?id=UA-119797754-1"></script>
 	<script>
@@ -137,7 +133,7 @@
 					<form class="form-inline">
 						<div class="form-group">
 							<input name="datum" type="date" id="zwemkaldatum" class="form-control" style="margin-bottom: 5px">
-							<button class="btn btn-primary" style="margin-bottom: 5px" onclick="klik();"><i class="fa fa-calendar" aria-hidden="true"></i></button>
+							<button class="btn btn-primary" style="margin-bottom: 5px" onclick="klik();"><i class="far fa-calendar-alt" aria-hidden="true"></i> Andere datum</button>
 						</div>
 					</form>
 					<br />
@@ -184,7 +180,7 @@
 				dataType: "jsonp",
 				success: function(data) {
 					console.log(data.output);
-					document.getElementById("zwemkal1").innerHTML = "<div class='well'><h2>GUSB</h2><br />" + data.output + "</div>";
+					document.getElementById("zwemkal1").innerHTML = "<div class='panel panel-primary'><div class='panel-heading'><h2 class='panel-title'>GUSB</h2></div><div class='panel-body'>" + data.output + "</div></div>";
 					$("#loader").hide();
 					// and other stuff i do with the data i get
 				},
@@ -200,7 +196,7 @@
 				dataType: "jsonp",
 				success: function(data) {
 					console.log(data.output);
-					document.getElementById("zwemkal2").innerHTML += "<div class='well'><h2>LAGO</h2><br />" + data.output + "</div>";
+					document.getElementById("zwemkal2").innerHTML += "<div class='panel panel-primary'><div class='panel-heading'><h2 class='panel-title'>LAGO</h2></div><div class='panel-body'>" + data.output + "</div></div>";
 					$("#loader").hide(); // and other stuff i do with the data i get
 				},
 				xhrFields: {
@@ -215,7 +211,7 @@
 				dataType: "jsonp",
 				success: function(data) {
 					console.log(data.output);
-					document.getElementById("zwemkal3").innerHTML += "<div class='well'><h2>STROP</h2><br />" + data.output + "</div>";
+					document.getElementById("zwemkal3").innerHTML += "<div class='panel panel-primary'><div class='panel-heading'><h2 class='panel-title'>STROP</h2></div><div class='panel-body'>" + data.output + "</div></div>";
 					$("#loader").hide();
 				},
 				xhrFields: {
