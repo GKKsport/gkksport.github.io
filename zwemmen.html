@@ -124,13 +124,17 @@
 	</div>
 	<script>
 		$.ajax({
-			method: 'GET',
-			url: 'https://stad.gent/sport2/place/ajax/openinghours/56/2018-06-07',
-			dataType: 'jsonp', //change the datatype to 'jsonp' works in most cases
-			success: (res) => {
-				console.log(res);
+			url: "https://stad.gent/sport2/place/ajax/openinghours/56/2018-06-07",
+			type: "GET",
+			dataType: "jsonp",
+			success: function(data) {
+				console.log(data);
+				// and other stuff i do with the data i get
+			},
+			xhrFields: {
+				withCredentials: false
 			}
-		})
+		}) // end ajax
 
 		// var view_data;
 		// $.ajax({
