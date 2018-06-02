@@ -77,7 +77,6 @@
 
 		.item-list {
 			padding-left: 0;
-			margin-bottom: 20px
 		}
 
 		.item-list>ul {
@@ -87,7 +86,8 @@
 		}
 
 		#loader {
-			margin-bottom: 30px;
+			margin-top: 40px;
+			margin-bottom: 60px;
 		}
 	</style>
 	<script async src="https://www.googletagmanager.com/gtag/js?id=UA-119797754-1"></script>
@@ -136,14 +136,12 @@
 							<button class="btn btn-primary" style="margin-bottom: 5px" onclick="klik();"><i class="far fa-calendar-alt" aria-hidden="true"></i> Andere datum</button>
 						</div>
 					</form>
-					<br />
-					<br>
 					<i class="fas fa-spinner fa-7x fa-spin" id="loader"></i>
 					<div class="row" id="zwemkal">
 
 					</div>
 					<div class="alert alert-info text-center" role="alert">
-						<p>Vul een andere datum in om de openingsuren te krijgen voor die dag! Momenteel toont hij de openingsuren voor <strong><span id="datum"></span></strong></p>
+						<p>Vul een andere datum in en druk op de knop om de openingsuren te krijgen voor een andere dag! Momenteel toont hij de openingsuren voor <strong><span id="datum"></span></strong></p>
 					</div>
 				</div>
 				<br>
@@ -222,25 +220,6 @@
 			$("#datum").text(datum);
 
 		}
-
-
-
-		// var view_data;
-		// $.ajax({
-		// 	url: "https://stad.gent/sport2/place/ajax/openinghours/56/2018-06-07",
-		// 	//async: false,
-		// 	type: "POST",
-		// 	dataType: "jsonp",
-		// 	success: function(response_data_json) {
-		// 		view_data = response_data_json.view_data;
-		// 		console.log(view_data); //Shows the correct piece of information
-		// 		doWork(view_data); // Pass data to a function
-		// 	}
-		// });
-		//
-		// function doWork(data) {
-		// 	console.log(data);
-		// }
 	</script>
 
 
