@@ -88,6 +88,7 @@ function showInfo(data, tabletop) {
       document.getElementById("nognietbezig").innerHTML = "<p>Er is geen noemenswaardige wedstrijd gepland vandaag!</p><br><small>(Of deze is niet ingegeven, in dat geval trek aan de oren van Simon)</small>"
     }
   } else { //Als koers bezig is
+    document.title = "GKKSport | LIVE";
     document.getElementById("left").innerHTML = data[0].distancetofinish;
     $('#bezig').css('display', 'block');
     if (data[3].koers === "TRUE") {
