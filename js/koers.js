@@ -89,7 +89,6 @@ function showInfo(data, tabletop) {
     }
   } else { //Als koers bezig is
     document.getElementById("left").innerHTML = data[0].distancetofinish;
-    document.getElementById("livetitel").innerHTML += " | LIVE";
     $('#bezig').css('display', 'block');
     if (data[3].koers === "TRUE") {
       console.log("er is livestream");
