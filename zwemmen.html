@@ -179,7 +179,7 @@
 			document.getElementById("zwemkal1").innerHTML = "";
 			document.getElementById("zwemkal2").innerHTML = "";
 			document.getElementById("zwemkal3").innerHTML = "";
-
+			document.getElementById("zwemkal4").innerHTML = "";
 
 			// GUSB
 			$.ajax({
@@ -232,7 +232,7 @@
 				return [p[2], p[1], p[0]].join("/")
 			}
 
-
+			init();
 			$("#datum").text(convertDate(datum));
 
 		}
@@ -248,7 +248,7 @@
 		}
 
 		function showInfo(data, tabletop) {
-			document.getElementById("zwemkal4").innerHTML += "<div class='panel panel-primary'><div class='panel-heading'><h2 class='panel-title'>BLAARMEERSEN</h2></div><div class='panel-body'><p>Laatste meting: " + data[0].Datum + "<br>Kwaliteit: " + data[
+			document.getElementById("zwemkal4").innerHTML = "<div class='panel panel-primary'><div class='panel-heading'><h2 class='panel-title'>BLAARMEERSEN</h2></div><div class='panel-body'><p>Laatste meting: " + data[0].Datum + "<br>Kwaliteit: " + data[
 					0].Kwaliteitsniveau +
 				"</p><p style='margin: 0px'>Watertemperatuur: " + data[0].Temperatuur + " °C</p></div></div>";
 			console.log(data);
