@@ -270,20 +270,19 @@
 					$("#zwemkal").show();
 				}
 			}
-		}
-		// setTimeout(
-		// 	function() {
-		// 		$("#loader").hide();
-		// 		$("#zwemkal").show();
-		// 	}, 3000);
+			// setTimeout(
+			// 	function() {
+			// 		$("#loader").hide();
+			// 		$("#zwemkal").show();
+			// 	}, 3000);
 
-		function convertDate(dateString) {
-			var p = dateString.split(/\D/g)
-			return [p[2], p[1], p[0]].join("/")
-		}
+			function convertDate(dateString) {
+				var p = dateString.split(/\D/g)
+				return [p[2], p[1], p[0]].join("/")
+			}
 
-		init();
-		$("#datum").text(convertDate(datum));
+			init();
+			$("#datum").text(convertDate(datum));
 
 		}
 
