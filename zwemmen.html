@@ -193,7 +193,6 @@
 				success: function(data) {
 					console.log(data.output);
 					document.getElementById("zwemkal1").innerHTML = "<div class='panel panel-primary'><div class='panel-heading'><h2 class='panel-title'>GUSB</h2></div><div class='panel-body'>" + data.output + "</div></div>";
-					$("#loader").hide();
 					// and other stuff i do with the data i get
 				},
 				xhrFields: {
@@ -208,8 +207,7 @@
 				dataType: "jsonp",
 				success: function(data) {
 					console.log(data.output);
-					document.getElementById("zwemkal2").innerHTML = "<div class='panel panel-primary'><div class='panel-heading'><h2 class='panel-title'>LAGO</h2></div><div class='panel-body'>" + data.output + "</div></div>";
-					$("#loader").hide(); // and other stuff i do with the data i get
+					document.getElementById("zwemkal2").innerHTML = "<div class='panel panel-primary'><div class='panel-heading'><h2 class='panel-title'>LAGO</h2></div><div class='panel-body'>" + data.output + "</div></div>"; // and other stuff i do with the data i get
 				},
 				xhrFields: {
 					withCredentials: false
@@ -224,7 +222,6 @@
 				success: function(data) {
 					console.log(data.output);
 					document.getElementById("zwemkal3").innerHTML = "<div class='panel panel-primary'><div class='panel-heading'><h2 class='panel-title'>STROP</h2></div><div class='panel-body'>" + data.output + "</div></div>";
-					$("#loader").hide();
 				},
 				xhrFields: {
 					withCredentials: false
@@ -239,7 +236,6 @@
 				success: function(data) {
 					console.log(data.output);
 					document.getElementById("zwemkal4").innerHTML = "<div class='panel panel-primary'><div class='panel-heading'><h2 class='panel-title'>ROOIGEM</h2></div><div class='panel-body'>" + data.output + "</div></div>";
-					$("#loader").hide();
 				},
 				xhrFields: {
 					withCredentials: false
@@ -254,12 +250,13 @@
 				success: function(data) {
 					console.log(data.output);
 					document.getElementById("zwemkal5").innerHTML = "<div class='panel panel-primary'><div class='panel-heading'><h2 class='panel-title'>VAN EYCK</h2></div><div class='panel-body'>" + data.output + "</div></div>";
-					$("#loader").hide();
 				},
 				xhrFields: {
 					withCredentials: false
 				}
 			})
+
+			$("#loader").hide();
 
 			function convertDate(dateString) {
 				var p = dateString.split(/\D/g)
