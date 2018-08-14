@@ -194,8 +194,12 @@
 				type: "GET",
 				dataType: "jsonp",
 				success: function(data) {
-					console.log(data.output);
-					document.getElementById("zwemkal1").innerHTML = "<div class='panel panel-primary'><div class='panel-heading'><h2 class='panel-title'>GUSB</h2></div><div class='panel-body'>" + data.output + "</div></div>";
+					var variabel = data.output;
+					if (variabel.indexOf("Gesloten") >= 0) {
+						document.getElementById("zwemkal1").innerHTML = "<div class='panel panel-danger'><div class='panel-heading'><h2 class='panel-title'>GUSB</h2></div><div class='panel-body'>" + data.output + "</div></div>";
+					} else {
+						document.getElementById("zwemkal1").innerHTML = "<div class='panel panel-primary'><div class='panel-heading'><h2 class='panel-title'>GUSB</h2></div><div class='panel-body'>" + data.output + "</div></div>";
+					}
 					// and other stuff i do with the data i get
 					test();
 				},
@@ -210,8 +214,12 @@
 				type: "GET",
 				dataType: "jsonp",
 				success: function(data) {
-					console.log(data.output);
-					document.getElementById("zwemkal2").innerHTML = "<div class='panel panel-primary'><div class='panel-heading'><h2 class='panel-title'>LAGO</h2></div><div class='panel-body'>" + data.output + "</div></div>"; // and other stuff i do with the data i get
+					var variabel = data.output;
+					if (variabel.indexOf("Gesloten") >= 0) {
+						document.getElementById("zwemkal2").innerHTML = "<div class='panel panel-danger'><div class='panel-heading'><h2 class='panel-title'>LAGO</h2></div><div class='panel-body'>" + data.output + "</div></div>";
+					} else {
+						document.getElementById("zwemkal2").innerHTML = "<div class='panel panel-primary'><div class='panel-heading'><h2 class='panel-title'>LAGO</h2></div><div class='panel-body'>" + data.output + "</div></div>";
+					}
 					test();
 				},
 				xhrFields: {
@@ -225,8 +233,12 @@
 				type: "GET",
 				dataType: "jsonp",
 				success: function(data) {
-					console.log(data.output);
-					document.getElementById("zwemkal3").innerHTML = "<div class='panel panel-primary'><div class='panel-heading'><h2 class='panel-title'>STROP</h2></div><div class='panel-body'>" + data.output + "</div></div>";
+					var variabel = data.output;
+					if (variabel.indexOf("Gesloten") >= 0) {
+						document.getElementById("zwemkal3").innerHTML = "<div class='panel panel-danger'><div class='panel-heading'><h2 class='panel-title'>STROP</h2></div><div class='panel-body'>" + data.output + "</div></div>";
+					} else {
+						document.getElementById("zwemkal3").innerHTML = "<div class='panel panel-primary'><div class='panel-heading'><h2 class='panel-title'>STROP</h2></div><div class='panel-body'>" + data.output + "</div></div>";
+					}
 					test();
 				},
 				xhrFields: {
@@ -240,8 +252,12 @@
 				type: "GET",
 				dataType: "jsonp",
 				success: function(data) {
-					console.log(data.output);
-					document.getElementById("zwemkal4").innerHTML = "<div class='panel panel-primary'><div class='panel-heading'><h2 class='panel-title'>ROOIGEM</h2></div><div class='panel-body'>" + data.output + "</div></div>";
+					var variabel = data.output;
+					if (variabel.indexOf("Gesloten") >= 0) {
+						document.getElementById("zwemkal4").innerHTML = "<div class='panel panel-danger'><div class='panel-heading'><h2 class='panel-title'>ROOIGEM</h2></div><div class='panel-body'>" + data.output + "</div></div>";
+					} else {
+						document.getElementById("zwemkal4").innerHTML = "<div class='panel panel-primary'><div class='panel-heading'><h2 class='panel-title'>ROOIGEM</h2></div><div class='panel-body'>" + data.output + "</div></div>";
+					}
 					test();
 				},
 				xhrFields: {
@@ -256,7 +272,12 @@
 				dataType: "jsonp",
 				success: function(data) {
 					console.log(data.output);
-					document.getElementById("zwemkal5").innerHTML = "<div class='panel panel-primary'><div class='panel-heading'><h2 class='panel-title'>VAN EYCK</h2></div><div class='panel-body'>" + data.output + "</div></div>";
+					var variabel = data.output;
+					if (variabel.indexOf("Gesloten") >= 0) {
+						document.getElementById("zwemkal5").innerHTML = "<div class='panel panel-danger'><div class='panel-heading'><h2 class='panel-title'>VAN EYCK</h2></div><div class='panel-body'>" + data.output + "</div></div>";
+					} else {
+						document.getElementById("zwemkal5").innerHTML = "<div class='panel panel-primary'><div class='panel-heading'><h2 class='panel-title'>VAN EYCK</h2></div><div class='panel-body'>" + data.output + "</div></div>";
+					}
 					test();
 				},
 				xhrFields: {
