@@ -142,7 +142,7 @@
 					</div>
 					<div class="row" id="zwemkal">
 					</div>
-					<div class="alert alert-info text-center" role="alert">
+					<div class="alert alert-warning text-center" role="alert">
 						<p>Vul een andere datum in en druk op de knop om de openingsuren te krijgen voor een andere dag! Momenteel toont hij de openingsuren voor <strong><span id="datum"></span></strong></p>
 					</div>
 				</div>
@@ -318,7 +318,7 @@
 		}
 
 		function showInfo(data, tabletop) {
-			document.getElementById("zwemkal6").innerHTML = "<div class='panel panel-primary'><div class='panel-heading'><h2 class='panel-title'>BLAARMEERSEN</h2></div><div class='panel-body'><p>Laatste meting: " + data[0].Datum + "<br>Kwaliteit: " + data[
+			document.getElementById("zwemkal6").innerHTML = "<div class='panel panel-info'><div class='panel-heading'><h2 class='panel-title'>BLAARMEERSEN</h2></div><div class='panel-body'><p>Laatste meting: " + data[0].Datum + "<br>Kwaliteit: " + data[
 					0].Kwaliteitsniveau +
 				"</p><p style='margin: 0px'>Watertemperatuur: " + data[0].Temperatuur + " °C</p></div></div>";
 			console.log(data);
