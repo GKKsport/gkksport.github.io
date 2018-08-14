@@ -176,6 +176,7 @@
 
 		function klik() {
 			$("#loader").show();
+			$("#zwemkal").hide();
 			var datum = document.getElementById("zwemkaldatum").value;
 			document.getElementById("zwemkal1").innerHTML = "";
 			document.getElementById("zwemkal2").innerHTML = "";
@@ -256,7 +257,12 @@
 				}
 			})
 
-			$("#loader").hide();
+			setTimeout(
+				function() {
+					$("#loader").hide();
+					$("#zwemkal").show();
+				}, 2000);
+
 
 			function convertDate(dateString) {
 				var p = dateString.split(/\D/g)
