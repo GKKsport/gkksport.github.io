@@ -139,7 +139,6 @@
 					<br>
 					<i class="fas fa-spinner fa-7x fa-spin" id="loader"></i>
 					<div class="row" id="zwemkal">
-
 					</div>
 					<div class="alert alert-info text-center" role="alert">
 						<p>Vul een andere datum in en druk op de knop om de openingsuren te krijgen voor een andere dag! Momenteel toont hij de openingsuren voor <strong><span id="datum"></span></strong></p>
@@ -152,6 +151,8 @@
 					<a class="btn btn-default" href="https://www.ugent.be/student/nl/meer-dan-studeren/sport/openingsuren" role="button">Openingsuren GUSB</a>
 					<a class="btn btn-default" href="https://stad.gent/sport2/waar-kan-ik-sporten/sr-sportbad-rozebroeken" role="button">Openingsuren Rozebroeken</a>
 					<a class="btn btn-default" href="https://stad.gent/sport2/waar-kan-ik-sporten/zwembad-strop" role="button">Openingsuren Strop</a>
+					<a class="btn btn-default" href="https://stad.gent/sport2/waar-kan-ik-sporten/zwembad-rooigem" role="button">Openingsuren Rooigem</a>
+					<a class="btn btn-default" href="https://stad.gent/sport2/waar-kan-ik-sporten/zwembad-van-eyck" role="button">Openingsuren Van Eyck</a>
 				</p>
 			</div>
 		</div>
@@ -161,9 +162,9 @@
 		$(document).ready(function() {
 			document.getElementById('zwemkaldatum').valueAsDate = new Date();
 			$("#loader").hide();
-			for (i = 1; i < 5; i++) {
-				document.getElementById("zwemkal").innerHTML += "<div class= 'col-lg-3 col-lg-offset-0 col-md-6 col-md-offset-0 col-sm-10 col-sm-offset-1' id='zwemkal" + [i] + "'></div>";
-				if (i === 2) {
+			for (i = 1; i < 7; i++) {
+				document.getElementById("zwemkal").innerHTML += "<div class= 'col-lg-6 col-lg-offset-0 col-md-6 col-md-offset-0 col-sm-10 col-sm-offset-1' id='zwemkal" + [i] + "'></div>";
+				if (i === 2 || i === 4) {
 					document.getElementById("zwemkal").innerHTML += "<div class='clearfix visible-sm-block visible-md-block'></div>"
 				}
 			}
@@ -180,6 +181,9 @@
 			document.getElementById("zwemkal2").innerHTML = "";
 			document.getElementById("zwemkal3").innerHTML = "";
 			document.getElementById("zwemkal4").innerHTML = "";
+			document.getElementById("zwemkal5").innerHTML = "";
+			document.getElementById("zwemkal6").innerHTML = "";
+
 
 			// GUSB
 			$.ajax({
@@ -227,6 +231,36 @@
 				}
 			})
 
+			// ROOIGEM
+			$.ajax({
+				url: "https://jsonp.afeld.me/?url=http%3A%2F%2Fstad.gent%2Fsport2%2Fplace%2Fajax%2Fopeninghours%2F18%2F" + datum,
+				type: "GET",
+				dataType: "jsonp",
+				success: function(data) {
+					console.log(data.output);
+					document.getElementById("zwemkal4").innerHTML = "<div class='panel panel-primary'><div class='panel-heading'><h2 class='panel-title'>ROOIGEM</h2></div><div class='panel-body'>" + data.output + "</div></div>";
+					$("#loader").hide();
+				},
+				xhrFields: {
+					withCredentials: false
+				}
+			})
+
+			// VAN EYCK
+			$.ajax({
+				url: "https://jsonp.afeld.me/?url=http%3A%2F%2Fstad.gent%2Fsport2%2Fplace%2Fajax%2Fopeninghours%2F19%2F" + datum,
+				type: "GET",
+				dataType: "jsonp",
+				success: function(data) {
+					console.log(data.output);
+					document.getElementById("zwemkal5").innerHTML = "<div class='panel panel-primary'><div class='panel-heading'><h2 class='panel-title'>VAN EYCK</h2></div><div class='panel-body'>" + data.output + "</div></div>";
+					$("#loader").hide();
+				},
+				xhrFields: {
+					withCredentials: false
+				}
+			})
+
 			function convertDate(dateString) {
 				var p = dateString.split(/\D/g)
 				return [p[2], p[1], p[0]].join("/")
@@ -248,7 +282,7 @@
 		}
 
 		function showInfo(data, tabletop) {
-			document.getElementById("zwemkal4").innerHTML = "<div class='panel panel-primary'><div class='panel-heading'><h2 class='panel-title'>BLAARMEERSEN</h2></div><div class='panel-body'><p>Laatste meting: " + data[0].Datum + "<br>Kwaliteit: " + data[
+			document.getElementById("zwemkal6").innerHTML = "<div class='panel panel-primary'><div class='panel-heading'><h2 class='panel-title'>BLAARMEERSEN</h2></div><div class='panel-body'><p>Laatste meting: " + data[0].Datum + "<br>Kwaliteit: " + data[
 					0].Kwaliteitsniveau +
 				"</p><p style='margin: 0px'>Watertemperatuur: " + data[0].Temperatuur + " °C</p></div></div>";
 			console.log(data);
