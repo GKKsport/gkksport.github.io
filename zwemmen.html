@@ -137,7 +137,9 @@
 						</div>
 					</form>
 					<br>
-					<i class="fas fa-spinner fa-7x fa-spin" id="loader"></i>
+					<div id="loader">
+						<img src="https://loading.io/assets/img/hourglass.svg">
+					</div>
 					<div class="row" id="zwemkal">
 					</div>
 					<div class="alert alert-info text-center" role="alert">
@@ -195,6 +197,7 @@
 					console.log(data.output);
 					document.getElementById("zwemkal1").innerHTML = "<div class='panel panel-primary'><div class='panel-heading'><h2 class='panel-title'>GUSB</h2></div><div class='panel-body'>" + data.output + "</div></div>";
 					// and other stuff i do with the data i get
+					test();
 				},
 				xhrFields: {
 					withCredentials: false
@@ -209,6 +212,7 @@
 				success: function(data) {
 					console.log(data.output);
 					document.getElementById("zwemkal2").innerHTML = "<div class='panel panel-primary'><div class='panel-heading'><h2 class='panel-title'>LAGO</h2></div><div class='panel-body'>" + data.output + "</div></div>"; // and other stuff i do with the data i get
+					test();
 				},
 				xhrFields: {
 					withCredentials: false
@@ -223,6 +227,7 @@
 				success: function(data) {
 					console.log(data.output);
 					document.getElementById("zwemkal3").innerHTML = "<div class='panel panel-primary'><div class='panel-heading'><h2 class='panel-title'>STROP</h2></div><div class='panel-body'>" + data.output + "</div></div>";
+					test();
 				},
 				xhrFields: {
 					withCredentials: false
@@ -237,6 +242,7 @@
 				success: function(data) {
 					console.log(data.output);
 					document.getElementById("zwemkal4").innerHTML = "<div class='panel panel-primary'><div class='panel-heading'><h2 class='panel-title'>ROOIGEM</h2></div><div class='panel-body'>" + data.output + "</div></div>";
+					test();
 				},
 				xhrFields: {
 					withCredentials: false
@@ -251,26 +257,33 @@
 				success: function(data) {
 					console.log(data.output);
 					document.getElementById("zwemkal5").innerHTML = "<div class='panel panel-primary'><div class='panel-heading'><h2 class='panel-title'>VAN EYCK</h2></div><div class='panel-body'>" + data.output + "</div></div>";
+					test();
 				},
 				xhrFields: {
 					withCredentials: false
 				}
 			})
 
-			setTimeout(
-				function() {
+			function test() {
+				if ($("#zwemkal1").length != 0 && $("#zwemkal2").length != 0 && $("#zwemkal3").length != 0 && $("#zwemkal4").length != 0 && $("#zwemkal5").length != 0) {
 					$("#loader").hide();
 					$("#zwemkal").show();
-				}, 2000);
-
-
-			function convertDate(dateString) {
-				var p = dateString.split(/\D/g)
-				return [p[2], p[1], p[0]].join("/")
+				}
 			}
+		}
+		// setTimeout(
+		// 	function() {
+		// 		$("#loader").hide();
+		// 		$("#zwemkal").show();
+		// 	}, 3000);
 
-			init();
-			$("#datum").text(convertDate(datum));
+		function convertDate(dateString) {
+			var p = dateString.split(/\D/g)
+			return [p[2], p[1], p[0]].join("/")
+		}
+
+		init();
+		$("#datum").text(convertDate(datum));
 
 		}
 
