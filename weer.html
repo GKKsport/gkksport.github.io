@@ -55,11 +55,7 @@
       padding: 15px;
     }
 
-    .warningtext {
-      font-weight: bold;
-    }
-
-    .dangertext {
+    .bold {
       font-weight: bold;
     }
 
@@ -187,24 +183,22 @@
                     if (tijd === "20:00") {
                       document.getElementById("tabel").innerHTML += "<tr><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>";
                     }
-                    if (neerslagkans >= 25) {
-                      $("#tabelrij" + [i]).addClass("warning");
-                      $("#neerslagkans" + [i]).addClass("warningtext");
-                      if (neerslagkans >= 50) {
-                        $("#tabelrij" + [i]).addClass("danger");
-                        $("#neerslagkans" + [i]).addClass("dangertext");
 
-                      }
-                    } else if (windsnelheid >= 10) {
+                    // vette letters
+                    if (neerslagkans >= 25) {
+                      $("#neerslagkans" + [i]).addClass("bold");
+                    }
+                    if (windsnelheid >= 10) {
+                      $("#windsnelheid" + [i]).addClass("bold");
+                    }
+
+                    if (neerslagkans >= 25 || windsnelheid >= 10) {
                       $("#tabelrij" + [i]).addClass("warning");
-                      $("#windsnelheid" + [i]).addClass("warningtext");
-                      if (windsnelheid >= 20) {
+                      if (neerslagkans >= 50 || windsnelheid >= 20) {
                         $("#tabelrij" + [i]).addClass("danger");
-                        $("#windsnelheid" + [i]).addClass("dangertext");
                       }
                     } else {
                       $("#tabelrij" + [i]).addClass("success");
-
                     }
 
                   }
