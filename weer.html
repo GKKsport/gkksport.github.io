@@ -184,17 +184,23 @@
                       document.getElementById("tabel").innerHTML += "<tr><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>";
                     }
 
+                    var neerslagmin = 25,
+                      neerslagmax = 50,
+                      windsnelheidmin = 10,
+                      windsnelheidmax = 20;
+
+
                     // vette letters
-                    if (neerslagkans >= 25) {
+                    if (neerslagkans >= neerslagmin) {
                       $("#neerslagkans" + [i]).addClass("bold");
                     }
-                    if (windsnelheid >= 10) {
+                    if (windsnelheid >= windsnelheidmin) {
                       $("#windsnelheid" + [i]).addClass("bold");
                     }
 
-                    if (neerslagkans >= 25 || windsnelheid >= 10) {
+                    if (neerslagkans >= neerslagmin || windsnelheid >= windsnelheidmin) {
                       $("#tabelrij" + [i]).addClass("warning");
-                      if (neerslagkans >= 50 || windsnelheid >= 20) {
+                      if (neerslagkans >= neerslagmax || windsnelheid >= windsnelheidmax) {
                         $("#tabelrij" + [i]).addClass("danger");
                       }
                     } else {
