@@ -55,6 +55,14 @@
       padding: 15px;
     }
 
+    .warningtext {
+      font-weight: bold;
+    }
+
+    .dangertext {
+      font-weight: bold;
+    }
+
     /* On small screens, set height to 'auto' for sidenav and grid */
 
     @media screen and (max-width: 767px) {
@@ -157,7 +165,7 @@
 
                 document.getElementById("tabel").innerHTML = "";
                 $("#tabelweer").show();
-                for (i = 0; i < 100; i++) {
+                for (i = 0; i < 169; i++) {
                   var datum = moment.unix(data.hourly.data[i].time).format("DD/MM"),
                     tijd = moment.unix(data.hourly.data[i].time).format("HH:mm"),
                     temperatuur = (data.hourly.data[i].temperature).toFixed(0),
@@ -172,16 +180,33 @@
                     tijdarray = ["07:00", "08:00", "09:00", "10:00", "11:00", "12:00", "13:00", "14:00", "15:00", "16:00", "17:00", "18:00", "19:00", "20:00"];
 
                   if ($.inArray(tijd, tijdarray) != -1) {
-                    document.getElementById("tabel").innerHTML += "<tr><td>" + datum + "</td><td>" + tijd + "</td><td>" + temperatuur + "°C</td><td>" + windsnelheid + " km/u</td><td>" + windstoot +
-                      " km/u</td><td>" + luchtvochtigheid + "%</td><td id='neerslagkans" + i + "'>" + neerslagkans + "%</td><td>" + neerslag + "mm</td><td>" + bewolking + "%</td><td>" + UVIndex(uv) + "</td><td>" + zichtbaarheid +
+                    document.getElementById("tabel").innerHTML += "<tr id='tabelrij" + i + "'><td>" + datum + "</td><td>" + tijd + "</td><td>" + temperatuur + "°C</td><td id='windsnelheid" + i + "'>" + windsnelheid + " km/u</td><td>" +
+                      windstoot + " km/u</td><td>" + luchtvochtigheid + "%</td><td id='neerslagkans" + i + "'>" + neerslagkans + "%</td><td>" + neerslag + "mm</td><td>" + bewolking + "%</td><td>" + UVIndex(uv) + "</td><td>" + zichtbaarheid +
                       "km</td></tr>";
 
-                    if (neerslagkans > 50) {
-                      $("#neerslagkans" + [i]).addClass("danger");
-                    }
                     if (tijd === "20:00") {
                       document.getElementById("tabel").innerHTML += "<tr><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>";
                     }
+                    if (neerslagkans >= 25) {
+                      $("#tabelrij" + [i]).addClass("warning");
+                      $("#neerslagkans" + [i]).addClass("warningtext");
+                      if (neerslagkans >= 50) {
+                        $("#tabelrij" + [i]).addClass("danger");
+                        $("#neerslagkans" + [i]).addClass("dangertext");
+
+                      }
+                    } else if (windsnelheid >= 10) {
+                      $("#tabelrij" + [i]).addClass("warning");
+                      $("#windsnelheid" + [i]).addClass("warningtext");
+                      if (windsnelheid >= 20) {
+                        $("#tabelrij" + [i]).addClass("danger");
+                        $("#windsnelheid" + [i]).addClass("dangertext");
+                      }
+                    } else {
+                      $("#tabelrij" + [i]).addClass("success");
+
+                    }
+
                   }
                 }
               }
