@@ -77,6 +77,7 @@
       background-color: #f2dede;
     }
 
+
     /* On small screens, set height to 'auto' for sidenav and grid */
 
     @media screen and (max-width: 767px) {
@@ -204,17 +205,18 @@
         <thead>
           <tr>
             <th></th>
-            <th>Datum</th>
-            <th>Tijd</th>
-            <th>Temp</th>
-            <th>Windsnel</th>
-            <th>Windstoot</th>
-            <th>Luchtvochtig</th>
-            <th>Neerslagkans</th>
-            <th>Neerslag</th>
-            <th>Bewolking</th>
-            <th>UV</th>
-            <th>Zichtbaarheid</th>
+            <th class="text-center">Datum</th>
+            <th class="text-center">Tijd</th>
+            <th class="text-center">Temp</th>
+            <th class="text-center">Windsnel</th>
+            <th class="text-center">Neerslagkans</th>
+            <th></th>
+            <th class="text-center">Windstoot</th>
+            <th class="text-center">Neerslag</th>
+            <th class="text-center">Luchtvochtig</th>
+            <th class="text-center">Bewolking</th>
+            <th class="text-center">UV</th>
+            <th class="text-center">Zichtbaarheid</th>
           </tr>
         </thead>
         <tbody id="tabel">
@@ -325,10 +327,10 @@
                   if ($.inArray(tijd, tijdarray) != -1) {
                     document.getElementById("tabel").innerHTML += "<tr id='tabelrij" + i + "'><td>" + iconweer(icoon) + "</td><td>" + datum + "</td><td>" + tijd + "</td><td id ='temperatuur" + i + "'>" + temperatuur +
                       "°C</td><td id='windsnelheid" + i + "'>" +
-                      windsnelheid + " km/u</td><td>" +
-                      windstoot + " km/u</td><td>" + luchtvochtigheid + "%</td><td id='neerslagkans" + i + "'>" + neerslagkans + "%</td><td>" + neerslag + "mm</td><td>" + bewolking + "%</td><td>" + UVIndex(uv) + "</td><td>" +
-                      zichtbaarheid +
-                      "km</td></tr>";
+                      windsnelheid + " km/u</td><td id='neerslagkans" + i + "'>" + neerslagkans + "%</td><td>|</td><td>" + windstoot + " km/u</td><td>" + neerslag + "mm</td><td>" + luchtvochtigheid + "%</td><td>" + bewolking + "%</td><td>" +
+                      UVIndex(
+                        uv) + "</td><td>" +
+                      zichtbaarheid + "km</td></tr>";
 
                     if (tijd === "20:00") {
                       document.getElementById("tabel").innerHTML += "<tr><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>";
