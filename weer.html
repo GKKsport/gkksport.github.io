@@ -111,8 +111,63 @@
 
 
     <br>
-    <div id="testtest">
-
+    <div id="variabelen">
+      <div class="panel panel-default">
+        <div class="panel-body">
+          <div class="row">
+            <div class="col-md-4 col-sm-12">
+              <p><strong>Temperatuur</strong></p>
+              <form class="form-inline">
+                <div class="form-group">
+                  <div class="input-group">
+                    <input type="number" class="form-control" id="tempmin" placeholder="">
+                    <div class="input-group-addon">°C</div>
+                  </div>
+                  <div class="input-group">
+                    <input type="number" class="form-control" id="tempmax" placeholder="">
+                    <div class="input-group-addon">°C</div>
+                  </div>
+                </div>
+              </form>
+              <br>
+            </div>
+            <div class="col-md-4 col-sm-12">
+              <p><strong>Windsnelheid</strong></p>
+              <form class="form-inline">
+                <div class="form-group">
+                  <div class="input-group">
+                    <input type="number" class="form-control" id="windmin" placeholder="">
+                    <div class="input-group-addon">km/h</div>
+                  </div>
+                  <div class="input-group">
+                    <input type="number" class="form-control" id="windmax" placeholder="">
+                    <div class="input-group-addon">km/h</div>
+                  </div>
+                </div>
+              </form>
+              <br>
+            </div>
+            <div class="col-md-4 col-sm-12">
+              <p><strong>Neerslagkans</strong></p>
+              <form class="form-inline">
+                <div class="form-group">
+                  <div class="input-group">
+                    <input type="number" class="form-control" id="neerslagmin" placeholder="">
+                    <div class="input-group-addon">%</div>
+                  </div>
+                  <div class="input-group">
+                    <input type="number" class="form-control" id="neerslagmax" placeholder="">
+                    <div class="input-group-addon">%</div>
+                  </div>
+                </div>
+              </form>
+              <br>
+            </div>
+            <div class="row"></div>
+            <button type="submit" class="btn btn-primary" onclick="onClick();">Pas de basiswaarden aan!</button>
+          </div>
+        </div>
+      </div>
     </div>
     <div class="table-responsive" id="tabelweer">
       <table class="table table-striped table-hover">
@@ -141,7 +196,57 @@
   </div>
 
   <script>
+    var weerstor = localStorage.getItem('weer');
+    if (weerstor === "0" || weerstor == null) {
+      localStorage.setItem('tempmin', "25");
+      localStorage.setItem('tempmax', "30");
+      localStorage.setItem('windmin', "10");
+      localStorage.setItem('windmax', "20");
+      localStorage.setItem('neerslagmin', "25");
+      localStorage.setItem('neerslagmax', "50");
+      $("#tempmin").val(localStorage.getItem('tempmin'));
+      $("#tempmax").val(localStorage.getItem('tempmax'));
+      $("#windmin").val(localStorage.getItem('windmin'));
+      $("#windmax").val(localStorage.getItem('windmax'));
+      $("#neerslagmin").val(localStorage.getItem('neerslagmin'));
+      $("#neerslagmax").val(localStorage.getItem('neerslagmax'));
+      localStorage.setItem('weer', 1);
+    } else {
+      $("#tempmin").val(localStorage.getItem('tempmin'));
+      $("#tempmax").val(localStorage.getItem('tempmax'));
+      $("#windmin").val(localStorage.getItem('windmin'));
+      $("#windmax").val(localStorage.getItem('windmax'));
+      $("#neerslagmin").val(localStorage.getItem('neerslagmin'));
+      $("#neerslagmax").val(localStorage.getItem('neerslagmax'));
+    }
+
+    function onClick() {
+      var tempmin = $("#tempmin").val();
+      var tempmax = $("#tempmax").val();
+      var windmin = $("#windmin").val();
+      var windmax = $("#windmax").val();
+      var neerslagmin = $("#neerslagmin").val();
+      var neerslagmax = $("#neerslagmax").val();
+      localStorage.setItem('tempmin', tempmin);
+      localStorage.setItem('tempmax', tempmax);
+      localStorage.setItem('windmin', windmin);
+      localStorage.setItem('windmax', windmax);
+      localStorage.setItem('neerslagmin', neerslagmin);
+      localStorage.setItem('neerslagmax', neerslagmax);
+      console.log("berekening");
+      loc();
+    }
+
+
+
     function loc() {
+      var bneerslagmin = parseInt(localStorage.getItem('neerslagmin'));
+      var bneerslagmax = parseInt(localStorage.getItem('neerslagmax'));
+      var bwindsnelheidmin = parseInt(localStorage.getItem('windmin'));
+      var bwindsnelheidmax = parseInt(localStorage.getItem('windmax'));
+      var btempmin = parseInt(localStorage.getItem('tempmin'));
+      var btempmax = parseInt(localStorage.getItem('tempmax'));
+
       if (navigator.geolocation) {
         navigator.geolocation.getCurrentPosition(function(position) {
           var lat = position.coords.latitude;
@@ -165,8 +270,8 @@
                   var datum = moment.unix(data.hourly.data[i].time).format("DD/MM"),
                     tijd = moment.unix(data.hourly.data[i].time).format("HH:mm"),
                     temperatuur = (data.hourly.data[i].temperature).toFixed(0),
-                    windsnelheid = (data.hourly.data[i].windSpeed).toFixed(1),
-                    windstoot = (data.hourly.data[i].windGust).toFixed(1),
+                    windsnelheid = (data.hourly.data[i].windSpeed).toFixed(0),
+                    windstoot = (data.hourly.data[i].windGust).toFixed(0),
                     luchtvochtigheid = (data.hourly.data[i].humidity * 100).toFixed(0),
                     neerslagkans = (data.hourly.data[i].precipProbability * 100).toFixed(0),
                     neerslag = data.hourly.data[i].precipIntensity.toFixed(0),
@@ -176,7 +281,8 @@
                     tijdarray = ["07:00", "08:00", "09:00", "10:00", "11:00", "12:00", "13:00", "14:00", "15:00", "16:00", "17:00", "18:00", "19:00", "20:00"];
 
                   if ($.inArray(tijd, tijdarray) != -1) {
-                    document.getElementById("tabel").innerHTML += "<tr id='tabelrij" + i + "'><td>" + datum + "</td><td>" + tijd + "</td><td>" + temperatuur + "°C</td><td id='windsnelheid" + i + "'>" + windsnelheid + " km/u</td><td>" +
+                    document.getElementById("tabel").innerHTML += "<tr id='tabelrij" + i + "'><td>" + datum + "</td><td>" + tijd + "</td><td id ='temperatuur" + i + "'>" + temperatuur + "°C</td><td id='windsnelheid" + i + "'>" +
+                      windsnelheid + " km/u</td><td>" +
                       windstoot + " km/u</td><td>" + luchtvochtigheid + "%</td><td id='neerslagkans" + i + "'>" + neerslagkans + "%</td><td>" + neerslag + "mm</td><td>" + bewolking + "%</td><td>" + UVIndex(uv) + "</td><td>" + zichtbaarheid +
                       "km</td></tr>";
 
@@ -184,23 +290,22 @@
                       document.getElementById("tabel").innerHTML += "<tr><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>";
                     }
 
-                    var neerslagmin = 25,
-                      neerslagmax = 50,
-                      windsnelheidmin = 10,
-                      windsnelheidmax = 20;
-
-
                     // vette letters
-                    if (neerslagkans >= neerslagmin) {
+                    if (neerslagkans >= bneerslagmin) {
+
                       $("#neerslagkans" + [i]).addClass("bold");
                     }
-                    if (windsnelheid >= windsnelheidmin) {
+                    if (windsnelheid >= bwindsnelheidmin) {
+
                       $("#windsnelheid" + [i]).addClass("bold");
                     }
+                    if (temperatuur >= btempmin) {
+                      $("#temperatuur" + [i]).addClass("bold");
+                    }
 
-                    if (neerslagkans >= neerslagmin || windsnelheid >= windsnelheidmin) {
+                    if (neerslagkans >= bneerslagmin || windsnelheid >= bwindsnelheidmin || temperatuur >= btempmin) {
                       $("#tabelrij" + [i]).addClass("warning");
-                      if (neerslagkans >= neerslagmax || windsnelheid >= windsnelheidmax) {
+                      if (neerslagkans >= bneerslagmax || windsnelheid >= bwindsnelheidmax || temperatuur >= btempmax) {
                         $("#tabelrij" + [i]).addClass("danger");
                       }
                     } else {
