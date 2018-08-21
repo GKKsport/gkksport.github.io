@@ -10,6 +10,7 @@
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.10/css/all.css" integrity="sha384-+d0P83n9kaQMCwj8F4RJB66tzIwOKmrdb46+porD/OvrJ+37WqIM7UoBtwHO6Nlg" crossorigin="anonymous">
   <link rel="icon" sizes="192x192" href="icon.png">
+  <link rel="stylesheet" href="./weathericons/css/weather-icons.min.css">
   <style>
     /* Remove the navbar's default margin-bottom and rounded borders */
 
@@ -57,6 +58,23 @@
 
     .bold {
       font-weight: bold;
+    }
+
+    .input-group {
+      padding-top: 2px;
+      padding-bottom: 2px;
+    }
+
+    .min {
+      background-color: #d9edf7;
+    }
+
+    .max {
+      background-color: #fcf8e3;
+    }
+
+    .max2 {
+      background-color: #f2dede;
     }
 
     /* On small screens, set height to 'auto' for sidenav and grid */
@@ -120,11 +138,18 @@
               <form class="form-inline">
                 <div class="form-group">
                   <div class="input-group">
-                    <input type="number" class="form-control" id="tempmin" placeholder="">
+                    <div class="input-group-addon">min</div>
+                    <input type="number" class="form-control min" id="tempzero" placeholder="">
                     <div class="input-group-addon">°C</div>
                   </div>
                   <div class="input-group">
-                    <input type="number" class="form-control" id="tempmax" placeholder="">
+                    <div class="input-group-addon">max</div>
+                    <input type="number" class="form-control max" id="tempmin" placeholder="">
+                    <div class="input-group-addon">°C</div>
+                  </div>
+                  <div class="input-group">
+                    <div class="input-group-addon">max+</div>
+                    <input type="number" class="form-control max2" id="tempmax" placeholder="">
                     <div class="input-group-addon">°C</div>
                   </div>
                 </div>
@@ -136,11 +161,13 @@
               <form class="form-inline">
                 <div class="form-group">
                   <div class="input-group">
-                    <input type="number" class="form-control" id="windmin" placeholder="">
+                    <div class="input-group-addon">max</div>
+                    <input type="number" class="form-control max" id="windmin" placeholder="">
                     <div class="input-group-addon">km/h</div>
                   </div>
                   <div class="input-group">
-                    <input type="number" class="form-control" id="windmax" placeholder="">
+                    <div class="input-group-addon">max+</div>
+                    <input type="number" class="form-control max2" id="windmax" placeholder="">
                     <div class="input-group-addon">km/h</div>
                   </div>
                 </div>
@@ -152,11 +179,13 @@
               <form class="form-inline">
                 <div class="form-group">
                   <div class="input-group">
-                    <input type="number" class="form-control" id="neerslagmin" placeholder="">
+                    <div class="input-group-addon">max</div>
+                    <input type="number" class="form-control max" id="neerslagmin" placeholder="">
                     <div class="input-group-addon">%</div>
                   </div>
                   <div class="input-group">
-                    <input type="number" class="form-control" id="neerslagmax" placeholder="">
+                    <div class="input-group-addon">max+</div>
+                    <input type="number" class="form-control max2" id="neerslagmax" placeholder="">
                     <div class="input-group-addon">%</div>
                   </div>
                 </div>
@@ -165,6 +194,7 @@
             </div>
             <div class="row"></div>
             <button type="submit" class="btn btn-primary" onclick="onClick();">Pas de basiswaarden aan!</button>
+            <button type="submit" class="btn btn-danger" onclick="reset();">Reset</button>
           </div>
         </div>
       </div>
@@ -173,6 +203,7 @@
       <table class="table table-striped table-hover">
         <thead>
           <tr>
+            <th></th>
             <th>Datum</th>
             <th>Tijd</th>
             <th>Temp</th>
@@ -198,20 +229,24 @@
   <script>
     var weerstor = localStorage.getItem('weer');
     if (weerstor === "0" || weerstor == null) {
+      localStorage.setItem('tempzero', "5");
       localStorage.setItem('tempmin', "25");
       localStorage.setItem('tempmax', "30");
       localStorage.setItem('windmin', "10");
       localStorage.setItem('windmax', "20");
       localStorage.setItem('neerslagmin', "25");
       localStorage.setItem('neerslagmax', "50");
+      $("#tempzero").val(localStorage.getItem('tempzero'));
       $("#tempmin").val(localStorage.getItem('tempmin'));
       $("#tempmax").val(localStorage.getItem('tempmax'));
       $("#windmin").val(localStorage.getItem('windmin'));
       $("#windmax").val(localStorage.getItem('windmax'));
       $("#neerslagmin").val(localStorage.getItem('neerslagmin'));
       $("#neerslagmax").val(localStorage.getItem('neerslagmax'));
+
       localStorage.setItem('weer', 1);
     } else {
+      $("#tempzero").val(localStorage.getItem('tempzero'));
       $("#tempmin").val(localStorage.getItem('tempmin'));
       $("#tempmax").val(localStorage.getItem('tempmax'));
       $("#windmin").val(localStorage.getItem('windmin'));
@@ -221,12 +256,14 @@
     }
 
     function onClick() {
+      var tempzero = $("#tempzero").val();
       var tempmin = $("#tempmin").val();
       var tempmax = $("#tempmax").val();
       var windmin = $("#windmin").val();
       var windmax = $("#windmax").val();
       var neerslagmin = $("#neerslagmin").val();
       var neerslagmax = $("#neerslagmax").val();
+      localStorage.setItem('tempzero', tempzero);
       localStorage.setItem('tempmin', tempmin);
       localStorage.setItem('tempmax', tempmax);
       localStorage.setItem('windmin', windmin);
@@ -237,9 +274,13 @@
       loc();
     }
 
-
+    function reset() {
+      localStorage.setItem('weer', 0);
+      location.reload();
+    }
 
     function loc() {
+      var btempzero = parseInt(localStorage.getItem('tempzero'));
       var bneerslagmin = parseInt(localStorage.getItem('neerslagmin'));
       var bneerslagmax = parseInt(localStorage.getItem('neerslagmax'));
       var bwindsnelheidmin = parseInt(localStorage.getItem('windmin'));
@@ -267,7 +308,8 @@
                 document.getElementById("tabel").innerHTML = "";
                 $("#tabelweer").show();
                 for (i = 0; i < 169; i++) {
-                  var datum = moment.unix(data.hourly.data[i].time).format("DD/MM"),
+                  var icoon = data.hourly.data[i].icon,
+                    datum = moment.unix(data.hourly.data[i].time).format("DD/MM"),
                     tijd = moment.unix(data.hourly.data[i].time).format("HH:mm"),
                     temperatuur = (data.hourly.data[i].temperature).toFixed(0),
                     windsnelheid = (data.hourly.data[i].windSpeed).toFixed(0),
@@ -281,13 +323,15 @@
                     tijdarray = ["07:00", "08:00", "09:00", "10:00", "11:00", "12:00", "13:00", "14:00", "15:00", "16:00", "17:00", "18:00", "19:00", "20:00"];
 
                   if ($.inArray(tijd, tijdarray) != -1) {
-                    document.getElementById("tabel").innerHTML += "<tr id='tabelrij" + i + "'><td>" + datum + "</td><td>" + tijd + "</td><td id ='temperatuur" + i + "'>" + temperatuur + "°C</td><td id='windsnelheid" + i + "'>" +
+                    document.getElementById("tabel").innerHTML += "<tr id='tabelrij" + i + "'><td>" + iconweer(icoon) + "</td><td>" + datum + "</td><td>" + tijd + "</td><td id ='temperatuur" + i + "'>" + temperatuur +
+                      "°C</td><td id='windsnelheid" + i + "'>" +
                       windsnelheid + " km/u</td><td>" +
-                      windstoot + " km/u</td><td>" + luchtvochtigheid + "%</td><td id='neerslagkans" + i + "'>" + neerslagkans + "%</td><td>" + neerslag + "mm</td><td>" + bewolking + "%</td><td>" + UVIndex(uv) + "</td><td>" + zichtbaarheid +
+                      windstoot + " km/u</td><td>" + luchtvochtigheid + "%</td><td id='neerslagkans" + i + "'>" + neerslagkans + "%</td><td>" + neerslag + "mm</td><td>" + bewolking + "%</td><td>" + UVIndex(uv) + "</td><td>" +
+                      zichtbaarheid +
                       "km</td></tr>";
 
                     if (tijd === "20:00") {
-                      document.getElementById("tabel").innerHTML += "<tr><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>";
+                      document.getElementById("tabel").innerHTML += "<tr><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>";
                     }
 
                     // vette letters
@@ -303,6 +347,7 @@
                       $("#temperatuur" + [i]).addClass("bold");
                     }
 
+                    // rest van de berekeningen voor warning & danger classes
                     if (neerslagkans >= bneerslagmin || windsnelheid >= bwindsnelheidmin || temperatuur >= btempmin) {
                       $("#tabelrij" + [i]).addClass("warning");
                       if (neerslagkans >= bneerslagmax || windsnelheid >= bwindsnelheidmax || temperatuur >= btempmax) {
@@ -310,6 +355,12 @@
                       }
                     } else {
                       $("#tabelrij" + [i]).addClass("success");
+                    }
+
+                    // uitzondering te lage temperatuur
+                    if (temperatuur <= btempzero) {
+                      $("#tabelrij" + [i]).addClass("info");
+                      $("#temperatuur" + [i]).addClass("bold");
                     }
 
                   }
@@ -328,50 +379,6 @@
     }
 
     loc();
-
-    function beaufort(num) {
-      var wind = num;
-      if (wind < 2) {
-        return ("0");
-      }
-      if (wind < 6) {
-        return ("1");
-      }
-      if (wind < 12) {
-        return ("2");
-      }
-      if (wind < 20) {
-        return ("3");
-      }
-      if (wind < 29) {
-        return ("4");
-      }
-      if (wind < 39) {
-        return ("5");
-      }
-      if (wind < 50) {
-        return ("6");
-      }
-      if (wind < 62) {
-        return ("7");
-      }
-      if (wind < 75) {
-        return ("8");
-      }
-      if (wind < 89) {
-        return ("9");
-      }
-      if (wind < 103) {
-        return ("10");
-      }
-      if (wind < 117) {
-        return ("11");
-      }
-      if (wind >= 117) {
-        return ("12");
-      }
-      return ("0");
-    }
 
     function UVIndex(num) {
       var uv = num;
