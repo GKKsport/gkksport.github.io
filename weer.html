@@ -158,6 +158,7 @@
                   </div>
                 </div>
               </form>
+              <br>
             </div>
             <div class="col-md-4 col-sm-12">
               <p><strong>Windsnelheid</strong></p>
@@ -175,6 +176,7 @@
                   </div>
                 </div>
               </form>
+              <br>
             </div>
             <div class="col-md-4 col-sm-12">
               <p><strong>Neerslagkans</strong></p>
@@ -193,7 +195,9 @@
                 </div>
               </form>
             </div>
-            <div class="row"></div>
+          </div>
+          <br>
+          <div class="row">
             <button type="submit" class="btn btn-primary" onclick="onClick();">Pas de basiswaarden aan!</button>
             <button type="submit" class="btn btn-danger" onclick="reset();">Reset</button>
             <button type="submit" class="btn btn-default" onclick="verbergVariabelen();">Verberg</button>
@@ -224,6 +228,9 @@
 
         </tbody>
       </table>
+      <div class="alert alert-info">
+        <strong>Locatie!</strong> Momenteel toont dit het weer voor je huidige locatie: <strong><span id="city"></span></strong>!
+      </div>
     </div>
 
 
@@ -314,6 +321,26 @@
         navigator.geolocation.getCurrentPosition(function(position) {
           var lat = position.coords.latitude;
           var long = position.coords.longitude;
+
+          geocoder = new google.maps.Geocoder();
+          var latlng = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
+          geocoder.geocode({
+            'latLng': latlng
+          }, function(results, status) {
+            if (status == google.maps.GeocoderStatus.OK) {
+              var result = results[0];
+              var city = "";
+              var state = "";
+              for (var i = 0, len = result.address_components.length; i < len; i++) {
+                var ac = result.address_components[i];
+                if (ac.types.indexOf("locality") >= 0) city = ac.long_name;
+                if (ac.types.indexOf("administrative_area_level_1") >= 0) state = ac.long_name;
+              }
+              if (city != '') {
+                $('#city').text(city);
+              }
+            }
+          });
 
           function adresWeer() {
 
@@ -455,7 +482,7 @@
   </script>
 
   <script src="js/auto-complete.js"></script>
-  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCm3cVtor4bk3KbwU7w26MZtmKxePJAtsc&libraries=places&callback=loc" async defer></script>
+  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCm3cVtor4bk3KbwU7w26MZtmKxePJAtsc&libraries=places&callback=loc&sensor=false"></script>
 </body>
 
 </html>
