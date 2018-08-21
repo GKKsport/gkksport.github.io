@@ -228,15 +228,17 @@
 
         </tbody>
       </table>
-      <div class="alert alert-info">
-        <strong>Locatie!</strong> Momenteel toont dit het weer voor je huidige locatie: <strong><span id="city"></span></strong>!
-      </div>
+
+    </div>
+    <div class="alert alert-info">
+      <strong>Locatie!</strong> Momenteel toont dit het weer voor je huidige locatie: <strong><span id="city"></span></strong>!
     </div>
 
 
   </div>
 
   <script>
+    //Verbergen van het paneel om eigen aanpassingen te doen in de variabelen.
     var verberg = localStorage.getItem('weerVerberg');
     if (verberg === "1") {
       $("#variabelen").hide();
@@ -256,6 +258,7 @@
     }
 
 
+    // Local storage van de variabelen
     var weerstor = localStorage.getItem('weer');
     if (weerstor === "0" || weerstor == null) {
       localStorage.setItem('tempzero', "5");
@@ -272,7 +275,6 @@
       $("#windmax").val(localStorage.getItem('windmax'));
       $("#neerslagmin").val(localStorage.getItem('neerslagmin'));
       $("#neerslagmax").val(localStorage.getItem('neerslagmax'));
-
       localStorage.setItem('weer', 1);
     } else {
       $("#tempzero").val(localStorage.getItem('tempzero'));
@@ -284,6 +286,7 @@
       $("#neerslagmax").val(localStorage.getItem('neerslagmax'));
     }
 
+    // Aanpassen van de variabelen en ze opslaan.
     function onClick() {
       var tempzero = $("#tempzero").val();
       var tempmin = $("#tempmin").val();
@@ -300,22 +303,18 @@
       localStorage.setItem('neerslagmin', neerslagmin);
       localStorage.setItem('neerslagmax', neerslagmax);
       console.log("berekening");
-      loc();
+      berekening();
     }
 
+    // Reset van de variabelen naar de basiswaarden
     function reset() {
       localStorage.setItem('weer', 0);
       location.reload();
     }
 
+    var triggered = 0;
+    // Locatie printen  + JSON ophalen en de tabel printen
     function loc() {
-      var btempzero = parseInt(localStorage.getItem('tempzero'));
-      var bneerslagmin = parseInt(localStorage.getItem('neerslagmin'));
-      var bneerslagmax = parseInt(localStorage.getItem('neerslagmax'));
-      var bwindsnelheidmin = parseInt(localStorage.getItem('windmin'));
-      var bwindsnelheidmax = parseInt(localStorage.getItem('windmax'));
-      var btempmin = parseInt(localStorage.getItem('tempmin'));
-      var btempmax = parseInt(localStorage.getItem('tempmax'));
 
       if (navigator.geolocation) {
         navigator.geolocation.getCurrentPosition(function(position) {
@@ -342,18 +341,21 @@
             }
           });
 
-          function adresWeer() {
 
-            var key = "bc19b1b471805791801dd3098e6b3b59";
-            weerurl = "https://api.darksky.net/forecast/" + key + "/" + lat + "," + long + "?exclude=minutely,flags&lang=nl&units=ca&extend=hourly";
-            console.log(weerurl);
+
+          var key = "bc19b1b471805791801dd3098e6b3b59";
+          weerurl = "https://api.darksky.net/forecast/" + key + "/" + lat + "," + long + "?exclude=minutely,flags&lang=nl&units=ca&extend=hourly";
+          console.log(weerurl);
+
+          if (triggered === 0) {
+            triggered++;
             $.ajax({
               url: weerurl,
               dataType: 'JSONP', // JSONP bij normale weerurl
               jsonpCallback: 'callback',
+              async: false,
               type: 'GET',
               success: function(data) {
-
                 document.getElementById("tabel").innerHTML = "";
                 $("#tabelweer").show();
                 for (i = 0; i < 169; i++) {
@@ -382,45 +384,17 @@
                     if (tijd === "20:00") {
                       document.getElementById("tabel").innerHTML += "<tr><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>";
                     }
-
-                    // vette letters
-                    if (neerslagkans >= bneerslagmin) {
-
-                      $("#neerslagkans" + [i]).addClass("bold");
-                    }
-                    if (windsnelheid >= bwindsnelheidmin) {
-
-                      $("#windsnelheid" + [i]).addClass("bold");
-                    }
-                    if (temperatuur >= btempmin) {
-                      $("#temperatuur" + [i]).addClass("bold");
-                    }
-
-                    // rest van de berekeningen voor warning & danger classes
-                    if (neerslagkans >= bneerslagmin || windsnelheid >= bwindsnelheidmin || temperatuur >= btempmin) {
-                      $("#tabelrij" + [i]).addClass("warning");
-                      if (neerslagkans >= bneerslagmax || windsnelheid >= bwindsnelheidmax || temperatuur >= btempmax) {
-                        $("#tabelrij" + [i]).addClass("danger");
-                      }
-                    } else {
-                      $("#tabelrij" + [i]).addClass("success");
-                    }
-
-                    // uitzondering te lage temperatuur
-                    if (temperatuur <= btempzero) {
-                      $("#tabelrij" + [i]).addClass("info");
-                      $("#temperatuur" + [i]).addClass("bold");
-                    }
-
                   }
                 }
+                setTimeout(function() {
+                  berekening();
+                }, 500);
               }
             });
-            $("body").tooltip({
-              selector: '[data-toggle=tooltip]'
-            });
           };
-          adresWeer();
+          $("body").tooltip({
+            selector: '[data-toggle=tooltip]'
+          });
         });
 
 
@@ -428,6 +402,67 @@
     }
 
     loc();
+
+    // Berekening van de kleurencodes zonder steeds opnieuw de JSON te moeten ophalen.
+    function berekening() {
+
+      var btempzero = parseInt(localStorage.getItem('tempzero'));
+      var bneerslagmin = parseInt(localStorage.getItem('neerslagmin'));
+      var bneerslagmax = parseInt(localStorage.getItem('neerslagmax'));
+      var bwindsnelheidmin = parseInt(localStorage.getItem('windmin'));
+      var bwindsnelheidmax = parseInt(localStorage.getItem('windmax'));
+      var btempmin = parseInt(localStorage.getItem('tempmin'));
+      var btempmax = parseInt(localStorage.getItem('tempmax'));
+
+      for (i = 0; i < 169; i++) {
+        if ($("#neerslagkans" + [i]).html() != null) {
+          $("#neerslagkans" + [i]).removeClass("bold");
+          $("#windsnelheid" + [i]).removeClass("bold");
+          $("#temperatuur" + [i]).removeClass("bold");
+          $("#tabelrij" + [i]).removeClass("warning");
+          $("#tabelrij" + [i]).removeClass("danger");
+          $("#tabelrij" + [i]).removeClass("info");
+          $("#tabelrij" + [i]).removeClass("success");
+          var neerslagkans = $("#neerslagkans" + [i]).html();
+          var windsnelheid = $("#windsnelheid" + [i]).html();
+          var temperatuur = $("#temperatuur" + [i]).html();
+
+          // vette letters
+          if (neerslagkans.replace(/[^0-9]/g, '') >= bneerslagmin) {
+            $("#neerslagkans" + [i]).addClass("bold");
+          }
+          if (windsnelheid.replace(/[^0-9]/g, '') >= bwindsnelheidmin) {
+
+            $("#windsnelheid" + [i]).addClass("bold");
+          }
+          if (temperatuur.replace(/[^0-9]/g, '') >= btempmin) {
+            $("#temperatuur" + [i]).addClass("bold");
+          }
+
+
+
+          // rest van de berekeningen voor warning & danger classes
+          if (neerslagkans.replace(/[^0-9]/g, '') >= bneerslagmin || windsnelheid.replace(/[^0-9]/g, '') >= bwindsnelheidmin || temperatuur.replace(/[^0-9]/g, '') >= btempmin) {
+            $("#tabelrij" + [i]).addClass("warning");
+            if (neerslagkans.replace(/[^0-9]/g, '') >= bneerslagmax || windsnelheid.replace(/[^0-9]/g, '') >= bwindsnelheidmax || temperatuur.replace(/[^0-9]/g, '') >= btempmax) {
+              $("#tabelrij" + [i]).addClass("danger");
+            }
+          } else {
+            $("#tabelrij" + [i]).addClass("success");
+          }
+          // uitzondering te lage temperatuur
+          if (btempzero >= temperatuur.replace(/[^0-9]/g, '')) {
+            $("#tabelrij" + [i]).addClass("info");
+            $("#temperatuur" + [i]).addClass("bold");
+          }
+
+
+        }
+
+
+      }
+      console.log("done");
+    }
 
     function UVIndex(num) {
       var uv = num;
@@ -467,17 +502,6 @@
       } else {
         return "<i class='wi wi-na'></i>"
       }
-    }
-
-    function degToCompass(num) {
-      var val = num - 225;
-      return "<i style='transform: rotate(" + val + "deg)' class='fas fa-location-arrow'></i>";
-    }
-
-    function degToWD(num) {
-      var val = Math.floor(((num) / 22.5) + 0.5);
-      var arr = ["N", "NNO", "NO", "ONO", "O", "OZO", "ZO", "ZO", "Z", "ZW", "ZW", "WZW", "W", "WNW", "NW", "NNW"];
-      return arr[(val % 16)];
     }
   </script>
 
