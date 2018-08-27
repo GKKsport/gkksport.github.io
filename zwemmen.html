@@ -206,7 +206,7 @@
 				} else {
 					document.getElementById("zwemkal2").innerHTML = "<div class='panel panel-primary'><div class='panel-heading'><h2 class='panel-title'>LAGO</h2></div><div class='panel-body'>" + data.output + "</div></div>";
 				}
-				console.log("gelukt");
+				console.log("Zwembad-data stabiel");
 				test();
 			});
 
@@ -332,8 +332,6 @@
 			document.getElementById("zwemkal6").innerHTML = "<div class='panel panel-info'><div class='panel-heading'><h2 class='panel-title'>BLAARMEERSEN</h2></div><div class='panel-body'><p>Laatste meting: " + data[0].Datum + "<br>Kwaliteit: " + data[
 					0].Kwaliteitsniveau +
 				"</p><p style='margin: 0px'>Watertemperatuur: " + data[0].Temperatuur + " °C</p></div></div>";
-			console.log(data);
-
 		}
 	</script>
 	<!-- GKK Service Worker -->
