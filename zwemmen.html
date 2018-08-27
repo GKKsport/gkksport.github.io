@@ -188,102 +188,113 @@
 			document.getElementById("zwemkal6").innerHTML = "";
 
 
-			// GUSB
-			$.ajax({
-				url: "https://jsonp.afeld.me/?url=http%3A%2F%2Fstad.gent%2Fsport2%2Fplace%2Fajax%2Fopeninghours%2F56%2F" + datum,
-				type: "GET",
-				dataType: "jsonp",
-				success: function(data) {
-					var variabel = data.output;
-					if (variabel.indexOf("Gesloten") >= 0) {
-						document.getElementById("zwemkal1").innerHTML = "<div class='panel panel-danger'><div class='panel-heading'><h2 class='panel-title'>GUSB</h2></div><div class='panel-body'>" + data.output + "</div></div>";
-					} else {
-						document.getElementById("zwemkal1").innerHTML = "<div class='panel panel-primary'><div class='panel-heading'><h2 class='panel-title'>GUSB</h2></div><div class='panel-body'>" + data.output + "</div></div>";
-					}
-					// and other stuff i do with the data i get
-					test();
-				},
-				xhrFields: {
-					withCredentials: false
-				}
-			})
-
 			// LAGO
 			$.ajax({
-				url: "https://jsonp.afeld.me/?url=http%3A%2F%2Fstad.gent%2Fsport2%2Fplace%2Fajax%2Fopeninghours%2F5%2F" + datum,
-				type: "GET",
-				dataType: "jsonp",
-				success: function(data) {
-					var variabel = data.output;
-					if (variabel.indexOf("Gesloten") >= 0) {
-						document.getElementById("zwemkal2").innerHTML = "<div class='panel panel-danger'><div class='panel-heading'><h2 class='panel-title'>LAGO</h2></div><div class='panel-body'>" + data.output + "</div></div>";
-					} else {
-						document.getElementById("zwemkal2").innerHTML = "<div class='panel panel-primary'><div class='panel-heading'><h2 class='panel-title'>LAGO</h2></div><div class='panel-body'>" + data.output + "</div></div>";
-					}
-					test();
-				},
-				xhrFields: {
-					withCredentials: false
+				url: 'http://proxy.hackeryou.com',
+				dataType: 'json',
+				method: 'GET',
+				data: {
+					reqUrl: 'https://stad.gent/sport2/place/ajax/openinghours/5/' + datum,
+					xmlToJSON: false,
+					useCache: false
 				}
-			})
+			}).then(function(data) {
+				var variabel = data.output;
+				if (variabel.indexOf("Gesloten") >= 0) {
+					document.getElementById("zwemkal2").innerHTML = "<div class='panel panel-danger'><div class='panel-heading'><h2 class='panel-title'>LAGO</h2></div><div class='panel-body'>" + data.output + "</div></div>";
+				} else {
+					document.getElementById("zwemkal2").innerHTML = "<div class='panel panel-primary'><div class='panel-heading'><h2 class='panel-title'>LAGO</h2></div><div class='panel-body'>" + data.output + "</div></div>";
+				}
+				console.log("gelukt");
+				test();
+			});
+
+
+
+
+			// GUSB
+			$.ajax({
+				url: 'http://proxy.hackeryou.com',
+				dataType: 'json',
+				method: 'GET',
+				data: {
+					reqUrl: 'https://stad.gent/sport2/place/ajax/openinghours/56/' + datum,
+					xmlToJSON: false,
+					useCache: false
+				}
+			}).then(function(data) {
+				var variabel = data.output;
+				if (variabel.indexOf("Gesloten") >= 0) {
+					document.getElementById("zwemkal1").innerHTML = "<div class='panel panel-danger'><div class='panel-heading'><h2 class='panel-title'>GUSB</h2></div><div class='panel-body'>" + data.output + "</div></div>";
+				} else {
+					document.getElementById("zwemkal1").innerHTML = "<div class='panel panel-primary'><div class='panel-heading'><h2 class='panel-title'>GUSB</h2></div><div class='panel-body'>" + data.output + "</div></div>";
+				}
+				// and other stuff i do with the data i get
+				test();
+			});
+
+
 
 			// STROP
 			$.ajax({
-				url: "https://jsonp.afeld.me/?url=http%3A%2F%2Fstad.gent%2Fsport2%2Fplace%2Fajax%2Fopeninghours%2F19%2F" + datum,
-				type: "GET",
-				dataType: "jsonp",
-				success: function(data) {
-					var variabel = data.output;
-					if (variabel.indexOf("Gesloten") >= 0) {
-						document.getElementById("zwemkal3").innerHTML = "<div class='panel panel-danger'><div class='panel-heading'><h2 class='panel-title'>STROP</h2></div><div class='panel-body'>" + data.output + "</div></div>";
-					} else {
-						document.getElementById("zwemkal3").innerHTML = "<div class='panel panel-primary'><div class='panel-heading'><h2 class='panel-title'>STROP</h2></div><div class='panel-body'>" + data.output + "</div></div>";
-					}
-					test();
-				},
-				xhrFields: {
-					withCredentials: false
+				url: 'http://proxy.hackeryou.com',
+				dataType: 'json',
+				method: 'GET',
+				data: {
+					reqUrl: 'https://stad.gent/sport2/place/ajax/openinghours/19/' + datum,
+					xmlToJSON: false,
+					useCache: false
 				}
-			})
+			}).then(function(data) {
+				var variabel = data.output;
+				if (variabel.indexOf("Gesloten") >= 0) {
+					document.getElementById("zwemkal3").innerHTML = "<div class='panel panel-danger'><div class='panel-heading'><h2 class='panel-title'>STROP</h2></div><div class='panel-body'>" + data.output + "</div></div>";
+				} else {
+					document.getElementById("zwemkal3").innerHTML = "<div class='panel panel-primary'><div class='panel-heading'><h2 class='panel-title'>STROP</h2></div><div class='panel-body'>" + data.output + "</div></div>";
+				}
+				test();
+			});
 
 			// ROOIGEM
 			$.ajax({
-				url: "https://jsonp.afeld.me/?url=http%3A%2F%2Fstad.gent%2Fsport2%2Fplace%2Fajax%2Fopeninghours%2F18%2F" + datum,
-				type: "GET",
-				dataType: "jsonp",
-				success: function(data) {
-					var variabel = data.output;
-					if (variabel.indexOf("Gesloten") >= 0) {
-						document.getElementById("zwemkal4").innerHTML = "<div class='panel panel-danger'><div class='panel-heading'><h2 class='panel-title'>ROOIGEM</h2></div><div class='panel-body'>" + data.output + "</div></div>";
-					} else {
-						document.getElementById("zwemkal4").innerHTML = "<div class='panel panel-primary'><div class='panel-heading'><h2 class='panel-title'>ROOIGEM</h2></div><div class='panel-body'>" + data.output + "</div></div>";
-					}
-					test();
-				},
-				xhrFields: {
-					withCredentials: false
+				url: 'http://proxy.hackeryou.com',
+				dataType: 'json',
+				method: 'GET',
+				data: {
+					reqUrl: 'https://stad.gent/sport2/place/ajax/openinghours/18/' + datum,
+					xmlToJSON: false,
+					useCache: false
 				}
-			})
+			}).then(function(data) {
+				var variabel = data.output;
+				if (variabel.indexOf("Gesloten") >= 0) {
+					document.getElementById("zwemkal4").innerHTML = "<div class='panel panel-danger'><div class='panel-heading'><h2 class='panel-title'>ROOIGEM</h2></div><div class='panel-body'>" + data.output + "</div></div>";
+				} else {
+					document.getElementById("zwemkal4").innerHTML = "<div class='panel panel-primary'><div class='panel-heading'><h2 class='panel-title'>ROOIGEM</h2></div><div class='panel-body'>" + data.output + "</div></div>";
+				}
+				test();
+			});
 
 			// VAN EYCK
 			$.ajax({
-				url: "https://jsonp.afeld.me/?url=http%3A%2F%2Fstad.gent%2Fsport2%2Fplace%2Fajax%2Fopeninghours%2F19%2F" + datum,
-				type: "GET",
-				dataType: "jsonp",
-				success: function(data) {
-					console.log(data.output);
-					var variabel = data.output;
-					if (variabel.indexOf("Gesloten") >= 0) {
-						document.getElementById("zwemkal5").innerHTML = "<div class='panel panel-danger'><div class='panel-heading'><h2 class='panel-title'>VAN EYCK</h2></div><div class='panel-body'>" + data.output + "</div></div>";
-					} else {
-						document.getElementById("zwemkal5").innerHTML = "<div class='panel panel-primary'><div class='panel-heading'><h2 class='panel-title'>VAN EYCK</h2></div><div class='panel-body'>" + data.output + "</div></div>";
-					}
-					test();
-				},
-				xhrFields: {
-					withCredentials: false
+				url: 'http://proxy.hackeryou.com',
+				dataType: 'json',
+				method: 'GET',
+				data: {
+					reqUrl: 'https://stad.gent/sport2/place/ajax/openinghours/49/' + datum,
+					xmlToJSON: false,
+					useCache: false
 				}
-			})
+			}).then(function(data) {
+				console.log(data.output);
+				var variabel = data.output;
+				if (variabel.indexOf("Gesloten") >= 0) {
+					document.getElementById("zwemkal5").innerHTML = "<div class='panel panel-danger'><div class='panel-heading'><h2 class='panel-title'>VAN EYCK</h2></div><div class='panel-body'>" + data.output + "</div></div>";
+				} else {
+					document.getElementById("zwemkal5").innerHTML = "<div class='panel panel-primary'><div class='panel-heading'><h2 class='panel-title'>VAN EYCK</h2></div><div class='panel-body'>" + data.output + "</div></div>";
+				}
+				test();
+			});
 
 			function test() {
 				if ($("#zwemkal1").length != 0 && $("#zwemkal2").length != 0 && $("#zwemkal3").length != 0 && $("#zwemkal4").length != 0 && $("#zwemkal5").length != 0) {
