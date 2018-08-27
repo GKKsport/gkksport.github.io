@@ -170,7 +170,7 @@
 					document.getElementById("zwemkal").innerHTML += "<div class='clearfix visible-sm-block visible-md-block'></div>"
 				}
 			}
-			console.log("V1.0.1");
+			console.log("V1.0.2");
 			klik();
 			init();
 		})
@@ -287,7 +287,6 @@
 					useCache: false
 				}
 			}).then(function(data) {
-				console.log(data.output);
 				var variabel = data.output;
 				if (variabel.indexOf("Gesloten") >= 0) {
 					document.getElementById("zwemkal5").innerHTML = "<div class='panel panel-danger'><div class='panel-heading'><h2 class='panel-title'>VAN EYCK</h2></div><div class='panel-body'>" + data.output + "</div></div>";
