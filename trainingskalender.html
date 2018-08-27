@@ -175,7 +175,8 @@
 			for (i = 0; i < 6; i++) {
 				var wn = weeknumber + i;
 				document.getElementById("paneltitel" + i).innerHTML = "<strong>Week " + wn + "</strong> (die start op " + data[wn].Start + ")";
-				document.getElementById("panelinhoud" + i).innerHTML = "<table class='table table-condensed table-bordered'>" + "<tr><td>M</td><td>" + leeg(data[wn].MA) + "</td></tr><tr><td>D</td><td>" + leeg(data[wn].DI) + "</td></tr><tr><td>W</td><td>" + leeg(
+				document.getElementById("panelinhoud" + i).innerHTML = "<table class='table table-hover table-condensed table-bordered'>" + "<tr><td>M</td><td>" + leeg(data[wn].MA) + "</td></tr><tr><td>D</td><td>" + leeg(data[wn].DI) +
+					"</td></tr><tr><td>W</td><td>" + leeg(
 						data[wn].WO) +
 					"</td></tr><tr><td>D</td><td>" + leeg(data[wn].DO) + "</td></tr><tr><td>V</td><td>" + leeg(data[wn].VR) + "</td></tr><tr><td>Z</td><td>" + leeg(data[wn].ZA) + "</td></tr><tr><td>Z</td><td>" + leeg(data[wn].ZO) + "</td></tr>" + "</table>";
 			}
