@@ -8,7 +8,7 @@
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
-	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ" crossorigin="anonymous">
 	<link rel="icon" sizes="192x192" href="icon.png">
 	<style>
 		/* Remove the navbar's default margin-bottom and rounded borders */
@@ -61,6 +61,30 @@
 
 		.table {
 			margin-bottom: 0px !important;
+		}
+
+		.loop {
+			background-color: #d9d2e9;
+		}
+
+		.loop:hover {
+			background-color: #c3bdd1;
+		}
+
+		.zwem {
+			background-color: #cfe2f3;
+		}
+
+		.zwem:hover {
+			background-color: #bacbda;
+		}
+
+		.fiets {
+			background-color: #ead1dc;
+		}
+
+		.fiets:hover {
+			background-color: #d2bcc6;
 		}
 
 		/* On small screens, set height to 'auto' for sidenav and grid */
@@ -131,29 +155,48 @@
 					<div id="panelinhoud2" class="panel-body"></div>
 				</div>
 			</div>
-			<div class='clearfix visible-sm-block visible-md-block'></div>
+			<div class='clearfix visible-sm-block visible-md-block visible-lg-block'></div>
+			<div id="meer" style="display:none;">
+				<div class="col-xs-12 col-sm-12 col-md-4 col-lg-4">
+					<div class="panel panel-default">
+						<div id="paneltitel3" class="panel-heading"></div>
+						<div id="panelinhoud3" class="panel-body"></div>
+					</div>
+				</div>
+				<div class="col-xs-12 col-sm-12 col-md-4 col-lg-4">
+					<div class="panel panel-default">
+						<div id="paneltitel4" class="panel-heading"></div>
+						<div id="panelinhoud4" class="panel-body"></div>
+					</div>
+				</div>
+				<div class="col-xs-12 col-sm-12 col-md-4 col-lg-4">
+					<div class="panel panel-default">
+						<div id="paneltitel5" class="panel-heading"></div>
+						<div id="panelinhoud5" class="panel-body"></div>
+					</div>
+				</div>
+				<div class='clearfix visible-sm-block visible-md-block visible-lg-block'></div>
+				<div class="col-xs-12 col-sm-12 col-md-4 col-lg-4">
+					<div class="panel panel-default">
+						<div id="paneltitel6" class="panel-heading"></div>
+						<div id="panelinhoud6" class="panel-body"></div>
+					</div>
+				</div>
+				<div class="col-xs-12 col-sm-12 col-md-4 col-lg-4">
+					<div class="panel panel-default">
+						<div id="paneltitel7" class="panel-heading"></div>
+						<div id="panelinhoud7" class="panel-body"></div>
+					</div>
+				</div>
+				<div class="col-xs-12 col-sm-12 col-md-4 col-lg-4">
+					<div class="panel panel-default">
+						<div id="paneltitel8" class="panel-heading"></div>
+						<div id="panelinhoud8" class="panel-body"></div>
+					</div>
+				</div>
+			</div>
 		</div>
-		<div id="meer" style="display:none;" class="row content">
-			<div class="col-xs-12 col-sm-12 col-md-4 col-lg-4">
-				<div class="panel panel-default">
-					<div id="paneltitel3" class="panel-heading"></div>
-					<div id="panelinhoud3" class="panel-body"></div>
-				</div>
-			</div>
-			<div class="col-xs-12 col-sm-12 col-md-4 col-lg-4">
-				<div class="panel panel-default">
-					<div id="paneltitel4" class="panel-heading"></div>
-					<div id="panelinhoud4" class="panel-body"></div>
-				</div>
-			</div>
-			<div class="col-xs-12 col-sm-12 col-md-4 col-lg-4">
-				<div class="panel panel-default">
-					<div id="paneltitel5" class="panel-heading"></div>
-					<div id="panelinhoud5" class="panel-body"></div>
-				</div>
-			</div>
-		</div>
-		<button id="knop" class="btn btn-default" onclick="btn();" style="margin-bottom:20px">Toon nog 3 weken</button>
+		<button id="knop" class="btn btn-default" onclick="btn();" style="margin-bottom:20px">Toon nog 6 weken</button>
 	</div>
 	</div>
 	<script src='https://cdnjs.cloudflare.com/ajax/libs/tabletop.js/1.5.1/tabletop.min.js'></script>
@@ -172,17 +215,50 @@
 
 		function showInfo(data, tabletop) {
 			console.log(data[weeknumber]);
-			for (i = 0; i < 6; i++) {
+			for (i = 0; i < 9; i++) {
 				var wn = weeknumber + i;
 				document.getElementById("paneltitel" + i).innerHTML = "<strong>Week " + wn + "</strong> (die start op " + data[wn].Start + ")";
-				document.getElementById("panelinhoud" + i).innerHTML = "<table class='table table-hover table-condensed table-bordered'>" + "<tr><td>M</td><td>" + leeg(data[wn].MA) + "</td></tr><tr><td>D</td><td>" + leeg(data[wn].DI) +
+				document.getElementById("panelinhoud" + i).innerHTML = "<table class='table table-hover table-condensed table-bordered'>" + "<tr id='" + wn + "A'><td>M</td><td>" + leeg(data[wn].MA) + "</td></tr><tr id='" + wn + "B'><td>D</td><td>" + leeg(data[
+						wn].DI) +
 					"</td></tr><tr><td>W</td><td>" + leeg(
 						data[wn].WO) +
 					"</td></tr><tr><td>D</td><td>" + leeg(data[wn].DO) + "</td></tr><tr><td>V</td><td>" + leeg(data[wn].VR) + "</td></tr><tr><td>Z</td><td>" + leeg(data[wn].ZA) + "</td></tr><tr><td>Z</td><td>" + leeg(data[wn].ZO) + "</td></tr>" + "</table>";
+
 			}
 
-		}
+			// Geeft kleur aan de rijen
+			var trs = document.getElementsByTagName('td');
+			for (var i = 0, len = trs.length; i < len; ++i) {
+				if (trs[i].innerHTML.indexOf("[Z]") !== -1) {
+					$(trs[i]).addClass('zwem');
+				}
+				if (trs[i].innerHTML.indexOf("[L]") !== -1) {
+					$(trs[i]).addClass('loop');
+				}
+				if (trs[i].innerHTML.indexOf("[F]") !== -1) {
+					$(trs[i]).addClass('fiets');
+				}
+				if (trs[i].innerHTML.indexOf("[W]") !== -1) {
+					$(trs[i]).addClass('danger');
+				}
+				if (trs[i].innerHTML.indexOf("[C]") !== -1) {
+					$(trs[i]).addClass('active');
+				}
+			}
 
+			// Vervangt alle code uit de google sheet met een gepast icoon
+			$("body").children().each(function() {
+				$(this).html($(this).html().replace(/\[L\]/g, "<i class='fas fa-walking'></i>"));
+				$(this).html($(this).html().replace(/\[Z\]/g, "<i class='fas fa-swimmer'></i>"));
+				$(this).html($(this).html().replace(/\[F\]/g, "<i class='fas fa-bicycle'></i>"));
+				$(this).html($(this).html().replace(/\[C\]/g, "<i class='fas fa-child'></i>"));
+				$(this).html($(this).html().replace(/\[W\]/g, "<i class='fas fa-exclamation-circle'></i>"));
+				$(this).html($(this).html().replace(/\[X\]/g, "<i class='fas fa-check-square'></li>"));
+			});
+
+
+
+		}
 		init();
 
 		function leeg(string) {
