@@ -154,6 +154,12 @@
 	</nav>
 
 	<div class="container-fluid text-center">
+		<div id="alert" style="display:none;">
+			<br>
+			<div class="alert alert-danger">
+				<strong>Geen juiste link!</strong> Geef een correcte link naar je trainingskalender op Google Drive in. Deze moet gepubliceerd zijn op het net en de deelbare link moet hieronder ingevuld worden.
+			</div>
+		</div>
 		<div class="row content" id="panels" style="display:none;">
 			<br>
 			<div class="col-xs-12 col-sm-12 col-md-4 col-lg-4">
@@ -240,10 +246,13 @@
 	<script src='https://cdnjs.cloudflare.com/ajax/libs/tabletop.js/1.5.1/tabletop.min.js'></script>
 	<script src='https://momentjs.com/downloads/moment-with-locales.js'></script>
 	<script>
-		if (localStorage.getItem('gsheet') != "" || localStorage.getItem('gsheet') != null) {
+		if (localStorage.getItem('gsheet') != "" && localStorage.getItem('gsheet') != null) {
 			var publicSpreadsheetUrl2 = localStorage.getItem('gsheet');
 			document.getElementById("gsheetlink").value = publicSpreadsheetUrl2;
 			init();
+			console.log("test");
+		} else {
+			$("#alert").show();
 		}
 
 		function gsheetophaal() {
