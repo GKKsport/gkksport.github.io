@@ -87,6 +87,20 @@
 			background-color: #d2bcc6;
 		}
 
+		.footer {
+			position: relative;
+			margin-top: -150px;
+			/* negative value of footer height */
+			height: 150px;
+			clear: both;
+			padding-top: 20px;
+		}
+
+		body {
+			padding-bottom: 120px;
+
+		}
+
 		/* On small screens, set height to 'auto' for sidenav and grid */
 
 		@media screen and (max-width: 767px) {
@@ -135,7 +149,7 @@
 	</nav>
 
 	<div class="container-fluid text-center">
-		<div class="row content">
+		<div class="row content" id="panels" style="display:none;">
 			<br>
 			<div class="col-xs-12 col-sm-12 col-md-4 col-lg-4">
 				<div class="panel panel-primary">
@@ -195,15 +209,42 @@
 					</div>
 				</div>
 			</div>
+			<button id="knop" class="btn btn-default" onclick="btn();" style="margin-bottom:20px">Toon nog 6 weken</button>
 		</div>
-		<button id="knop" class="btn btn-default" onclick="btn();" style="margin-bottom:20px">Toon nog 6 weken</button>
 	</div>
+	<div class="navbar navbar-inverse navbar-fixed-bottom">
+		<center>
+			<form class="form-inline" style="margin-top:5px;">
+				<div class="form-group">
+					<div class="input-group">
+						<div class="input-group-addon"><i class="fab fa-google-drive"></i></div>
+						<input type="url" class="form-control" id="gsheetlink" placeholder="Google sheet link">
+					</div>
+				</div>
+				<button onclick="gsheetophaal();" class="btn btn-primary" style="margin-bottom:0px!important;"><i class="fas fa-check"></i></button>
+			</form>
+		</center>
 	</div>
+
 	<script src='https://cdnjs.cloudflare.com/ajax/libs/tabletop.js/1.5.1/tabletop.min.js'></script>
 	<script src='https://momentjs.com/downloads/moment-with-locales.js'></script>
 	<script>
+		if (localStorage.getItem('gsheet') != "" || localStorage.getItem('gsheet') != null) {
+			var publicSpreadsheetUrl2 = localStorage.getItem('gsheet');
+			document.getElementById("gsheetlink").value = publicSpreadsheetUrl2;
+			init();
+		}
+
+		function gsheetophaal() {
+			var gsheetlink = $("#gsheetlink").val();
+			localStorage.setItem('gsheet', gsheetlink);
+			var publicSpreadsheetUrl2 = localStorage.getItem('gsheet');
+			init();
+		}
+
+
 		var weeknumber = moment().week();
-		var publicSpreadsheetUrl2 = 'https://docs.google.com/spreadsheets/d/1iDjN5lh4ZwjMZzrVT2ixNdE5tUXnPmhDzF1Fasg8Xek/edit?usp=sharing'
+		var publicSpreadsheetUrl = 'https://docs.google.com/spreadsheets/d/1iDjN5lh4ZwjMZzrVT2ixNdE5tUXnPmhDzF1Fasg8Xek/edit?usp=sharing'
 
 		function init() {
 			Tabletop.init({
@@ -214,6 +255,7 @@
 		}
 
 		function showInfo(data, tabletop) {
+			$("#panels").show();
 			console.log(data[weeknumber]);
 			for (i = 0; i < 9; i++) {
 				var wn = weeknumber + i;
@@ -257,9 +299,9 @@
 			});
 
 
-
+			document.getElementById("gsheetlink").value = publicSpreadsheetUrl2;
 		}
-		init();
+
 
 		function leeg(string) {
 			var legedag = string;
@@ -282,5 +324,6 @@
 	}
 </script>-->
 </body>
+
 
 </html>
