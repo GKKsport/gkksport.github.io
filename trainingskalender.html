@@ -96,6 +96,11 @@
 			padding-top: 20px;
 		}
 
+		.form-inline .form-control {
+			display: inline-block !important;
+			width: auto !important
+		}
+
 		body {
 			padding-bottom: 120px;
 
@@ -213,17 +218,23 @@
 		</div>
 	</div>
 	<div class="navbar navbar-inverse navbar-fixed-bottom">
-		<center>
-			<form class="form-inline" style="margin-top:5px;">
-				<div class="form-group">
-					<div class="input-group">
-						<div class="input-group-addon"><i class="fab fa-google-drive"></i></div>
-						<input autocomplete="off" type="url" class="form-control" id="gsheetlink" placeholder="Google sheet link">
-					</div>
-				</div>
-				<button onclick="gsheetophaal();" class="btn btn-primary" style="margin-bottom:0px!important;"><i class="fas fa-check"></i></button>
-			</form>
-		</center>
+		<div class="row">
+			<div class="col-md-2 col-lg-2 col-sm-1 col-xs-1"></div>
+			<div class="col-lg-8 col-md-8 col-sm-10 col-xs-10">
+				<center>
+					<form style="margin-top:5px;">
+						<div class="input-group">
+							<div class="input-group-addon"><i class="fab fa-google-drive"></i></div>
+							<input autocomplete="off" type="url" class="form-control" id="gsheetlink" placeholder="Google sheet link">
+							<span class="input-group-btn">
+				          <button onclick="gsheetophaal();" class="btn btn-primary" style="margin-bottom:0px!important;"><i class="fas fa-check"></i></button>
+				        </span>
+						</div>
+					</form>
+				</center>
+			</div>
+			<div class="col-md-2 col-lg-2 col-sm-1 col-xs-1"></div>
+		</div>
 	</div>
 
 	<script src='https://cdnjs.cloudflare.com/ajax/libs/tabletop.js/1.5.1/tabletop.min.js'></script>
