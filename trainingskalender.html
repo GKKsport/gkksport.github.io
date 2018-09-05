@@ -246,6 +246,17 @@
 	<script src='https://cdnjs.cloudflare.com/ajax/libs/tabletop.js/1.5.1/tabletop.min.js'></script>
 	<script src='https://momentjs.com/downloads/moment-with-locales.js'></script>
 	<script>
+		moment.updateLocale('en', {
+			week: {
+				dow: 1,
+			},
+		});
+		moment.updateLocale('nl', {
+			week: {
+				dow: 1,
+			},
+		});
+
 		if (localStorage.getItem('gsheet') != "" && localStorage.getItem('gsheet') != null) {
 			var publicSpreadsheetUrl2 = localStorage.getItem('gsheet');
 			document.getElementById("gsheetlink").value = publicSpreadsheetUrl2;
