@@ -291,25 +291,13 @@
 			for (i = 0; i < 9; i++) {
 				var wn = weeknumber + i;
 				document.getElementById("paneltitel" + i).innerHTML = "<strong>Week " + wn + "</strong> (die start op " + data[wn].Start + ")";
-				document.getElementById("panelinhoud" + i).innerHTML = "<table class='table table-hover table-condensed table-bordered'>" + "<tr id='" + wn + "A'><td style="
-				width: 5 % ;
-				">M</td><td>" + leeg(data[wn].MA) + "</td></tr><tr id='" + wn + "B'><td style="
-				width: 5 % ;
-				">D</td><td>" + leeg(data[
+				document.getElementById("panelinhoud" + i).innerHTML = "<table class='table table-hover table-condensed table-bordered'>" + "<tr id='" + wn + "A'><td style='width:5%;'>M</td><td>" + leeg(data[wn].MA) + "</td></tr><tr id='" + wn +
+					"B'><td style='width:5%;'>D</td><td>" + leeg(data[
 						wn].DI) +
-					"</td></tr><tr><td style="
-				width: 5 % ;
-				">W</td><td>" + leeg(
+					"</td></tr><tr><td style='width:5%;'>W</td><td>" + leeg(
 						data[wn].WO) +
-					"</td></tr><tr><td style="
-				width: 5 % ;
-				">D</td><td>" + leeg(data[wn].DO) + "</td></tr><tr><td style="
-				width: 5 % ;
-				">V</td><td>" + leeg(data[wn].VR) + "</td></tr><tr><td style="
-				width: 5 % ;
-				">Z</td><td>" + leeg(data[wn].ZA) + "</td></tr><tr><td style="
-				width: 5 % ;
-				">Z</td><td>" + leeg(data[wn].ZO) + "</td></tr>" + "</table>";
+					"</td></tr><tr><td style='width:5%;'>D</td><td>" + leeg(data[wn].DO) + "</td></tr><tr><td style='width:5%;'>V</td><td>" + leeg(data[wn].VR) + "</td></tr><tr><td style='width:5%;'>Z</td><td>" + leeg(data[wn].ZA) +
+					"</td></tr><tr><td style='width:5%;'>Z</td><td>" + leeg(data[wn].ZO) + "</td></tr>" + "</table>";
 
 			}
 
