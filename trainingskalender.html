@@ -219,6 +219,21 @@
 						<div id="panelinhoud8" class="panel-body"></div>
 					</div>
 				</div>
+				<div class='clearfix visible-sm-block visible-md-block visible-lg-block'></div>
+				<button id="knop2" class="btn btn-default" onclick="btn2();" style="margin-bottom:20px">Hartslagzones tonen</button>
+				<div id="meer2" style="display:none;">
+					<div class="col-xs-12 col-sm-12 col-md-4 col-lg-4"></div>
+					<div class="col-xs-12 col-sm-12 col-md-4 col-lg-4">
+						<div class="panel panel-default">
+							<div class="panel-heading">Hartslagzones</div>
+							<div class="panel-body">
+								<table class='table table-hover table-condensed table-bordered' id="hrtabel">
+								</table>
+							</div>
+						</div>
+					</div>
+					<div class="col-xs-12 col-sm-12 col-md-4 col-lg-4"></div>
+				</div>
 			</div>
 			<button id="knop" class="btn btn-default" onclick="btn();" style="margin-bottom:20px">Toon nog 6 weken</button>
 		</div>
@@ -301,6 +316,10 @@
 
 			}
 
+			for (i = 1; i < 7; i++) {
+				document.getElementById("hrtabel").innerHTML += "<tr><td>" + data[i].HSZones + "</td><td>" + data[i].Naam + "</td></tr>";
+			}
+
 			// Geeft kleur aan de rijen
 			var trs = document.getElementsByTagName('td');
 			for (var i = 0, len = trs.length; i < len; ++i) {
@@ -348,6 +367,11 @@
 		function btn() {
 			$('#knop').hide();
 			$('#meer').show();
+		}
+
+		function btn2() {
+			$('#knop2').hide();
+			$('#meer2').show();
 		}
 	</script>
 	<!-- GKK Service Worker -->
