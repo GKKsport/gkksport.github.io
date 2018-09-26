@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="nl">
 
 <head>
 
@@ -28,8 +28,12 @@
   <link rel="icon" type="image/png" href="images/favicon.png">
 
   <style>
+    :root {
+      --achtergrondkleur: #192a56;
+    }
+
     body {
-      background-color: #0984e3;
+      background-color: var(--achtergrondkleur);
     }
 
     #info {
@@ -48,14 +52,14 @@
     }
 
     button:hover {
-      color: #0984e3;
+      color: var(--achtergrondkleur);
       background-color: white;
       border-color: white;
     }
 
     button:active,
     button:focus {
-      color: #0984e3;
+      color: var(--achtergrondkleur);
       background-color: white;
       border-color: white;
       opacity: 0.8;
@@ -76,7 +80,7 @@
     </div>
     <div id="info" class="row" style="margin-top: 40px">
       <center>
-        <p>Meer info over hoe de roelandcaching precies zal verlopen</p>
+        <p style="margin-top: 25px;">Meer info over hoe de roelandcaching precies zal verlopen</p>
       </center>
     </div>
     <div style="margin-top: 40px;">
