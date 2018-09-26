@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+  <!-- Basic Page Needs
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+  <meta charset="utf-8">
+  <title>Roelandcache</title>
+  <meta name="description" content="">
+  <meta name="author" content="">
+
+  <!-- Mobile Specific Metas
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- FONT
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+  <link href="//fonts.googleapis.com/css?family=Raleway:400,300,600" rel="stylesheet" type="text/css">
+
+  <!-- CSS
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+  <link rel="stylesheet" href="css/normalize.css">
+  <link rel="stylesheet" href="css/skeleton.css">
+
+  <!-- Favicon
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+  <link rel="icon" type="image/png" href="images/favicon.png">
+
+  <style>
+    body {
+      background-color: #0984e3;
+    }
+
+    #clockdiv {
+      font-family: sans-serif;
+      color: #0984e3;
+      display: inline-block;
+      font-weight: 100;
+      text-align: center;
+      font-size: 30px;
+    }
+
+    #clockdiv>div {
+      padding: 10px;
+      border-radius: 3px;
+      background: #fff;
+      display: inline-block;
+    }
+
+    #clockdiv div>span {
+      padding: 15px;
+      border-radius: 3px;
+      color: #fff;
+      background: #0984e3;
+      display: inline-block;
+    }
+
+    .smalltext {
+      padding-top: 10px;
+      font-size: 16px;
+    }
+
+    @media only screen and (max-width: 500px) {
+      #clockdiv {
+        font-size: 20px;
+      }
+
+      #clockdiv>div {
+        padding: 7.5px;
+      }
+
+      #clockdiv div>span {
+        padding: 15px;
+      }
+
+      .smalltext {
+        padding-top: 7.5px;
+        font-size: 12px;
+      }
+    }
+
+    @media only screen and (max-width: 320px) {
+      #clockdiv {
+        font-size: 18px;
+      }
+    }
+
+
+    #logo:hover {
+      opacity: 0.9;
+    }
+
+    button {
+      border-color: white;
+      color: white;
+    }
+
+    button:hover {
+      color: #0984e3;
+      background-color: white;
+      border-color: white;
+    }
+
+    button:active,
+    button:focus {
+      color: #0984e3;
+      background-color: white;
+      border-color: white;
+      opacity: 0.8;
+    }
+  </style>
+
+</head>
+
+<body>
+
+  <!-- Primary Page Layout
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+  <div class="container">
+    <div class="row">
+      <div style="margin-top: 15%">
+        <img id="logo" src="./images/logo.png" class="u-max-full-width"></img>
+      </div>
+    </div>
+    <div class="row" style="margin-top: 40px;">
+      <center>
+        <div id="clockdiv" class="u-max-full-width">
+          <div>
+            <span class="days"></span>
+            <div class="smalltext">Dagen</div>
+          </div>
+          <div>
+            <span class="hours"></span>
+            <div class="smalltext">Uren</div>
+          </div>
+          <div>
+            <span class="minutes"></span>
+            <div class="smalltext">Minuten</div>
+          </div>
+          <div>
+            <span class="seconds"></span>
+            <div class="smalltext">Seconden</div>
+          </div>
+        </div>
+        <div style="margin-top: 40px;">
+          <a href="#"><button>Meer info</button></a>
+          <button>Tips</button>
+        </div>
+        <center>
+    </div>
+  </div>
+
+  <!-- End Document
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+
+  <script>
+    function getTimeRemaining(endtime) {
+      var t = Date.parse(endtime) - Date.parse(new Date());
+      var seconds = Math.floor((t / 1000) % 60);
+      var minutes = Math.floor((t / 1000 / 60) % 60);
+      var hours = Math.floor((t / (1000 * 60 * 60)) % 24);
+      var days = Math.floor(t / (1000 * 60 * 60 * 24));
+      return {
+        'total': t,
+        'days': days,
+        'hours': hours,
+        'minutes': minutes,
+        'seconds': seconds
+      };
+    }
+
+    function initializeClock(id, endtime) {
+      var clock = document.getElementById(id);
+      var daysSpan = clock.querySelector('.days');
+      var hoursSpan = clock.querySelector('.hours');
+      var minutesSpan = clock.querySelector('.minutes');
+      var secondsSpan = clock.querySelector('.seconds');
+
+      function updateClock() {
+        var t = getTimeRemaining(endtime);
+
+        daysSpan.innerHTML = t.days;
+        hoursSpan.innerHTML = ('0' + t.hours).slice(-2);
+        minutesSpan.innerHTML = ('0' + t.minutes).slice(-2);
+        secondsSpan.innerHTML = ('0' + t.seconds).slice(-2);
+
+        if (t.total <= 0) {
+          clearInterval(timeinterval);
+        }
+      }
+
+      updateClock();
+      var timeinterval = setInterval(updateClock, 1000);
+    }
+
+    var deadline = "Mon Oct 8 2018 20:00:00 GMT+0200";
+    console.log(deadline);
+    initializeClock('clockdiv', deadline);
+  </script>
+</body>
+
+</html>
