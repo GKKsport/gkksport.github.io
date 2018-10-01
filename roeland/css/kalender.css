@@ -3,7 +3,7 @@
 
 
 :root {
-  --hoofdkleur: #27ae60;
+  --hoofdkleur: #d35400;
   --tweedekleur: #fff;
 }
 
@@ -73,7 +73,6 @@ h3, h4, h5, h6 {
 li {
   list-style: none;
 }
-
 
 @media only screen and (max-width: 992px) {
     .nav-item {
