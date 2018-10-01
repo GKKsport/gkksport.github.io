@@ -1,0 +1,75 @@
+@import url('https://fonts.googleapis.com/css?family=Bangers');
+
+
+
+:root {
+  --hoofdkleur: #27ae60;
+  --tweedekleur: #fff;
+}
+
+.bg-rood {
+  background-color: var(--hoofdkleur);
+}
+
+.card {
+  border: none;
+}
+
+.navbar-brand {
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+.navbar-dark {
+  background-color: var(--hoofdkleur);
+}
+
+.nav-item {
+  font-size: 20px;
+  text-transform: uppercase;
+  font-family: 'Bangers', cursive;
+  margin-left: 10px;
+}
+
+body{
+  background: var(--hoofdkleur);
+}
+
+.sticky-top {
+  padding-top: 40px;
+}
+
+.nav-item:hover a, .nav-item:focus a {
+  color: var(--hoofdkleur)!important;
+  background-color: var(--tweedekleur);
+  border-radius: 3px;
+}
+
+
+.lead {
+text-align: center;
+}
+
+p {
+  text-align:left;
+}
+
+h3, h4, h5, h6 {
+  text-align: left;
+}
+.section-nav a {
+  color:white;
+}
+
+.section-nav ul {
+  padding-left:20px;
+}
+
+.section-nav li a:hover {
+  text-decoration: none;
+  font-weight: bold;
+}
+
+li {
+  list-style: none;
+}

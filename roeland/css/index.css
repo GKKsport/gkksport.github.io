@@ -1,0 +1,37 @@
+:root {
+  --main-kleur: #c0392b;
+  --ander-kleur: white;
+}
+
+body {
+  background-color: var(--main-kleur);
+  color:var(--ander-kleur);
+}
+
+.indexlogo {
+  margin-top: 50px;
+  max-height: 400px;
+}
+
+.card{
+  text-align: center;
+  display: inline-block;
+  background-color: var(--main-kleur);
+  border-color:white;
+}
+
+.card:hover{
+    background-color: var(--ander-kleur);
+}
+
+a {
+  color:var(--ander-kleur);
+}
+
+a:hover {
+  color:var(--main-kleur);
+}
+.lead{
+  margin-top: 10px;
+  margin-bottom: 40px;
+}
