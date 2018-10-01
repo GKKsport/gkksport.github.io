@@ -1,16 +1,5 @@
 @import url('https://fonts.googleapis.com/css?family=Bangers');
 
-
-
-:root {
-  --hoofdkleur: #27ae60;
-  --tweedekleur: #fff;
-}
-
-.bg-rood {
-  background-color: var(--hoofdkleur);
-}
-
 .card {
   border: none;
 }
@@ -78,5 +67,9 @@ li {
 @media only screen and (max-width: 992px) {
     .nav-item {
       text-align: center;
+    }
+
+    .section-nav {
+      display: none;
     }
 }
