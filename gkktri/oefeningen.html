@@ -1,0 +1,743 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <!-- Standard Meta -->
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="css/bootstrap.min.css">
+
+  <!-- JS -->
+  <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+
+
+  <style>
+    body {
+        position: relative;
+    }
+    h6 {
+      margin-top: 14px;
+      margin-bottom: 14px;
+    }
+      </style>
+</head>
+
+<body>
+  <div class="container">
+    <nav class="navbar  navbar-expand-md navbar-light bg-transparent">
+      <a class="navbar-brand logo" href="index.html"><img src="img/logo.png" height="50px;"></a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <div id="menu" class="ml-auto"></div>
+      </div>
+    </nav>
+
+    <h1 class="bigger">Oefeningen</h1>
+    <br>
+    <div id="oefeningendiv">
+      <div class="row">
+        <div class="col-md-3" style="margin-bottom:30px;">
+          <nav id="oefeningen" style="padding:16px!important" class="navbar navbar-light bg-light sticky-top2">
+            <nav class="nav nav-pills flex-column nav-maxi">
+              <a class="nav-link" href="#zwemmen">Zwemmen</a>
+              <nav class="nav nav-pills flex-column">
+                <a class="nav-link nav-mini dark" href="#zwemAE">Aerobic Endurance</a>
+                <a class="nav-link nav-mini warning" href="#zwemMF">Muscular Force</a>
+                <a class="nav-link nav-mini success" href="#zwemSS">Speed Skills</a>
+                <a class="nav-link nav-mini info" href="#zwemME">Muscular Endurance</a>
+                <a class="nav-link nav-mini secondary" href="#zwemAnE">Anaerobic Endurance</a>
+                <a class="nav-link nav-mini danger" href="#zwemTEST">Tests</a>
+              </nav>
+              <a class="nav-link" href="#lopen">Lopen</a>
+              <nav class="nav nav-pills flex-column">
+                <a class="nav-link nav-mini dark" href="#loopAE">Aerobic Endurance</a>
+                <a class="nav-link nav-mini warning" href="#loopMF">Muscular Force</a>
+                <a class="nav-link nav-mini success" href="#loopSS">Speed Skills</a>
+                <a class="nav-link nav-mini info" href="#loopME">Muscular Endurance</a>
+                <a class="nav-link nav-mini secondary" href="#loopAnE">Anaerobic Endurance</a>
+                <a class="nav-link nav-mini danger" href="#loopTEST">Tests</a>
+              </nav>
+              <a class="nav-link" href="#fietsen">Fietsen</a>
+              <nav class="nav nav-pills flex-column">
+                <nav class="nav nav-pills flex-column">
+                  <a class="nav-link nav-mini dark" href="#fietsAE">Aerobic Endurance</a>
+                  <a class="nav-link nav-mini warning" href="#fietsMF">Muscular Force</a>
+                  <a class="nav-link nav-mini success" href="#fietsSS">Speed Skills</a>
+                  <a class="nav-link nav-mini info" href="#fietsME">Muscular Endurance</a>
+                  <a class="nav-link nav-mini secondary" href="#fietsAnE">Anaerobic Endurance</a>
+                  <a class="nav-link nav-mini danger" href="#fietsTEST">Tests</a>
+                </nav>
+              </nav>
+            </nav>
+          </nav>
+        </div>
+        <div class="col-md-9">
+          <div data-spy="scroll" data-target="#oefeningen" data-offset="0">
+            <h4>Introtekstje</h4>
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+              Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+            <h4 id="zwemmen">Zwemmen</h4>
+            <div class="row">
+              <div class="col-lg-6">
+                <p>The following are basic swim sets that you can combine in various ways into a single swim session. For example, following the warm-up, you may start the session with a speed skills set, followed by an anaerobic endurance set and
+                  then
+                  an
+                  aerobic endurance set, before the cooldown.</p>
+                <p>The typical order for ability sets within a single training session is aerobic endurance (AE) and/or speed skills (SS) as warm-up, followed by muscular force (MF), anaerobic endurance endurance (AnE), and muscular endurance
+                  (ME).
+                  The
+                  cooldown is commonly AE and/or SS. For example, if the main set (the portion that is neither warm-up nor cooldown) of the workout includes MF and ME, the order of all the sets within session from warm-up through cooldown will be
+                  as
+                  follows: 1st set: SS → 2nd set: MF → 3rd set: ME → 4th set: AE.
+                </p>
+              </div>
+              <div class="col-lg-6">
+                <p>A common exception is to insert an AE or SS set within the main set to allow a long recovery between high-effort sets.</p>
+                <p> The MF, ME, and AnE ability sets are always a part of the main set - the primary portions of the workout that are neither warm-up nor cooldown. They should always be preceded by a warm-up. Note that the more intense the main
+                  set of
+                  the
+                  workout, the longer the warm-up must be.</p>
+                <p>The intensities for most of the workouts below are based on pace; heart rate monitors are difficult to use while swimming. See swim-pace zones.</p>
+              </div>
+            </div>
+            <!-- Aerobic endurance -->
+            <h6 id="zwemAE"><span class="badge badge-dark">AE</span> Aerobic Endurance Sets</h6>
+            <div class="card border-dark mb-3">
+              <div class="card-body text-dark">
+                <h6 class="card-title">AE1: Recovery</h6>
+                <p class="card-text">Swim steadily for 10 to 20 minutes or more in pace zone 1, concentrating on only one aspect of technique. You can use this as a recovery work-out following a hard bike or run workout, or as a swim session
+                  cooldown.</p>
+              </div>
+            </div>
+            <div class="card border-dark mb-3">
+              <div class="card-body text-dark">
+                <h6 class="card-title">AE2: Aerobic Threshold Intervals</h6>
+                <p class="card-text">Swim intervals in pace zone 2 at a distance that takes 6 to 12 minutes. Recover after each for 10 to 15 percent of the preceding work-interval time. Total work-interval distance may match the distance of the
+                  swim portion of your
+                  next A-
+                  or B-priority race. Build up to this set is to recover between intervals with a 25- to 50-meter/yard drill.</p>
+                <p class="card-text"> Example: 4x500 meters/yards in 7 minutes, 30 seconds, leaving every 8 minutes, 15 seconds. Or swim long and steady in
+                  pace
+                  zone
+                  2, especially in open water.</p>
+              </div>
+            </div>
+            <div class="card border-dark mb-3">
+              <div class="card-body text-dark">
+                <h6 class="card-title">AE3: Tempo Intervals</h6>
+                <p class="card-text">Swim 3 to 7 intervals, each taking about 3 to 5 minutes to complete. Intensity is pace zone 3. Recover after each for 5 to 10 percent of the preceding work-interval time. The total interval time for this
+                  session should be something
+                  in
+                  the range of 10 to 20 minutes. </p>
+                <p class="card-text">Example: 5 x 200 meters in 3:00, leaving 3:15.</p>
+              </div>
+            </div>
+            <!-- Muscular force -->
+            <h6 id="zwemMF"><span class="badge badge-warning">MF</span> Muscular Force Sets</h6>
+            <div class="card border-warning mb-3">
+              <div class="card-body text-dark">
+                <h6 class="card-title">MF1: Muscular Force Reps</h6>
+                <p class="card-text">
+                  <i>Note: Do not undertake this set until your SS are very well established because the risk of injury is high if your skills are poor</i></p>
+                <p class="card-text">
+                  Following an extensive warm-up including short, fast repeats (such as SS1), do 1 to 3 sets of 3 intervals of 25 meters each. Wear a T-shirt or other such drag device, or use paddles for each interval. The purpose of using a drag
+                  device or paddles is to increase stress on the muscles and therefore generate greater force. Take a long (40-60 seconds), standing recovery at the wall after each. Between sets, swim easily as described for AE1 (above) or for 25
+                  to 50 meters. The first time you do MF1, do only 1 set of 3 intervals. Gradually increase the number of sets. Stop this set at the first sign of shoulder discomfort, which is an indicator of poor swim skills. Instead of
+                  continuing, go to the SS1 set to improve your technique before returning to the MF1 sets.
+                </p>
+              </div>
+            </div>
+            <div class="card border-warning mb-3">
+              <div class="card-body text-dark">
+                <h6 class="card-title">MF2: Open-water-current Intervals</h6>
+                <p class="card-text">Swim in a river, lake, or the ocean with alternating sets against and with the current. Swim each high-exertion set against and with the current. Swim each high-exertion set against the current at nearly
+                  maximal
+                  effort without breaking form, taking 8 to 10 strokes (each arm) in each set. Recover by swimming easily with the current for 60 to 90 seconds. Complete 3 to 8 of these sets. Do this only with a partner or group.</p>
+                <p class="card-text">Example: 5 x 8 strokes at nearly maximal effort into the current with 1-minute, easy-swim recoveries.</p>
+              </div>
+            </div>
+            <div class="card border-warning mb-3">
+              <div class="card-body text-dark">
+                <h6 class="card-title">MF3: Paddles</h6>
+                <p class="card-text">Swim any set other than warm-up or cool-down while using paddles. When you first use paddles, start with small ones, use them only for AE sets, and do no more than 10 percent of the total workout distance with
+                  them. Over the course of several weeks, increase the size of the paddles. Don't do more than 50 percent of a workout with them, and never increase both paddle size and total distance within a workout at the same time. At the first
+                  sign of shoulder discomfort, discontinue using the paddles and return to an emphasis on SS training.</p>
+              </div>
+            </div>
+            <!-- Speed skills -->
+            <h6 id="zwemSS"><span class="badge badge-success">SS</span> Speed Skills Sets </h6>
+            <div class="card border-success mb-3">
+              <div class="card-body text-dark">
+                <p class="card-text">Remember that the term <i>speed skills</i> as used here doesn't mean high velocity but rather the ability to move the arms quickly, efficiently, and effectively. Chapter 12 for more details on SS training.</p>
+              </div>
+            </div>
+            <div class="card border-success mb-3">
+              <div class="card-body text-dark">
+                <h6 class="card-title">SS1: Fast-Form 25s</h6>
+                <p class="card-text">Start this set by swimming one length of the pool at a slow to moderate effort. Over the next several 25s, swim each subsequent length more briskly, but never all out. While swimming a length, focus your
+                  attention on the one PDLC skill you are trying to improve: posture, direction, length or catch. Think of nothing else for each 25. Don't time these 25s; your focus must be on technique, not on increasing effort.</p>
+                <p class="card-text">When you finish a 25, stop and rest at the wall. Make each recovery long. Don't make the rest stops brief in order to improve your endurance. The only focus in on skill. Let your mind wander while you rest at the
+                  wall. Think about anything except your swim performance. You should be breathing easily before starting the next 25.</p>
+                <p class="card-text">When you are ready to swim the next length, bring your mental focus back to the PDLC skill you are concentrating on. Then swim another 25 focusing only on correctly making this movement. The number of 25s you do
+                  in a session can be just a few as a part of the warm-up or cooldown, or they can make up the entire swim session.</p>
+              </div>
+            </div>
+            <div class="card border-success mb-3">
+              <div class="card-body text-dark">
+                <h6 class="card-title">SS2: Toy Sets</h6>
+                <p class="card-text">Do any set wearing fins or keeping a pull buoy between your thighs. These "toys" are especially helpful during intervals within the main set for maintaining body position on top of the water while you focus on a
+                  single PDLC skill.</p>
+              </div>
+            </div>
+            <!-- Muscular Endurance -->
+            <h6 id="zwemME"><span class="badge badge-info">ME</span> Muscular Endurance Sets </h6>
+            <div class="card border-info mb-3">
+              <div class="card-body text-dark">
+                <h6 class="card-title">ME1: Long Cruise Intervals</h6>
+                <p class="card-text">This is a session with work intervals that take 6 minutes or longer. the recovery intervals are about 5 to 15 percent of the preceding work-interval duration. As fitness improves, reduce the duration of the
+                  recovery intervals. Intensity is pace zones 4 to 5a. the total work-interval distance for the set may gradually increase over a few weeks to equal the distance of your next A- or B-priority race.</p>
+                <p class="card-text">
+                  Example: 5 x 400 meters in 6:00 leaving every 6:40.
+                </p>
+              </div>
+            </div>
+            <div class="card border-info mb-3">
+              <div class="card-body text-dark">
+                <h6 class="card-title">ME2: Short Cruise Intervals</h6>
+                <p class="card-text">
+                  Swim intervals that take 3 to 5 minutes to complete. Intensity is pace zones 4 to 5a. Recover after each for about 5 to 10 percent of the preceding work-interval duration. Total work-interval time may be gradually increased to
+                  match the total distance of the swim portion of your next A- or B-priority race.
+                </p>
+                <p class="card-text">
+                  Example: 8 x 200 meters in 3:00 leaving every 3:10.
+                </p>
+              </div>
+            </div>
+            <div class="card border-info mb-3">
+              <div class="card-body text-dark">
+                <h6 class="card-title">ME3: Treshold</h6>
+                <p class="card-text">Swim steadily for 12 to 20 minutes in pace zone 3.</p>
+                <p class="card-text">Example: 1200 meters in 18:00</p>
+              </div>
+            </div>
+            <!-- Anaerobic Endurance -->
+            <h6 id="zwemAnE"><span class="badge badge-secondary">AnE</span> Anaerobic Endurance Sets </h6>
+            <div class="card border-secondary mb-3">
+              <div class="card-body text-dark">
+                <h6 class="card-title">AnE1: VO2max Intervals</h6>
+                <p class="card-text">
+
+                </p>
+              </div>
+            </div>
+            <div class="card border-secondary mb-3">
+              <div class="card-body text-dark">
+                <h6 class="card-title">AnE2: Anaerobic Capacity Intervals</h6>
+                <p class="card-text">
+
+                </p>
+              </div>
+            </div>
+            <!-- TESTS -->
+            <h6 id="zwemTEST"><span class="badge badge-danger">TESTS</span> TESTS </h6>
+            <div class="card border-danger mb-3" id="zwemTEST">
+              <div class="card-body text-dark">
+                <h6 class="card-title">T1: Broken Kilometer</h6>
+                <p class="card-text">
+
+                </p>
+              </div>
+            </div>
+            <div class="card border-danger mb-3">
+              <div class="card-body text-dark">
+                <h6 class="card-title">T2: Functional Threshold Pace Test</h6>
+                <p class="card-text">
+
+                </p>
+              </div>
+            </div>
+
+
+
+
+            <h4 id="lopen">Lopen</h4>
+            <div class="row">
+              <div class="col-lg-6">
+                <p>The following are basic swim sets that you can combine in various ways into a single swim session. For example, following the warm-up, you may start the session with a speed skills set, followed by an anaerobic endurance set and
+                  then
+                  an
+                  aerobic endurance set, before the cooldown.</p>
+                <p>The typical order for ability sets within a single training session is aerobic endurance (AE) and/or speed skills (SS) as warm-up, followed by muscular force (MF), anaerobic endurance endurance (AnE), and muscular endurance
+                  (ME).
+                  The
+                  cooldown is commonly AE and/or SS. For example, if the main set (the portion that is neither warm-up nor cooldown) of the workout includes MF and ME, the order of all the sets within session from warm-up through cooldown will be
+                  as
+                  follows: 1st set: SS → 2nd set: MF → 3rd set: ME → 4th set: AE.
+                </p>
+              </div>
+              <div class="col-lg-6">
+                <p>A common exception is to insert an AE or SS set within the main set to allow a long recovery between high-effort sets.</p>
+                <p> The MF, ME, and AnE ability sets are always a part of the main set - the primary portions of the workout that are neither warm-up nor cooldown. They should always be preceded by a warm-up. Note that the more intense the main
+                  set of
+                  the
+                  workout, the longer the warm-up must be.</p>
+                <p>The intensities for most of the workouts below are based on pace; heart rate monitors are difficult to use while swimming. See swim-pace zones.</p>
+              </div>
+            </div>
+            <!-- Aerobic endurance -->
+            <div class="card border-dark mb-3" id="loopAE">
+              <div class="card-body text-dark">
+                <h6 class="card-title">AE1: Recovery</h6>
+                <p class="card-text">Swim steadily for 10 to 20 minutes or more in pace zone 1, concentrating on only one aspect of technique. You can use this as a recovery work-out following a hard bike or run workout, or as a swim session
+                  cooldown.</p>
+              </div>
+            </div>
+            <div class="card border-dark mb-3">
+              <div class="card-body text-dark">
+                <h6 class="card-title">AE2: Aerobic Threshold Intervals</h6>
+                <p class="card-text">Swim intervals in pace zone 2 at a distance that takes 6 to 12 minutes. Recover after each for 10 to 15 percent of the preceding work-interval time. Total work-interval distance may match the distance of the
+                  swim portion of your
+                  next A-
+                  or B-priority race. Build up to this set is to recover between intervals with a 25- to 50-meter/yard drill. Example: 4x500 meters/yards in 7 minutes, 30 seconds, leaving every 8 minutes, 15 seconds. Or swim long and steady in
+                  pace
+                  zone
+                  2, especially in open water.</p>
+              </div>
+            </div>
+            <div class="card border-dark mb-3">
+              <div class="card-body text-dark">
+                <h6 class="card-title">AE3: Tempo Intervals</h6>
+                <p class="card-text">Swim 3 to 7 intervals, each taking about 3 to 5 minutes to complete. Intensity is pace zone 3. Recover after each for 5 to 10 percent of the preceding work-interval time. The total interval time for this
+                  session should be something
+                  in
+                  the range of 10 to 20 minutes. Example: 5 x 200 meters in 3:00, leaving 3:15.</p>
+              </div>
+            </div>
+            <!-- Muscular force -->
+            <div class="card border-warning mb-3" id="loopMF">
+              <div class="card-body text-dark">
+                <h6 class="card-title">AE1: Recovery</h6>
+                <p class="card-text">Swim steadily for 10 to 20 minutes or more in pace zone 1, concentrating on only one aspect of technique. You can use this as a recovery work-out following a hard bike or run workout, or as a swim session
+                  cooldown.</p>
+              </div>
+            </div>
+            <div class="card border-warning mb-3">
+              <div class="card-body text-dark">
+                <h6 class="card-title">AE2: Aerobic Threshold Intervals</h6>
+                <p class="card-text">Swim intervals in pace zone 2 at a distance that takes 6 to 12 minutes. Recover after each for 10 to 15 percent of the preceding work-interval time. Total work-interval distance may match the distance of the
+                  swim portion of your
+                  next A-
+                  or B-priority race. Build up to this set is to recover between intervals with a 25- to 50-meter/yard drill. Example: 4x500 meters/yards in 7 minutes, 30 seconds, leaving every 8 minutes, 15 seconds. Or swim long and steady in
+                  pace
+                  zone
+                  2, especially in open water.</p>
+              </div>
+            </div>
+            <div class="card border-warning mb-3">
+              <div class="card-body text-dark">
+                <h6 class="card-title">AE3: Tempo Intervals</h6>
+                <p class="card-text">Swim 3 to 7 intervals, each taking about 3 to 5 minutes to complete. Intensity is pace zone 3. Recover after each for 5 to 10 percent of the preceding work-interval time. The total interval time for this
+                  session should be something
+                  in
+                  the range of 10 to 20 minutes. Example: 5 x 200 meters in 3:00, leaving 3:15.</p>
+              </div>
+            </div>
+            <!-- Speed skills -->
+            <div class="card border-success mb-3" id="loopSS">
+              <div class="card-body text-dark">
+                <h6 class="card-title">AE1: Recovery</h6>
+                <p class="card-text">Swim steadily for 10 to 20 minutes or more in pace zone 1, concentrating on only one aspect of technique. You can use this as a recovery work-out following a hard bike or run workout, or as a swim session
+                  cooldown.</p>
+              </div>
+            </div>
+            <div class="card border-success mb-3">
+              <div class="card-body text-dark">
+                <h6 class="card-title">AE2: Aerobic Threshold Intervals</h6>
+                <p class="card-text">Swim intervals in pace zone 2 at a distance that takes 6 to 12 minutes. Recover after each for 10 to 15 percent of the preceding work-interval time. Total work-interval distance may match the distance of the
+                  swim portion of your
+                  next A-
+                  or B-priority race. Build up to this set is to recover between intervals with a 25- to 50-meter/yard drill. Example: 4x500 meters/yards in 7 minutes, 30 seconds, leaving every 8 minutes, 15 seconds. Or swim long and steady in
+                  pace
+                  zone
+                  2, especially in open water.</p>
+              </div>
+            </div>
+            <div class="card border-success mb-3">
+              <div class="card-body text-dark">
+                <h6 class="card-title">AE3: Tempo Intervals</h6>
+                <p class="card-text">Swim 3 to 7 intervals, each taking about 3 to 5 minutes to complete. Intensity is pace zone 3. Recover after each for 5 to 10 percent of the preceding work-interval time. The total interval time for this
+                  session should be something
+                  in
+                  the range of 10 to 20 minutes. Example: 5 x 200 meters in 3:00, leaving 3:15.</p>
+              </div>
+            </div>
+            <!-- Muscular Endurance -->
+            <div class="card border-info mb-3" id="loopME">
+              <div class="card-body text-dark">
+                <h6 class="card-title">AE1: Recovery</h6>
+                <p class="card-text">Swim steadily for 10 to 20 minutes or more in pace zone 1, concentrating on only one aspect of technique. You can use this as a recovery work-out following a hard bike or run workout, or as a swim session
+                  cooldown.</p>
+              </div>
+            </div>
+            <div class="card border-info mb-3">
+              <div class="card-body text-dark">
+                <h6 class="card-title">AE2: Aerobic Threshold Intervals</h6>
+                <p class="card-text">Swim intervals in pace zone 2 at a distance that takes 6 to 12 minutes. Recover after each for 10 to 15 percent of the preceding work-interval time. Total work-interval distance may match the distance of the
+                  swim portion of your
+                  next A-
+                  or B-priority race. Build up to this set is to recover between intervals with a 25- to 50-meter/yard drill. Example: 4x500 meters/yards in 7 minutes, 30 seconds, leaving every 8 minutes, 15 seconds. Or swim long and steady in
+                  pace
+                  zone
+                  2, especially in open water.</p>
+              </div>
+            </div>
+            <div class="card border-info mb-3">
+              <div class="card-body text-dark">
+                <h6 class="card-title">AE3: Tempo Intervals</h6>
+                <p class="card-text">Swim 3 to 7 intervals, each taking about 3 to 5 minutes to complete. Intensity is pace zone 3. Recover after each for 5 to 10 percent of the preceding work-interval time. The total interval time for this
+                  session should be something
+                  in
+                  the range of 10 to 20 minutes. Example: 5 x 200 meters in 3:00, leaving 3:15.</p>
+              </div>
+            </div>
+            <!-- Anaerobic Endurance -->
+            <div class="card border-secondary mb-3" id="loopAnE">
+              <div class="card-body text-dark">
+                <h6 class="card-title">AE1: Recovery</h6>
+                <p class="card-text">Swim steadily for 10 to 20 minutes or more in pace zone 1, concentrating on only one aspect of technique. You can use this as a recovery work-out following a hard bike or run workout, or as a swim session
+                  cooldown.</p>
+              </div>
+            </div>
+            <div class="card border-secondary mb-3">
+              <div class="card-body text-dark">
+                <h6 class="card-title">AE2: Aerobic Threshold Intervals</h6>
+                <p class="card-text">Swim intervals in pace zone 2 at a distance that takes 6 to 12 minutes. Recover after each for 10 to 15 percent of the preceding work-interval time. Total work-interval distance may match the distance of the
+                  swim portion of your
+                  next A-
+                  or B-priority race. Build up to this set is to recover between intervals with a 25- to 50-meter/yard drill. Example: 4x500 meters/yards in 7 minutes, 30 seconds, leaving every 8 minutes, 15 seconds. Or swim long and steady in
+                  pace
+                  zone
+                  2, especially in open water.</p>
+              </div>
+            </div>
+            <div class="card border-secondary mb-3">
+              <div class="card-body text-dark">
+                <h6 class="card-title">AE3: Tempo Intervals</h6>
+                <p class="card-text">Swim 3 to 7 intervals, each taking about 3 to 5 minutes to complete. Intensity is pace zone 3. Recover after each for 5 to 10 percent of the preceding work-interval time. The total interval time for this
+                  session should be something
+                  in
+                  the range of 10 to 20 minutes. Example: 5 x 200 meters in 3:00, leaving 3:15.</p>
+              </div>
+            </div>
+            <!-- TESTS -->
+            <div class="card border-danger mb-3" id="loopTEST">
+              <div class="card-body text-dark">
+                <h6 class="card-title">AE1: Recovery</h6>
+                <p class="card-text">Swim steadily for 10 to 20 minutes or more in pace zone 1, concentrating on only one aspect of technique. You can use this as a recovery work-out following a hard bike or run workout, or as a swim session
+                  cooldown.</p>
+              </div>
+            </div>
+            <div class="card border-danger mb-3">
+              <div class="card-body text-dark">
+                <h6 class="card-title">AE2: Aerobic Threshold Intervals</h6>
+                <p class="card-text">Swim intervals in pace zone 2 at a distance that takes 6 to 12 minutes. Recover after each for 10 to 15 percent of the preceding work-interval time. Total work-interval distance may match the distance of the
+                  swim portion of your
+                  next A-
+                  or B-priority race. Build up to this set is to recover between intervals with a 25- to 50-meter/yard drill. Example: 4x500 meters/yards in 7 minutes, 30 seconds, leaving every 8 minutes, 15 seconds. Or swim long and steady in
+                  pace
+                  zone
+                  2, especially in open water.</p>
+              </div>
+            </div>
+            <div class="card border-danger mb-3">
+              <div class="card-body text-dark">
+                <h6 class="card-title">AE3: Tempo Intervals</h6>
+                <p class="card-text">Swim 3 to 7 intervals, each taking about 3 to 5 minutes to complete. Intensity is pace zone 3. Recover after each for 5 to 10 percent of the preceding work-interval time. The total interval time for this
+                  session should be something
+                  in
+                  the range of 10 to 20 minutes. Example: 5 x 200 meters in 3:00, leaving 3:15.</p>
+              </div>
+            </div>
+
+            <h4 id="fietsen">Fietsen</h4>
+            <div class="row">
+              <div class="col-lg-6">
+                <p>The following are basic swim sets that you can combine in various ways into a single swim session. For example, following the warm-up, you may start the session with a speed skills set, followed by an anaerobic endurance set and
+                  then
+                  an
+                  aerobic endurance set, before the cooldown.</p>
+                <p>The typical order for ability sets within a single training session is aerobic endurance (AE) and/or speed skills (SS) as warm-up, followed by muscular force (MF), anaerobic endurance endurance (AnE), and muscular endurance
+                  (ME).
+                  The
+                  cooldown is commonly AE and/or SS. For example, if the main set (the portion that is neither warm-up nor cooldown) of the workout includes MF and ME, the order of all the sets within session from warm-up through cooldown will be
+                  as
+                  follows: 1st set: SS → 2nd set: MF → 3rd set: ME → 4th set: AE.
+                </p>
+              </div>
+              <div class="col-lg-6">
+                <p>A common exception is to insert an AE or SS set within the main set to allow a long recovery between high-effort sets.</p>
+                <p> The MF, ME, and AnE ability sets are always a part of the main set - the primary portions of the workout that are neither warm-up nor cooldown. They should always be preceded by a warm-up. Note that the more intense the main
+                  set of
+                  the
+                  workout, the longer the warm-up must be.</p>
+                <p>The intensities for most of the workouts below are based on pace; heart rate monitors are difficult to use while swimming. See swim-pace zones.</p>
+              </div>
+            </div>
+            <!-- Aerobic endurance -->
+            <div class="card border-dark mb-3" id="fietsAE">
+              <div class="card-body text-dark">
+                <h6 class="card-title">AE1: Recovery</h6>
+                <p class="card-text">Swim steadily for 10 to 20 minutes or more in pace zone 1, concentrating on only one aspect of technique. You can use this as a recovery work-out following a hard bike or run workout, or as a swim session
+                  cooldown.</p>
+              </div>
+            </div>
+            <div class="card border-dark mb-3">
+              <div class="card-body text-dark">
+                <h6 class="card-title">AE2: Aerobic Threshold Intervals</h6>
+                <p class="card-text">Swim intervals in pace zone 2 at a distance that takes 6 to 12 minutes. Recover after each for 10 to 15 percent of the preceding work-interval time. Total work-interval distance may match the distance of the
+                  swim portion of your
+                  next A-
+                  or B-priority race. Build up to this set is to recover between intervals with a 25- to 50-meter/yard drill. Example: 4x500 meters/yards in 7 minutes, 30 seconds, leaving every 8 minutes, 15 seconds. Or swim long and steady in
+                  pace
+                  zone
+                  2, especially in open water.</p>
+              </div>
+            </div>
+            <div class="card border-dark mb-3">
+              <div class="card-body text-dark">
+                <h6 class="card-title">AE3: Tempo Intervals</h6>
+                <p class="card-text">Swim 3 to 7 intervals, each taking about 3 to 5 minutes to complete. Intensity is pace zone 3. Recover after each for 5 to 10 percent of the preceding work-interval time. The total interval time for this
+                  session should be something
+                  in
+                  the range of 10 to 20 minutes. Example: 5 x 200 meters in 3:00, leaving 3:15.</p>
+              </div>
+            </div>
+            <!-- Muscular force -->
+            <div class="card border-warning mb-3" id="fietsMF">
+              <div class="card-body text-dark">
+                <h6 class="card-title">AE1: Recovery</h6>
+                <p class="card-text">Swim steadily for 10 to 20 minutes or more in pace zone 1, concentrating on only one aspect of technique. You can use this as a recovery work-out following a hard bike or run workout, or as a swim session
+                  cooldown.</p>
+              </div>
+            </div>
+            <div class="card border-warning mb-3">
+              <div class="card-body text-dark">
+                <h6 class="card-title">AE2: Aerobic Threshold Intervals</h6>
+                <p class="card-text">Swim intervals in pace zone 2 at a distance that takes 6 to 12 minutes. Recover after each for 10 to 15 percent of the preceding work-interval time. Total work-interval distance may match the distance of the
+                  swim portion of your
+                  next A-
+                  or B-priority race. Build up to this set is to recover between intervals with a 25- to 50-meter/yard drill. Example: 4x500 meters/yards in 7 minutes, 30 seconds, leaving every 8 minutes, 15 seconds. Or swim long and steady in
+                  pace
+                  zone
+                  2, especially in open water.</p>
+              </div>
+            </div>
+            <div class="card border-warning mb-3">
+              <div class="card-body text-dark">
+                <h6 class="card-title">AE3: Tempo Intervals</h6>
+                <p class="card-text">Swim 3 to 7 intervals, each taking about 3 to 5 minutes to complete. Intensity is pace zone 3. Recover after each for 5 to 10 percent of the preceding work-interval time. The total interval time for this
+                  session should be something
+                  in
+                  the range of 10 to 20 minutes. Example: 5 x 200 meters in 3:00, leaving 3:15.</p>
+              </div>
+            </div>
+            <!-- Speed skills -->
+            <div class="card border-success mb-3" id="fietsSS">
+              <div class="card-body text-dark">
+                <h6 class="card-title">AE1: Recovery</h6>
+                <p class="card-text">Swim steadily for 10 to 20 minutes or more in pace zone 1, concentrating on only one aspect of technique. You can use this as a recovery work-out following a hard bike or run workout, or as a swim session
+                  cooldown.</p>
+              </div>
+            </div>
+            <div class="card border-success mb-3">
+              <div class="card-body text-dark">
+                <h6 class="card-title">AE2: Aerobic Threshold Intervals</h6>
+                <p class="card-text">Swim intervals in pace zone 2 at a distance that takes 6 to 12 minutes. Recover after each for 10 to 15 percent of the preceding work-interval time. Total work-interval distance may match the distance of the
+                  swim portion of your
+                  next A-
+                  or B-priority race. Build up to this set is to recover between intervals with a 25- to 50-meter/yard drill. Example: 4x500 meters/yards in 7 minutes, 30 seconds, leaving every 8 minutes, 15 seconds. Or swim long and steady in
+                  pace
+                  zone
+                  2, especially in open water.</p>
+              </div>
+            </div>
+            <div class="card border-success mb-3">
+              <div class="card-body text-dark">
+                <h6 class="card-title">AE3: Tempo Intervals</h6>
+                <p class="card-text">Swim 3 to 7 intervals, each taking about 3 to 5 minutes to complete. Intensity is pace zone 3. Recover after each for 5 to 10 percent of the preceding work-interval time. The total interval time for this
+                  session should be something
+                  in
+                  the range of 10 to 20 minutes. Example: 5 x 200 meters in 3:00, leaving 3:15.</p>
+              </div>
+            </div>
+            <!-- Muscular Endurance -->
+            <div class="card border-info mb-3" id="fietsME">
+              <div class="card-body text-dark">
+                <h6 class="card-title">AE1: Recovery</h6>
+                <p class="card-text">Swim steadily for 10 to 20 minutes or more in pace zone 1, concentrating on only one aspect of technique. You can use this as a recovery work-out following a hard bike or run workout, or as a swim session
+                  cooldown.</p>
+              </div>
+            </div>
+            <div class="card border-info mb-3">
+              <div class="card-body text-dark">
+                <h6 class="card-title">AE2: Aerobic Threshold Intervals</h6>
+                <p class="card-text">Swim intervals in pace zone 2 at a distance that takes 6 to 12 minutes. Recover after each for 10 to 15 percent of the preceding work-interval time. Total work-interval distance may match the distance of the
+                  swim portion of your
+                  next A-
+                  or B-priority race. Build up to this set is to recover between intervals with a 25- to 50-meter/yard drill. Example: 4x500 meters/yards in 7 minutes, 30 seconds, leaving every 8 minutes, 15 seconds. Or swim long and steady in
+                  pace
+                  zone
+                  2, especially in open water.</p>
+              </div>
+            </div>
+            <div class="card border-info mb-3">
+              <div class="card-body text-dark">
+                <h6 class="card-title">AE3: Tempo Intervals</h6>
+                <p class="card-text">Swim 3 to 7 intervals, each taking about 3 to 5 minutes to complete. Intensity is pace zone 3. Recover after each for 5 to 10 percent of the preceding work-interval time. The total interval time for this
+                  session should be something
+                  in
+                  the range of 10 to 20 minutes. Example: 5 x 200 meters in 3:00, leaving 3:15.</p>
+              </div>
+            </div>
+            <!-- Anaerobic Endurance -->
+            <div class="card border-secondary mb-3" id="fietsAnE">
+              <div class="card-body text-dark">
+                <h6 class="card-title">AE1: Recovery</h6>
+                <p class="card-text">Swim steadily for 10 to 20 minutes or more in pace zone 1, concentrating on only one aspect of technique. You can use this as a recovery work-out following a hard bike or run workout, or as a swim session
+                  cooldown.</p>
+              </div>
+            </div>
+            <div class="card border-secondary mb-3">
+              <div class="card-body text-dark">
+                <h6 class="card-title">AE2: Aerobic Threshold Intervals</h6>
+                <p class="card-text">Swim intervals in pace zone 2 at a distance that takes 6 to 12 minutes. Recover after each for 10 to 15 percent of the preceding work-interval time. Total work-interval distance may match the distance of the
+                  swim portion of your
+                  next A-
+                  or B-priority race. Build up to this set is to recover between intervals with a 25- to 50-meter/yard drill. Example: 4x500 meters/yards in 7 minutes, 30 seconds, leaving every 8 minutes, 15 seconds. Or swim long and steady in
+                  pace
+                  zone
+                  2, especially in open water.</p>
+              </div>
+            </div>
+            <div class="card border-secondary mb-3">
+              <div class="card-body text-dark">
+                <h6 class="card-title">AE3: Tempo Intervals</h6>
+                <p class="card-text">Swim 3 to 7 intervals, each taking about 3 to 5 minutes to complete. Intensity is pace zone 3. Recover after each for 5 to 10 percent of the preceding work-interval time. The total interval time for this
+                  session should be something
+                  in
+                  the range of 10 to 20 minutes. Example: 5 x 200 meters in 3:00, leaving 3:15.</p>
+              </div>
+            </div>
+            <!-- TESTS -->
+            <div class="card border-danger mb-3" id="fietsTEST">
+              <div class="card-body text-dark">
+                <h6 class="card-title">AE1: Recovery</h6>
+                <p class="card-text">Swim steadily for 10 to 20 minutes or more in pace zone 1, concentrating on only one aspect of technique. You can use this as a recovery work-out following a hard bike or run workout, or as a swim session
+                  cooldown.</p>
+              </div>
+            </div>
+            <div class="card border-danger mb-3">
+              <div class="card-body text-dark">
+                <h6 class="card-title">AE2: Aerobic Threshold Intervals</h6>
+                <p class="card-text">Swim intervals in pace zone 2 at a distance that takes 6 to 12 minutes. Recover after each for 10 to 15 percent of the preceding work-interval time. Total work-interval distance may match the distance of the
+                  swim portion of your
+                  next A-
+                  or B-priority race. Build up to this set is to recover between intervals with a 25- to 50-meter/yard drill. Example: 4x500 meters/yards in 7 minutes, 30 seconds, leaving every 8 minutes, 15 seconds. Or swim long and steady in
+                  pace
+                  zone
+                  2, especially in open water.</p>
+              </div>
+            </div>
+            <div class="card border-danger mb-3">
+              <div class="card-body text-dark">
+                <h6 class="card-title">AE3: Tempo Intervals</h6>
+                <p class="card-text">Swim 3 to 7 intervals, each taking about 3 to 5 minutes to complete. Intensity is pace zone 3. Recover after each for 5 to 10 percent of the preceding work-interval time. The total interval time for this
+                  session should be something
+                  in
+                  the range of 10 to 20 minutes. Example: 5 x 200 meters in 3:00, leaving 3:15.</p>
+              </div>
+            </div>
+
+
+
+            <h4 id="lopen">Item 2</h4>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus luctus sem enim, ut pulvinar lorem lacinia vel. Nunc ultrices, augue ac varius pellentesque, nulla sem condimentum eros, quis tincidunt nisi tellus nec diam.
+              Phasellus
+              tempus, odio a consequat pulvinar, quam mi ultrices justo, in convallis dolor nibh vel libero. Cras hendrerit fringilla felis, sed maximus tellus tincidunt quis. Mauris at dolor pharetra, cursus nisl eget, viverra elit. Quisque sit
+              amet
+              libero orci. Integer efficitur faucibus dictum. Proin quis libero a erat malesuada molestie. Phasellus vitae orci bibendum metus posuere egestas. Sed id ultricies libero. Quisque in risus non lacus aliquam blandit. Donec at cursus
+              ex,
+              accumsan sollicitudin purus.
+
+              Donec viverra vestibulum neque at commodo. Suspendisse fringilla orci lorem, sed imperdiet leo volutpat eu. Fusce vitae est enim. Cras ac erat porta, finibus nulla ut, porttitor est. Suspendisse blandit, eros quis egestas convallis,
+              neque ipsum vulputate libero, at dignissim erat ante nec libero. Donec ornare, tellus in suscipit condimentum, ligula metus molestie augue, ac bibendum purus felis ut augue. Pellentesque habitant morbi tristique senectus et netus et
+              malesuada fames ac turpis egestas. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Suspendisse accumsan nisi neque, vel finibus mauris lobortis vel.
+
+              Aenean metus enim, faucibus eget velit at, porttitor tincidunt risus. Cras risus sapien, lobortis non fermentum a, tincidunt sed turpis. Sed vitae euismod orci, quis tincidunt sapien. Morbi posuere sem arcu, pharetra pharetra libero
+              accumsan rhoncus. Curabitur ultricies a elit iaculis fermentum. Integer ut fermentum mi. Donec ut suscipit sem. Sed eget accumsan lorem. Quisque ut sollicitudin neque. Aliquam maximus dui non suscipit dignissim.
+
+              Sed dapibus erat vitae vehicula aliquam. Mauris nec massa vel lacus efficitur feugiat vitae vel dolor. Aenean tincidunt et orci a auctor. Nam sit amet sapien consectetur, semper odio eu, consectetur lectus. Pellentesque venenatis
+              massa
+              in dictum commodo. Vestibulum faucibus elit sapien, vitae pellentesque eros placerat ut. Suspendisse dapibus ante ligula, eget convallis metus egestas ac. Suspendisse mauris nisi, luctus a auctor at, accumsan nec lectus. Orci varius
+              natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Aenean non luctus velit. Nullam sed cursus quam, ac dapibus velit. Pellentesque eu leo eget erat tincidunt tincidunt. Sed fringilla lacus id ligula aliquet,
+              in
+              ultricies augue posuere. Pellentesque molestie aliquam orci sed vulputate. Sed id venenatis felis, sit amet sodales justo.
+
+              Proin ullamcorper nisl ante, vitae mollis sapien aliquam nec. Sed scelerisque dapibus neque id molestie. Etiam scelerisque, mauris et feugiat tempus, ante ipsum consequat diam, vitae dignissim libero tortor eu nulla. Nulla mattis sem
+              eu
+              rutrum dictum. Integer in odio non mi pellentesque fermentum. Ut tristique neque ut sem dapibus sollicitudin. Maecenas iaculis, arcu id scelerisque pretium, turpis massa vehicula elit, ac gravida dolor urna a neque.</p>
+            <h4 id="fietsen">Item 3</h4>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus luctus sem enim, ut pulvinar lorem lacinia vel. Nunc ultrices, augue ac varius pellentesque, nulla sem condimentum eros, quis tincidunt nisi tellus nec diam.
+              Phasellus
+              tempus, odio a consequat pulvinar, quam mi ultrices justo, in convallis dolor nibh vel libero. Cras hendrerit fringilla felis, sed maximus tellus tincidunt quis. Mauris at dolor pharetra, cursus nisl eget, viverra elit. Quisque sit
+              amet
+              libero orci. Integer efficitur faucibus dictum. Proin quis libero a erat malesuada molestie. Phasellus vitae orci bibendum metus posuere egestas. Sed id ultricies libero. Quisque in risus non lacus aliquam blandit. Donec at cursus
+              ex,
+              accumsan sollicitudin purus.
+
+              Donec viverra vestibulum neque at commodo. Suspendisse fringilla orci lorem, sed imperdiet leo volutpat eu. Fusce vitae est enim. Cras ac erat porta, finibus nulla ut, porttitor est. Suspendisse blandit, eros quis egestas convallis,
+              neque ipsum vulputate libero, at dignissim erat ante nec libero. Donec ornare, tellus in suscipit condimentum, ligula metus molestie augue, ac bibendum purus felis ut augue. Pellentesque habitant morbi tristique senectus et netus et
+              malesuada fames ac turpis egestas. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Suspendisse accumsan nisi neque, vel finibus mauris lobortis vel.
+
+              Aenean metus enim, faucibus eget velit at, porttitor tincidunt risus. Cras risus sapien, lobortis non fermentum a, tincidunt sed turpis. Sed vitae euismod orci, quis tincidunt sapien. Morbi posuere sem arcu, pharetra pharetra libero
+              accumsan rhoncus. Curabitur ultricies a elit iaculis fermentum. Integer ut fermentum mi. Donec ut suscipit sem. Sed eget accumsan lorem. Quisque ut sollicitudin neque. Aliquam maximus dui non suscipit dignissim.
+
+              Sed dapibus erat vitae vehicula aliquam. Mauris nec massa vel lacus efficitur feugiat vitae vel dolor. Aenean tincidunt et orci a auctor. Nam sit amet sapien consectetur, semper odio eu, consectetur lectus. Pellentesque venenatis
+              massa
+              in dictum commodo. Vestibulum faucibus elit sapien, vitae pellentesque eros placerat ut. Suspendisse dapibus ante ligula, eget convallis metus egestas ac. Suspendisse mauris nisi, luctus a auctor at, accumsan nec lectus. Orci varius
+              natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Aenean non luctus velit. Nullam sed cursus quam, ac dapibus velit. Pellentesque eu leo eget erat tincidunt tincidunt. Sed fringilla lacus id ligula aliquet,
+              in
+              ultricies augue posuere. Pellentesque molestie aliquam orci sed vulputate. Sed id venenatis felis, sit amet sodales justo.
+
+              Proin ullamcorper nisl ante, vitae mollis sapien aliquam nec. Sed scelerisque dapibus neque id molestie. Etiam scelerisque, mauris et feugiat tempus, ante ipsum consequat diam, vitae dignissim libero tortor eu nulla. Nulla mattis sem
+              eu
+              rutrum dictum. Integer in odio non mi pellentesque fermentum. Ut tristique neque ut sem dapibus sollicitudin. Maecenas iaculis, arcu id scelerisque pretium, turpis massa vehicula elit, ac gravida dolor urna a neque.</p>
+            <h5 id="item-3-1">Item 3-1</h5>
+            <p>...</p>
+            <h5 id="item-3-2">Item 3-2</h5>
+            <p>...</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+
+<script>
+  $(function() {
+    $("#menu").load("menu.html");
+  });
+
+  $('body').scrollspy({
+    target: '#oefeningen'
+  });
+</script>
+
+</html>
