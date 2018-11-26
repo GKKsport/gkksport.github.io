@@ -38,58 +38,32 @@
 /* Persoonlijke CSS */
 .bigger {
   margin: 0;
-  font-size: 60px;
+  font-size: 10vw;
   font-weight: 800;
-  padding-bottom: 20px;
-  padding-left: 20px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  text-align: center;
   text-transform: uppercase;
   color: #202020;
-  display: inline-block;
   position: relative;
+}
+
+@media (min-width:768px) {
+  .bigger {
+    margin: 0;
+    font-size: 60px;
+    font-weight: 800;
+    padding-bottom: 20px;
+    padding-left: 20px;
+    text-transform: uppercase;
+    color: #202020;
+    display: inline-block;
+    position: relative;
+  }
 }
 
 .logo:hover {
   opacity: 0.7;
-}
-
-.nav-mini {
-  margin-top:.1rem;
-  margin-bottom: .1rem;
-  margin-left: .5rem;
-  margin-right: .5rem;
-  padding-left: 1rem!important;
-  padding-right: 1rem!important;
-  padding-top: 0.1rem!important;
-  padding-bottom: 0.1rem!important;
-}
-
-.nav-maxi {
-  width: 100%!important;
-}
-
-.dark.active {
-  background: linear-gradient(to right, #343a40 5%, #f8f9fa 0%);
-  color: #343a40!important;
-}
-.warning.active {
-  background: linear-gradient(to right, #ffc107 5%, #f8f9fa 0%);
-  color: #ffc107!important;
-}
-.success.active {
-  background: linear-gradient(to right, #28a745 5%, #f8f9fa 0%);
-  color: #28a745!important;
-}
-.info.active {
-  background: linear-gradient(to right, #17a2b8 5%, #f8f9fa 0%);
-  color: #17a2b8!important;
-}
-.secondary.active {
-  background: linear-gradient(to right, #6c757d 5%, #f8f9fa 0%);
-  color: #6c757d!important;
-}
-.danger.active {
-  background: linear-gradient(to right, #dc3545 5%, #f8f9fa 0%);
-  color: #dc3545!important;
 }
 
 

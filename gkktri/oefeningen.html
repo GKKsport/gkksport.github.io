@@ -3,19 +3,21 @@
 
 <head>
   <!-- Standard Meta -->
+  <title>Oefeningen</title>
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
 
   <!-- CSS -->
-  <link rel="stylesheet" href="css/bootstrap.min.css">
+  <link rel="stylesheet" href="../css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
 
   <!-- JS -->
   <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
 
-
+  <!-- Extra Style -->
   <style>
     body {
         position: relative;
@@ -24,13 +26,132 @@
       margin-top: 14px;
       margin-bottom: 14px;
     }
+
+    @media (min-width:768px) {
+      .dark.active,
+      .dark:hover {
+        background: linear-gradient(to right, var(--dark) 5%, #f8f9fa 0%)!important;
+        color: var(--dark)!important;
+      }
+      .warning.active,
+      .warning:hover {
+        background: linear-gradient(to right, var(--yellow) 5%, #f8f9fa 0%)!important;
+        color: var(--yellow)!important;
+      }
+      .success.active,
+      .success:hover {
+        background: linear-gradient(to right, var(--green) 5%, #f8f9fa 0%)!important;
+        color: var(--green)!important;
+      }
+      .info.active,
+      .info:hover {
+        background: linear-gradient(to right, var(--info) 5%, #f8f9fa 0%)!important;
+        color: var(--info)!important;
+      }
+      .secondary.active,
+      .secondary:hover {
+        background: linear-gradient(to right, var(--gray) 5%, #f8f9fa 0%)!important;
+        color: var(--gray)!important;
+      }
+      .danger.active,
+      .danger:hover {
+        background: linear-gradient(to right, var(--danger) 5%, #f8f9fa 0%)!important;
+        color: var(--danger)!important;
+      }
+    }
+
+    @media (max-width: 1200px) and (min-width: 768px) {
+      .nav-groot{
+        display: none!important;
+      }
+      .nav-klein {
+        display: inherit!important;
+      }
+    }
+
+    .nav-mini {
+      border-radius: 0px!important;
+      margin-top:0.1rem;
+      margin-bottom: 0.1rem;
+      margin-left: .5rem;
+      margin-right: .5rem;
+      padding-left: 1rem!important;
+      padding-right: 1rem!important;
+      padding-top: 0!important;
+      padding-bottom: 0!important;
+    }
+
+    .nav-maxi {
+      width: 100%!important;
+    }
+
+    .nav-main:hover {
+    	color: #fff;
+      background-color: #007bff
+    }
+
+    .dark.active,
+    .dark:hover {
+      background: linear-gradient(to right, var(--dark) 2%, #f8f9fa 0%);
+      color: var(--dark)!important;
+    }
+
+
+    .warning.active,
+    .warning:hover {
+      background: linear-gradient(to right, var(--yellow) 2%, #f8f9fa 0%);
+      color: var(--yellow)!important;
+    }
+    .success.active,
+    .success:hover {
+      background: linear-gradient(to right, var(--green) 2%, #f8f9fa 0%);
+      color: var(--green)!important;
+    }
+    .info.active,
+    .info:hover {
+      background: linear-gradient(to right, var(--info) 2%, #f8f9fa 0%);
+      color: var(--info)!important;
+    }
+    .secondary.active,
+    .secondary:hover {
+      background: linear-gradient(to right, var(--gray) 2%, #f8f9fa 0%);
+      color: var(--gray)!important;
+    }
+    .danger.active,
+    .danger:hover {
+      background: linear-gradient(to right, var(--danger) 2%, #f8f9fa 0%);
+      color: var(--danger)!important;
+    }
+
+    #totopBtn {
+        display: none; /* Hidden by default */
+        position: fixed; /* Fixed/sticky position */
+        bottom: 20px; /* Place the button at the bottom of the page */
+        right: 30px; /* Place the button 30px from the right */
+        z-index: 99; /* Make sure it does not overlap */
+        border: none; /* Remove borders */
+        outline: none; /* Remove outline */
+        background-color: var(--primary); /* Set a background color */
+        color: white; /* Text color */
+        cursor: pointer; /* Add a mouse pointer on hover */
+        padding: 15px; /* Some padding */
+        border-radius: .50em; /* Rounded corners */
+        font-size: 18px; /* Increase font size */
+        opacity: 0.6;
+    }
+
+    #totopBtn:hover {
+        background-color: #555; /* Add a dark-grey background on hover */
+    }
+
+
       </style>
 </head>
 
 <body>
   <div class="container">
     <nav class="navbar  navbar-expand-md navbar-light bg-transparent">
-      <a class="navbar-brand logo" href="index.html"><img src="img/logo.png" height="50px;"></a>
+      <a class="navbar-brand logo" href="../index.html"><img src="img/logo.png" height="50px;"></a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
       </button>
@@ -46,8 +167,8 @@
         <div class="col-md-3" style="margin-bottom:30px;">
           <nav id="oefeningen" style="padding:16px!important" class="navbar navbar-light bg-light sticky-top2">
             <nav class="nav nav-pills flex-column nav-maxi">
-              <a class="nav-link" href="#zwemmen">Zwemmen</a>
-              <nav class="nav nav-pills flex-column">
+              <a class="nav-link nav-main" href="#zwemmen">Zwemmen</a>
+              <nav class="nav nav-pills flex-column nav-groot">
                 <a class="nav-link nav-mini dark" href="#zwemAE">Aerobic Endurance</a>
                 <a class="nav-link nav-mini warning" href="#zwemMF">Muscular Force</a>
                 <a class="nav-link nav-mini success" href="#zwemSS">Speed Skills</a>
@@ -55,8 +176,16 @@
                 <a class="nav-link nav-mini secondary" href="#zwemAnE">Anaerobic Endurance</a>
                 <a class="nav-link nav-mini danger" href="#zwemTEST">Tests</a>
               </nav>
-              <a class="nav-link" href="#lopen">Lopen</a>
-              <nav class="nav nav-pills flex-column">
+              <nav class="nav nav-pills flex-column nav-klein" style="display:none;">
+                <a class="nav-link nav-mini dark" href="#zwemAE">AE</a>
+                <a class="nav-link nav-mini warning" href="#zwemMF">MF</a>
+                <a class="nav-link nav-mini success" href="#zwemSS">SS</a>
+                <a class="nav-link nav-mini info" href="#zwemME">ME</a>
+                <a class="nav-link nav-mini secondary" href="#zwemAnE">AnE</a>
+                <a class="nav-link nav-mini danger" href="#zwemTEST">Tests</a>
+              </nav>
+              <a class="nav-link nav-main" href="#lopen">Lopen</a>
+              <nav class="nav nav-pills flex-column nav-groot">
                 <a class="nav-link nav-mini dark" href="#loopAE">Aerobic Endurance</a>
                 <a class="nav-link nav-mini warning" href="#loopMF">Muscular Force</a>
                 <a class="nav-link nav-mini success" href="#loopSS">Speed Skills</a>
@@ -64,25 +193,57 @@
                 <a class="nav-link nav-mini secondary" href="#loopAnE">Anaerobic Endurance</a>
                 <a class="nav-link nav-mini danger" href="#loopTEST">Tests</a>
               </nav>
-              <a class="nav-link" href="#fietsen">Fietsen</a>
-              <nav class="nav nav-pills flex-column">
-                <nav class="nav nav-pills flex-column">
-                  <a class="nav-link nav-mini dark" href="#fietsAE">Aerobic Endurance</a>
-                  <a class="nav-link nav-mini warning" href="#fietsMF">Muscular Force</a>
-                  <a class="nav-link nav-mini success" href="#fietsSS">Speed Skills</a>
-                  <a class="nav-link nav-mini info" href="#fietsME">Muscular Endurance</a>
-                  <a class="nav-link nav-mini secondary" href="#fietsAnE">Anaerobic Endurance</a>
-                  <a class="nav-link nav-mini danger" href="#fietsTEST">Tests</a>
-                </nav>
+              <nav class="nav nav-pills flex-column nav-klein" style="display:none;">
+                <a class="nav-link nav-mini dark" href="#loopAE">AE</a>
+                <a class="nav-link nav-mini warning" href="#loopMF">MF</a>
+                <a class="nav-link nav-mini success" href="#loopSS">SS</a>
+                <a class="nav-link nav-mini info" href="#loopME">ME</a>
+                <a class="nav-link nav-mini secondary" href="#loopAnE">AnE</a>
+                <a class="nav-link nav-mini danger" href="#loopTEST">Tests</a>
+              </nav>
+              <a class="nav-link nav-main" href="#fietsen">Fietsen</a>
+              <nav class="nav nav-pills flex-column nav-groot">
+                <a class="nav-link nav-mini dark" href="#fietsAE">Aerobic Endurance</a>
+                <a class="nav-link nav-mini warning" href="#fietsMF">Muscular Force</a>
+                <a class="nav-link nav-mini success" href="#fietsSS">Speed Skills</a>
+                <a class="nav-link nav-mini info" href="#fietsME">Muscular Endurance</a>
+                <a class="nav-link nav-mini secondary" href="#fietsAnE">Anaerobic Endurance</a>
+                <a class="nav-link nav-mini danger" href="#fietsTEST">Tests</a>
+              </nav>
+              <nav class="nav nav-pills flex-column nav-klein" style="display:none;">
+                <a class="nav-link nav-mini dark" href="#fietsAE">AE</a>
+                <a class="nav-link nav-mini warning" href="#fietsMF">MF</a>
+                <a class="nav-link nav-mini success" href="#fietsSS">SS</a>
+                <a class="nav-link nav-mini info" href="#fietsME">ME</a>
+                <a class="nav-link nav-mini secondary" href="#fietsAnE">AnE</a>
+                <a class="nav-link nav-mini danger" href="#fietsTEST">Tests</a>
+              </nav>
+              <a class="nav-link nav-main" href="#brick">Brick (F→L)</a>
+              <nav class="nav nav-pills flex-column nav-groot">
+                <a class="nav-link nav-mini dark" href="#brickAE">Aerobic Endurance</a>
+                <a class="nav-link nav-mini warning" href="#brickMF">Muscular Force</a>
+                <a class="nav-link nav-mini success" href="#brickSS">Speed Skills</a>
+                <a class="nav-link nav-mini info" href="#brickME">Muscular Endurance</a>
+                <a class="nav-link nav-mini secondary" href="#brickAnE">Anaerobic Endurance</a>
+              </nav>
+              <nav class="nav nav-pills flex-column nav-klein" style="display:none;">
+                <a class="nav-link nav-mini dark" href="#brickAE">AE</a>
+                <a class="nav-link nav-mini warning" href="#brickMF">MF</a>
+                <a class="nav-link nav-mini success" href="#brickSS">SS</a>
+                <a class="nav-link nav-mini info" href="#brickME">ME</a>
+                <a class="nav-link nav-mini secondary" href="#brickAnE">AnE</a>
               </nav>
             </nav>
           </nav>
         </div>
         <div class="col-md-9">
           <div data-spy="scroll" data-target="#oefeningen" data-offset="0">
+            <br>
             <h4>Introtekstje</h4>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-              Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+            <p>
+              Alle oefeningen uit het boek Triathlete Training Bible zijn hier samengevat om in te vullen in het ATP. Wordt later nog vertaald naar het Nederlands.
+            </p>
+
             <h4 id="zwemmen">Zwemmen</h4>
             <div class="row">
               <div class="col-lg-6">
@@ -233,7 +394,11 @@
               <div class="card-body text-dark">
                 <h6 class="card-title">AnE1: VO2max Intervals</h6>
                 <p class="card-text">
-
+                  Complete 3 to 5 work intervals, each with a duration of 2 to 3 minutes and each with a recovery that is 10 to 25 percent of the work-interval time. Intensity is pace zone 5b. This session will gradually boost your aerobic capacity.
+                  Important: Do not allow technique to break down. Recovery intervals may be reduced to about 10 percent of the work interval during the build period as your fitness improves.
+                </p>
+                <p class="card-text">
+                  Example: 5 x 200 meters in 2:40 leaving every 3:00.
                 </p>
               </div>
             </div>
@@ -241,7 +406,12 @@
               <div class="card-body text-dark">
                 <h6 class="card-title">AnE2: Anaerobic Capacity Intervals</h6>
                 <p class="card-text">
-
+                  Swim 1 to 4 intervals with durations of 30 to 60 seconds at pace zone 5c and with long recoveries that have at least the same duration in order to fully recover before the next interval. The recovery intervals may get longer as the
+                  set progresses. Important: Focus on maintaining good posture, direction, length, and catch during each work interval. This set is particularly beneficial in the late build, peak, and race-week periods when you are preparing for a
+                  swim in which you anticipate starting the swim very fast. Total work-interval duration for 1 swim set is less than 4 minutes.
+                </p>
+                <p class="card-text">
+                  Example: 3 x 50 meters in 35 seconds leaving every 1:30.
                 </p>
               </div>
             </div>
@@ -251,7 +421,9 @@
               <div class="card-body text-dark">
                 <h6 class="card-title">T1: Broken Kilometer</h6>
                 <p class="card-text">
-
+                  After your standard pretest warm-up, swim 10 x 100 meters at a maximal but maintainable effort with exactly 10-second recovery intervals after each 100. Time the entire set, including recovery intervals, with a running clock from
+                  the start of the first 100 to the end of the 10th. Subtract 90 seconds (for recovery intervals) to produce a test "score". Perform this test at the end of a rest-and-recovery period. Record the time of this test set in your
+                  training diary to gauge progress over time.
                 </p>
               </div>
             </div>
@@ -259,7 +431,8 @@
               <div class="card-body text-dark">
                 <h6 class="card-title">T2: Functional Threshold Pace Test</h6>
                 <p class="card-text">
-
+                  Following your standard pretest warm-up, swim continuously for 1000 meters as if racing while concentrating on maintaining good technique. Record the time of this test set in your training diary to gauge progress over time. Use
+                  your finish time for this test to determine your swim-pace zones (table 4.2) for the next training period. You can do this test at the end of each rest-and-recovery break.
                 </p>
               </div>
             </div>
@@ -270,474 +443,1350 @@
             <h4 id="lopen">Lopen</h4>
             <div class="row">
               <div class="col-lg-6">
-                <p>The following are basic swim sets that you can combine in various ways into a single swim session. For example, following the warm-up, you may start the session with a speed skills set, followed by an anaerobic endurance set and
-                  then
-                  an
-                  aerobic endurance set, before the cooldown.</p>
-                <p>The typical order for ability sets within a single training session is aerobic endurance (AE) and/or speed skills (SS) as warm-up, followed by muscular force (MF), anaerobic endurance endurance (AnE), and muscular endurance
-                  (ME).
-                  The
-                  cooldown is commonly AE and/or SS. For example, if the main set (the portion that is neither warm-up nor cooldown) of the workout includes MF and ME, the order of all the sets within session from warm-up through cooldown will be
-                  as
-                  follows: 1st set: SS → 2nd set: MF → 3rd set: ME → 4th set: AE.
+                <p>
+                  Below are basic run workouts for triathlon grouped according to the fice abilities described in Chapter 6: aerobic endurance (AE), muscular force (MF), speed skills (SS), muscular endurance (ME), and anaerobic endurance (AnE).
+                  These workouts may be considered modules that can be paired with others to create unique sessions. Combining multiple abilities into one workout is most commonly done in the build period of the season.
+                </p>
+                <p>
+                  The MF, ME and AnE workouts listed below should be preceded by a warm-up. You should perform these three ability categories only in the main set - the primary portion of the workout that is neither warm-up nor cooldown. Note that
+                  the more intense the main set of the workout, the longer your warm-up should be. AE and SS workouts may also be in the main sets and are commonly part of the warm-up and cooldown.
                 </p>
               </div>
               <div class="col-lg-6">
-                <p>A common exception is to insert an AE or SS set within the main set to allow a long recovery between high-effort sets.</p>
-                <p> The MF, ME, and AnE ability sets are always a part of the main set - the primary portions of the workout that are neither warm-up nor cooldown. They should always be preceded by a warm-up. Note that the more intense the main
-                  set of
-                  the
-                  workout, the longer the warm-up must be.</p>
-                <p>The intensities for most of the workouts below are based on pace; heart rate monitors are difficult to use while swimming. See swim-pace zones.</p>
+                <p>
+                  Workout intensities are described here with pace and heart rate. See table 4.4 for run heart rate zones and table 4.6 for run pace zones determined by using a GPS device, a measured course, or a track. As explained in the section
+                  "Zone Agreement" in chapter 4, heart rate and pace zones don't always align. If you have both a heart rate monitor and a GPS device, pace is used to evaluate performance, while heart rate expresses effort. Pace (or speed) is the
+                  preferred metric for most workouts because the goal of training is to improve performance measurably. Although not reflective of workout accomplishment, heart rate may also be used as an indirect way of expressing intensity. Some
+                  workouts rely heavily on heart rate. For very brief intervals, as in MF and AnE sessions, and for SS workouts, heart rate is of limited value.
+                </p>
               </div>
             </div>
             <!-- Aerobic endurance -->
-            <div class="card border-dark mb-3" id="loopAE">
+            <h6 id="loopAE"><span class="badge badge-dark">AE</span> Aerobic Endurance Workouts </h6>
+            <div class="card border-dark mb-3">
               <div class="card-body text-dark">
                 <h6 class="card-title">AE1: Recovery</h6>
-                <p class="card-text">Swim steadily for 10 to 20 minutes or more in pace zone 1, concentrating on only one aspect of technique. You can use this as a recovery work-out following a hard bike or run workout, or as a swim session
-                  cooldown.</p>
+                <p class="card-text">
+                  This workout is done in zone 1, preferably on a flat, soft surface such as a park or golf course. You can instead use a treadmill for these at any time of the year, especially if flat courses are not available. The purpose is
+                  active recovery following a hard workout in the past day or so. Most age-group athletes will be better off swimming or cycling for recovery because of the risk for an injury resulting from running on tired legs. Novices generally
+                  recover faster by taking time off from exercise. Cross-training in other sports may also be beneficial for recovery, especially in the prep and base periods. Recovery workouts are not scheduled in the annual training plan but are
+                  an integral part of training throughout the season. The duration or TSS for this workout should be the lowest in a given week of training.
+                </p>
               </div>
             </div>
             <div class="card border-dark mb-3">
               <div class="card-body text-dark">
-                <h6 class="card-title">AE2: Aerobic Threshold Intervals</h6>
-                <p class="card-text">Swim intervals in pace zone 2 at a distance that takes 6 to 12 minutes. Recover after each for 10 to 15 percent of the preceding work-interval time. Total work-interval distance may match the distance of the
-                  swim portion of your
-                  next A-
-                  or B-priority race. Build up to this set is to recover between intervals with a 25- to 50-meter/yard drill. Example: 4x500 meters/yards in 7 minutes, 30 seconds, leaving every 8 minutes, 15 seconds. Or swim long and steady in
-                  pace
-                  zone
-                  2, especially in open water.</p>
+                <h6 class="card-title">AE2: Aerobic Threshold (AeT)</h6>
+                <p class="card-text">
+                  AeT is explained in chapter 4 under the heading "Intensity Reference Points". A primary reason for doing this workout is to improve aerobic fitness by increasing your physical capacity for delivering and using oxygen to produce
+                  energy in muscle.
+                </p>
+                <p class="card-text">
+                  Use a heart rate monitor to gauge intensity. Your AeT heart rate is approximately 30 bpm below your anaerobic threshold heart rate (see "Setting Training Zones" in chapter 4 for details). Following a warm-up, run from 30 minutes to
+                  2 hours at your AeT heart rate plus or minus 2 bpm on a flat to gently rolling course or indoor trainer. The longer your intended race, the longer the AeT portion of the workout should be. For sprint- and Olympic-distance triathlon
+                  training, the AeT portion is 30 to 45 minutes. If you are training for a half-Ironman, run about 1 to 1.5 hours at AeT heart rate. Ironman athletes should do AeT portions of 1.5 to 2 hours. Build to these durations over several
+                  weeks with weekly AeT workouts. If you are also using a GPS device, when the workout is over, divide the normalized graded pace (NGP) for the AeT portion by your average heart rate for the same portion to find your efficiency
+                  factor (EF) for this session. An increasing EF over time indicates that your aerobic fitness is improving. Note that EF rises and falls over several sessions, but the trend should show an increase if your training is going well.
+                  You can also use the AeT workout as a test for aerobic endurance following a rest-and-recovery periode (see "T1: Aerobic Threshold (AeT) Test" below). This workout should be done year-round, initially for building and later on for
+                  maintaining AE. To maintain AE, do this workout about half as frequently as when you were initially building your aerobic fitness.
+                </p>
               </div>
             </div>
             <div class="card border-dark mb-3">
               <div class="card-body text-dark">
-                <h6 class="card-title">AE3: Tempo Intervals</h6>
-                <p class="card-text">Swim 3 to 7 intervals, each taking about 3 to 5 minutes to complete. Intensity is pace zone 3. Recover after each for 5 to 10 percent of the preceding work-interval time. The total interval time for this
-                  session should be something
-                  in
-                  the range of 10 to 20 minutes. Example: 5 x 200 meters in 3:00, leaving 3:15.</p>
+                <h6 class="card-title">AE3: Intensive Endurance</h6>
+                <p class="card-text">
+                  This workout develops AE while also contributing to improved ME. After a warm-up, run for 20 to 90 minutes or more on a course with small hills while staying mostly in heart rate zone 2, but with frequent, brief increases into zone
+                  3. You can also use an indoor trainer by frequently changing the grade or speed to increase the workload. The purpose of this workout is to boost your body's capacity for processing oxygen to produce energy.
+                </p>
               </div>
             </div>
             <!-- Muscular force -->
-            <div class="card border-warning mb-3" id="loopMF">
+            <h6 id="loopMF"><span class="badge badge-warning">MF</span> Muscular Force Workouts </h6>
+
+            <div class="card border-warning mb-3">
               <div class="card-body text-dark">
-                <h6 class="card-title">AE1: Recovery</h6>
-                <p class="card-text">Swim steadily for 10 to 20 minutes or more in pace zone 1, concentrating on only one aspect of technique. You can use this as a recovery work-out following a hard bike or run workout, or as a swim session
-                  cooldown.</p>
+                <h6 class="card-title">MF1: Force Reps</h6>
+                <p class="card-text">
+                  This is a very challenging repeated-segment workout composed of 1 to 3 sets of 3 repetitions each, yielding a total of 3 to 9 reps within a workout. As with all such high-intensity work-outs, warm up well before starting the reps.
+                  The purpose is to build greater force by strengthening your running muscles. Combining the greater force produced from doing this workout with the increased cadence of SS training results in improved running power. This workout has
+                  the potential for high reward, but it also involves high risk. Avoid this workout if you are prone to foot, achilles tendon, calf, or knee injuries. If your legs are fully capable of handling the stress, you may increase the
+                  workload by wearing a weight vest equal to 5 to 10 percent of your body weight. Force reps are done as follows:
+                </p>
+                <ul class="card-text">
+                  <li>Find a short, steep (grade of 6 to 8 percent) hill that you can run to as warm-up. Grass or dirt is the preferred surface. The hill should be at least 10 meters from base to peak.</li>
+                  <li>After warming up thoroughly, walk to the base of the hill and come to a complete stop. Then quickly run up the hill with great effort on each push-off.</li>
+                  <li>Your stride length is determined by the steepness of the hill and by whether or not you are wearing a weight vest.</li>
+                  <li>Keep your head up in a neutral posture as you run up the hill. Do <em>not</em> look at your feet.</li>
+                  <li>Produce a total of 10 to 20 maximal-effort steps on each brief hill repeat. A "step" is a footstrike with either foot. The fewer steps you take in one ascent of the hill, the greater the effort should be.</li>
+                  <li>After each hill rep, <em>walk</em> slowly back down the hill and fully recover for 2 to 3 minutes. Don't run during the recoveries or try to make the recoveries briefer. Doing so will only increase the risk and decrease the
+                    potential reward. The purpose of this workout is to increase maximum muscular strength, not to build endurance. Allow your muscles to recover before doing the next rep.</li>
+                </ul>
               </div>
             </div>
             <div class="card border-warning mb-3">
               <div class="card-body text-dark">
-                <h6 class="card-title">AE2: Aerobic Threshold Intervals</h6>
-                <p class="card-text">Swim intervals in pace zone 2 at a distance that takes 6 to 12 minutes. Recover after each for 10 to 15 percent of the preceding work-interval time. Total work-interval distance may match the distance of the
-                  swim portion of your
-                  next A-
-                  or B-priority race. Build up to this set is to recover between intervals with a 25- to 50-meter/yard drill. Example: 4x500 meters/yards in 7 minutes, 30 seconds, leaving every 8 minutes, 15 seconds. Or swim long and steady in
-                  pace
-                  zone
-                  2, especially in open water.</p>
+                <h6 class="card-title">MF2: Hilly Run</h6>
+                <p class="card-text">
+                  Select a course that includes several moderately steep hills with grades of about 4 to 6 percent, each taking 2 to 5 minutes to run up. Or run on a treadmill, changing the gradient to create "hills". On the uphill portions, run at
+                  a rating of perceived exertion (RPE) of 7 or 8 on a scale of 0 to 10 (see table 4.1 for RPE zones). Maintain a "proud" posture -head up and tall- while going up the hills.
+                </p>
+                <p class="card-text">On the flatter portions of the course, run in pace zones 1 and 2. RPE and pace are the preferred gauges of intensity for this workout, but if you are using a heart rate monitor, stay below zone 5a on the hills.
+                  Although you are working hard, you may only achieve heart rate zone 3 on hills in the early portion of this workout. Do this workout no more than once per week. Do not do this workout if you are prone to knee, foot, or lower-leg
+                  injury.</p>
               </div>
             </div>
             <div class="card border-warning mb-3">
               <div class="card-body text-dark">
-                <h6 class="card-title">AE3: Tempo Intervals</h6>
-                <p class="card-text">Swim 3 to 7 intervals, each taking about 3 to 5 minutes to complete. Intensity is pace zone 3. Recover after each for 5 to 10 percent of the preceding work-interval time. The total interval time for this
-                  session should be something
-                  in
-                  the range of 10 to 20 minutes. Example: 5 x 200 meters in 3:00, leaving 3:15.</p>
+                <h6 class="card-title">MF3: Hill Repeats</h6>
+                <p class="card-text">
+                  On a steep hill with a grade of about 6 to 8 percent that takes 30 to 60 seconds to climb, do 3 to 8 repeats with 2 to 4 minutes of recovery between them. Maintain an RPE in zone 7 or 8 on a scale of 0 to 10 for each uphill run
+                  (see table 4.1 for RPE zones). Heart rate may reach zone 5a by the time you are at the top of the hill later in the workout but will be mostly in zones 3 and 4 early in the session, even though RPE is appropriately high. Maintain a
+                  "proud" posture -head up and tall- while going up the hills. To recover, slowly jog or walk back down the hill before starting the next rep. If you are wearing a weight vest, only walk down the hill to prevent an injury to the
+                  knees. Stop the workout if your legs show signs of excessive stress, such as soreness and extreme fatigue. Do this workout no more than once per week. Do not do this workout at all if you are prone to any running injuries.
+                </p>
               </div>
             </div>
             <!-- Speed skills -->
-            <div class="card border-success mb-3" id="loopSS">
+            <h6 id="loopSS"><span class="badge badge-success">SS</span> Speed Skills Workouts </h6>
+
+            <div class="card border-success mb-3">
               <div class="card-body text-dark">
-                <h6 class="card-title">AE1: Recovery</h6>
-                <p class="card-text">Swim steadily for 10 to 20 minutes or more in pace zone 1, concentrating on only one aspect of technique. You can use this as a recovery work-out following a hard bike or run workout, or as a swim session
-                  cooldown.</p>
+                <h6 class="card-title">SS1: Strides</h6>
+                <p class="card-text">
+                  The purpose of this workout is to refine your running skills. Run fast down a very slight hill (grade of 1 percent) with a soft surface such as grass or dirt for 20 seconds (RPE of 9 on a scale of 0 to 10). Do this 4 to 8 times.
+                  Focus on one aspect of your technique on each stride. This could be, for example, cadence. Count your right footstrikes for the 20 seconds with a goal of 28 to 32. A variation is to run these barefoot, but only if the grass is free
+                  of sharp objects and there are no breaks in the skin on your feet. Heart rate has no significance for this workout.
+                </p>
               </div>
             </div>
             <div class="card border-success mb-3">
               <div class="card-body text-dark">
-                <h6 class="card-title">AE2: Aerobic Threshold Intervals</h6>
-                <p class="card-text">Swim intervals in pace zone 2 at a distance that takes 6 to 12 minutes. Recover after each for 10 to 15 percent of the preceding work-interval time. Total work-interval distance may match the distance of the
-                  swim portion of your
-                  next A-
-                  or B-priority race. Build up to this set is to recover between intervals with a 25- to 50-meter/yard drill. Example: 4x500 meters/yards in 7 minutes, 30 seconds, leaving every 8 minutes, 15 seconds. Or swim long and steady in
-                  pace
-                  zone
-                  2, especially in open water.</p>
+                <h6 class="card-title">SS2: Pickups</h6>
+                <p class="card-text">
+                  Within an endurance run such as AE3 above, randomly insert several 20-second accelerations to a speed faster than 5-km pace (heart rate is not a good indicator of intensity for these). The primary focus should be on your technique,
+                  such as working on a flat footstrike. Other goals may be maintaining a relaxed posture or a high cadence. Recover for several minutes between these pick-ups by returning to zone 2 steady running.
+                </p>
               </div>
             </div>
-            <div class="card border-success mb-3">
-              <div class="card-body text-dark">
-                <h6 class="card-title">AE3: Tempo Intervals</h6>
-                <p class="card-text">Swim 3 to 7 intervals, each taking about 3 to 5 minutes to complete. Intensity is pace zone 3. Recover after each for 5 to 10 percent of the preceding work-interval time. The total interval time for this
-                  session should be something
-                  in
-                  the range of 10 to 20 minutes. Example: 5 x 200 meters in 3:00, leaving 3:15.</p>
-              </div>
-            </div>
+
             <!-- Muscular Endurance -->
-            <div class="card border-info mb-3" id="loopME">
+            <h6 id="loopME"><span class="badge badge-info">ME</span> Muscular Endurance Workouts </h6>
+
+            <div class="card border-info mb-3">
               <div class="card-body text-dark">
-                <h6 class="card-title">AE1: Recovery</h6>
-                <p class="card-text">Swim steadily for 10 to 20 minutes or more in pace zone 1, concentrating on only one aspect of technique. You can use this as a recovery work-out following a hard bike or run workout, or as a swim session
-                  cooldown.</p>
+                <h6 class="card-title">ME1: Tempo</h6>
+                <p class="card-text">
+                  Warm up thoroughly. Then, on a mostly flat course or on a treadmill, run at pace zone 3 (preferred) or heart rate zone 3 for an extended time without recovery. Start with about 10 to 15 minutes of zone 3 and build to 30 to 45
+                  minutes or more by adding 5 minutes or so each week to the tempo portion of this workout. You can do this workout once or twice weekly.
+                </p>
               </div>
             </div>
             <div class="card border-info mb-3">
               <div class="card-body text-dark">
-                <h6 class="card-title">AE2: Aerobic Threshold Intervals</h6>
-                <p class="card-text">Swim intervals in pace zone 2 at a distance that takes 6 to 12 minutes. Recover after each for 10 to 15 percent of the preceding work-interval time. Total work-interval distance may match the distance of the
-                  swim portion of your
-                  next A-
-                  or B-priority race. Build up to this set is to recover between intervals with a 25- to 50-meter/yard drill. Example: 4x500 meters/yards in 7 minutes, 30 seconds, leaving every 8 minutes, 15 seconds. Or swim long and steady in
-                  pace
-                  zone
-                  2, especially in open water.</p>
+                <h6 class="card-title">ME2: Cruise Intervals</h6>
+                <p class="card-text">
+                  Warm up thoroughly before doing this main set. On a relatively flat course or a treadmill, complete 3 to 5 work intervals, each with a duration of 6 to 12 minutes. Build to pace zone 4 (preferred) or heart rate zone 4 on each work
+                  interval. If you are training with a heart rate monitor, the work interval starts as soon as you begin running with high effort -not when zone 4 is finally achieved. During this heart rate lag period, run ate RPE of about 7 on a
+                  scale of 0 to 10 (see chapter 4 for details on RPE). Between intervals, recover in zone 1 by walking or jogging for one-fourth the duration of the previous interval. A variation is to run cruise intervals in pace zone 4. Stay
+                  relaxed with a tall posture and a quick cadence while closely monitoring your breathing.
+                </p>
               </div>
             </div>
             <div class="card border-info mb-3">
               <div class="card-body text-dark">
-                <h6 class="card-title">AE3: Tempo Intervals</h6>
-                <p class="card-text">Swim 3 to 7 intervals, each taking about 3 to 5 minutes to complete. Intensity is pace zone 3. Recover after each for 5 to 10 percent of the preceding work-interval time. The total interval time for this
-                  session should be something
-                  in
-                  the range of 10 to 20 minutes. Example: 5 x 200 meters in 3:00, leaving 3:15.</p>
+                <h6 class="card-title">ME3: Hill Cruise Intervals</h6>
+                <p class="card-text">
+                  This workout is the same as ME2 cruise intervals above, except it is done on a hill with a long, low gradient (2 to 4 percent). Maintain a tall posture and quick cadence. The recovery between intervals will be longer than in ME2
+                  because you must return to the bottom of the hill. Do this by walking and jogging slowly.
+                </p>
+              </div>
+            </div>
+            <div class="card border-info mb-3">
+              <div class="card-body text-dark">
+                <h6 class="card-title">ME4: Crisscross Intervals</h6>
+                <p class="card-text">
+                  Complete at least 2 cruise-interval workouts before doing this workout, and warm up thoroughly before doing this main set. On a mostly flat course, run 10 to 20 minutes in pace zones 4 and 5a (preferred) or heart rate zones 4 and
+                  5a. Once zone 4 is attained, gradually build to the top of zone 5a, taking 1 or 2 minutes to do so. Then gradually back off and slowly come to the bottom of zone 4, again taking 1 or 2 minutes. Continue this pattern throughout the
+                  run.
+                </p>
+              </div>
+            </div>
+            <div class="card border-info mb-3">
+              <div class="card-body text-dark">
+                <h6 class="card-title">ME5: Threshold Run</h6>
+                <p class="card-text">
+                  Warm up thoroughly before starting. On a mostly flat course, run 10 to 20 minutes nonstop in pace zone 4 (preferred) or heart rate zone 4. Maintain good technique while listening to your breathing throughout. Don't attempt a
+                  threshold run until you've completed at least four of the other ME inteval workouts.
+                </p>
               </div>
             </div>
             <!-- Anaerobic Endurance -->
-            <div class="card border-secondary mb-3" id="loopAnE">
+            <h6 id="loopAnE"><span class="badge badge-secondary">AnE</span> Anaerobic Endurance Workouts </h6>
+
+            <div class="card border-secondary mb-3">
               <div class="card-body text-dark">
-                <h6 class="card-title">AE1: Recovery</h6>
-                <p class="card-text">Swim steadily for 10 to 20 minutes or more in pace zone 1, concentrating on only one aspect of technique. You can use this as a recovery work-out following a hard bike or run workout, or as a swim session
-                  cooldown.</p>
+                <h6 class="card-title">AnE1: Group Run</h6>
+                <p class="card-text">
+                  This is an unstructured workout. After a thorough warm-up, run fast with other triathletes of similar ability. Gradually increase speed until you are running in pace or heart rate zones 4 and 5a (preferred) with periodic surges or
+                  hill climbs in which you achieve zone 5b.
+                </p>
               </div>
             </div>
             <div class="card border-secondary mb-3">
               <div class="card-body text-dark">
-                <h6 class="card-title">AE2: Aerobic Threshold Intervals</h6>
-                <p class="card-text">Swim intervals in pace zone 2 at a distance that takes 6 to 12 minutes. Recover after each for 10 to 15 percent of the preceding work-interval time. Total work-interval distance may match the distance of the
-                  swim portion of your
-                  next A-
-                  or B-priority race. Build up to this set is to recover between intervals with a 25- to 50-meter/yard drill. Example: 4x500 meters/yards in 7 minutes, 30 seconds, leaving every 8 minutes, 15 seconds. Or swim long and steady in
-                  pace
-                  zone
-                  2, especially in open water.</p>
+                <h6 class="card-title">AnE2: VO2max Intervals</h6>
+                <p class="card-text">
+                  After a long warm-up, move to a mostly flat road course, treadmill, or track. Do several work intervals with a duration of 30 seconds to 4 minutes, each in pace zone 5b. Recover after each with easy jogging and walking in zone 1
+                  for as long as the previous interval. As your fitness improves, reduce the recovery time by half. Start with about 5 minutes of total interval time within a workout (e.g., 10 x 30 seconds) and gradually, over several sessions,
+                  build to about 15 minutes in a session (e.g., 5 x 3 minutes). A GPS device is the preferred tool for measuring intensity during this workout. Heart rate lag makes heart rate monitors ineffective for gauging intensity for such short
+                  intervals. If you don't have a GPS device, run at an RPE of 9 on a scale of 0 to 10 for each interval (see chapter 4 for details on RPE). Concentrate on good running technique.
+                </p>
               </div>
             </div>
             <div class="card border-secondary mb-3">
               <div class="card-body text-dark">
-                <h6 class="card-title">AE3: Tempo Intervals</h6>
-                <p class="card-text">Swim 3 to 7 intervals, each taking about 3 to 5 minutes to complete. Intensity is pace zone 3. Recover after each for 5 to 10 percent of the preceding work-interval time. The total interval time for this
-                  session should be something
-                  in
-                  the range of 10 to 20 minutes. Example: 5 x 200 meters in 3:00, leaving 3:15.</p>
+                <h6 class="card-title">AnE3: Hill Intervals</h6>
+                <p class="card-text">
+                  Find a relatively steep (grade of 6 to 8 percent) hill that takes 2 to 3 minutes to run up. Following a thorough warm-up, do 5 to 7 climbs at a percieved exertion of 9 on a scale of 0 to 10 (see chapter 4 for details on RPE) for a
+                  total of 10 to 15 minutes of total workout climbing time (e.g., 7 x 2 minutes or 5 x 3 minutes). (Heart rate lag makes heart rate monitors ineffective for this workout.) Recover by slowly jogging and walking down the hill, then
+                  start a new interval when you reach the base. This is a very hard workout that is best done only once in a week followed by at least 48 hours of recovery. Complete at least 2 AnE2 and 2 MF workouts before doing this one.
+                </p>
               </div>
             </div>
             <!-- TESTS -->
-            <div class="card border-danger mb-3" id="loopTEST">
+            <h6 id="loopTEST"><span class="badge badge-danger">TESTS</span> TESTS </h6>
+
+            <div class="card border-danger mb-3">
               <div class="card-body text-dark">
-                <h6 class="card-title">AE1: Recovery</h6>
-                <p class="card-text">Swim steadily for 10 to 20 minutes or more in pace zone 1, concentrating on only one aspect of technique. You can use this as a recovery work-out following a hard bike or run workout, or as a swim session
-                  cooldown.</p>
+                <h6 class="card-title">T1: Aerobic Threshold (AeT) Test</h6>
+                <p class="card-text">
+                  This test of your aerobic fitness is best done after 3 to 5 days of greatly reduced training to allow rest and recovery. Follow the instructions for workout AE2 above. While you may also be doing the AE2 workout during a "normal",
+                  non-recovery training week, your results after a short rest-and-recovery break from hard training are a better indicator of your progress because fatigue is unlikely to be a mitigating factor. As with the AE2 workout above,
+                  following the session, divide your NGP for the AeT portion by your average heart rate for the same portion to determine your current EF. As your aerobic fitness improves over time, your EF value will trend upward. During a period
+                  of greatly reduced training, such as at the end of the season, you should expect your EF to decline steadily, indication a loss of aerobic fitness. That is normal and to be expected because fitness must subside at certain times of
+                  the year.
+                </p>
+                <p class="card-text">This test should be done year-round at least every 6 to 8 weeks. If possible, use the same course every time and keep other conditions (e.g., shoes, warm-up, time of day, and before-workout meals) the same from
+                  one test to the next.</p>
               </div>
             </div>
             <div class="card border-danger mb-3">
               <div class="card-body text-dark">
-                <h6 class="card-title">AE2: Aerobic Threshold Intervals</h6>
-                <p class="card-text">Swim intervals in pace zone 2 at a distance that takes 6 to 12 minutes. Recover after each for 10 to 15 percent of the preceding work-interval time. Total work-interval distance may match the distance of the
-                  swim portion of your
-                  next A-
-                  or B-priority race. Build up to this set is to recover between intervals with a 25- to 50-meter/yard drill. Example: 4x500 meters/yards in 7 minutes, 30 seconds, leaving every 8 minutes, 15 seconds. Or swim long and steady in
-                  pace
-                  zone
-                  2, especially in open water.</p>
+                <h6 class="card-title">T2: Functional Threshold Test</h6>
+                <p class="card-text">
+                  The purpose of this test is to determine your functional threshold pace (FTPa) and functional threshold heart rate (FTHR) for running in order to set your training zones. Do this test following 3 to 5 days of active rest and
+                  recovery. A road course should be relatively flat for this test, or do it on a track (preferred). Use the same course every time. (Most treadmills can't be calibrated closely enough to attain the accuracy required for this test.)
+                  Run as if you are in a race that lasts 20 minutes. Hold back slightly in the first 5 minutes (most athletes start much too fast). Every 5 minutes, decide whether you should go slightly faster or more slowly for the next 5 minutes.
+                  Cool down afterward with easy jogging and walking. Following the workout, find your average heart rate for the 20-minute test. <em>Subtract</em> 5 percent and you have a good estimate of your run FTHR. Then use table 4.4 to compute
+                  heart rate training zones. If you are using a GPS device on a road course, <em>add</em> 5 percent to your NGP to determine FTPa. If you performed the test on a track, use the track measurements to determine pace and also <em>add</em>
+                  5 percent for an estimate of FTPa. Table 4.6 may then be used to set your pace training zones.
+                </p>
               </div>
             </div>
             <div class="card border-danger mb-3">
               <div class="card-body text-dark">
-                <h6 class="card-title">AE3: Tempo Intervals</h6>
-                <p class="card-text">Swim 3 to 7 intervals, each taking about 3 to 5 minutes to complete. Intensity is pace zone 3. Recover after each for 5 to 10 percent of the preceding work-interval time. The total interval time for this
-                  session should be something
-                  in
-                  the range of 10 to 20 minutes. Example: 5 x 200 meters in 3:00, leaving 3:15.</p>
+                <h6 class="card-title">T3: Functional Aerobic Capacity Test</h6>
+                <p class="card-text">
+                  Use this test to determine your functional aerobic capacity (VO2max) pace. A GPS device is required if the test is done on the road. If you are on a track, use its measurements to determine pace. (Most treadmills can't be
+                  callibrated closely enough to attain the accuracy required for this test.) This test is best done following reduced training for 3 to 5 days. Warm up thoroughly and then run a steady, all-out effort run for 5 minutes. Your NGP from
+                  a road test or the actual pace from a track-based test for the 5-minute test portion is a good predictor of your pace at aerobic capacity. This test may be done in place of a costly clinical test of VO2max.
+                </p>
               </div>
             </div>
+            <div class="card border-danger mb-3">
+              <div class="card-body text-dark">
+                <h6 class="card-title">T4: VO2max Estimation Time Trial</h6>
+                <p class="card-text">
+                  The following test may be used as a predictor of your VO2max (milliliters of O2 per kilogram per minute) in place of a costly clinical test. After a thorough 10- to 20-minute warm-up, complete a 2400m, maximum-effort time trial on
+                  a track or a flat and precisely measured road course. (Most treadmills can't be calibrated closely enough to attain the accuracy required for this test.) Record the time for the time trial in your training diary to compare with
+                  future time trials. In addition to time, record your average and peak heart rates. Keep the conditions the same from one time trial to the next. You can estimate your VO2max from your time in this 2400m time trial as shown in table
+                  D.1.
+                </p>
+                <table width="100%" class="table table-hover table-sm text-center">
+                  <caption>Estimation of VO2max from a 2.4km run test</caption>
+                  <thead class="table-danger">
+                    <tr>
+                      <th scope="col">Time for 2400m (min:sec)</th>
+                      <th scope="col">Estimated VO2max (ml/kg/min)</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>7:30 and faster</td>
+                      <td>75</td>
+                    </tr>
+                    <tr>
+                      <td>7:31-8:00</td>
+                      <td>72</td>
+                    </tr>
+                    <tr>
+                      <td>8:01-8:30</td>
+                      <td>67</td>
+                    </tr>
+                    <tr>
+                      <td>8:31-9:00</td>
+                      <td>62</td>
+                    </tr>
+                    <tr>
+                      <td>9:01-9:30</td>
+                      <td>58</td>
+                    </tr>
+                    <tr>
+                      <td>9:31-10:00</td>
+                      <td>55</td>
+                    </tr>
+                    <tr>
+                      <td>10:01-10:30</td>
+                      <td>52</td>
+                    </tr>
+                    <tr>
+                      <td>10:31-11:00</td>
+                      <td>49</td>
+                    </tr>
+                    <tr>
+                      <td>11:01-11:30</td>
+                      <td>46</td>
+                    </tr>
+                    <tr>
+                      <td>11:31-12:00</td>
+                      <td>44</td>
+                    </tr>
+                    <tr>
+                      <td>12:01-12:30</td>
+                      <td>41</td>
+                    </tr>
+                    <tr>
+                      <td>12:31-13:00</td>
+                      <td>39</td>
+                    </tr>
+                    <tr>
+                      <td>13:01-13:30</td>
+                      <td>37</td>
+                    </tr>
+                    <tr>
+                      <td>13:31-14:00</td>
+                      <td>36</td>
+                    </tr>
+                    <tr>
+                      <td>14:01-14:30</td>
+                      <td>34</td>
+                    </tr>
+                    <tr>
+                      <td>14:31-15:00</td>
+                      <td>33</td>
+                    </tr>
+                    <tr>
+                      <td>15:01-15:30</td>
+                      <td>31</td>
+                    </tr>
+                    <tr>
+                      <td>15:31-16:00</td>
+                      <td>30</td>
+                    </tr>
+                    <tr>
+                      <td>16:01-16:30</td>
+                      <td>28</td>
+                    </tr>
+                    <tr>
+                      <td>16:31-17:00</td>
+                      <td>27</td>
+                    </tr>
+                    <tr>
+                      <td>17:01-17:30</td>
+                      <td>26</td>
+                    </tr>
+                    <tr>
+                      <td>17:31-18:00</td>
+                      <td>25</td>
+                    </tr>
+
+                  </tbody>
+                </table>
+
+              </div>
+            </div>
+
+
+
+
 
             <h4 id="fietsen">Fietsen</h4>
             <div class="row">
               <div class="col-lg-6">
-                <p>The following are basic swim sets that you can combine in various ways into a single swim session. For example, following the warm-up, you may start the session with a speed skills set, followed by an anaerobic endurance set and
-                  then
-                  an
-                  aerobic endurance set, before the cooldown.</p>
-                <p>The typical order for ability sets within a single training session is aerobic endurance (AE) and/or speed skills (SS) as warm-up, followed by muscular force (MF), anaerobic endurance endurance (AnE), and muscular endurance
-                  (ME).
-                  The
-                  cooldown is commonly AE and/or SS. For example, if the main set (the portion that is neither warm-up nor cooldown) of the workout includes MF and ME, the order of all the sets within session from warm-up through cooldown will be
-                  as
-                  follows: 1st set: SS → 2nd set: MF → 3rd set: ME → 4th set: AE.
+                <p>
+                  The following basic bike workouts for triathletes are categorized according to the five abilities described in Chapter 6: aerobic endurance (AE), muscular force (MF), speed skills (SS), muscular endurance (ME), and anaerobic
+                  endurance (AnE). By combining portions of the workouts that follow, you can create new workouts, including multiple-ability workouts, to match your specific needs. Merging multiple abilities into one workout is most commonly done
+                  in the build period of the season (see Chapters 7 and 8 for more on periodization of training).
                 </p>
+                <p>
+                  The MF, ME, and AnE workouts listed below
+                  should be preceded by a warm-up. You should
+                  use these three ability categories only in the main
+                  set - the primary portion of the workout that is
+                  neither warm-up nor cooldown. Note that the
+                  more intense the main set of the workout, the
+                  longer your warm-up should be.</p>
+
               </div>
               <div class="col-lg-6">
-                <p>A common exception is to insert an AE or SS set within the main set to allow a long recovery between high-effort sets.</p>
-                <p> The MF, ME, and AnE ability sets are always a part of the main set - the primary portions of the workout that are neither warm-up nor cooldown. They should always be preceded by a warm-up. Note that the more intense the main
-                  set of
-                  the
-                  workout, the longer the warm-up must be.</p>
-                <p>The intensities for most of the workouts below are based on pace; heart rate monitors are difficult to use while swimming. See swim-pace zones.</p>
+                <p>
+                  Workout intensities are described with power
+                  and heart rate. See Table 4.3 for bike heart rate
+                  zones and Table 4.5 for bike power zones. Note
+                  that heart rate and power zones don't always
+                  agree. You may want to reread "Zone Agreement"
+                  in Chapter 4, the section that discusses
+                  their relationship. If you have both devices, use
+                  the power meter to measure performance and
+                  the heart rate monitor to gauge effort. The power
+                  meter is the preferred intensity gauge for most
+                  workouts. There are some exceptions, which are
+                  described below.
+                </p>
               </div>
             </div>
             <!-- Aerobic endurance -->
-            <div class="card border-dark mb-3" id="fietsAE">
+            <h6 id="fietsAE"><span class="badge badge-dark">AE</span> Aerobic Endurance Workouts </h6>
+            <div class="card border-dark mb-3">
               <div class="card-body text-dark">
                 <h6 class="card-title">AE1: Recovery</h6>
-                <p class="card-text">Swim steadily for 10 to 20 minutes or more in pace zone 1, concentrating on only one aspect of technique. You can use this as a recovery work-out following a hard bike or run workout, or as a swim session
-                  cooldown.</p>
+                <p class="card-text">
+                  Do this workout in heart rate zone 1 while using
+                  the small chain ring on a flat course. Pedal with
+                  a comfortably high cadence. Alternatively, you
+                  can use an indoor trainer or rollers for these at
+                  any time of the year, especially if flat road courses
+                  are not available. Other options for recovery in
+                  the prep and early base periods include crosstraining
+                  workouts, such as cross-country skiing
+                  on a relatively flat course, and various health
+                  club machines. Note that your heart rate zones
+                  for these activities are unlikely to be the same as
+                  those for the bike.
+                </p>
+                <p class="card-text">
+                  Although light exercise on a bike is quite beneficia!
+                  for speeding recovery among advanced
+                  triathletes, novices benefit more by taking time
+                  off from exercise. Recovery workouts are not
+                  included in the annual training plan, but they
+                  are an integral part of training throughout the
+                  season.
+                </p>
               </div>
             </div>
             <div class="card border-dark mb-3">
               <div class="card-body text-dark">
-                <h6 class="card-title">AE2: Aerobic Threshold Intervals</h6>
-                <p class="card-text">Swim intervals in pace zone 2 at a distance that takes 6 to 12 minutes. Recover after each for 10 to 15 percent of the preceding work-interval time. Total work-interval distance may match the distance of the
-                  swim portion of your
-                  next A-
-                  or B-priority race. Build up to this set is to recover between intervals with a 25- to 50-meter/yard drill. Example: 4x500 meters/yards in 7 minutes, 30 seconds, leaving every 8 minutes, 15 seconds. Or swim long and steady in
-                  pace
-                  zone
-                  2, especially in open water.</p>
+                <h6 class="card-title">AE2: Aerobic Threshold (AeT)</h6>
+                <p class="card-text">
+                  The AeT workout was briefly introduced in
+                  Chapter 4 in the section "Intensity Reference
+                  Points:' An important purpose of this workout is
+                  to boost aerobic ·fitness by improving the body's
+                  capability for delivering and using oxygen to produce
+                  energy in muscle. Use a heart rate monitor
+                  to gauge the intensity of this workout. Your
+                  AeT heart rate is approximately 30 bpm below your anaerobic threshold heart rate (see "Setting
+                  Training Zones" in Chapter 4 for details).
+                </p>
+                <p class="card-text">
+                  Following a warm-up, ride at your AeT heart
+                  rate plus or minus 2 bpm on a flat to gently rolling
+                  course, or on an indoor trainer. The length of
+                  time you spend on the AeT portion of the workout
+                  depends on the length of your target race. For
+                  sprint and Olympic-distance triathlon training,
+                  the AeT portion is 1 to 1.5 hours long. If you are
+                  training for a half-Ironman, ride 2 to 2.5 hours.
+                  Ironman athletes should do an AeT portion of 3
+                  to 4 hours. If you are also using a power meter,
+                  when the workout is over, divide the normalized
+                  power for the AeT portion by your average heart
+                  rate for the same portion to find your efficiency
+                  factor (EF) for this session. An increasing EF over
+                  time indicates that your AeT is improving. Note
+                  that it seldom rises linearly but instead "ratchets"
+                  up over several weeks as fitness improves.
+                </p>
+                <p class="card-text">
+                  You can also use the AeT workout as a test
+                  of AE (see "Tl: Aerobic Threshold [AeT] Test"
+                  below). Do this workout year-round, initially to
+                  build and later on to maintain your AE. When
+                  you are using it to maintain AE, do this workout
+                  about half as frequently as when you were initially
+                  building aerobic fitness.
+                </p>
               </div>
             </div>
             <div class="card border-dark mb-3">
               <div class="card-body text-dark">
-                <h6 class="card-title">AE3: Tempo Intervals</h6>
-                <p class="card-text">Swim 3 to 7 intervals, each taking about 3 to 5 minutes to complete. Intensity is pace zone 3. Recover after each for 5 to 10 percent of the preceding work-interval time. The total interval time for this
-                  session should be something
-                  in
-                  the range of 10 to 20 minutes. Example: 5 x 200 meters in 3:00, leaving 3:15.</p>
+                <h6 class="card-title">AE3: Intensive Endurance</h6>
+                <p class="card-text">
+                  This workout develops AE while also building
+                  ME. After a warm-up, ride for an hour or more
+                  on a course with small hills while staying mostly
+                  in heart rate zone 2, but with frequent, brief
+                  increases to zone 3. Remain seated on most hills.
+                  You can also do this workout on an indoor trainer
+                  by frequently shifting gears to increase the load
+                  and simulate hills. Accumulate several minutes
+                  of zone 3 in this manner within the ride. A common
+                  variation of this workout is to run 15 to 20 minutes immediately after the ride. The purpose
+                  of the workout is to boost your body's capacity
+                  for processing oxygen to produce energy.
+                </p>
               </div>
             </div>
             <!-- Muscular force -->
-            <div class="card border-warning mb-3" id="fietsMF">
+            <h6 id="fietsMF"><span class="badge badge-warning">MF</span> Muscular Force Workouts </h6>
+
+            <div class="card border-warning mb-3">
               <div class="card-body text-dark">
-                <h6 class="card-title">AE1: Recovery</h6>
-                <p class="card-text">Swim steadily for 10 to 20 minutes or more in pace zone 1, concentrating on only one aspect of technique. You can use this as a recovery work-out following a hard bike or run workout, or as a swim session
-                  cooldown.</p>
+                <h6 class="card-title">MF1: Force Reps</h6>
+                <p class="card-text">
+                  This is an interval workout involving 1 to 3 sets
+                  with 3 reps within each set. That means a total
+                  of 3 to 9 reps within the session. As with all such
+                  high-intensity workouts, warm up well before
+                  starting the reps. Do this workout no more than
+                  twice per week with at least 48 hours between
+                  workouts. Do not do this workout if you have
+                  knee problems. The workout is done as follows:
+                </p>
+                <ul class="card-text">
+                  <li>Find a short - about 30 to 50 yards or meters
+                    long - steep hill. The grade should be about
+                    6 to 8 percent. There should be very little
+                    traffic.</li>
+                  <li>
+                    For each rep, select a high gear, such as
+                    53 x 16 or 50 x 15. The stronger you are, the
+                    higher and more challenging the gear can be.
+                    Your gear selection should be high enough
+                    that your highest cadence is less than 50 rpm
+                    by the end of a rep. The steepness of the hill
+                    will also play a role in gear selection, so you
+                    will need to experiment with gearing the first
+                    time you do this workout. Err on the low-gear
+                    (easy) side at first.
+                  </li>
+                  <li>
+                    Coast back down to the base of the hill
+                    in that high (hard) gear and almost come
+                    to a complete stop while staying balanced.
+                  </li>
+                  <li>
+                    As you start up the hill, stay seated. Do not
+                    stand. Drive the pedals down with a maximal
+                    effort for 5 to 10 revolutions. A revolution is
+                    1 complete pedal stroke, so, for example,
+                    count your right foot driving the pedal down 8 times. Alternate the leg you count for
+                    subsequent reps because you are likely to
+                    push harder with the "counted " leg.
+                  </li>
+                  <li>
+                    After a rep, shift to a low (easy) gear and
+                    pedal gently for 3 to 5 minutes to allow
+                    recovery. Do not shorten the recovery time
+                    between reps because this will reduce the
+                    workout benefit of strength development.
+                    Be sure your legs are recovered before doing
+                    the next rep.</li>
+                  <li>
+                    Repeat the above steps 2 more times for a
+                    total of 3 reps. That's 1 set. If you are doing
+                    a second set (do only 1 set the first time
+                    you try this workout), pedal easily for 5 to
+                    10 minutes after each set to ensure full
+                    recovery. Be aware of how your knees feel
+                    on each rep. This is a high-risk, high-reward
+                    workout. At the first sign of any tenderness,
+                    stop the workout. Do not continue, even if the
+                    tenderness in your knees is only slight.</li>
+                  <li>
+                    Power, not heart rate, is the only gauge of
+                    intensity for this session. Strive to produce
+                    very high wattage on each rep.</li>
+                </ul>
               </div>
             </div>
             <div class="card border-warning mb-3">
               <div class="card-body text-dark">
-                <h6 class="card-title">AE2: Aerobic Threshold Intervals</h6>
-                <p class="card-text">Swim intervals in pace zone 2 at a distance that takes 6 to 12 minutes. Recover after each for 10 to 15 percent of the preceding work-interval time. Total work-interval distance may match the distance of the
-                  swim portion of your
-                  next A-
-                  or B-priority race. Build up to this set is to recover between intervals with a 25- to 50-meter/yard drill. Example: 4x500 meters/yards in 7 minutes, 30 seconds, leaving every 8 minutes, 15 seconds. Or swim long and steady in
-                  pace
-                  zone
-                  2, especially in open water.</p>
+                <h6 class="card-title">MF2: Hilly Ride</h6>
+                <p class="card-text">
+                  Select a course that includes several moderately
+                  steep hills with a grade of up to about 6 percent
+                  that take 2 to 5 minutes to climb. Stay seated on
+                  all hills, pedaling from the hips. That means little
+                  or no rocking of the upper body. Cadence on the
+                  climbs is 60 rpm or higher. Increase power to
+                  zone 4 or 5 on each hill. Ride in power zones 1
+                  and 2 on the latter portions of the course. Power
+                  is the preferred gauge of intensity for this workout,
+                  but if you are using only a heart rate monitor,
+                  stay below zone 5a on the hills. On an indoor
+                  trainer, you can simulate hills by placing a 5- to
+                  7-inch riser under the front wheel and selecting high gears and a wheel-resistance setting that
+                  will produce a slow cadence. Do this workout no
+                  more than twice per week with at least 48 hours
+                  between workouts. Do not do this workout if you
+                  are prone to knee injury.
+                </p>
               </div>
             </div>
             <div class="card border-warning mb-3">
               <div class="card-body text-dark">
-                <h6 class="card-title">AE3: Tempo Intervals</h6>
-                <p class="card-text">Swim 3 to 7 intervals, each taking about 3 to 5 minutes to complete. Intensity is pace zone 3. Recover after each for 5 to 10 percent of the preceding work-interval time. The total interval time for this
-                  session should be something
-                  in
-                  the range of 10 to 20 minutes. Example: 5 x 200 meters in 3:00, leaving 3:15.</p>
+                <h6 class="card-title">MF3: Hill Repeats</h6>
+                <p class="card-text">
+                  On a steep hill with a grade of about 6 to 8 percent
+                  that takes 30 to 60 seconds to climb, do
+                  3 to 8 repeats with 2 to 4 minutes of recovery
+                  between them. Maintain power zone 5 for each
+                  uphill climb. Your heart rate may reach zone 5a
+                  or 5b by the top of the hill later in the workout,
+                  but it will be mostly in zones 3 and 4 early in the
+                  session, even though your power reading stays
+                  the same. To recover, coast while descending
+                  before starting the next rep. Climb in the saddle,
+                  holding the handlebar tops with minimal upperbody
+                  movement. Maintain a cadence of 70 rpm
+                  or lower on each rep. Stop the workout if you find
+                  your knees becoming sensitive. Do this workout
+                  no more than twice per week with at least 48
+                  hours between workouts. Do not do this workout
+                  at all if you are prone to knee injury.
+                </p>
               </div>
             </div>
             <!-- Speed skills -->
-            <div class="card border-success mb-3" id="fietsSS">
+            <h6 id="fietsSS"><span class="badge badge-success">SS</span> Speed Skills Workouts </h6>
+
+            <div class="card border-success mb-3">
               <div class="card-body text-dark">
-                <h6 class="card-title">AE1: Recovery</h6>
-                <p class="card-text">Swim steadily for 10 to 20 minutes or more in pace zone 1, concentrating on only one aspect of technique. You can use this as a recovery work-out following a hard bike or run workout, or as a swim session
-                  cooldown.</p>
+                <h6 class="card-title">SS1: Spin-Ups</h6>
+                <p class="card-text">
+                  On a flat or slightly downhill section of road, or
+                  on an indoor trainer set to light resistance and
+                  in a low (easy) gear, gradually increase cadence
+                  for 1 minute to your maximum. Maximum is the
+                  cadence you can maintain without bouncing on
+                  the saddle. As the cadence increases, allow your
+                  lower legs and feet to relax - especially your toes.
+                  Hold your maximum cadence for as long as possible,
+                  which will probably be only a few seconds.
+                  Recover for at least a minute. Repeat several times. This drill is best done with a handlebar
+                  computer that displays cadence. Heart rate
+                  and power ratings have no significance for this
+                  workout. The purpose is improvement of your
+                  pedaling efficiency, indicated by an increasing
+                  maximum cadence.
+                </p>
               </div>
             </div>
             <div class="card border-success mb-3">
               <div class="card-body text-dark">
-                <h6 class="card-title">AE2: Aerobic Threshold Intervals</h6>
-                <p class="card-text">Swim intervals in pace zone 2 at a distance that takes 6 to 12 minutes. Recover after each for 10 to 15 percent of the preceding work-interval time. Total work-interval distance may match the distance of the
-                  swim portion of your
-                  next A-
-                  or B-priority race. Build up to this set is to recover between intervals with a 25- to 50-meter/yard drill. Example: 4x500 meters/yards in 7 minutes, 30 seconds, leaving every 8 minutes, 15 seconds. Or swim long and steady in
-                  pace
-                  zone
-                  2, especially in open water.</p>
-              </div>
-            </div>
-            <div class="card border-success mb-3">
-              <div class="card-body text-dark">
-                <h6 class="card-title">AE3: Tempo Intervals</h6>
-                <p class="card-text">Swim 3 to 7 intervals, each taking about 3 to 5 minutes to complete. Intensity is pace zone 3. Recover after each for 5 to 10 percent of the preceding work-interval time. The total interval time for this
-                  session should be something
-                  in
-                  the range of 10 to 20 minutes. Example: 5 x 200 meters in 3:00, leaving 3:15.</p>
+                <h6 class="card-title">SS2: Isolated Leg</h6>
+                <p class="card-text">
+                  On a flat or slightly downhill section of road, do
+                  90 percent of the work with one leg while the
+                  other rests. If you are performing this drill on
+                  an indoor trainer while using a light resistance,
+                  you can support your resting leg by placing
+                  your foot on a chair or stool. Spin with a high
+                  cadence. Change legs when fatigue begins to
+                  set in. Focus on eliminating the "dead" portions
+                  at the top and bottom of the stroke. Heart rate
+                  and power ratings have no significance for this
+                  workout.
+                </p>
               </div>
             </div>
             <!-- Muscular Endurance -->
-            <div class="card border-info mb-3" id="fietsME">
+            <h6 id="fietsME"><span class="badge badge-info">ME</span> Muscular Endurance Workouts </h6>
+
+            <div class="card border-info mb-3">
               <div class="card-body text-dark">
-                <h6 class="card-title">AE1: Recovery</h6>
-                <p class="card-text">Swim steadily for 10 to 20 minutes or more in pace zone 1, concentrating on only one aspect of technique. You can use this as a recovery work-out following a hard bike or run workout, or as a swim session
-                  cooldown.</p>
+                <h6 class="card-title">ME1: Tempo Intervals</h6>
+                <p class="card-text">
+                  After warming up, do 3 to 5 work intervals in
+                  zone 3 with brief recoveries. The work intervals
+                  may be 12 to 20 minutes long with recoveries
+                  that are about one-fourth as long. For
+                  example, following a 16-minute interval, recover
+                  for 4 minutes. This workout should be done on
+                  a mostly flat road course or an indoor trainer.
+                  Power is the preferred measure of intensity for
+                  this workout, but you can also use heart rate.
+                  If you are training only with a heart rate monitor,
+                  the work interval starts as soon as you begin
+                  pedaling hard - <em>not</em> when zone 3 is achieved.
+                  There will be a time lag during the interval as
+                  your heart rate catches up to your effort. During
+                  these times, use a perceived exertion of 5 to
+                  6 on a scale of O to 10 (see Chapter 4 for details
+                  on rating of perceived exertion, or RPE). Avoid
+                  roads with heavy traffic and frequent stop signs.
+                  Stay in an aerodynamic position for each interval.
+                  Recover by using easy pedaling in zone 1.
+                  Tempo intervals are a foundational workout for
+                  long-course triathlon preparation.
+                </p>
               </div>
             </div>
             <div class="card border-info mb-3">
               <div class="card-body text-dark">
-                <h6 class="card-title">AE2: Aerobic Threshold Intervals</h6>
-                <p class="card-text">Swim intervals in pace zone 2 at a distance that takes 6 to 12 minutes. Recover after each for 10 to 15 percent of the preceding work-interval time. Total work-interval distance may match the distance of the
-                  swim portion of your
-                  next A-
-                  or B-priority race. Build up to this set is to recover between intervals with a 25- to 50-meter/yard drill. Example: 4x500 meters/yards in 7 minutes, 30 seconds, leaving every 8 minutes, 15 seconds. Or swim long and steady in
-                  pace
-                  zone
-                  2, especially in open water.</p>
+                <h6 class="card-title">ME2: Cruise Intervals</h6>
+                <p class="card-text">
+                  On a relatively flat course or an indoor trainer,
+                  complete 3 to 5 work intervals with a duration
+                  of 6 to 12 minutes. Each work interval is
+                  done in zone 4. Power is the preferred gauge of
+                  intensity for this workout, but heart rate may
+                  be used. If you are using heart rate, the timed
+                  interval begins as soon as the hard effort begins,
+                  not when the heart rate achieves zone 4. During
+                  this period of increasing heart rate, estimate
+                  intensity based on a perceived exertion of 7 on
+                  a scale of O to 10 (see Chapter 4 for details on
+                  RPE). Recover in zone 1 with easy pedaling for
+                  about one-fourth of the preceding interval. For
+                  example, after a 6-minute interval, recover for
+                  90 seconds with easy pedaling in zone 1. During
+                  the first such workout of the new season, the
+                  duration of the work intervals should typically
+                  total 12 minutes or less (e.g., 2 x 6 minutes).
+                  Gradually, over a few weeks, increase the combined
+                  work-interval duration to 30 to 50 minutes
+                  (e.g., 5 x 6 minutes or 4 x 12 minutes). Stay
+                  relaxed and aerodynamic, and listen closely to
+                  your breathing. The work-interval intensity is
+                  very similar to that of an Olympic-distance triathlon.
+                  Pedal with a cadence similar to what you
+                  would use at such a race distance. An optional
+                  variation that challenges you to work harder is
+                  to shift occasionally between your "normal" gear
+                  for this intensity and a higher (harder) gear.
+                </p>
               </div>
             </div>
             <div class="card border-info mb-3">
               <div class="card-body text-dark">
-                <h6 class="card-title">AE3: Tempo Intervals</h6>
-                <p class="card-text">Swim 3 to 7 intervals, each taking about 3 to 5 minutes to complete. Intensity is pace zone 3. Recover after each for 5 to 10 percent of the preceding work-interval time. The total interval time for this
-                  session should be something
-                  in
-                  the range of 10 to 20 minutes. Example: 5 x 200 meters in 3:00, leaving 3:15.</p>
+                <h6 class="card-title">ME3: Hill Cruise Intervals</h6>
+                <p class="card-text">
+                  This session is the same as ME2 cruise intervals,
+                  except it is done on a hill with a long, low gradient,
+                  such as 2 to 4 percent, or into a strong head
+                  wind. Select a hill that has light traffic and no
+                  stop signs. As with ME2, a power meter is the
+                  preferred tool for measuring intensity while you
+                  are riding in zone 4, but a heart rate monitor may
+                  be used. If you are training only with a heart rate
+                  monitor, the work interval starts as soon as you
+                  begin pedaling hard - not when zone 4 is ultimately
+                  achieved. Note that you may not achieve
+                  heart rate zone 4 during the first or perhaps even
+                  the second interval. That's common. During these
+                  periods of slowly increasing heart rate, use a perceived
+                  exertion of 7 on a scale of O to 10 to gauge
+                  intensity (see Chapter 4 for details on RPE). Stay
+                  in the aero position for each climb, and work on a
+                  smooth stroke with minimal upper-body motion.
+                  Recover after each climb by turning around and
+                  returning to the bottom of the hill in zone 1. This
+                  descent means that the recovery intervals will be
+                  longer than when you are doing ME2 intervals,
+                  but with a somewhat increased intensity for each
+                  interval and a slightly greater benefit for MF.
+                  A variation on this workout is to shift between
+                  your "normal" gear for such a climb and a higher
+                  (harder) gear every 30 seconds or so. Be sure to
+                  stay in zone 4 when doing this.
+                </p>
+              </div>
+            </div>
+
+            <div class="card border-info mb-3">
+              <div class="card-body text-dark">
+                <h6 class="card-title">ME4: Crisscross Intervals</h6>
+                <p class="card-text">
+                  This workout is very similar to ME2 but somewhat
+                  more challenging. On a mostly flat course
+                  with little traffic and no stop signs, or on an
+                  indoor trainer, do 3 to 5 intervals with durations
+                  of 4 to 8 minutes in power zone 4 or
+                  heart rate zones 4 and 5a. After each interval,
+                  recover for one-fourth of the duration of the preceding interval. The combined total of the
+                  work intervals in a single session may be 12 to
+                  25 minutes (for example, 3 x 4 minutes or 5 x 5
+                  minutes). During each work interval, shift to a
+                  higher (harder) gear or increase your cadence to
+                  build gradually to the top of zone 4 (power) or
+                  5a (heart rate), taking 1 to 2 minutes to do so.
+                  Then gradually reduce the intensity by shifting
+                  to a lower (easier) gear or by reducing cadence
+                  so that you slowly drop back to the bottom of
+                  zone 4, taking 1 or 2 minutes to do so. Continue
+                  this pattern throughout each interval. Power
+                  is the preferred tool for gauging intensity for
+                  this workout, but a heart rate monitor may be
+                  used. If you are training only with a heart rate
+                  monitor, the work interval starts as soon as you
+                  begin pedaling hard - not when zone 4 is finally
+                  achieved. You may not achieve heart rate zone
+                  4 during the first two intervals. That's common.
+                  During these periods of slowly increasing heart
+                  rate, use a perceived exertion of 6 to 8 on a scale
+                  of O to 10 to gauge intensity (see Chapter 4 for
+                  details on RPE).</p>
+                <p class="card-text">
+                  This is an advanced workout that shouldn't
+                  be attempted until you have done 30 minutes or
+                  more of combined work-interval time with workout
+                  ME2. The first of these workouts in a season
+                  should include short intervals (e.g., 4 minutes)
+                  with a low total combined interval time (e.g.,
+                  12 minutes).
+                </p>
+              </div>
+            </div>
+
+            <div class="card border-info mb-3">
+              <div class="card-body text-dark">
+                <h6 class="card-title">ME5: Threshold Ride</h6>
+                <p class="card-text">
+                  On a mostly flat course, ride 20 to 40 minutes
+                  nonstop in power zone 4 (preferred) or heart
+                  rate zone 4. Stay focused on steady pacing while
+                  listening to your breathing throughout. Don't
+                  attempt a threshold ride until you've completed
+                  at least 4 ME interval workouts.
+                </p>
+              </div>
+            </div>
+
+
+            <!-- Anaerobic Endurance -->
+            <h6 id="fietsAnE"><span class="badge badge-secondary">AnE</span> Anaerobic Endurance Workouts </h6>
+
+            <div class="card border-secondary mb-3">
+              <div class="card-body text-dark">
+                <h6 class="card-title">AnE1: Group Ride</h6>
+                <p class="card-text">
+                  Ride with a group of triathletes that includes
+                  some who are somewhat stronger riders than
+                  you. There is no structure to this ride. Push
+                  yourself to stay with the faster riders for as long
+                  as you can. If you are unable to ride at the front
+                  with them, sit in by drafting at the back of the
+                  group or break off and ride alone. The intensity
+                  goal is to achieve zone 5 (power) or zone
+                  5b (heart rate) for a few minutes several times
+                  during the ride. Be cautious with this workout,
+                  not only in terms of how intense it may become,
+                  but also in regard to road safety; pay attention
+                  to traffic and to other riders who may not be
+                  skilled at riding in groups. Power is the preferred
+                  metric for this workout; because of lag,
+                  heart rate is not indicative of the work being
+                  accomplished.
+                </p>
+              </div>
+            </div>
+            <div class="card border-secondary mb-3">
+              <div class="card-body text-dark">
+                <h6 class="card-title">AnE2: VO2max Intervals</h6>
+                <p class="card-text">
+                  After a long warm-up, on a mostly flat course
+                  with no stop signs and light traffic, do several
+                  work intervals, each with a duration of 30 seconds
+                  to 4 minutes. Recover with easy pedaling
+                  in zone 1 for as long as the previous interval. As
+                  your fitness improves, reduce the recovery time
+                  by half. Start with about 5 minutes of total interval
+                  time within a workout (e.g., 10 x 30 seconds)
+                  and gradually, over several sessions, build to
+                  about 15 minutes in a session (e.g., 5 x 3 minutes).
+                  A power meter is the preferred tool for measuring
+                  intensity here. Heart rate lag makes heart rate
+                  monitors ineffective for gauging intensity. The
+                  goal intensity is power zone 5. If you don't have
+                  a power meter, use a rating of perceived exertion
+                  of 9 on a scale of 0 to 10 for each interval (see
+                  Chapter 4 for details on RPE). Cadence for these
+                  intervals is at the high end of your comfort range.
+                </p>
+              </div>
+            </div>
+            <div class="card border-secondary mb-3">
+              <div class="card-body text-dark">
+                <h6 class="card-title">AnE3: Pyramid Intervals</h6>
+                <p class="card-text">
+                  This workout is the same as the AnE2 session,
+                  except the work-interval progression is 1, 2,
+                  3, 4, 3, 2, and 1 minutes in power zone 5. The
+                  recovery after each interval is equal to the preceding
+                  work interval. After having done a few of
+                  these or the AnE2 workouts, reduce the recovery
+                  durations by half. For example, following a
+                  2-minute work interval, recover for 1 minute
+                  in zone 1. Heart rate is an ineffective gauge of
+                  intensity because of heart rate lag and the shortness
+                  of these intervals. If you don't have a power
+                  meter, use an RPE of 9 on a scale of 0 to 10 for
+                  each interval (see Chapter 4 for details on RPE).
+                  Cadence for these intervals is at the high end of
+                  your comfort range.
+                </p>
+              </div>
+            </div>
+            <div class="card border-secondary mb-3">
+              <div class="card-body text-dark">
+                <h6 class="card-title">AnE4: Hill Intervals</h6>
+                <p class="card-text">
+                  Find a relatively steep hill with a gradient of 6 to
+                  8 percent, light traffic, and no stop signs that
+                  takes 2 to 3 minutes to climb. Following a thorough
+                  warm-up, do 5 to 7 climbs in power zone 5
+                  for a total of 10 to 15 minutes of workout climbing
+                  time (e.g., 7 x 2 minutes or 5 x 3 minutes). Sit
+                  upright with your hands on the handlebar tops
+                  while staying on the saddle with a cadence at
+                  60 rpm or higher. Recover by coasting down
+                  the hill. Start a new interval every 2 to 3 minutes
+                  (e.g., following a 2-minute climb recover for
+                  2 minutes). This is a very hard workout that is
+                  best done only once in a week and followed by at
+                  least 48 hours of recovery.
+                </p>
+              </div>
+            </div>
+
+
+            <!-- TESTS -->
+            <h6 id="fietsTEST"><span class="badge badge-danger">TESTS</span> TESTS </h6>
+
+            <div class="card border-danger mb-3">
+              <div class="card-body text-dark">
+                <h6 class="card-title">T1: Aerobic Threshold (AeT) Test</h6>
+                <p class="card-text">
+                  This test of your aerobic fitness is best done after
+                  3 to 5 days of greatly reduced training to allow rest
+                  and recovery. Follow the instructions for workout
+                  AE2 above. Although you may also be doing the
+                  AE2 workout during a "normal" training week,
+                  your results after a short rest-and-recovery break
+                  from hard training are a better indicator of your
+                  progress because fatigue is unlikely to be a mitigating
+                  factor. As with the AE2 workout above,
+                  following the session, divide your normalized
+                  power for the AeT portion by your average heart
+                  rate for the same portion to determine your current
+                  EF. Your EF value will increase over time as
+                  your aerobic fitness improves. During a period of
+                  greatly reduced training, such as at the end of the
+                  season, you should expect your EF to decrease,
+                  indicating a loss of aerobic fitness. That is normal
+                  and to be expected because fitness must decline
+                  at certain times of the year. This test should be
+                  done year-round at least every 6 to 8 weeks. If
+                  possible, use the same course every time.
+                </p>
+              </div>
+            </div>
+            <div class="card border-danger mb-3">
+              <div class="card-body text-dark">
+                <h6 class="card-title">T2: Functional Threshold Test</h6>
+                <p class="card-text">
+                  The purpose of this test is to determine your
+                  functional threshold power (FTPo) and functional
+                  threshold heart rate (FTHR). Do this test
+                  following 3 to 5 days of active rest and recovery.
+                  Find a stretch of road with a wide bike lane,
+                  light traffic, no stop signs, and few intersections
+                  and corners that is flat to slightly uphill (grade
+                  of less than 3 percent). You will probably need
+                  5 to 10 miles depending on how fast you are. A
+                  safe course is critical. (You may also do this on an
+                  indoor trainer.) Throughout the test, keep your head up so you can see ahead. Ride as if you are
+                  in a race that lasts 20 minutes. Hold back slightly
+                  in the first 5 minutes (most athletes start much
+                  too fast) . Every 5 minutes, decide whether you
+                  should go slightly faster or more slowly for the
+                  next 5 minutes. After the workout, find your
+                  average heart rate for the 20-minute test. Subtract
+                  5 percent and you have a good estimate of
+                  your bike FTHR. Then use Table 4.3 to compute
+                  your training zones. To determine FTPo from the
+                  same test, subtract 5 percent from your average
+                  power (not "normalized" power) and you have a
+                  good estimate of FTPo. You can then use Table
+                  4.5 to set your power training zones.
+                </p>
+              </div>
+            </div>
+            <div class="card border-danger mb-3">
+              <div class="card-body text-dark">
+                <h6 class="card-title">T3: Functional Aerobic Capacity Test</h6>
+                <p class="card-text">
+                  This test is done to determine your functional aerobic
+                  capacity (V02max) power. It requires a power
+                  meter. It may be done in place of a costly clinical
+                  test of V02max. This test is best done following
+                  reduced training for 3 to 5 days. The course you
+                  use for the test should be safe. That means light
+                  traffic, no stop signs, few intersections, no turns,
+                  and a wide bike lane. For safety, you should look
+                  straight ahead throughout the test. Do not ride
+                  with your head down. The selected test course
+                  should also be a flat to slightly uphill (grade of less
+                  than 3 percent) section of road that you can use
+                  every time you do this test. (You may also do this
+                  on an indoor trainer.) Warm up thoroughly and
+                  then do a steady, all-out effort for 5 minutes. Your
+                  average power for the 5-minute test portion is a
+                  good predictor of your power at aerobic capacity.
+                </p>
+              </div>
+            </div>
+            <div class="card border-danger mb-3">
+              <div class="card-body text-dark">
+                <h6 class="card-title">T4: Time Trial</h6>
+                <p class="card-text">
+                  After a thorough 15- to 30-minute warm-up,
+                  complete a 10-km time trial on a flat course. The section of road you choose should be safe, with
+                  light traffic, few intersections, no stop signs, and
+                  a wide bike lane. Keep your head up throughout
+                  the test so you can see traffic and possible road
+                  obstacles, such as potholes. The course should
+                  be flat to very slightly uphill (grade of less than 2
+                  percent). Mark your start point and finish point
+                  for later reference, or note landmarks so you can test on the same course every time. (You may
+                  also do this on an indoor trainer.) Expect faster
+                  times as your AnE and ME improve. In addition
+                  to your time, note your average heart rate and
+                  normalized power for the test portion in your
+                  training diary. You can use any gear combination,
+                  and you may shift during the test. Treat this test
+                  like a race.
+                </p>
+              </div>
+            </div>
+
+
+
+
+            <h4 id="brick">Brick (F→L)</h4>
+            <div class="row">
+              <div class="col-lg-6">
+                <p>
+                  These basic combined bike-run workouts are
+                  categorized into the five abilities presented in
+                  Chapter 6: aerobic endurance (AE), muscular
+                  force (MF), speed skills (SS), muscular endurance
+                  (ME), and anaerobic endurance (AnE). Combined
+                  bike-run workouts are commonly called bricks by
+                  triathletes. There are many other possible brick
+                  workouts that are variations on these, including
+                  multiple-ability workouts that may have two
+                  abilities within the bike and run portions or a different ability focus in each of the two sports. For
+                  example, the bike or run portion could include
+                  both AE and ME. Another variation could focus
+                  on AE for the bike portion and ME for the run.
+                  The possibilities are many. You can vary the bricks
+                  you create to fit your specific needs relative to the
+                  anticipated demands of your targeted race. The
+                  only limit is your creativity in designing workouts.
+                  The merging of two or more abilities into a single
+                  brick workout is most commonly done in the
+                  build period of the season (see Chapters 7 and 8
+                  for more on periodization of training).
+                </p>
+                <p class="card-text">
+                  The order of sports within a brick is typically
+                  bike followed by run. But duathletes often
+                  do run-bike-run workouts because that's their
+                  common race design. You can also do bricks with
+                  several alternating stages of the two sports, such
+                  as bike-run-bike-run. Such workouts are often
+                  done at a running track with a stationary trainer
+                  set up nearby for the bike portions. Swim-to-bike
+                  bricks are rare, but there is certainly merit
+                  in rehearsing the first transition. You will see an
+                  example of this below in the SS workouts.
+                </p>
+                <p class="card-text">
+                  When you transition from the bike to the
+                  run in one of these brick workouts, it's recommended
+                  that you follow the same procedure you
+                  intend to use in your targeted race; doing so will
+                  serve as practice for your transition in your race.
+                  Lay out your transition area to be as similar as
+                  possible to the way it will be on race day. As you
+                  end the bike ride, quickly and efficiently change
+                  shoes and put on any other run clothing while
+                  also grabbing whatever food or equipment that
+                  you will need.
+                </p>
+              </div>
+              <div class="col-lg-6">
+                <p class="card-text">
+                  How long should the run portion of a brick
+                  be? It depends, of course, on the type of race
+                  you are targeting. But it's often best to keep the
+                  run portions short because running on legs that
+                  are tired from a long bike ride increases your
+                  risk for an injury. Even for long-course races, a
+                  15-minute run following a long bike ride is beneficial
+                  for learning to cope with the strange sensation
+                  of running on bike-weary legs. For shortcourse
+                  races, a brick that has about the same
+                  duration that you expect the combined bike
+                  and run portions of the race to have is common.
+                  For long-course racing, however, bricks that are
+                  equal in duration to the anticipated combined
+                  bike and run portions of the race are not recommended
+                  because the recovery afterward takes
+                  too long.
+                </p>
+                <p class="card-text">
+                  When the bike portion of a brick calls for ME or AnE, the workout should be preceded by
+                  a warm-up. (MF workouts are best not done as
+                  bricks.) These two ability categories are used only
+                  in the brick's main set - the primary portion of the workout that is neither warm-up nor cooldown.
+                  Note that the more intense the main set of the
+                  workout, the longer your warm-up should be. In
+                  a brick, the bike portion always serves as a warmup
+                  for the following run.
+                </p>
+              </div>
+            </div>
+            <!-- Aerobic endurance -->
+            <h6 id="brickAE"><span class="badge badge-dark">AE</span> Aerobic Endurance Workouts </h6>
+            <div class="card border-dark mb-3">
+              <div class="card-body text-dark">
+                <h6 class="card-title">AE1: Aerobic Threshold (AeT) Brick</h6>
+                <p class="card-text">
+                  Complete a long ride on a rolling course while
+                  staying primarily in heart rate zone 2. Then
+                  transition to a run on a mostly flat course, also
+                  in heart rate zone 2. The total time for this brick
+                  may vary from 90 minutes to 5 hours depending
+                  on the distance of the race you are preparing for
+                  and your periodization. You can emphasize the
+                  run portion one week and the bike the next week.
+                </p>
+              </div>
+            </div>
+            <div class="card border-dark mb-3">
+              <div class="card-body text-dark">
+                <h6 class="card-title">AE2: Intensive Endurance Brick</h6>
+                <p class="card-text">
+                  Following a warm-up, ride on a rolling course
+                  with more than half of the time in power zones
+                  2 and 3 (preferred) or heart rate zones 2 and 3,
+                  accumulating as much zone 3 time as possible.
+                  Then transition to a run, also primarily in pace
+                  (preferred) or heart rate zones 2 and 3. You can
+                  vary emphasizing the bike and run portion durations
+                  from week to week by alternately doing a
+                  long bike ride followed by a short run and then
+                  reversing the durations the following week. This
+                  is an especially good workout when you are preparing
+                  for a long-course race.
+                </p>
+              </div>
+            </div>
+
+            <!-- Muscular force -->
+            <h6 id="brickMF"><span class="badge badge-warning">MF</span> Muscular Force Workouts </h6>
+
+            <div class="card border-warning mb-3">
+              <div class="card-body text-dark">
+                <p class="card-text">
+                  MF workouts are best done in isolation as standalone
+                  bike or run sessions. Combining them
+                  greatly increases the risk for injury.</p>
+              </div>
+            </div>
+
+
+            <!-- Speed skills -->
+            <h6 id="brickSS"><span class="badge badge-success">SS</span> Speed Skills Workouts </h6>
+
+            <div class="card border-success mb-3">
+              <div class="card-body text-dark">
+                <h6 class="card-title">SS1: Transition 1 (T1) Practice</h6>
+                <p class="card-text">
+                  At the pool or other swimming venue, set up
+                  your bike on a trainer. Swim several race-pace
+                  sets and then transition to the bike for 5 minutes
+                  at race intensity. The transition involves
+                  putting on cycling shoes and helmet, and possibly
+                  removing a wet suit (the latter should be
+                  rehearsed if you are doing a race with a wet suit
+                  swim). Repeat this 3 to 5 times. Emphasis should
+                  be placed on making T1 as efficient and quick as
+                  possible.
+                </p>
+              </div>
+            </div>
+            <div class="card border-success mb-3">
+              <div class="card-body text-dark">
+                <h6 class="card-title">SS2: Transition 2 (T2) Practice</h6>
+                <p class="card-text">
+                  At the running track or other handy venue, set
+                  up your bike on a trainer. After a warm-up, ride
+                  5 minutes at race pace and then transition by
+                  changing into run shoes and putting on a cap or
+                  any other materials you will use during the run
+                  in your race. Following the transition, run for 3
+                  to 5 minutes at T2-exit, goal-race pace. Repeat
+                  the bike-to-run workout 3 to 5 times. Emphasis
+                  should be placed on making T2 as efficient and
+                  quick as possible.
+                </p>
+              </div>
+            </div>
+
+            <!-- Muscular Endurance -->
+            <h6 id="brickME"><span class="badge badge-info">ME</span> Muscular Endurance Workouts </h6>
+
+            <div class="card border-info mb-3">
+              <div class="card-body text-dark">
+                <h6 class="card-title">ME1: Tempo Brick</h6>
+                <p class="card-text">
+                  Depending on the length of your next race, bike
+                  for 60 to 90 minutes including a 10- (sprint),
+                  20- (Olympic), 30- (half-Ironman), or 40-km
+                  (Ironman) effort at racelike intensity on a course
+                  similar to that of your next A- or B-priority race.
+                  Ride the measured portion at an intensity similar
+                  to or slightly greater than that planned for your
+                  next important race. Then transition to a 10- (sprint), 20- (Olympic), 30- (half-Ironman), or
+                  40-minute (Ironman) run at your goal-race pace.
+                </p>
+              </div>
+            </div>
+            <div class="card border-info mb-3">
+              <div class="card-body text-dark">
+                <h6 class="card-title">ME2: Hilly Brick</h6>
+                <p class="card-text">
+                  In preparation for a hilly race, design a brick
+                  course that closely simulates the race course. This
+                  can be a hilly bike and flat run or a flat bike and
+                  hilly run, or both the bike and run may be hilly.
+                  The emphasis of the workout is on the hilly portions,
+                  where you should rehearse proper pacing
+                  on the climbs. The bike and run courses should
+                  be considerably shorter than those in the race, at
+                  about one-half of the race distance or less. On the
+                  flat portions, ride and run steadily at an intensity
+                  (power, pace, heart rate, or RPE) similar to what
+                  you will do in the race. On the uphill portions,
+                  increase the power, run speed, or heart rate by
+                  no more than two zones. This intensity variation
+                  is recommended for the race so that the workout
+                  can be a rehearsal.
+                </p>
               </div>
             </div>
             <!-- Anaerobic Endurance -->
-            <div class="card border-secondary mb-3" id="fietsAnE">
+            <h6 id="brickAnE"><span class="badge badge-secondary">AnE</span> Anaerobic Endurance Workouts </h6>
+
+            <div class="card border-secondary mb-3">
               <div class="card-body text-dark">
-                <h6 class="card-title">AE1: Recovery</h6>
-                <p class="card-text">Swim steadily for 10 to 20 minutes or more in pace zone 1, concentrating on only one aspect of technique. You can use this as a recovery work-out following a hard bike or run workout, or as a swim session
-                  cooldown.</p>
+                <h6 class="card-title">AnE1: Bike-Intervals Brick</h6>
+                <p class="card-text">
+                  This workout is recommended for short-course
+                  triathletes only. Ride 45 to 90 minutes on a flat to
+                  rolling course. After warming up on the bike, do
+                  3 to 5 work intervals, each with a duration of 2 to
+                  4 minutes. The interval intensity should be above
+                  your functional threshold power (FTPo). Power is
+                  the preferred measurement, but if you are using
+                  a heart rate monitor, you are unlikely to achieve
+                  heart rates above zone 4 because of heart rate
+                  lag. In this case, use a rating of perceived exertion (RPE) of 8 to 9 on a scale of O to 10. Recover after
+                  each work interval for a time equal to half of the
+                  preceding work-interval time. For example, after
+                  a 4-minute work interval, recover for 2 minutes.
+                  Accumulate up to about 15 minutes of total work-interval
+                  time on the bike. Transition to a run with
+                  a duration about half the duration of the preceding
+                  bike portion (e.g., if you rode for 60 minutes,
+                  run for 30 minutes). During the run and immediately
+                  following the transition, include 10 to 20
+                  minutes of steady state in pace zone 4 (preferred)
+                  or heart rate zone 4.
+                </p>
               </div>
             </div>
             <div class="card border-secondary mb-3">
               <div class="card-body text-dark">
-                <h6 class="card-title">AE2: Aerobic Threshold Intervals</h6>
-                <p class="card-text">Swim intervals in pace zone 2 at a distance that takes 6 to 12 minutes. Recover after each for 10 to 15 percent of the preceding work-interval time. Total work-interval distance may match the distance of the
-                  swim portion of your
-                  next A-
-                  or B-priority race. Build up to this set is to recover between intervals with a 25- to 50-meter/yard drill. Example: 4x500 meters/yards in 7 minutes, 30 seconds, leaving every 8 minutes, 15 seconds. Or swim long and steady in
-                  pace
-                  zone
-                  2, especially in open water.</p>
-              </div>
-            </div>
-            <div class="card border-secondary mb-3">
-              <div class="card-body text-dark">
-                <h6 class="card-title">AE3: Tempo Intervals</h6>
-                <p class="card-text">Swim 3 to 7 intervals, each taking about 3 to 5 minutes to complete. Intensity is pace zone 3. Recover after each for 5 to 10 percent of the preceding work-interval time. The total interval time for this
-                  session should be something
-                  in
-                  the range of 10 to 20 minutes. Example: 5 x 200 meters in 3:00, leaving 3:15.</p>
-              </div>
-            </div>
-            <!-- TESTS -->
-            <div class="card border-danger mb-3" id="fietsTEST">
-              <div class="card-body text-dark">
-                <h6 class="card-title">AE1: Recovery</h6>
-                <p class="card-text">Swim steadily for 10 to 20 minutes or more in pace zone 1, concentrating on only one aspect of technique. You can use this as a recovery work-out following a hard bike or run workout, or as a swim session
-                  cooldown.</p>
-              </div>
-            </div>
-            <div class="card border-danger mb-3">
-              <div class="card-body text-dark">
-                <h6 class="card-title">AE2: Aerobic Threshold Intervals</h6>
-                <p class="card-text">Swim intervals in pace zone 2 at a distance that takes 6 to 12 minutes. Recover after each for 10 to 15 percent of the preceding work-interval time. Total work-interval distance may match the distance of the
-                  swim portion of your
-                  next A-
-                  or B-priority race. Build up to this set is to recover between intervals with a 25- to 50-meter/yard drill. Example: 4x500 meters/yards in 7 minutes, 30 seconds, leaving every 8 minutes, 15 seconds. Or swim long and steady in
-                  pace
-                  zone
-                  2, especially in open water.</p>
-              </div>
-            </div>
-            <div class="card border-danger mb-3">
-              <div class="card-body text-dark">
-                <h6 class="card-title">AE3: Tempo Intervals</h6>
-                <p class="card-text">Swim 3 to 7 intervals, each taking about 3 to 5 minutes to complete. Intensity is pace zone 3. Recover after each for 5 to 10 percent of the preceding work-interval time. The total interval time for this
-                  session should be something
-                  in
-                  the range of 10 to 20 minutes. Example: 5 x 200 meters in 3:00, leaving 3:15.</p>
+                <h6 class="card-title">AnE2: Run-Intervals Brick</h6>
+                <p class="card-text">
+                  Take your indoor bike trainer to a running track.
+                  Run for 10 to 20 minutes in pace (preferred) or
+                  heart rate zones 1 to 3 for warm up. Then, on
+                  the bike trainer, ride for 5 to 10 minutes while
+                  achieving power (preferred) or heart rate zone
+                  4 in the last minute or so. Transition to running
+                  shoes and complete 2 to 4 work intervals
+                  that last 2 to 4 minutes, with intensity rising
+                  into pace (preferred) zone 5b on each. You may
+                  also do these work intervals with intensity based
+                  on an RPE of 8 to 9 on a scale of O to 10. Heart
+                  rate is ineffective because of the shortness of the
+                  intervals. Recovery intervals are half the duration
+                  of the previous work interval and done in
+                  zone 1. Return to the bike and again ride 5 minutes,
+                  building to zone 4. Repeat this alternating
+                  bike-run pattern 1 to 3 more times before cooling
+                  down for 10 minutes or so on the bike. Aim
+                  for a total of about 20 minutes or 3 miles of work
+                  intervals for running.
+                </p>
               </div>
             </div>
 
 
-
-            <h4 id="lopen">Item 2</h4>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus luctus sem enim, ut pulvinar lorem lacinia vel. Nunc ultrices, augue ac varius pellentesque, nulla sem condimentum eros, quis tincidunt nisi tellus nec diam.
-              Phasellus
-              tempus, odio a consequat pulvinar, quam mi ultrices justo, in convallis dolor nibh vel libero. Cras hendrerit fringilla felis, sed maximus tellus tincidunt quis. Mauris at dolor pharetra, cursus nisl eget, viverra elit. Quisque sit
-              amet
-              libero orci. Integer efficitur faucibus dictum. Proin quis libero a erat malesuada molestie. Phasellus vitae orci bibendum metus posuere egestas. Sed id ultricies libero. Quisque in risus non lacus aliquam blandit. Donec at cursus
-              ex,
-              accumsan sollicitudin purus.
-
-              Donec viverra vestibulum neque at commodo. Suspendisse fringilla orci lorem, sed imperdiet leo volutpat eu. Fusce vitae est enim. Cras ac erat porta, finibus nulla ut, porttitor est. Suspendisse blandit, eros quis egestas convallis,
-              neque ipsum vulputate libero, at dignissim erat ante nec libero. Donec ornare, tellus in suscipit condimentum, ligula metus molestie augue, ac bibendum purus felis ut augue. Pellentesque habitant morbi tristique senectus et netus et
-              malesuada fames ac turpis egestas. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Suspendisse accumsan nisi neque, vel finibus mauris lobortis vel.
-
-              Aenean metus enim, faucibus eget velit at, porttitor tincidunt risus. Cras risus sapien, lobortis non fermentum a, tincidunt sed turpis. Sed vitae euismod orci, quis tincidunt sapien. Morbi posuere sem arcu, pharetra pharetra libero
-              accumsan rhoncus. Curabitur ultricies a elit iaculis fermentum. Integer ut fermentum mi. Donec ut suscipit sem. Sed eget accumsan lorem. Quisque ut sollicitudin neque. Aliquam maximus dui non suscipit dignissim.
-
-              Sed dapibus erat vitae vehicula aliquam. Mauris nec massa vel lacus efficitur feugiat vitae vel dolor. Aenean tincidunt et orci a auctor. Nam sit amet sapien consectetur, semper odio eu, consectetur lectus. Pellentesque venenatis
-              massa
-              in dictum commodo. Vestibulum faucibus elit sapien, vitae pellentesque eros placerat ut. Suspendisse dapibus ante ligula, eget convallis metus egestas ac. Suspendisse mauris nisi, luctus a auctor at, accumsan nec lectus. Orci varius
-              natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Aenean non luctus velit. Nullam sed cursus quam, ac dapibus velit. Pellentesque eu leo eget erat tincidunt tincidunt. Sed fringilla lacus id ligula aliquet,
-              in
-              ultricies augue posuere. Pellentesque molestie aliquam orci sed vulputate. Sed id venenatis felis, sit amet sodales justo.
-
-              Proin ullamcorper nisl ante, vitae mollis sapien aliquam nec. Sed scelerisque dapibus neque id molestie. Etiam scelerisque, mauris et feugiat tempus, ante ipsum consequat diam, vitae dignissim libero tortor eu nulla. Nulla mattis sem
-              eu
-              rutrum dictum. Integer in odio non mi pellentesque fermentum. Ut tristique neque ut sem dapibus sollicitudin. Maecenas iaculis, arcu id scelerisque pretium, turpis massa vehicula elit, ac gravida dolor urna a neque.</p>
-            <h4 id="fietsen">Item 3</h4>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus luctus sem enim, ut pulvinar lorem lacinia vel. Nunc ultrices, augue ac varius pellentesque, nulla sem condimentum eros, quis tincidunt nisi tellus nec diam.
-              Phasellus
-              tempus, odio a consequat pulvinar, quam mi ultrices justo, in convallis dolor nibh vel libero. Cras hendrerit fringilla felis, sed maximus tellus tincidunt quis. Mauris at dolor pharetra, cursus nisl eget, viverra elit. Quisque sit
-              amet
-              libero orci. Integer efficitur faucibus dictum. Proin quis libero a erat malesuada molestie. Phasellus vitae orci bibendum metus posuere egestas. Sed id ultricies libero. Quisque in risus non lacus aliquam blandit. Donec at cursus
-              ex,
-              accumsan sollicitudin purus.
-
-              Donec viverra vestibulum neque at commodo. Suspendisse fringilla orci lorem, sed imperdiet leo volutpat eu. Fusce vitae est enim. Cras ac erat porta, finibus nulla ut, porttitor est. Suspendisse blandit, eros quis egestas convallis,
-              neque ipsum vulputate libero, at dignissim erat ante nec libero. Donec ornare, tellus in suscipit condimentum, ligula metus molestie augue, ac bibendum purus felis ut augue. Pellentesque habitant morbi tristique senectus et netus et
-              malesuada fames ac turpis egestas. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Suspendisse accumsan nisi neque, vel finibus mauris lobortis vel.
-
-              Aenean metus enim, faucibus eget velit at, porttitor tincidunt risus. Cras risus sapien, lobortis non fermentum a, tincidunt sed turpis. Sed vitae euismod orci, quis tincidunt sapien. Morbi posuere sem arcu, pharetra pharetra libero
-              accumsan rhoncus. Curabitur ultricies a elit iaculis fermentum. Integer ut fermentum mi. Donec ut suscipit sem. Sed eget accumsan lorem. Quisque ut sollicitudin neque. Aliquam maximus dui non suscipit dignissim.
-
-              Sed dapibus erat vitae vehicula aliquam. Mauris nec massa vel lacus efficitur feugiat vitae vel dolor. Aenean tincidunt et orci a auctor. Nam sit amet sapien consectetur, semper odio eu, consectetur lectus. Pellentesque venenatis
-              massa
-              in dictum commodo. Vestibulum faucibus elit sapien, vitae pellentesque eros placerat ut. Suspendisse dapibus ante ligula, eget convallis metus egestas ac. Suspendisse mauris nisi, luctus a auctor at, accumsan nec lectus. Orci varius
-              natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Aenean non luctus velit. Nullam sed cursus quam, ac dapibus velit. Pellentesque eu leo eget erat tincidunt tincidunt. Sed fringilla lacus id ligula aliquet,
-              in
-              ultricies augue posuere. Pellentesque molestie aliquam orci sed vulputate. Sed id venenatis felis, sit amet sodales justo.
-
-              Proin ullamcorper nisl ante, vitae mollis sapien aliquam nec. Sed scelerisque dapibus neque id molestie. Etiam scelerisque, mauris et feugiat tempus, ante ipsum consequat diam, vitae dignissim libero tortor eu nulla. Nulla mattis sem
-              eu
-              rutrum dictum. Integer in odio non mi pellentesque fermentum. Ut tristique neque ut sem dapibus sollicitudin. Maecenas iaculis, arcu id scelerisque pretium, turpis massa vehicula elit, ac gravida dolor urna a neque.</p>
-            <h5 id="item-3-1">Item 3-1</h5>
-            <p>...</p>
-            <h5 id="item-3-2">Item 3-2</h5>
-            <p>...</p>
           </div>
         </div>
       </div>
     </div>
+
+    <button onclick="topFunction()" id="totopBtn" title="Go to top"><i class="fas fa-arrow-alt-circle-up fa-lg"></i></button>
+
   </div>
 </body>
 
 <script>
   $(function() {
-    $("#menu").load("menu.html");
+    $("#menu").load("../menu.html");
   });
 
   $('body').scrollspy({
     target: '#oefeningen'
   });
+  window.onscroll = function() {
+    scrollFunction()
+  };
+
+  function scrollFunction() {
+    if (document.body.scrollTop > 150 || document.documentElement.scrollTop > 150) {
+      document.getElementById("totopBtn").style.display = "block";
+    } else {
+      document.getElementById("totopBtn").style.display = "none";
+    }
+  }
+
+  // When the user clicks on the button, scroll to the top of the document
+  function topFunction() {
+    document.body.scrollTop = 0; // For Safari
+    document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
+  }
 </script>
 
 </html>

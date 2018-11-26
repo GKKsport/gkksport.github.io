@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <!-- Standard Meta -->
+  <title>Zwemkalender</title>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="../css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
+
+  <!-- JS -->
+  <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+
+  <style>
+    body {
+        position: relative;
+    }
+.btn {
+  margin: 2px;
+}
+
+.form-control {
+
+}
+
+.item-list>h3 {
+  display:none;
+}
+
+.item-list {
+  padding:0px!important;
+}
+
+.item-list>ul {
+  list-style: none;
+    padding:0px!important;
+}
+.last:nth-child(2) {
+  display:none;
+}
+		#loader {
+			margin-top: 40px;
+			margin-bottom: 60px;
+		}
+
+@media (max-width: 768px) {
+  .bigger {
+    font-size: 8vw;
+  }
+}
+
+@media (max-width: 575px) {
+  .form-control:first-child {
+    margin-bottom: 5px;
+  }
+}
+
+
+      </style>
+</head>
+
+<body>
+  <div class="container">
+    <nav class="navbar  navbar-expand-md navbar-light bg-transparent">
+      <a class="navbar-brand logo" href="../index.html"><img src="../img/logo.png" height="50px;"></a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <div id="menu" class="ml-auto"></div>
+      </div>
+    </nav>
+
+    <h1 class="bigger">zwemkalender</h1>
+
+    <!-- VANAF HIER PAGINA-DATA -->
+    <form>
+      <div class="form-group form-row">
+        <div class="col-sm-8 col-12">
+          <input name="datum" type="date" id="zwemkaldatum" class="form-control" >
+              </div>
+          <div class="col-sm-4 col-12">
+            <button type='button' class="btn btn-primary btn-block" onclick="klik();" style="margin-top: 0px"><i class="far fa-calendar-alt" aria-hidden="true"></i> Andere datum</button>
+          </div>
+        </div>
+    </form>
+    <br>
+    <div id="loader" class="text-center">
+      <img src="https://loading.io/assets/img/hourglass.svg">
+    </div>
+      <div class="row text-center" id="zwemkal">
+      </div>
+      <div class="alert alert-warning text-center" role="alert">
+        <p style="margin-bottom:0px;">Vul een andere datum in en druk op de knop om de openingsuren te krijgen voor een andere dag! Momenteel toont hij de openingsuren voor <strong><span id="datum"></span></strong></p>
+      </div>
+      <br>
+      <h5 class="text-center text-uppercase">Ter controle</h5>
+      <p class="text-center">
+        <a class="btn btn-outline-danger" href="https://stad.gent/sport" role="button">Alle openingsuren van zwembaden voor VANDAAG</a>
+        <a class="btn btn-outline-primary" href="https://www.ugent.be/student/nl/meer-dan-studeren/sport/openingsuren" role="button">Openingsuren GUSB</a>
+        <a class="btn btn-outline-primary" href="https://stad.gent/sport2/waar-kan-ik-sporten/sr-sportbad-rozebroeken" role="button">Openingsuren Rozebroeken</a>
+        <a class="btn btn-outline-primary" href="https://stad.gent/sport2/waar-kan-ik-sporten/zwembad-strop" role="button">Openingsuren Strop</a>
+        <a class="btn btn-outline-primary" href="https://stad.gent/sport2/waar-kan-ik-sporten/zwembad-rooigem" role="button">Openingsuren Rooigem</a>
+        <a class="btn btn-outline-primary" href="https://stad.gent/sport2/waar-kan-ik-sporten/zwembad-van-eyck" role="button">Openingsuren Van Eyck</a>
+      </p>
+    </div>
+</body>
+
+<script src='https://cdnjs.cloudflare.com/ajax/libs/tabletop.js/1.5.1/tabletop.min.js'></script>
+<script>
+  $(document).ready(function() {
+    document.getElementById('zwemkaldatum').valueAsDate = new Date();
+    $("#loader").hide();
+    for (i = 1; i < 7; i++) {
+      document.getElementById("zwemkal").innerHTML += "<div class= 'col-lg-6 col-lg-offset-0 col-md-6 col-md-offset-0' id='zwemkal" + [i] + "'></div>";
+    }
+    console.log("V1.0");
+    klik();
+  })
+
+  function convertDate(dateString) {
+    var p = dateString.split(/\D/g)
+    return [p[2], p[1], p[0]].join("/")
+  }
+
+
+
+  function klik() {
+    $("#loader").show();
+    $("#zwemkal").hide();
+    var datum = document.getElementById("zwemkaldatum").value;
+    document.getElementById("zwemkal1").innerHTML = "";
+    document.getElementById("zwemkal2").innerHTML = "";
+    document.getElementById("zwemkal3").innerHTML = "";
+    document.getElementById("zwemkal4").innerHTML = "";
+    document.getElementById("zwemkal5").innerHTML = "";
+    document.getElementById("zwemkal6").innerHTML = "";
+
+
+    // LAGO
+    $.ajax({
+      url: 'https://proxy.hackeryou.com',
+      dataType: 'json',
+      method: 'GET',
+      data: {
+        reqUrl: 'https://stad.gent/sport2/place/ajax/openinghours/5/' + datum,
+        xmlToJSON: false,
+        useCache: false
+      }
+    }).then(function(data) {
+      var naam = "LAGO";
+      var variabel = data.output;
+      if (variabel.indexOf("Gesloten") >= 0) {
+        document.getElementById("zwemkal1").innerHTML = "<div class='card text-white bg-danger mb-3'><div class='card-body'><h5 class='card-title'>" + naam + "</h5><div class='card-text'>" + data.output + "</div></div></div>";
+      } else {
+        document.getElementById("zwemkal1").innerHTML = "<div class='card text-white bg-success mb-3'><div class='card-body'><h5 class='card-title'>" + naam + "</h5><div class='card-text'>" + data.output + "</div></div></div>";
+      }
+      console.log("Zwembad-data stabiel");
+      test();
+    });
+
+
+
+
+    // GUSB
+    $.ajax({
+      url: 'https://proxy.hackeryou.com',
+      dataType: 'json',
+      method: 'GET',
+      data: {
+        reqUrl: 'https://stad.gent/sport2/place/ajax/openinghours/56/' + datum,
+        xmlToJSON: false,
+        useCache: false
+      }
+    }).then(function(data) {
+      var variabel = data.output;
+      var naam = "GUSB";
+      if (variabel.indexOf("Gesloten") >= 0) {
+        document.getElementById("zwemkal2").innerHTML = "<div class='card text-white bg-danger mb-3'><div class='card-body'><h5 class='card-title'>" + naam + "</h5><div class='card-text'>" + data.output + "</div></div></div>";
+      } else {
+        document.getElementById("zwemkal2").innerHTML = "<div class='card text-white bg-success mb-3'><div class='card-body'><h5 class='card-title'>" + naam + "</h5><div class='card-text'>" + data.output + "</div></div></div>";
+      }
+      // and other stuff i do with the data i get
+      test();
+    });
+
+
+
+    // STROP
+    $.ajax({
+      url: 'https://proxy.hackeryou.com',
+      dataType: 'json',
+      method: 'GET',
+      data: {
+        reqUrl: 'https://stad.gent/sport2/place/ajax/openinghours/19/' + datum,
+        xmlToJSON: false,
+        useCache: false
+      }
+    }).then(function(data) {
+      var variabel = data.output;
+      var naam = "STROP";
+      if (variabel.indexOf("Gesloten") >= 0) {
+        document.getElementById("zwemkal3").innerHTML = "<div class='card text-white bg-danger mb-3'><div class='card-body'><h5 class='card-title'>" + naam + "</h5><div class='card-text'>" + data.output + "</div></div></div>";
+      } else {
+        document.getElementById("zwemkal3").innerHTML = "<div class='card text-white bg-success mb-3'><div class='card-body'><h5 class='card-title'>" + naam + "</h5><div class='card-text'>" + data.output + "</div></div></div>";
+      }
+      test();
+    });
+
+    // ROOIGEM
+    $.ajax({
+      url: 'https://proxy.hackeryou.com',
+      dataType: 'json',
+      method: 'GET',
+      data: {
+        reqUrl: 'https://stad.gent/sport2/place/ajax/openinghours/18/' + datum,
+        xmlToJSON: false,
+        useCache: false
+      }
+    }).then(function(data) {
+      var variabel = data.output;
+      var naam = "ROOIGEM";
+      if (variabel.indexOf("Gesloten") >= 0) {
+        document.getElementById("zwemkal4").innerHTML = "<div class='card text-white bg-danger mb-3'><div class='card-body'><h5 class='card-title'>" + naam + "</h5><div class='card-text'>" + data.output + "</div></div></div>";
+      } else {
+        document.getElementById("zwemkal4").innerHTML = "<div class='card text-white bg-success mb-3'><div class='card-body'><h5 class='card-title'>" + naam + "</h5><div class='card-text'>" + data.output +
+          "</div></div></div>";
+      }
+      test();
+    });
+
+    // VAN EYCK
+    $.ajax({
+      url: 'https://proxy.hackeryou.com',
+      dataType: 'json',
+      method: 'GET',
+      data: {
+        reqUrl: 'https://stad.gent/sport2/place/ajax/openinghours/49/' + datum,
+        xmlToJSON: false,
+        useCache: false
+      }
+    }).then(function(data) {
+      var variabel = data.output;
+      var naam = "VAN EYCK";
+      if (variabel.indexOf("Gesloten") >= 0) {
+        document.getElementById("zwemkal5").innerHTML = "<div class='card text-white bg-danger mb-3'><div class='card-body'><h5 class='card-title'>" + naam + "</h5><div class='card-text'>" + data.output + "</div></div></div>";
+      } else {
+        document.getElementById("zwemkal5").innerHTML = "<div class='card text-white bg-success mb-3'><div class='card-body'><h5 class='card-title'>" + naam + "</h5><div class='card-text'>" + data.output + "</div></div></div>";
+      }
+      test();
+    });
+
+    function test() {
+      if ($("#zwemkal1").length != 0 && $("#zwemkal2").length != 0 && $("#zwemkal3").length != 0 && $("#zwemkal4").length != 0 && $("#zwemkal5").length != 0) {
+        $("#loader").hide();
+        $("#zwemkal").show();
+
+      }
+    }
+
+    init();
+    $("#datum").text(convertDate(datum));
+  }
+
+  var publicSpreadsheetUrl = 'https://docs.google.com/spreadsheets/d/1UACXD_VaVy24L5JsIuE2Qn8-l5DKYAAlxi8V5m_B5zI/edit?usp=sharing';
+
+  function init() {
+    Tabletop.init({
+      key: publicSpreadsheetUrl,
+      callback: showInfo,
+      simpleSheet: true
+    })
+  }
+
+
+  function showInfo(data, tabletop) {
+    document.getElementById("zwemkal6").innerHTML = "<div class='card border-secondary mb-3'><div class='card-body text-secondary'><h5 class='card-title'>BLAARMEERSEN</h5><div class='card-text'><p>Laatste meting: " + data[0].Datum +
+      "<br>Kwaliteit: " + data[
+        0].Kwaliteitsniveau +
+      "</p><p style='margin: 0px'>Watertemperatuur: " + data[0].Temperatuur + " °C</p></div></div>";
+  }
+
+
+
+
+  $(function() {
+    $("#menu").load("../menu.html");
+  });
+  $('body').scrollspy({
+    target: '#oefeningen'
+  })
+</script>
+
+</html>
