@@ -1,7 +1,7 @@
 ErrorDocument 404 /404.html
 
 RewriteEngine on
-RewriteCond %{HTTP_HOST} ^gkksport.github.io$ [NC,OR]
-RewriteCond %{HTTP_HOST} ^gkksport.github.io$
+RewriteCond %{HTTP_HOST} ^gkksport.github.io/gkktri$ [NC,OR]
+RewriteCond %{HTTP_HOST} ^gkksport.github.io/gkktri$
 RewriteCond %{REQUEST_URI} !gkktri/
 RewriteRule (.*) /gkktri/$1 [L]
