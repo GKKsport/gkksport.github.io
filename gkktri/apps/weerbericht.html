@@ -1,0 +1,544 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <!-- Standard Meta -->
+  <title>Weerbericht</title>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="../css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
+  <link rel="stylesheet" href="../css/weathericons/css/weather-icons.min.css">
+
+
+  <!-- JS -->
+  <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.22.2/moment-with-locales.js"></script>
+
+
+  <style>
+    body {
+        position: relative;
+    }
+    .card {
+      margin-bottom: 10px;
+    }
+    .input-group {
+      margin-bottom: 5px;
+    }
+    .input-group:last-child{
+      margin-bottom: 20px;
+    }
+    .buttons>button {
+      margin-right: 5px;
+      margin-bottom: 5px;
+    }
+    #aangepast{
+      display:none;
+    }
+    .min {
+      background-color: #d9edf7;
+    }
+
+    .max {
+      background-color: #fcf8e3;
+    }
+
+    .max2 {
+      background-color: #f2dede;
+    }
+    #totopBtn {
+        display: none; /* Hidden by default */
+        position: fixed; /* Fixed/sticky position */
+        bottom: 20px; /* Place the button at the bottom of the page */
+        right: 30px; /* Place the button 30px from the right */
+        z-index: 99; /* Make sure it does not overlap */
+        border: none; /* Remove borders */
+        outline: none; /* Remove outline */
+        background-color: var(--primary); /* Set a background color */
+        color: white; /* Text color */
+        cursor: pointer; /* Add a mouse pointer on hover */
+        padding: 15px; /* Some padding */
+        border-radius: .50em; /* Rounded corners */
+        font-size: 18px; /* Increase font size */
+        opacity: 0.6;
+    }
+
+    #totopBtn:hover {
+        background-color: #555; /* Add a dark-grey background on hover */
+    }
+
+      </style>
+</head>
+
+<body>
+  <div class="container">
+    <nav class="navbar  navbar-expand-md navbar-light bg-transparent">
+      <a class="navbar-brand logo" href="../index.html"><img src="../img/logo.png" height="50px;"></a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <div id="menu" class="ml-auto"></div>
+      </div>
+    </nav>
+
+    <h1 class="bigger">Weerbericht</h1>
+    <!-- Invulling pagina -->
+
+    <!-- Aanpassen van de variabelen voor kleuren in weerbericht -->
+    <div id="variabelenbtn" style="display:none;">
+      <br>
+      <button type="submit" class="btn btn-primary btn-block" onclick="toonVariabelen();">Geef je eigen voorkeuren in!</button>
+    </div>
+    <br>
+    <div id="variabelen">
+      <div class="card border-primary">
+        <div class="card-body">
+          <div class="row justify-content-center">
+            <div class=" col-md-4 col-sm-8 col-lg-3">
+              <p class="text-center"><strong>Temperatuur <i class="fas fa-thermometer-half"></i></strong></p>
+              <form>
+                <div class="form-group mb-2">
+                  <div class="input-group">
+                    <div class="input-group-prepend">
+                      <div class="input-group-text">min</div>
+                    </div>
+                    <input type="number" class="form-control min" id="tempzero" placeholder="">
+                    <div class="input-group-append">
+                      <div class="input-group-text">°C</div>
+                    </div>
+                  </div>
+                  <div class="input-group">
+                    <div class="input-group-prepend">
+                      <div class="input-group-text">max</div>
+                    </div>
+                    <input type="number" class="form-control max" id="tempmin" placeholder="">
+                    <div class="input-group-append">
+                      <div class="input-group-text">°C</div>
+                    </div>
+                  </div>
+                  <div class="input-group">
+                    <div class="input-group-prepend">
+                      <div class="input-group-text">max+</div>
+                    </div>
+                    <input type="number" class="form-control max2" id="tempmax" placeholder="">
+                    <div class="input-group-append">
+                      <div class="input-group-text">°C</div>
+                    </div>
+                  </div>
+                </div>
+              </form>
+            </div>
+            <div class="col-md-4 col-sm-8 col-lg-3">
+              <p class="text-center"><strong>Windsnelheid <i class="fas fa-wind"></i></strong></p>
+              <form>
+                <div class="form-group mb-2">
+                  <div class="input-group">
+                    <div class="input-group-prepend">
+                      <div class="input-group-text">max</div>
+                    </div>
+                    <input type="number" class="form-control max" id="windmin" placeholder="">
+                    <div class="input-group-append">
+                      <div class="input-group-text">km/h</div>
+                    </div>
+                  </div>
+                  <div class="input-group">
+                    <div class="input-group-prepend">
+                      <div class="input-group-text">max+</div>
+                    </div> <input type="number" class="form-control max2" id="windmax" placeholder="">
+                    <div class="input-group-append">
+                      <div class="input-group-text">km/h</div>
+                    </div>
+                  </div>
+                </div>
+              </form>
+            </div>
+            <div class="col-md-4 col-sm-8 col-lg-3">
+              <p class="text-center"><strong>Neerslagkans <i class="fas fa-cloud-rain"></i></strong></p>
+              <form>
+                <div class="form-group mb-2">
+                  <div class="input-group">
+                    <div class="input-group-prepend">
+                      <div class="input-group-text">max</div>
+                    </div>
+                    <input type="number" class="form-control max" id="neerslagmin" placeholder="">
+                    <div class="input-group-append">
+                      <div class="input-group-text">%</div>
+                    </div>
+                  </div>
+                  <div class="input-group">
+                    <div class="input-group-prepend">
+                      <div class="input-group-text">max+</div>
+                    </div> <input type="number" class="form-control max2" id="neerslagmax" placeholder="">
+                    <div class="input-group-append">
+                      <div class="input-group-text">%</div>
+                    </div>
+                  </div>
+                </div>
+              </form>
+            </div>
+          </div>
+          <div class="row  justify-content-center buttons">
+            <button type="submit" class="btn btn-primary" onclick="onClick();"><span id="pasaan">Pas de basiswaarden aan!</span><span id="aangepast">Aangepast! <i class="fas fa-check"></i></span></button>
+            <button type="submit" class="btn btn-danger" onclick="reset();">Reset</button>
+            <button type="submit" class="btn btn-default" onclick="verbergVariabelen();">Verberg</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Tabel met weerbericht -->
+
+    <div class="table-responsive" id="tabelweer">
+      <table class="table table-hover table-borderless">
+        <div>
+          <thead class="bg-primary text-white">
+            <tr>
+              <th></th>
+              <th class="text-center"><span data-toggle='tooltip' data-placement='bottom' title="Datum"><i class="far fa-calendar-alt"></i></span></th>
+              <th class="text-center"><span data-toggle='tooltip' data-placement='bottom' title="Tijd"><i class="fas fa-clock"></i></span></th>
+              <th class="text-center"><span data-toggle='tooltip' data-placement='bottom' title="Temperatuur"><i class="fas fa-thermometer-half"></i></span></th>
+              <th class="text-center"><span data-toggle='tooltip' data-placement='bottom' title="Windsnelheid"><i class="fas fa-wind"></i></span></th>
+              <th class="text-center"><span data-toggle='tooltip' data-placement='bottom' title="Neerslagkans"><i class="fas fa-cloud-rain"></i></span></th>
+              <th class="text-center"></th>
+              <th class="text-center"><span data-toggle='tooltip' data-placement='bottom' title="Windstoten"><i class="fas fa-wind"></i><i class="fas fa-wind"></i></span></th>
+              <th class="text-center"><span data-toggle='tooltip' data-placement='bottom' title="Luchtvochtigheid"><i class="fas fa-tint"></i></span></th>
+              <th class="text-center"><span data-toggle='tooltip' data-placement='bottom' title="Bewolking"><i class="fas fa-cloud"></i></span></th>
+              <th class="text-center"><span data-toggle='tooltip' data-placement='bottom' title="UV-index"><i class="fas fa-umbrella-beach"></i></span></th>
+              <th class="text-center"><span data-toggle='tooltip' data-placement='bottom' title="Zichtbaarheid"><i class="fas fa-binoculars"></i></span></th>
+            </tr>
+          </thead>
+        </div>
+        <tbody id="tabel" class="text-center">
+
+        </tbody>
+      </table>
+
+    </div>
+    <div class="alert alert-dark text-center">
+      <strong>Locatie!</strong> Momenteel toont dit het weer voor je huidige locatie: <strong><span id="city"></span></strong>!
+    </div>
+
+
+    <button onclick="topFunction()" id="totopBtn" title="Go to top"><i class="fas fa-arrow-alt-circle-up fa-lg"></i></button>
+
+    <!-- Einde eigen invulling  -->
+
+  </div>
+</body>
+
+<script>
+  $(function() {
+    $("#menu").load("../menu.html");
+  });
+
+  //Verbergen van het paneel om eigen aanpassingen te doen in de variabelen.
+  var verberg = localStorage.getItem('weerVerberg');
+  if (verberg === "1") {
+    $("#variabelen").hide();
+    $("#variabelenbtn").show();
+  }
+
+  function toonVariabelen() {
+    localStorage.setItem('weerVerberg', "0");
+    $("#variabelen").show();
+    $("#variabelenbtn").hide();
+  }
+
+  function verbergVariabelen() {
+    localStorage.setItem('weerVerberg', "1");
+    $("#variabelen").hide();
+    $("#variabelenbtn").show();
+  }
+
+
+  // Local storage van de variabelen
+  var weerstor = localStorage.getItem('weer');
+  if (weerstor === "0" || weerstor == null) {
+    localStorage.setItem('tempzero', "5");
+    localStorage.setItem('tempmin', "25");
+    localStorage.setItem('tempmax', "30");
+    localStorage.setItem('windmin', "10");
+    localStorage.setItem('windmax', "20");
+    localStorage.setItem('neerslagmin', "25");
+    localStorage.setItem('neerslagmax', "50");
+    $("#tempzero").val(localStorage.getItem('tempzero'));
+    $("#tempmin").val(localStorage.getItem('tempmin'));
+    $("#tempmax").val(localStorage.getItem('tempmax'));
+    $("#windmin").val(localStorage.getItem('windmin'));
+    $("#windmax").val(localStorage.getItem('windmax'));
+    $("#neerslagmin").val(localStorage.getItem('neerslagmin'));
+    $("#neerslagmax").val(localStorage.getItem('neerslagmax'));
+    localStorage.setItem('weer', 1);
+  } else {
+    $("#tempzero").val(localStorage.getItem('tempzero'));
+    $("#tempmin").val(localStorage.getItem('tempmin'));
+    $("#tempmax").val(localStorage.getItem('tempmax'));
+    $("#windmin").val(localStorage.getItem('windmin'));
+    $("#windmax").val(localStorage.getItem('windmax'));
+    $("#neerslagmin").val(localStorage.getItem('neerslagmin'));
+    $("#neerslagmax").val(localStorage.getItem('neerslagmax'));
+  }
+
+  // Aanpassen van de variabelen en ze opslaan.
+  function onClick() {
+    var tempzero = $("#tempzero").val();
+    var tempmin = $("#tempmin").val();
+    var tempmax = $("#tempmax").val();
+    var windmin = $("#windmin").val();
+    var windmax = $("#windmax").val();
+    var neerslagmin = $("#neerslagmin").val();
+    var neerslagmax = $("#neerslagmax").val();
+    localStorage.setItem('tempzero', tempzero);
+    localStorage.setItem('tempmin', tempmin);
+    localStorage.setItem('tempmax', tempmax);
+    localStorage.setItem('windmin', windmin);
+    localStorage.setItem('windmax', windmax);
+    localStorage.setItem('neerslagmin', neerslagmin);
+    localStorage.setItem('neerslagmax', neerslagmax);
+    $("#pasaan").hide();
+    $("#aangepast").show();
+    setTimeout(function() {
+      $("#pasaan").show();
+      $("#aangepast").hide();
+    }, 1000);
+    console.log("berekening");
+    berekening();
+  }
+
+  // Reset van de variabelen naar de basiswaarden
+  function reset() {
+    localStorage.setItem('weer', 0);
+    location.reload();
+  }
+
+  var triggered = 0;
+  // Locatie printen  + JSON ophalen en de tabel printen
+  function loc() {
+
+    // Om hoofdletter te plaatsen bij dagen
+    String.prototype.capitalize = function() {
+      return this.charAt(0).toUpperCase() + this.slice(1);
+    }
+
+    if (navigator.geolocation) {
+      navigator.geolocation.getCurrentPosition(function(position) {
+        var lat = position.coords.latitude;
+        var long = position.coords.longitude;
+
+        geocoder = new google.maps.Geocoder();
+        var latlng = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
+        geocoder.geocode({
+          'latLng': latlng
+        }, function(results, status) {
+          if (status == google.maps.GeocoderStatus.OK) {
+            var result = results[0];
+            var city = "";
+            var state = "";
+            for (var i = 0, len = result.address_components.length; i < len; i++) {
+              var ac = result.address_components[i];
+              if (ac.types.indexOf("locality") >= 0) city = ac.long_name;
+              if (ac.types.indexOf("administrative_area_level_1") >= 0) state = ac.long_name;
+            }
+            if (city != '') {
+              $('#city').text(city);
+            }
+          }
+        });
+
+
+
+        var key = "bc19b1b471805791801dd3098e6b3b59";
+        weerurl = "https://api.darksky.net/forecast/" + key + "/" + lat + "," + long + "?exclude=minutely,flags&lang=nl&units=ca&extend=hourly";
+        console.log(weerurl);
+
+        if (triggered === 0) {
+          triggered++;
+          $.ajax({
+            url: weerurl,
+            dataType: 'JSONP', // JSONP bij normale weerurl
+            jsonpCallback: 'callback',
+            async: false,
+            type: 'GET',
+            success: function(data) {
+              document.getElementById("tabel").innerHTML = "";
+              $("#tabelweer").show();
+              moment.locale('nl');
+              document.getElementById("tabel").innerHTML += "<tr class='bg-dark text-white text-left'><td colspan='42'>" + moment.unix(data.hourly.data[0].time).locale("nl").format("dddd DD/MM/YYYY").capitalize() + "</td></tr>";
+              for (i = 0; i < 169; i++) {
+                var icoon = data.hourly.data[i].icon,
+                  datum = moment.unix(data.hourly.data[i].time).format("DD/MM"),
+                  tijd = moment.unix(data.hourly.data[i].time).format("HH:mm"),
+                  temperatuur = (data.hourly.data[i].temperature).toFixed(0),
+                  windsnelheid = (data.hourly.data[i].windSpeed).toFixed(0),
+                  windstoot = (data.hourly.data[i].windGust).toFixed(0),
+                  luchtvochtigheid = (data.hourly.data[i].humidity * 100).toFixed(0),
+                  neerslagkans = (data.hourly.data[i].precipProbability * 100).toFixed(0),
+                  neerslag = data.hourly.data[i].precipIntensity.toFixed(2),
+                  bewolking = (data.hourly.data[i].cloudCover * 100).toFixed(0),
+                  uv = data.hourly.data[i].uvIndex,
+                  zichtbaarheid = (data.hourly.data[i].visibility).toFixed(0),
+                  tijdarray = ["06:00", "07:00", "08:00", "09:00", "10:00", "11:00", "12:00", "13:00", "14:00", "15:00", "16:00", "17:00", "18:00", "19:00", "20:00", "21:00", "22:00"];
+
+                if ($.inArray(tijd, tijdarray) != -1) {
+                  document.getElementById("tabel").innerHTML += "<tr id='tabelrij" + i + "'><td>" + iconweer(icoon) + "</td><td>" + datum + "</td><td>" + tijd + "</td><td id ='temperatuur" + i + "'>" + temperatuur +
+                    "°C</td><td id='windsnelheid" + i + "'>" +
+                    windsnelheid + " <small>km/u</small></td><td id='neerslagkans" + i + "'><span data-toggle='tooltip' data-placement='bottom' title='" + neerslag + " mm'>" + neerslagkans + "%</span></td><td>|</td><td>" + windstoot +
+                    " <small>km/u</small></td><td>" +
+                    luchtvochtigheid + "%</td><td>" + bewolking + "%</td><td>" +
+                    UVIndex(
+                      uv) + "</td><td>" +
+                    zichtbaarheid + "km</td></tr>";
+
+                  if (tijd === "22:00" && i < 146) {
+                    var x = i + 24;
+                    document.getElementById("tabel").innerHTML += "<tr class='bg-dark text-white text-left'><td colspan='42'>" + moment.unix(data.hourly.data[x].time).locale("nl").format("dddd DD/MM/YYYY").capitalize() + "</td></tr>";
+                  }
+                }
+              }
+              setTimeout(function() {
+                berekening();
+              }, 500);
+            }
+          });
+        };
+        $("body").tooltip({
+          selector: '[data-toggle=tooltip]'
+        });
+      });
+
+
+    }
+  }
+
+  loc();
+
+  // Berekening van de kleurencodes zonder steeds opnieuw de JSON te moeten ophalen.
+  function berekening() {
+
+    var btempzero = parseInt(localStorage.getItem('tempzero'));
+    var bneerslagmin = parseInt(localStorage.getItem('neerslagmin'));
+    var bneerslagmax = parseInt(localStorage.getItem('neerslagmax'));
+    var bwindsnelheidmin = parseInt(localStorage.getItem('windmin'));
+    var bwindsnelheidmax = parseInt(localStorage.getItem('windmax'));
+    var btempmin = parseInt(localStorage.getItem('tempmin'));
+    var btempmax = parseInt(localStorage.getItem('tempmax'));
+
+    for (i = 0; i < 169; i++) {
+      if ($("#neerslagkans" + [i]).html() != null) {
+        $("#neerslagkans" + [i]).removeClass("font-weight-bold");
+        $("#windsnelheid" + [i]).removeClass("font-weight-bold");
+        $("#temperatuur" + [i]).removeClass("font-weight-bold");
+        $("#tabelrij" + [i]).removeClass("table-warning");
+        $("#tabelrij" + [i]).removeClass("table-danger");
+        $("#tabelrij" + [i]).removeClass("table-info");
+        $("#tabelrij" + [i]).removeClass("table-success");
+        var neerslagkans = $("#neerslagkans" + [i]).html();
+        var windsnelheid = $("#windsnelheid" + [i]).html();
+        var temperatuur = $("#temperatuur" + [i]).html();
+        var neerslagkans2 = (neerslagkans.replace(/[^0-9]/g, "")).substr(3);
+
+        // vette letters
+        if (neerslagkans2 >= bneerslagmin) {
+          $("#neerslagkans" + [i]).addClass("font-weight-bold");
+        }
+        if (windsnelheid.replace(/[^0-9]/g, '') >= bwindsnelheidmin) {
+
+          $("#windsnelheid" + [i]).addClass("font-weight-bold");
+        }
+        if (temperatuur.replace(/[^0-9](.+)/g, '') >= btempmin) {
+          $("#temperatuur" + [i]).addClass("font-weight-bold");
+        }
+        // rest van de berekeningen voor warning & danger classes
+        if (neerslagkans2 >= bneerslagmin || windsnelheid.replace(/[^0-9]/g, '') >= bwindsnelheidmin || temperatuur.replace(/[^0-9](.+)/g, '') >= btempmin) {
+          $("#tabelrij" + [i]).addClass("table-warning");
+          if (neerslagkans2 >= bneerslagmax || windsnelheid.replace(/[^0-9]/g, '') >= bwindsnelheidmax || temperatuur.replace(/[^0-9](.+)/g, '') >= btempmax) {
+            $("#tabelrij" + [i]).addClass("table-danger");
+          }
+        } else {
+          $("#tabelrij" + [i]).addClass("table-success");
+        }
+        // uitzondering te lage temperatuur
+        if (btempzero >= temperatuur.replace(/[^0-9](.+)/g, '')) {
+          $("#tabelrij" + [i]).addClass("table-info");
+          $("#temperatuur" + [i]).addClass("font-weight-bold");
+        }
+      }
+    }
+    console.log("done");
+  }
+
+  function UVIndex(num) {
+    var uv = num;
+    if (num < 4) {
+      return "<span data-toggle='tooltip' data-placement='bottom' title='geen gevaar'><i class='fas fa-sun'></i> " + num + "</span>";
+    } else if (num < 7) {
+      return "<span data-toggle='tooltip' data-placement='bottom' title='smeer je in'><i class='fas fa-sun'></i> " + num + "</span>";
+    } else if (num < 9) {
+      return "<span data-toggle='tooltip' data-placement='bottom' title='zeker insmeren'><i class='fas fa-sun'></i> " + num + "</span>";
+    } else {
+      return "<span data-toggle='tooltip' data-placement='bottom' title='pas op!'><i class='fas fa-sun'></i> " + num + "</span>";
+    }
+  }
+
+  function iconweer(string) {
+    var icon = string;
+    if (icon === "clear-day") {
+      return "<i class='wi wi-day-sunny'></i>"
+    } else if (icon === "clear-night") {
+      return "<i class='wi wi-night-clear'></i>"
+    } else if (icon === "rain") {
+      return "<i class='wi wi-rain'></i>"
+    } else if (icon === "snow") {
+      return "<i class='wi wi-snow'></i>"
+    } else if (icon === "sleet") {
+      return "<i class='wi wi-sleet'></i>"
+    } else if (icon === "wind") {
+      return "<i class='wi wi-cloudy-gusts'></i>"
+    } else if (icon === "fog") {
+      return "<i class='wi wi-fog'></i>"
+    } else if (icon === "cloudy") {
+      return "<i class='wi wi-cloudy'></i>"
+    } else if (icon === "partly-cloudy-day") {
+      return "<i class='wi wi-day-sunny-overcast'></i>"
+    } else if (icon === "partly-cloudy-night") {
+      return "<i class='wi wi-night-partly-cloudy'></i>"
+    } else {
+      return "<i class='wi wi-na'></i>"
+    }
+  }
+
+  // Scroll to top
+
+  window.onscroll = function() {
+    scrollFunction()
+  };
+
+  function scrollFunction() {
+    if (document.body.scrollTop > 150 || document.documentElement.scrollTop > 150) {
+      document.getElementById("totopBtn").style.display = "block";
+    } else {
+      document.getElementById("totopBtn").style.display = "none";
+    }
+  }
+
+  // When the user clicks on the button, scroll to the top of the document
+  function topFunction() {
+    document.body.scrollTop = 0; // For Safari
+    document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
+  }
+</script>
+
+<!-- Specifiek voor weerebericht  -->
+
+<script src="../js/auto-complete.js"></script>
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCm3cVtor4bk3KbwU7w26MZtmKxePJAtsc&libraries=places&callback=loc&sensor=false"></script>
+
+
+</html>

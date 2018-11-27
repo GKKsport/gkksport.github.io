@@ -1,0 +1,481 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <!-- Standard Meta -->
+  <title>Triathlontijd</title>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="../css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
+  <link rel="stylesheet" href="../css/weathericons/css/weather-icons.min.css">
+
+
+  <!-- JS -->
+  <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.22.2/moment-with-locales.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.3/Chart.min.js"></script>
+  <script src="https://code.jquery.com/ui/1.12.0/jquery-ui.min.js" integrity="sha256-eGE6blurk5sHj+rmkfsGYeKyZx3M4bG+ZlFyA7Kns7E=" crossorigin="anonymous"></script>
+
+  <style>
+    body {
+        position: relative;
+    }
+    #button {
+      margin-bottom: 20px;
+    }
+
+    .form-control-range {
+    -webkit-appearance: none;
+    width: 100%;
+    height: 15px;
+    border-radius: 5px;
+    background: var(--gray);
+    outline: none;
+    opacity: 0.7;
+    -webkit-transition: .2s;
+    transition: opacity .2s;
+}
+
+.form-control-range::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+    background: var(--primary);
+    cursor: pointer;
+}
+.form-control-range::-webkit-slider-thumb:active,
+.form-control-range::-webkit-slider-thumb:hover{
+  background: var(--yellow);
+}
+
+.form-control-range::-moz-range-thumb {
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+    background: var(--primary);
+    cursor: pointer;
+}
+
+.form-control-range::-moz-range-thumb:active,
+.form-control-range::-moz-range-thumb:hover{
+  background: var(--yellow);
+}
+
+@media (max-width: 576px) {
+  .input-group{
+    margin-bottom: 4px!important;
+  }
+  .input-group:last-child{
+    margin-bottom: 0px!important;
+  }
+}
+.form-group {
+  margin-bottom:0px;
+}
+
+.chart-container {
+  position: relative;
+  margin: 0px;
+  width: 100%;
+}
+label {
+  margin-bottom: 0px;
+}
+
+      </style>
+</head>
+
+<body>
+  <div class="container">
+    <nav class="navbar  navbar-expand-md navbar-light bg-transparent">
+      <a class="navbar-brand logo" href="../index.html"><img src="../img/logo.png" height="50px;"></a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <div id="menu" class="ml-auto"></div>
+      </div>
+    </nav>
+
+    <h1 class="bigger">Triathlontijd</h1>
+    <!-- Invulling pagina -->
+
+    <form>
+      <div class="card mb-2 bg-primary">
+        <div class="card-body">
+          <div class="card-text">
+            <div class="form-row">
+              <div class="input-group col-sm-4">
+                <div class="input-group-prepend">
+                  <span class="input-group-text" id="zwem-addon"><i class="fas fa-swimmer"></i></span>
+                </div>
+                <input type="number" class="form-control text-center" placeholder="Zwemafstand" value="1000" aria-label="Username" aria-describedby="zwem-addon" id="zwemafstand">
+                <div class="input-group-append">
+                  <span class="input-group-text" id="zwem-addon">m</span>
+                </div>
+              </div>
+              <div class="input-group col-sm-4">
+                <div class="input-group-prepend">
+                  <span class="input-group-text" id="fiets-addon"><i class="fas fa-bicycle"></i></span>
+                </div>
+                <input type="number" class="form-control text-center" placeholder="Fietsafstand" aria-label="Username" aria-describedby="fiets-addon" value="40" id="fietsafstand">
+                <div class="input-group-append">
+                  <span class="input-group-text" id="fiets-addon">km</span>
+                </div>
+              </div>
+              <div class="input-group col-sm-4">
+                <div class="input-group-prepend">
+                  <span class="input-group-text" id="loop-addon"><i class="fas fa-running"></i></span>
+                </div>
+                <input type="number" class="form-control text-center" placeholder="Loopafstand" aria-label="Username" aria-describedby="loop-addon" value="10" id="loopafstand">
+                <div class="input-group-append">
+                  <span class="input-group-text" id="loop-addon">km</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="form-group text-center">
+        <div class="card mb-2">
+          <div class="card-body">
+            <div class="card-text">
+              <div class="row mb-2">
+                <div class="col text-left">
+                  <h5><span class="badge badge-dark"><label for="zwemSlider">Zwemsnelheid</label></span></h5>
+                </div>
+                <div class="col text-right">
+                  <h5><span class="badge badge-warning"><span id="zwemV"></span> min/100m</span></h5>
+                </div>
+              </div>
+              <input type="range" min="40" max="240" value="120" step="10" class="form-control-range" id="zwemSlider">
+        </div>
+            </div>
+          </div>
+          <div class="card mb-2">
+            <div class="card-body">
+              <div class="card-text">
+                <div class="row mb-2">
+                  <div class="col text-left">
+                    <h5><span class="badge badge-dark"><label for="fietsSlider">Fietssnelheid</label></span></h5>
+                  </div>
+                  <div class="col text-right">
+                    <h5><span class="badge badge-warning"><span id="fietsV"></span> km/u</span></h5>
+                  </div>
+                </div>
+                <input type="range" min="20" max="50" value="30" class="form-control-range" id="fietsSlider">
+          </div>
+              </div>
+            </div>
+            <div class="card mb-2">
+              <div class="card-body">
+                <div class="card-text">
+                  <div class="row mb-2">
+                    <div class="col text-left">
+                      <h5><span class="badge badge-dark"><label for="loopSlider">Loopsnelheid</label></span></h5>
+                    </div>
+                    <div class="col text-right">
+                      <h5><span class="badge badge-warning"><span id="loopV"></span> min/km</span></h5>
+                    </div>
+                  </div>
+                  <input type="range" min="180" max="600" value="250" step="10" class="form-control-range" id="loopSlider">
+            </div>
+                </div>
+              </div>
+
+              <div class="row">
+                <div class="col">
+                  <div class="card mb-2">
+                    <div class="card-body">
+                      <div class="card-text">
+                        <div class="row">
+                          <div class="col text-left">
+                            <h5><span class="badge badge-dark"><label for="t1Slider">T1</label></span></h5>
+                          </div>
+                          <div class="col text-right">
+                            <h5><span class="badge badge-warning"><span id="t1V"></span> min</span></h5>
+                          </div>
+                        </div>
+                        <input type="range" min="0" max="300" value="120" step="10" class="form-control-range" id="t1Slider">
+                  </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col">
+                    <div class="card mb-2">
+                      <div class="card-body">
+                        <div class="card-text">
+                          <div class="row">
+                            <div class="col text-left">
+                              <h5><span class="badge badge-dark"><label for="t2Slider">T2</label></span></h5>
+                            </div>
+                            <div class="col text-right">
+                              <h5><span class="badge badge-warning"><span id="t2V"></span> min</span></h5>
+                            </div>
+                          </div>
+                          <input type="range" min="0" max="300" value="120" step="10" class="form-control-range" id="t2Slider">
+                  </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                </div>
+    </form>
+    <button onclick="bereken();" class="btn btn-primary btn-block text-center mb-2">Bereken de tijd!</button>
+    <div class="row mb-5 text-center d-none" id="verborgen">
+      <div class="col-sm-4">
+        <div class="card mb-2">
+          <div class="card-body">
+            <div class="card-text">
+              <h5><span class="badge badge-success d-block">Totaaltijd</span></h5>
+              <h2 class="mb-3 mt-3"><strong><span id="totaaltijd"></span></strong></h2>
+              <h5><span class="badge badge-success d-block">Split</span></h5>
+              <div class="row mb-3">
+                <div class="col">
+                  <i class="fas fa-swimmer"></i>
+                  <span class="d-block" id="zwemtijd"></span>
+                </div>
+                <div class="col">
+                  <i class="fas fa-bicycle"></i>
+                  <span class="d-block" id="fietstijd"></span>
+                </div>
+                <div class="col">
+                  <i class="fas fa-running"></i>
+                  <span class="d-block" id="looptijd"></span>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col">
+                  <i class="fas fa-swimmer"></i> → <i class="fas fa-bicycle"></i>
+                  <span class="d-block" id="t1tijd"></span>
+                </div>
+                <div class="col">
+                  <i class="fas fa-bicycle"></i> → <i class="fas fa-running"></i>
+                  <span class="d-block" id="t2tijd"></span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-sm-4">
+        <div class="card mb-2">
+          <div class="card-body">
+            <div class="card-text">
+              <h5><span class="badge badge-success d-block mb-3">Verdeling</span></h5>
+              <div>
+                <canvas id="myChart" style="position: relative; width: 100%"; height="200px"></canvas>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-sm-4">
+        <div class="card mb-2">
+          <div class="card-body">
+            <div class="card-text">
+              <h5><span class="badge badge-success d-block">Totaaltijd (zonder T1 & T2)</span></h5>
+              <h2 class="mb-3 mt-3"><strong><span id="totaaltijdzondert"></span></strong></h2>
+              <h5><span class="badge badge-success d-block">Procentueel gewicht</span></h5>
+              <div class="row mb-3">
+                <div class="col">
+                  <i class="fas fa-swimmer"></i>
+                  <span class="d-block" id="zwemtijdproc"></span>
+                </div>
+                <div class="col">
+                  <i class="fas fa-bicycle"></i>
+                  <span class="d-block" id="fietstijdproc"></span>
+                </div>
+                <div class="col">
+                  <i class="fas fa-running"></i>
+                  <span class="d-block" id="looptijdproc"></span>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col">
+                  <i class="fas fa-swimmer"></i> → <i class="fas fa-bicycle"></i>
+                  <span class="d-block" id="t1tijdproc"></span>
+                </div>
+                <div class="col">
+                  <i class="fas fa-bicycle"></i> → <i class="fas fa-running"></i>
+                  <span class="d-block" id="t2tijdproc"></span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+    <!-- Einde eigen invulling  -->
+
+  </div>
+</body>
+
+
+<script>
+  // Waarden voor afstanden
+  var zwemafstand = document.getElementById("zwemafstand").value;
+  var fietsafstand = document.getElementById("fietsafstand").value;
+  var loopafstand = document.getElementById("loopafstand").value;
+  // Sliderwaarden
+  var fietsSlider = document.getElementById("fietsSlider");
+  var loopSlider = document.getElementById("loopSlider");
+  var zwemSlider = document.getElementById("zwemSlider");
+  var t1slider = document.getElementById("t1Slider");
+  var t2slider = document.getElementById("t2Slider");
+  // Span waar data moet inkomen
+  var fietsOutput = document.getElementById("fietsV");
+  var loopOutput = document.getElementById("loopV");
+  var zwemOutput = document.getElementById("zwemV");
+  var t1Output = document.getElementById("t1V");
+  var t2Output = document.getElementById("t2V");
+  // De data weergeven
+  fietsOutput.innerHTML = fietsSlider.value; // Display the default slider value
+  loopOutput.innerHTML = moment(loopSlider.value, "X").format("mm:ss");
+  zwemOutput.innerHTML = moment(zwemSlider.value, "X").format("mm:ss");
+  t1Output.innerHTML = moment(t1slider.value, "X").format("mm:ss");
+  t2Output.innerHTML = moment(t2slider.value, "X").format("mm:ss");
+
+  var fietsSlider2 = fietsSlider.value;
+  var loopSlider2 = loopSlider.value;
+  var zwemSlider2 = zwemSlider.value;
+  var t1Slider2 = t1slider.value;
+  var t2Slider2 = t2slider.value;
+
+  // Update the current slider value (each time you drag the slider handle)
+  fietsSlider.oninput = function() {
+    fietsOutput.innerHTML = this.value;
+    fietsSlider2 = this.value;
+  }
+  loopSlider.oninput = function() {
+    loopOutput.innerHTML = moment(this.value, "X").format("mm:ss");
+    loopSlider2 = this.value;
+  }
+  zwemSlider.oninput = function() {
+    zwemOutput.innerHTML = moment(this.value, "X").format("mm:ss");
+    zwemSlider2 = this.value;
+  }
+  t1slider.oninput = function() {
+    t1Output.innerHTML = moment(this.value, "X").format("mm:ss");
+    t1Slider2 = this.value;
+  }
+  t2slider.oninput = function() {
+    t2Output.innerHTML = moment(this.value, "X").format("mm:ss");
+    t2Slider2 = this.value;
+  }
+
+  function bereken() {
+    // Berekening voor totale tijden.
+    var zwemT = zwemSlider2 * (zwemafstand / 100);
+    var fietsT = (fietsafstand / fietsSlider2) * 60 * 60;
+    var loopT = loopSlider2 * loopafstand;
+    var t1T = t1Slider2;
+    var t2T = t2Slider2;
+    var totT = Number(zwemT) + Number(fietsT) + Number(loopT) + Number(t1T) + Number(t2T);
+
+    // Pas tonen na berekening
+    $("#verborgen").removeClass("d-none");
+
+    // Om de PIE chart te maken
+    var valueschart = [zwemT, fietsT, loopT, t1T, t2T];
+    if (myChart !== undefined) {
+      myChart.destroy();
+    }
+    //chartJS
+    var ctx = document.getElementById("myChart");
+    // For a pie chart
+    var myChart = new Chart(ctx, {
+      type: 'pie',
+      data: {
+        labels: ["Zwemmen", "Fietsen", "Lopen", "T1", "T2"],
+        datasets: [{
+          data: valueschart,
+          backgroundColor: [
+            'rgba(221, 53, 69, 0.8)',
+            'rgba(23, 162, 184, 0.8)',
+            'rgba(255, 193, 6, 0.8)',
+            'rgba(32, 201, 151,0.8)',
+            'rgb(110, 65, 193,0.8)',
+          ],
+          borderWidth: 0
+        }],
+      },
+      options: {
+        maintainAspectRatio: false,
+        responsive: true,
+        legend: {
+          display: true,
+          position: 'bottom',
+          fullWidth: true,
+          labels: {
+            boxWidth: 10
+          }
+        },
+        layout: {
+          padding: {
+            left: 0,
+            right: 0,
+            top: 0,
+            bottom: 0
+          }
+        },
+        tooltips: {
+          displayColors: false,
+          callbacks: {
+            label: function(tooltipItem, data) {
+              var label = data.datasets[tooltipItem.datasetIndex].data[tooltipItem.index];
+              return unixTime(label) + " (" + ((label / totT) * 100).toFixed(0) + "%)";
+            }
+          }
+        },
+        cutoutPercentage: 0,
+        title: {
+          display: false
+        }
+      }
+    });
+    // Rest van de Berekening
+    console.log(unixTime(totT));
+    $("#totaaltijd").text(unixTime(totT));
+    $("#zwemtijd").text(unixTime(zwemT));
+    $("#fietstijd").text(unixTime(fietsT));
+    $("#looptijd").text(unixTime(loopT));
+    $("#t1tijd").text(unixTime(t1T));
+    $("#t2tijd").text(unixTime(t2T));
+
+    var geent = Number(totT) - Number(t1T) - Number(t2T);
+
+    $("#totaaltijdzondert").text(unixTime(geent));
+    $("#zwemtijdproc").text(((Number(zwemT) / Number(totT)) * 100).toFixed(2) + "%");
+    $("#fietstijdproc").text(((Number(fietsT) / Number(totT)) * 100).toFixed(2) + "%");
+    $("#looptijdproc").text(((Number(loopT) / Number(totT)) * 100).toFixed(2) + "%");
+    $("#t1tijdproc").text(((Number(t1T) / Number(totT)) * 100).toFixed(2) + "%");
+    $("#t2tijdproc").text(((Number(t2T) / Number(totT)) * 100).toFixed(2) + "%");
+  }
+
+  // Extra functie om UNIX tijd om te zetten!
+  function unixTime(tijd) {
+    if (tijd >= 3600) {
+      return moment(tijd, "X").utc().format("h:mm:ss");
+    } else {
+      return moment(tijd, "X").utc().format("m:ss");
+    }
+  }
+
+
+  // Laad het menu
+  $(function() {
+    $("#menu").load("../menu.html");
+  });
+</script>

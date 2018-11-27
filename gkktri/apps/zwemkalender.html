@@ -16,6 +16,7 @@
   <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.22.2/moment-with-locales.js"></script>
 
   <style>
     body {
@@ -25,9 +26,6 @@
   margin: 2px;
 }
 
-.form-control {
-
-}
 
 .item-list>h3 {
   display:none;
@@ -40,6 +38,7 @@
 .item-list>ul {
   list-style: none;
     padding:0px!important;
+    margin-bottom: 0px;
 }
 .last:nth-child(2) {
   display:none;
@@ -94,7 +93,7 @@
     <div id="loader" class="text-center">
       <img src="https://loading.io/assets/img/hourglass.svg">
     </div>
-      <div class="row text-center" id="zwemkal">
+      <div class="card-columns text-center" id="zwemkal">
       </div>
       <div class="alert alert-warning text-center" role="alert">
         <p style="margin-bottom:0px;">Vul een andere datum in en druk op de knop om de openingsuren te krijgen voor een andere dag! Momenteel toont hij de openingsuren voor <strong><span id="datum"></span></strong></p>
@@ -118,7 +117,7 @@
     document.getElementById('zwemkaldatum').valueAsDate = new Date();
     $("#loader").hide();
     for (i = 1; i < 7; i++) {
-      document.getElementById("zwemkal").innerHTML += "<div class= 'col-lg-6 col-lg-offset-0 col-md-6 col-md-offset-0' id='zwemkal" + [i] + "'></div>";
+      document.getElementById("zwemkal").innerHTML += "<div id='zwemkal" + [i] + "'></div>";
     }
     console.log("V1.0");
     klik();
@@ -155,11 +154,11 @@
       }
     }).then(function(data) {
       var naam = "LAGO";
-      var variabel = data.output;
+      var variabel = data.output.replace(/Openingsuren voor <em class=\"placeholder\">Publiekszwemmen<\/em>/g, '');
       if (variabel.indexOf("Gesloten") >= 0) {
-        document.getElementById("zwemkal1").innerHTML = "<div class='card text-white bg-danger mb-3'><div class='card-body'><h5 class='card-title'>" + naam + "</h5><div class='card-text'>" + data.output + "</div></div></div>";
+        document.getElementById("zwemkal1").innerHTML = "<div class='card text-white bg-danger mb-3'><div class='card-body'><h5 class='card-title'>" + naam + "</h5><div class='card-text'>" + variabel + "</div></div></div>";
       } else {
-        document.getElementById("zwemkal1").innerHTML = "<div class='card text-white bg-success mb-3'><div class='card-body'><h5 class='card-title'>" + naam + "</h5><div class='card-text'>" + data.output + "</div></div></div>";
+        document.getElementById("zwemkal1").innerHTML = "<div class='card text-white bg-success mb-3'><div class='card-body'><h5 class='card-title'>" + naam + "</h5><div class='card-text'>" + variabel + "</div></div></div>";
       }
       console.log("Zwembad-data stabiel");
       test();
@@ -179,12 +178,12 @@
         useCache: false
       }
     }).then(function(data) {
-      var variabel = data.output;
+      var variabel = data.output.replace(/Openingsuren voor <em class=\"placeholder\">Publiekszwemmen<\/em>/g, '');
       var naam = "GUSB";
       if (variabel.indexOf("Gesloten") >= 0) {
-        document.getElementById("zwemkal2").innerHTML = "<div class='card text-white bg-danger mb-3'><div class='card-body'><h5 class='card-title'>" + naam + "</h5><div class='card-text'>" + data.output + "</div></div></div>";
+        document.getElementById("zwemkal2").innerHTML = "<div class='card text-white bg-danger mb-3'><div class='card-body'><h5 class='card-title'>" + naam + "</h5><div class='card-text'>" + variabel + "</div></div></div>";
       } else {
-        document.getElementById("zwemkal2").innerHTML = "<div class='card text-white bg-success mb-3'><div class='card-body'><h5 class='card-title'>" + naam + "</h5><div class='card-text'>" + data.output + "</div></div></div>";
+        document.getElementById("zwemkal2").innerHTML = "<div class='card text-white bg-success mb-3'><div class='card-body'><h5 class='card-title'>" + naam + "</h5><div class='card-text'>" + variabel + "</div></div></div>";
       }
       // and other stuff i do with the data i get
       test();
@@ -203,12 +202,12 @@
         useCache: false
       }
     }).then(function(data) {
-      var variabel = data.output;
+      var variabel = data.output.replace(/Openingsuren voor <em class=\"placeholder\">Publiekszwemmen<\/em>/g, '');
       var naam = "STROP";
       if (variabel.indexOf("Gesloten") >= 0) {
-        document.getElementById("zwemkal3").innerHTML = "<div class='card text-white bg-danger mb-3'><div class='card-body'><h5 class='card-title'>" + naam + "</h5><div class='card-text'>" + data.output + "</div></div></div>";
+        document.getElementById("zwemkal3").innerHTML = "<div class='card text-white bg-danger mb-3'><div class='card-body'><h5 class='card-title'>" + naam + "</h5><div class='card-text'>" + variabel + "</div></div></div>";
       } else {
-        document.getElementById("zwemkal3").innerHTML = "<div class='card text-white bg-success mb-3'><div class='card-body'><h5 class='card-title'>" + naam + "</h5><div class='card-text'>" + data.output + "</div></div></div>";
+        document.getElementById("zwemkal3").innerHTML = "<div class='card text-white bg-success mb-3'><div class='card-body'><h5 class='card-title'>" + naam + "</h5><div class='card-text'>" + variabel + "</div></div></div>";
       }
       test();
     });
@@ -224,12 +223,12 @@
         useCache: false
       }
     }).then(function(data) {
-      var variabel = data.output;
+      var variabel = data.output.replace(/Openingsuren voor <em class=\"placeholder\">Publiekszwemmen<\/em>/g, '');
       var naam = "ROOIGEM";
       if (variabel.indexOf("Gesloten") >= 0) {
-        document.getElementById("zwemkal4").innerHTML = "<div class='card text-white bg-danger mb-3'><div class='card-body'><h5 class='card-title'>" + naam + "</h5><div class='card-text'>" + data.output + "</div></div></div>";
+        document.getElementById("zwemkal4").innerHTML = "<div class='card text-white bg-danger mb-3'><div class='card-body'><h5 class='card-title'>" + naam + "</h5><div class='card-text'>" + variabel + "</div></div></div>";
       } else {
-        document.getElementById("zwemkal4").innerHTML = "<div class='card text-white bg-success mb-3'><div class='card-body'><h5 class='card-title'>" + naam + "</h5><div class='card-text'>" + data.output +
+        document.getElementById("zwemkal4").innerHTML = "<div class='card text-white bg-success mb-3'><div class='card-body'><h5 class='card-title'>" + naam + "</h5><div class='card-text'>" + variabel +
           "</div></div></div>";
       }
       test();
@@ -246,12 +245,12 @@
         useCache: false
       }
     }).then(function(data) {
-      var variabel = data.output;
+      var variabel = data.output.replace(/Openingsuren voor <em class=\"placeholder\">Publiekszwemmen<\/em>/g, '');
       var naam = "VAN EYCK";
       if (variabel.indexOf("Gesloten") >= 0) {
-        document.getElementById("zwemkal5").innerHTML = "<div class='card text-white bg-danger mb-3'><div class='card-body'><h5 class='card-title'>" + naam + "</h5><div class='card-text'>" + data.output + "</div></div></div>";
+        document.getElementById("zwemkal5").innerHTML = "<div class='card text-white bg-danger mb-3'><div class='card-body'><h5 class='card-title'>" + naam + "</h5><div class='card-text'>" + variabel + "</div></div></div>";
       } else {
-        document.getElementById("zwemkal5").innerHTML = "<div class='card text-white bg-success mb-3'><div class='card-body'><h5 class='card-title'>" + naam + "</h5><div class='card-text'>" + data.output + "</div></div></div>";
+        document.getElementById("zwemkal5").innerHTML = "<div class='card text-white bg-success mb-3'><div class='card-body'><h5 class='card-title'>" + naam + "</h5><div class='card-text'>" + variabel + "</div></div></div>";
       }
       test();
     });
@@ -264,7 +263,10 @@
       }
     }
 
-    init();
+    var maand = moment().month() + 1; // Geeft maand in nummers
+    if (maand < 10 && maand > 4) {
+      init();
+    }
     $("#datum").text(convertDate(datum));
   }
 
