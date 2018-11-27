@@ -2,209 +2,214 @@
 <html>
 
 <head>
-	<title>GKK Sport</title>
-	<meta charset="utf-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-	<link rel="icon" sizes="192x192" href="icon.png">
-	<style>
-		/* Remove the navbar's default margin-bottom and rounded borders */
+  <!-- Standard Meta -->
+  <title>Index</title>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
 
-		@media (min-width: 767px) {
-			ul.nav li.dropdown:hover>ul.dropdown-menu {
-				display: block;
-			}
-		}
+  <!-- CSS -->
+  <link rel="stylesheet" href="../css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
 
-		.navbar {
-			margin-bottom: 0;
-			border-radius: 0;
-		}
+  <!-- JS -->
+  <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
 
-		/* Set height of the grid so .sidenav can be 100% (adjust as needed) */
+  <style>
+    body {
+        position: relative;
+    }
+    .card-img:hover {
 
-		.row.content {
-			height: 450px
-		}
+ }
+    .card-columns {
+  @include media-breakpoint-only(lg) {
+    column-count: 4;
+  }
+  @include media-breakpoint-only(xl) {
+    column-count: 5;
+  }
+}
 
-		/* Set gray background color and 100% height */
+.badge:hover {
+  cursor: pointer;
+}
 
-		.sidenav {
-			padding-top: 20px;
-			background-color: #f1f1f1;
-			height: 100%;
-		}
-
-		/* Set black background color, white text and some padding */
-
-		.navbar-brand img {
-			height: 40px;
-		}
-
-		.navbar-brand {
-			padding-bottom: 3px;
-			padding-top: 6px;
-		}
-
-		footer {
-			background-color: #555;
-			color: white;
-			padding: 15px;
-		}
-
-		/* On small screens, set height to 'auto' for sidenav and grid */
-
-		@media screen and (max-width: 767px) {
-			.sidenav {
-				height: auto;
-				padding: 15px;
-			}
-			.row.content {
-				height: auto;
-			}
-		}
-	</style>
-	<script>
-		$(function() {
-			$("#menu").load("menu.html");
-		});
-	</script>
-	<script async src="https://www.googletagmanager.com/gtag/js?id=UA-119797754-1"></script>
-	<script>
-		window.dataLayer = window.dataLayer || [];
-
-		function gtag() {
-			dataLayer.push(arguments);
-		}
-		gtag('js', new Date());
-
-		gtag('config', 'UA-119797754-1');
-	</script>
+      </style>
 </head>
 
 <body>
-
-	<nav class="navbar navbar-inverse">
-		<div class="container-fluid">
-			<div class="navbar-header">
-				<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
+  <div class="container">
+    <nav class="navbar  navbar-expand-md navbar-light bg-transparent">
+      <a class="navbar-brand logo" href="../index.html"><img src="../img/logo.png" height="50px;"></a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
       </button>
-				<a class="navbar-brand" href="index.html"><img src="GKK.png"></a>
-			</div>
-			<div id="menu">
-			</div>
-		</div>
-	</nav>
-	<div class="container-fluid text-center">
-		<br>
-		<div class="row content">
-			<div class="col-xs-12 col-sm-6 col-md-4 col-lg-4">
-				<div class="list-group">
-					<li class="list-group-item disabled">
-						<h4 class="list-group-item-heading" style="margin-top: 5px;">GKK-stuff</h4>
-					</li>
-					<a href="./kalender.html" class="list-group-item">
-						<h4 class="list-group-item-heading">Tussenstand</h4>
-						<p class="list-group-item-text"><small>De tussenstand/kalender van de onderlinge competitie + de wielerkalender voor dit jaar.</small></p>
-					</a>
-					<a href="./kaartregels.html" class="list-group-item">
-						<h4 class="list-group-item-heading">Kaartregels</h4>
-						<p class="list-group-item-text"><small>Regels en puntentelling voor bieden en wiezen.</small></p>
-					</a>
-				</div>
-				<div class="list-group">
-					<li class="list-group-item disabled">
-						<h4 class="list-group-item-heading" style="margin-top: 5px;">Triathlon</h4>
-					</li>
-					<a href="./triathloncalc.html" class="list-group-item">
-						<h4 class="list-group-item-heading">Triathloncalc</h4>
-						<p class="list-group-item-text"><small>Mogelijkheid om snel je tijd te berekenen voor elke triathlon-afstand, inclusief de tussentijden.</small></p>
-					</a>
-					<a href="./training.html" class="list-group-item">
-						<h4 class="list-group-item-heading">Zwemoefeningen</h4>
-						<p class="list-group-item-text"><small>Oefeningen om snelheid en uithouding te trainen bij het zwemmen.</small></p>
-					</a>
-					<a href="./zwemmen.html" class="list-group-item">
-						<h4 class="list-group-item-heading">Zwemkalender</h4>
-						<p class="list-group-item-text"><small>Toont de openingsuren van de zwembaden in Gent, inclusief de watertemperatuur van de Blaarmeersen.</small></p>
-					</a>
-				</div>
-			</div>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <div id="menu" class="ml-auto"></div>
+      </div>
+    </nav>
 
-			<div class="col-xs-12 col-sm-6 col-md-4 col-lg-4">
-				<div class="list-group">
-					<li class="list-group-item disabled">
-						<h4 class="list-group-item-heading" style="margin-top: 5px;">Apps</h4>
-					</li>
-					<a href="./gpx.html" class="list-group-item">
-						<h4 class="list-group-item-heading">GPX-viewer</h4>
-						<p class="list-group-item-text"><small>Bekijk de route van gpx-bestanden, inclusief het voorspelde weerbericht bij het vertrekpunt!</small></p>
-					</a>
-					<a href="./zidb.html" class="list-group-item">
-						<h4 class="list-group-item-heading">ZuipenInDeBuurt</h4>
-						<p class="list-group-item-text"><small>Bekijk café's, resto's en winkels in je buurt!</small></p>
-					</a>
-					<a href="./weer.html" class="list-group-item">
-						<h4 class="list-group-item-heading">Weerbericht</h4>
-						<p class="list-group-item-text"><small>Bekijk een zevendaagse voorspelling van het weerbericht voor de locatie waar je je op dat moment bevindt. Inclusief de mogelijkheid om eigen min- en max-waarden op te geven voor enkele parameters</small></p>
-					</a>
-				</div>
-				<div class="list-group">
-					<li class="list-group-item disabled">
-						<h4 class="list-group-item-heading" style="margin-top: 5px;">Rest</h4>
-					</li>
-					<a href="./koers.html" class="list-group-item">
-						<h4 class="list-group-item-heading">Koersvolger</h4>
-						<p class="list-group-item-text"><small>Applicatie om rechtstreeks de koers te volgen. Werkt momenteel niet wegens wijzigingen van de API van Sporza.</small></p>
-					</a>
-					<a href="./tricklist.html" class="list-group-item">
-						<h4 class="list-group-item-heading">Tricklist</h4>
-						<p class="list-group-item-text"><small>Tricklist voor snowboard-tricks op skireis.</small></p>
-					</a>
-				</div>
-			</div>
+    <!-- <h1 class="bigger">Index</h1> -->
+    <!-- Invulling pagina -->
+
+    <div class="text-center align-inline mt-5">
+
+      <li class="list-inline">
+      <li class="list-inline-item"><h5><span onclick="klikapps();" class="badge badge-success"><i class="fas fa-rocket"></i> APPS</span></h5>
+      </li>
+      <li class="list-inline-item"><h5><span onclick="klikcalcs();" class="badge badge-info"><i class="fas fa-calculator"></i> CALCS</span></h5>
+      </li>
+      <li class="list-inline-item"><h5><span onclick="klikdocs();" class="badge badge-danger"><i class="fas fa-file-alt"></i> DOCS</span></h5>
+      </li>
+      </li>
+
+    </div>
+    <div class="card-columns mt-2 text-center">
+      <div class="apps">
+        <a href="../apps/zwemkalender.html">
+          <div class="card bg-success text-white">
+        <img class="card-img" style="opacity:0.2" src="https://images.pexels.com/photos/56837/swimmers-swimming-race-competition-56837.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260" alt="Card image">
+        <div class="card-img-overlay d-flex h-100">
+          <div class="justify-content-center align-self-center">
+            <h3 class="card-title"><i class="fas fa-rocket"></i></h3>
+            <h5 class="card-title ">Zwemkalender</h5>
+            <p class="card-text">Toont de openingsuren van de zwembaden in Gent!</p>
+          </div>
+        </div>
+      </div>
+      </a>
+      </div>
+      <div class="calc">
+        <a href="../calc/triathlontijd.html">
+      <div class="card bg-info text-white">
+        <img class="card-img" style="opacity:0.2" src="https://images.pexels.com/photos/1178683/pexels-photo-1178683.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260" alt="Card image">
+        <div class="card-img-overlay d-flex h-100">
+          <div class="justify-content-center align-self-center">
+            <h3 class="card-title"><i class="fas fa-calculator"></i></h3>
+            <h5 class="card-title ">Triathlontijd</h5>
+            <p class="card-text">Geeft de tijden weer om een triathlon te beïndigen</p>
+          </div>
+        </div>
+      </div>
+    </a>
+      </div>
+      <div class="apps">
+        <a href="../apps/weerbericht.html">
+      <div class="card bg-success text-white">
+        <img class="card-img" style="opacity:0.2" src="https://images.pexels.com/photos/763398/pexels-photo-763398.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260" alt="Card image">
+        <div class="card-img-overlay d-flex h-100">
+          <div class="justify-content-center align-self-center">
+            <h3 class="card-title"><i class="fas fa-rocket"></i></h3>
+            <h5 class="card-title ">Weerbericht</h5>
+            <p class="card-text">Geeft het weerbericht (met eigen voorkeuren) voor de locatie waar je op dat moment bent.</p>
+          </div>
+        </div>
+      </div>
+    </a>
+      </div>
+      <div class="docs">
+        <a href="../docs/oefeningen.html">
+      <div class="card bg-danger text-white">
+        <img class="card-img" style="opacity:0.2" src="https://images.pexels.com/photos/221210/pexels-photo-221210.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260" alt="Card image">
+        <div class="card-img-overlay d-flex h-100">
+          <div class="justify-content-center align-self-center">
+            <h3 class="card-title"><i class="fas fa-file-alt"></i></h3>
+            <h5 class="card-title ">Oefeningen</h5>
+            <p class="card-text">Verzameling van allerlei oefeningen voor zwemmen, lopen en fietsen.</p>
+          </div>
+        </div>
+      </div>
+    </a>
+      </div>
+      <div class="calc">
+        <a href="../calc/hrzones.html">
+      <div class="card bg-info text-white">
+        <img class="card-img" style="opacity:0.2" src="https://images.pexels.com/photos/241544/pexels-photo-241544.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260" alt="Card image">
+        <div class="card-img-overlay d-flex h-100">
+          <div class="justify-content-center align-self-center">
+            <h3 class="card-title"><i class="fas fa-calculator"></i></h3>
+            <h5 class="card-title ">HR Zones </h5>
+            <p class="card-text">Calculators voor het berekenen van hartslagzones.</p>
+            <span class="badge badge-light">Work In Progress</span>
+          </div>
+        </div>
+      </div>
+    </a>
+      </div>
+      <div class="docs">
+        <a href="../docs/kaartregels.html">
+      <div class="card bg-danger text-white">
+        <img class="card-img" style="opacity:0.2" src="https://images.pexels.com/photos/279009/pexels-photo-279009.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260" alt="Card image">
+        <div class="card-img-overlay d-flex h-100">
+          <div class="justify-content-center align-self-center">
+            <h3 class="card-title"><i class="fas fa-file-alt"></i></h3>
+            <h5 class="card-title ">Kaartregels</h5>
+            <p class="card-text">Kaartregels voor bieden en kleurenwiezen.</p>
+            <span class="badge badge-light">Work In Progress</span>
+          </div>
+        </div>
+      </div>
+    </a>
+      </div>
 
 
-			<div class="col-xs-12 col-sm-6 col-md-4 col-lg-4">
-
-				<div class="list-group">
-					<li class="list-group-item list-group-item-warning">
-						<h4 class="list-group-item-heading" style="margin-top: 5px;">Extern</h4>
-					</li>
-					<a href="https://triatlonwedstrijden.be/" class="list-group-item">
-						<h4 class="list-group-item-heading">Triathlonagenda</h4>
-						<p class="list-group-item-text"><small>Website met de nationale wedstrijden op, inclusief de resultaten.</small></p>
-					</a>
-					<a href="https://stad.gent/sport2/reservering?op" class="list-group-item">
-						<h4 class="list-group-item-heading">Reservaties</h4>
-						<p class="list-group-item-text"><small>Website om sportterreinen te reserveren in Gent</small></p>
-					</a>
-					<a href="https://cycling.vlaanderen/piste/recreatie" class="list-group-item">
-						<h4 class="list-group-item-heading">Wielerpiste</h4>
-						<p class="list-group-item-text"><small>Website voor de wielerpiste</small></p>
-					</a>
-					<a href="http://fantasy.road.cc/" class="list-group-item">
-						<h4 class="list-group-item-heading">Fantasy cycling</h4>
-						<p class="list-group-item-text"><small>Fantasy-league voor wielerwedstrijden.</small></p>
-					</a>
-				</div>
-			</div>
+    </div>
+    <br><br><br><br>
+    <div class="alert alert-primary text-center" role="alert">
+      <span class="badge badge-light">WIP</span> Work in progress! Alles van de oude website wordt overgezet naar de nieuwe lay-out.</div>
 
 
+    <!-- Einde eigen invulling  -->
 
-		</div>
-	</div>
-	<!--GKK Service Worker-->
-	<!--<script>
-	if ('serviceWorker' in navigator) {
-		navigator.serviceWorker.register('service-worker.js');
-	}
-</script>-->
+  </div>
 </body>
+
+
+<script>
+  function klikapps() {
+    if ($('.calc').css('display') === 'block' || $('.docs').css('display') === 'block') {
+      $(".calc").hide();
+      $(".apps").show();
+      $(".docs").hide();
+    } else {
+      $(".calc").show();
+      $(".apps").show();
+      $(".docs").show();
+    }
+  }
+
+  function klikcalcs() {
+    if ($('.apps').css('display') === 'block' || $('.docs').css('display') === 'block') {
+      $(".apps").hide();
+      $(".calc").show();
+      $(".docs").hide();
+    } else {
+      $(".calc").show();
+      $(".apps").show();
+      $(".docs").show();
+    }
+  }
+
+  function klikdocs() {
+    if ($('.apps').css('display') === 'block' || $('.calc').css('display') === 'block') {
+      $(".apps").hide();
+      $(".calc").hide();
+      $(".docs").show();
+    } else {
+      $(".calc").show();
+      $(".apps").show();
+      $(".docs").show();
+    }
+  }
+
+
+
+  $(function() {
+    $("#menu").load("../menu.html");
+  });
+</script>
 
 </html>

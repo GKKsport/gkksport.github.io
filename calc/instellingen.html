@@ -3,7 +3,7 @@
 
 <head>
   <!-- Standard Meta -->
-  <title>404</title>
+  <title>Instellingen</title>
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
@@ -21,7 +21,7 @@
     body {
         position: relative;
     }
-  </style>
+      </style>
 </head>
 
 <body>
@@ -36,14 +36,13 @@
       </div>
     </nav>
 
-    <h1 class="bigger">404</h1>
+    <h1 class="bigger">Instellingen</h1>
+    <!-- Invulling pagina -->
+    <br><br><br><br>
+    <p class="text-center">Soon™</p>
 
-    <!-- VANAF HIER PAGINA-DATA -->
 
-    <p class="text-center">OEPS!</p>
-
-
-    <!-- TOT HIER -->
+    <!-- Einde invulling pagina -->
   </div>
 </body>
 
@@ -51,6 +50,9 @@
   $(function() {
     $("#menu").load("../menu.html");
   });
+  $('body').scrollspy({
+    target: '#oefeningen'
+  })
 </script>
 
 </html>

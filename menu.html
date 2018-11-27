@@ -1,39 +1,48 @@
-<div class="collapse navbar-collapse" id="myNavbar">
-  <ul class="nav navbar-nav navbar-left">
-    <li><a href="kalender.html">Tussenstand</a></li>
-    <li class="dropdown">
-      <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Training <span class="caret"></span></a>
-      <ul class="dropdown-menu">
-        <li><a href="triathloncalc.html">Triathlon-calc</a></li>
-        <li><a href="training.html">Zwemoefeningen</a></li>
-        <li><a href="zwemmen.html">Zwemkalender</a></li>
-      </ul>
-    </li>
-    <li id="test"><a href="koers.html">Koers</a></li>
-    <li class="dropdown">
-      <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Apps <span class="caret"></span></a>
-      <ul class="dropdown-menu">
-        <li><a href="gpx.html">GPX-viewer</a></li>
-        <li><a href="zidb.html">ZuipenInDeBuurt</a></li>
-        <li><a href="weer.html">Weer (BETA)</a></li>
-      </ul>
-    </li>
-    <li class="dropdown">
-      <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Rest <span class="caret"></span></a>
-      <ul class="dropdown-menu">
-        <li><a href="tricklist.html">Tricklist</a></li>
-        <li><a href="kaartregels.html">Kaartregels</a></li>
-      </ul>
-    </li>
-  </ul>
-</div>
-<script>
-  var url = window.location;
-  // Will only work if string in href matches with location
-  $('ul.nav a[href="' + url + '"]').parent().addClass('active');
+<ul id="nav" class="navbar-nav ml-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="../index.html">Home</a>
+  </li>
+  <li class="nav-item dropdown">
+    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        Docs
+    </a>
+    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+      <a class="dropdown-item" href="../docs/oefeningen.html">Oefeningen</a>
+      <div class="dropdown-divider"></div>
+      <a class="dropdown-item" href="../docs/kaartregels.html">Kaartregels</a>
+    </div>
+  </li>
+  <li class="nav-item dropdown">
+    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        Calcs
+    </a>
+    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+      <a class="dropdown-item" href="../calc/triathlontijd.html">Triathlontijd</a>
+      <a class="dropdown-item" href="../calc/hrzones.html">HR Zones</a>
+      <div class="dropdown-divider"></div>
+      <a class="dropdown-item" href="../calc/instellingen.html"><i class="fas fa-sliders-h"></i> Instellingen</a>
+    </div>
+  </li>
+  <li class="nav-item dropdown">
+    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        Apps
+    </a>
+    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+      <a class="dropdown-item" href="../apps/zwemkalender.html">Zwemkalender</a>
+      <a class="dropdown-item" href="../apps/weerbericht.html">Weerbericht</a>
+    </div>
+  </li>
+</ul>
 
-  // Will also work for relative and absolute hrefs
-  $('ul.nav a').filter(function() {
-    return this.href == url;
-  }).parent().addClass('active').parent().parent().addClass('active');
+<script>
+  $(function() {
+    var current = location.pathname;
+    $('#nav li a').each(function() {
+      var $this = $(this);
+      // if the current path is like this link, make it active
+      if ($this.attr('href').indexOf(current) !== -1) {
+        $this.addClass('active');
+      }
+    })
+  })
 </script>
