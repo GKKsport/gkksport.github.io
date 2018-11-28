@@ -35,6 +35,15 @@
 }
 }
 
+easter{
+  width: 400px;
+ position: absolute;
+ top: 50%;
+ left: 50%;
+ transform: translateX(-50%) translateY(-50%);
+ text-align: center;
+}
+
 
 
 .badge:hover {
@@ -209,6 +218,24 @@
     }
   }
 
+
+  // egg
+  var keys = [];
+  var konami = '38,38,40,40,37,39,37,39,66,65';
+
+  $(document).keydown(function(e) {
+    keys.push(e.keyCode);
+    if (keys.toString().indexOf(konami) >= 0) {
+
+      keys = [];
+
+      //add silly music in background
+      $('body').html("");
+      $('body').css('background', 'black').css('text-align', 'center').append(
+        '<div class="bigger text-white mt-3 mb-3">PROFICIAT!<br>🎉</div><br><container><div class="embed-responsive embed-responsive-16by9"><iframe class="embed-responsive-item" id="ytplayer" type="text/html" src="https://www.youtube.com/embed/dQw4w9WgXcQ?autoplay=1&disablekb=1&enablejsapi=1&loop=1" frameborder="0" allow="autoplay" allowfullscreen></div></container>'
+      ); //add &autoplay=1 at the end of the source link
+    }
+  });
 
 
   $(function() {
