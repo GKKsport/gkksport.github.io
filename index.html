@@ -51,6 +51,29 @@ easter{
 }
 
       </style>
+
+  <script>
+    // egg
+      var keys = [];
+      var konami = '38,38,40,40,37,39,37,39,66,65';
+      console.log("Nee Robbe, niet via inspecteren zoeken.. Da's niet spannend!")
+      $(document).keydown(function(e) {
+        keys.push(e.keyCode);
+        if (keys.toString().indexOf(konami) >= 0) {
+
+          keys = [];
+
+          $('body').html("");
+          $('body').css('background', '#dc3545').css('height', '100vh').addClass("d-flex").append(
+            '<div class="bigger text-white justify-content-center align-self-center w-100">PROFICIAT!<br>🥚<br><a id="eggknop" href="../index.html" class="btn btn-light d-none"><strong>Okok, haal me hier weg!</strong></a></div><audio src="https://www.soundboard.com/handler/DownLoadTrack.ashx?cliptitle=Never+Gonna+Give+You+Up-+Original&filename=mz/Mzg1ODMxNTIzMzg1ODM3_JzthsfvUY24.MP3" autoplay></audio>'
+          );
+          setTimeout(function() {
+            $("#eggknop").removeClass("d-none");
+          }, 5000);
+        }
+      });
+</script>
+
 </head>
 
 <body>
@@ -217,28 +240,6 @@ easter{
       $(".docs").show();
     }
   }
-
-
-  // egg
-  var keys = [];
-  var konami = '38,38,40,40,37,39,37,39,66,65';
-  console.log("Nee Robbe, niet via inspecteren zoeken.. Da's niet spannend!")
-  $(document).keydown(function(e) {
-    keys.push(e.keyCode);
-    if (keys.toString().indexOf(konami) >= 0) {
-
-      keys = [];
-
-      $('body').html("");
-      $('body').css('background', '#dc3545').css('height', '100vh').addClass("d-flex").append(
-        '<div class="bigger text-white justify-content-center align-self-center w-100">PROFICIAT!<br>🥚</div><br><a id="eggknop" href="../index/html" class="btn btn-primary d-none">Okok, haal me hier weg!</a><audio src="https://www.soundboard.com/handler/DownLoadTrack.ashx?cliptitle=Never+Gonna+Give+You+Up-+Original&filename=mz/Mzg1ODMxNTIzMzg1ODM3_JzthsfvUY24.MP3" autoplay></audio>'
-      );
-      setTimeout(function() {
-        $("#eggknop").show();
-      }, 5000);
-    }
-  });
-
 
   $(function() {
     $("#menu").load("../menu.html");
