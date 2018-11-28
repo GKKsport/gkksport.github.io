@@ -229,11 +229,10 @@ easter{
 
       keys = [];
 
-      //add silly music in background
       $('body').html("");
-      $('body').css('background', 'black').css('text-align', 'center').append(
-        '<div class="bigger text-white mt-3 mb-3">PROFICIAT!<br>🎉</div><br><container><div class="embed-responsive"><iframe class="embed-responsive-item" id="ytplayer" type="text/html" src="https://www.youtube.com/embed/dQw4w9WgXcQ?autoplay=1&disablekb=1&enablejsapi=1&loop=1" frameborder="0" allow="autoplay" allowfullscreen></div></container>'
-      ); //add &autoplay=1 at the end of the source link
+      $('body').css('background', '#dc3545').css('height', '100vh').addClass("d-flex").append(
+        '<div class="bigger text-white justify-content-center align-self-center w-100">PROFICIAT!<br>🎉</div><br><container><div class="embed-responsive"><iframe class="embed-responsive-item" id="ytplayer" type="text/html" src="https://www.youtube.com/embed/dQw4w9WgXcQ?autoplay=1&disablekb=1&enablejsapi=1&loop=1" frameborder="0" allow="autoplay" allowfullscreen></div></container>'
+      );
     }
   });
 
