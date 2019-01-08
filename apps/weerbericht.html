@@ -397,9 +397,14 @@
                       uv) + "</td><td>" +
                     zichtbaarheid + "km</td></tr>";
 
-                  if (tijd === "22:00" && i < 169) {
+                  if (tijd === "22:00") {
+                    if (i < 145) {
                     var x = i + 24;
                     document.getElementById("tabel").innerHTML += "<tr class='bg-dark text-white text-left'><td colspan='42'>" + moment.unix(data.hourly.data[x].time).locale("nl").format("dddd DD/MM/YYYY").capitalize() + "</td></tr>";
+                  } else {
+                    var x = 168;
+                    document.getElementById("tabel").innerHTML += "<tr class='bg-dark text-white text-left'><td colspan='42'>" + moment.unix(data.hourly.data[x].time).locale("nl").format("dddd DD/MM/YYYY").capitalize() + "</td></tr>";
+                  }
                   }
                 }
               }
