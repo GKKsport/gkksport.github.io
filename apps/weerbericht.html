@@ -462,8 +462,13 @@
         if (temperatuur.replace(/[^0-9](.+)/g, '') >= btempmin) {
           $("#temperatuur" + [i]).addClass("font-weight-bold");
         }
-        // rest van de berekeningen voor warning & danger classes
-        if (neerslagkans2 >= bneerslagmin || windsnelheid.replace(/[^0-9]/g, '') >= bwindsnelheidmin || temperatuur.replace(/[^0-9](.+)/g, '') >= btempmin) {
+        
+        // uitzondering te lage temperatuur
+        if (btempzero >= temperatuur.replace(/[^0-9](.+)/g, '')) {
+          $("#tabelrij" + [i]).addClass("table-info");
+          $("#temperatuur" + [i]).addClass("font-weight-bold");
+        } else if (neerslagkans2 >= bneerslagmin || windsnelheid.replace(/[^0-9]/g, '') >= bwindsnelheidmin || temperatuur.replace(/[^0-9](.+)/g, '') >= btempmin) {
+          // rest van de berekeningen voor warning & danger classes
           $("#tabelrij" + [i]).addClass("table-warning");
           if (neerslagkans2 >= bneerslagmax || windsnelheid.replace(/[^0-9]/g, '') >= bwindsnelheidmax || temperatuur.replace(/[^0-9](.+)/g, '') >= btempmax) {
             $("#tabelrij" + [i]).addClass("table-danger");
@@ -471,12 +476,7 @@
         } else {
           $("#tabelrij" + [i]).addClass("table-success");
         }
-        // uitzondering te lage temperatuur
-        if (btempzero >= temperatuur.replace(/[^0-9](.+)/g, '')) {
-          $("#tabelrij" + [i]).addClass("table-info");
-          $("#temperatuur" + [i]).addClass("font-weight-bold");
-        }
-      }
+              }
     }
     console.log("done");
   }
