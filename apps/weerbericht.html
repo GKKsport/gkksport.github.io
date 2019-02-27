@@ -410,13 +410,14 @@
               }
               setTimeout(function() {
                 berekening();
+                $("body").tooltip({
+          selector: '[data-toggle=tooltip]'
+        });
               }, 500);
             }
           });
         };
-        $("body").tooltip({
-          selector: '[data-toggle=tooltip]'
-        });
+        
       });
 
 
@@ -541,7 +542,7 @@
   }
 </script>
 
-<!-- Specifiek voor weerebericht  -->
+<!-- Specifiek voor weerbericht  -->
 
 <script src="../js/auto-complete.js"></script>
 <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCm3cVtor4bk3KbwU7w26MZtmKxePJAtsc&libraries=places&callback=loc&sensor=false"></script>
